@@ -1,0 +1,47 @@
+*~
+*.apk
+*.class
+bin
+MilkyWay/bin
+MilkyWayPC/bin
+MilkyWay/gen
+
+local.properties
+workspaceMilkyWay/.apt_generated
+
+*.pydevproject
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> RebotSolucionat1
+.metadata
+bin/**
+gen/**
+gen
+gen/**/*
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+<<<<<<< HEAD
+
+=======
+>>>>>>> RebotSolucionat1
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
