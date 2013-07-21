@@ -86,7 +86,7 @@ function getContacts() {
 }
 
 
-
+//holas
 function friendsCountList() {
     if (sortedContactList) {
         alert('entered');
