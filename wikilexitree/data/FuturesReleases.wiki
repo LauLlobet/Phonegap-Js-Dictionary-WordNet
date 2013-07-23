@@ -1,0 +1,9 @@
+﻿++ Futures Releases
+
+2.0X Relesae Versió escoles
+    tindra BotoTraduccio a un idioma
+    logotip personalitzat
+
+3.0X Release Temes de colors
+4.0X Release Temes de colors volcables escola
+ 

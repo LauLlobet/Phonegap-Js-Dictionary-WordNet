@@ -1,0 +1,55 @@
+﻿++ Boom Escoles
+
+
+
+++ Proces
+
+++ Recollida de emails i telèfons d'escoles d'angles arreu del mon
+
+    # google
+    # directoris
+    # paginas amarillas
+    # universitats
+    # escoles
+    
+
+++ Video explicatiu
+
+    VideoExplicatiu
+
++++ Email de contacte amb l'escola / Trucada
+
+    # Video explicatiu que obre un contador de visites per saber quins emails l'han visitat escoles s'el miren
+        Incentius:
+            # Personalitzat per a la escola
+            # Exclusiu
+            # Creació d'examens a mida per a cada nivell i tema
+            # Futur seguiment dels alumnes
+            # Creació d'examens a mida per a cada nivell i tema
+            # Gratuit
+
+    # Instruccions de com registrar-se -> logo + id
+
+    # Llamada gratuita -> pop up deja tu telefono y le llamaremos
+
+++ Si no es registren i es miren el video mes d'un cop o moltes vegades o posen llamada gratuita
+
+    Trucar:
+        # oferir ajuda log in
+        # oferir futurs premiums gratis
+
+++ Servei de subscripció de escoles 
+
+Es rebran emails amb
+
+    # un adjunt que sera el logo
+    # el titol del email sera el id de la escola
+    # un texte descriptiu de la escola que es guardara per a questións d'estadistica 
+    # l'email de la escola serà 
+    
+++ Resposta al email de sign up amb un password
+
+    # link amb manual per als alumnes
+
+++ Servei web que conti baixedes de logos
+ 

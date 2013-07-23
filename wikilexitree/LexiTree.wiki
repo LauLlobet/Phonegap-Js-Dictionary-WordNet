@@ -10,7 +10,7 @@ headingsasaliases_depth = 0
 tree_expandednodes_rememberduration = 2
 versioning_storagelocation = 0
 trashcan_askondelete = True
-tree_expandednodes_descriptorpathes_main = wikipage/LexiTree
+tree_expandednodes_descriptorpathes_main = wikipage/LexiTree,wikipage/DificultatsTrobades;wikipage/LexiTree,wikipage/EstrategiaComercial;wikipage/LexiTree
 first_wiki_word = 
 wiki_lasttabssubctrls = textedit
 export_default_dir = 
@@ -41,7 +41,7 @@ tabhistory_maxentries = 25
 template_pagenamesre = ^template/
 further_wiki_words = 
 wiki_name = LexiTree
-last_wiki_word = LexiTree
+last_wiki_word = BotoTraduccio
 tree_last_root_wiki_word = LexiTree
 
 [wiki_db]

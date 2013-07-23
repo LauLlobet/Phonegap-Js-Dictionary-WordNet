@@ -1,5 +1,30 @@
 ﻿++ Estrategia Comercial
 
+
+
+FuturesReleases
+
 Logo de la escola d'angles i acces restringit 
 
-Llistats de paraules per temes i escola d'angles
+Buscar la explosio d'usuaris acumulant alumnes de petites escoles d'angles d'arreu del mon
+
+Enviament de e-mails massius en l'idioma que toqui
+
+
+++ Components tecnics
+
+ WebContadorVisitiesVideo
+ EmailReceiverSignUp
+
+
+
+
+++ Boom Escoles
+
+    BoomEscoles
+
+++ Post Boom Escoles
+
+    Forums d'aprendre angles
+    PublicitatWordReference -> no deixaran, ¿competencia? o aliat
+    

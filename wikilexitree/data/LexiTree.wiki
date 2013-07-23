@@ -2,12 +2,15 @@
 
 ++ To Do
 
+++ EstrategiaComercial
+
+EstrategiaComercial
 
 
 ++ Disseny
 
 DificultatsTrobades
-EstrategiaComercial
+
 
 
 ++ Timeline
@@ -20,10 +23,8 @@ EstrategiaComercial
 0.5X Conexio DB remota
 0.6X Interficie xula i css
 1.0X Release Beta privada
-2.0X Relesae Versió escoles
-3.0X Release Temes de colors
-4.0X Release Temes de colors volcables escola
- 
+
+FuturesReleases
 
 ++ Releases
 
