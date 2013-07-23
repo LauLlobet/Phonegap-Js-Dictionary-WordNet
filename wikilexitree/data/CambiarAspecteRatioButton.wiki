@@ -1,0 +1,7 @@
+﻿++ Cambiar Aspecte Ratio Button
+
+Per a botó cuadrat amb relleu i de colors variables ( en foscor si pot ser ) 
+
+Per a botó en forma de estrella de favoritos
+
+Per a botó en forma de fletxa horitzontal i vertical de diferents colors

@@ -1,0 +1,5 @@
+﻿++ Botons Forma
+
+En forma de ticks de colors 
+
+En forma de campana de gauss

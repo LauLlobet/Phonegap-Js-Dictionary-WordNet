@@ -1,10 +1,107 @@
 ﻿++ Lexi Tree
 
-
-ToDo
-
+++ To Do
 
 
+
+++ Disseny
+
+DificultatsTrobades
+EstrategiaComercial
+
+
+++ Timeline
+
+0.0X Html done, hello world 2SO
+0.1X Persistencia per parametre, javascript variables
+0.2X Interficie personalitzada
+0.3X Persistencia per bdlocal
+0.4X Calculs
+0.5X Conexio DB remota
+0.6X Interficie xula i css
+1.0X Release Beta privada
+2.0X Relesae Versió escoles
+3.0X Release Temes de colors
+4.0X Release Temes de colors volcables escola
+ 
+
+++ Releases
+
+
++++ 0.0X
+
+Develop 0.01 HwZero
+-----------------
+# desactivar javascript de exemple, veure si la navegació es possible
+# crear PInit en html
+# crear PDef en html
+# crear toast no word found i mostrar-lo en arribar a PInit
+
+Develop 0.02 HwDroid
+------------------
+# crear transició PInit -> PDef via javascript botó cerca
+# crear transició PDef -> PInit via javascript botó enrera
+# buscar informació sobre ratio i css en PubAndroid i PubIphone
+# crear compte adwords android
+# crear versió phonegap amb PubAndroid 
+
+Develop 0.03 HwIos
+-------------------
+# mirar com publicar en iphone publicitat
+# mirar si s'ha de pagar per una app de prova
+# descarregar programa 
+# seguir tutorial phonegap per iphone
+# fer apk
+# enviarla a algun amic
+
+Develop 0.04 HwAllScreens
+---------------------
+# totes les pantalles fetes amb html
+# es prima la funcionalitat html a la vistositat , ej. radio button i no cuadrat
+# transisio entre totes les pantalles sense persistencia
+
+Release 0.05 HwRelease
+---------------------
+# Boto en text
+# Scroll subfinestra
+
++++ 0.1X
+
+Develop 0.11 IPersistNumTest
+----------------------
+# persistencia en el nombre de preguntes en el test
+# persistencia de resposta correcta
+# calcul de total % al final
+# imatge de total % variable segons el resultat
+
+Relase 0.12 IPersistVars
+-----------------------
+# variable distribucio grid
+# variable resposta correcta rand
+# variable resposta correcta tick en corecció
+# variable array de paraules del historial
+# variable array de paraules a preguntar en un test
+
++++ 0.2X
+
+Develop 0.21 CustomButt
+-----------------------
+# botons en forma
+# rationes en forma
+
+Release 0.22 CustomAnim
+------------------------
+# transisions brusques i no brusques
+# gifs animats
+# gifs animats solapats
+
++++ 0.3X
+
+0.3X Persistencia per bdlocal
+0.4X Calculs
+0.5X Conexio DB remota
+0.6X Interficie xula i css
+1.0X Release
 
 
 	* WikiSettings

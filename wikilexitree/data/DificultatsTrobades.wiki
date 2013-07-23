@@ -1,0 +1,32 @@
+﻿++ Dificultats Trobades
+
+++Tecniques
+
+0.0X
+BarraDeCerca
+BotoEnText
+ScrollSubfinestra
+0.1X
+0.2X
+BotonsForma
+CambiarAspecteRatioButton
+TransisionsSenseNotarse
+GifsAnimats
+0.3X
+
+
+++Persistencia
+
+Comptador de preguntes fetes
+Historial de definicions
+Historial de test de cada definicio preferida
+
+++Tractament de dades
+
+Calcul de distribució de preguntes
+
+
+++Interficie
+
+BarraDeCerca obte paraules clickades en el texte de la definició O no problem when scroll
+
