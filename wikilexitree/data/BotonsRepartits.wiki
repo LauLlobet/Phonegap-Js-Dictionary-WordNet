@@ -1,0 +1,14 @@
+﻿++ Botons Repartits
+
+	<div class="grid_1 suffix_11"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_1 suffix_10"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_2 suffix_9"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_3 suffix_8"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_4 suffix_7"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_5 suffix_6"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_6 suffix_5"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_7 suffix_4"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_8 suffix_3"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_9 suffix_2"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_10 suffix_1"><a data-role="button">1</a></div>
+			<div class="grid_1 prefix_11"><a data-role="button">1</a></div>

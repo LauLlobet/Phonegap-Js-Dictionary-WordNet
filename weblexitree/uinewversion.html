@@ -1,25 +1,30 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
 
 <meta name="viewport" content="width=screen.width; user-scalable=no" />
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <title>Dictio test</title>
 
+	<link rel="stylesheet"  href="http://jquerymobile.com/demos/1.2.0/css/themes/default/jquery.mobile-1.2.0.css" />
+	<link rel="stylesheet" href="http://jeromeetienne.github.io/jquery-mobile-960/css/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" />
+	  
+	<link rel="stylesheet" href="http://jquerymobile.com/demos/1.2.0/docs/_assets/css/jqm-docs.css"/>
 
-<!-- <script src="http://code.jquery.com/jquery-1.5.min.js"></script> -->
-<!-- <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script> -->
-<!-- <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0a3.min.css" type="text/css" charset="utf-8" /> -->
-<!-- <link rel="stylesheet" href="jquery.mobile/jquery-mobile-960.min.css" type="text/css" charset="utf-8" /> -->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://jquerymobile.com/demos/1.2.0/docs/_assets/js/jqm-docs.js"></script>
+	<script src="http://jquerymobile.com/demos/1.2.0/js/jquery.mobile-1.2.0.js"></script>
+	
+	
+	
 
-
-
-<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0a2.css"
-	type="text/css" charset="utf-8" />
-<link rel="stylesheet" href="http://jeromeetienne.github.io/jquery-mobile-960/css/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" />
-<!-- <link rel="stylesheet" href="nametrendz-override.css" type="text/css" charset="utf-8" /> -->
-<script src="jquery.mobile/jquery-1.4.4.js"></script>
-<script src="jquery.mobile/jquery.mobile-1.0a2.js"></script>
+<!-- <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0a2.css" -->
+<!-- 	type="text/css" charset="utf-8" /> -->
+<!-- <link rel="stylesheet" href="http://jeromeetienne.github.io/jquery-mobile-960/css/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" /> -->
+<!-- <!-- <link rel="stylesheet" href="nametrendz-override.css" type="text/css" charset="utf-8" /> --> -->
+<!-- <script src="jquery.mobile/jquery-1.4.4.js"></script> -->
+<!-- <script src="jquery.mobile/jquery.mobile-1.0a2.js"></script> -->
 
 <script type="text/javascript" charset="utf-8" src="phonegap.0.9.4.js"></script>
 <script type="text/javascript" charset="utf-8" src="names50.js"></script>
@@ -28,68 +33,86 @@
 <script type="text/javascript" charset="utf-8" src="contacts.js"></script>
 <script type="text/javascript" charset="utf-8" src="trend.js"></script>
 <script type="text/javascript" charset="utf-8" src="shaker.js"></script>
+
+
+
 </head>
 <body onload="init();">
   
 <!-- Start of pagehome Start of pagehome Start of pagehome  -->
 
-
 <div data-role="page" data-theme="b" id="pinit"
-	style="background-image: url(images/wp_bg_clouds_tile.png);">
+	style="background-image: url(bg.png);">
 	
 	
-			
+				
 <div data-role="header" data-nobackbtn="true">
-<h1>DictioTest</h1>
-<a href="#pageabout" data-icon="info" class="ui-btn-right">About</a></div>
+	<h1>DictioTest</h1>
+	<div style="margin:-3px 0 0 0px;">
+		<a href="#pageabout" data-icon="gear" data-iconpos="notext" class="ui-btn-right">About</a>
+	</div>
+</div>
+
 
 
 <div data-role="content">
 
-
-
-
-	<div class="container_16">
-		<div class="grid_16 prefix_0"> <label for="name"></label><input type="search"  id="search-basic" value="" /></div>
-		<div class="grid_8 prefix_7"><a href="#" data-role="button" data-mini="true" data-icon="search" data-iconpos="right" id="inici-search-btn">Search word</a></div>   
-		
-
-	 </div>
- <span style="margin:0 .3em"></span>
- 
-	 <div class="container_12">
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c" id="inici-search-btn">cocoss</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c" data-inline="true"  id="inici-search-btn">cocosss</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">cocoss</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">rascal</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Abcldk</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Abcldk</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Pineap</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Abcldk</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Abcldk</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Hate</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Abcldk</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Love</a></div>
-		<div class="grid_4"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Abcldk</a></div>
-		<div class="grid_4"> <a href="#" data-role="button"  data-theme="c" id="inici-search-btn">Abcldk</a></div>
-		<div class="grid_4"> <a href="#" data-role="button"  data-theme="b" data-icon="arrow-r"  data-iconpos="right" id="inici-search-btn">...</a></div>
+<div class="container_16">
+		<div class="grid_8"> <label for="name"></label><input type="search"  id="search-basic" value="" /></div>
+		<div class="grid_8 prefix_0"><div class="ui-bar"><div style="margin:-2px 0 0 15px;"> <a href="#" data-role="button" data-inline="true" data-icon="search" data-iconpos="right" id="inici-search-btn">Search Word</a></div></div></div>   
 </div>
 
- <span style="margin:0 .3em"></span> 
+<a href="#" data-role="button" data-theme="c" data-inline="false" data-mini="true" id="inici-search-btn">cocosss</a>
+<a href="#" data-role="button" data-theme="c" data-inline="false"  id="inici-search-btn">cocosss</a>
+<a href="index.html" data-role="button" data-mini="true">Link button</a>
+ <span style="margin:0 .2em"></span> 
+
+
+ 
+	 <div class="container_12">
+		<div class="grid_4"><div class="ui-bar"> <input type="button" value="Button%20." /></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c" data-inline="false"  id="inici-search-btn">cocosss</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Pro     w</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Pineap</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Hate</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Love______</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>	
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Love</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Love</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>	
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Love</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Love</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Processio..</a></div></div>	
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button" data-theme="c"  id="inici-search-btn">Love</a></div></div>
+		<div class="grid_4"><div class="ui-bar"> <a href="#" data-role="button"  data-theme="b" data-icon="arrow-r"  data-iconpos="right" id="inici-search-btn">...</a></div></div>
+
+</div>
+
+ <span style="margin:0 0.9em"></span> 
+ 
 
 <div data-role="fieldcontain">
 
-	<div class="container_12">
+	<div class="container_16">
 	
-		<div class="grid_9" data-role="controlgroup" data-type="horizontal" >
-					<a href="index.html" data-role="button" data-icon="star" data-theme="c"  data-iconpos="top">Hard</a>
-					<a href="index.html" data-role="button" data-icon="star" data-theme="c" data-iconpos="top">Med</a>
-					<a href="index.html" data-role="button" data-icon="star" data-theme="c" data-iconpos="top">Easy</a>
+		<div class="grid_12" data-role="controlgroup" data-type="horizontal" >
+					<a href="index.html" data-role="button" data-icon="star" data-theme="c"  data-iconpos="top">L1</a>
+					<a href="index.html" data-role="button" data-icon="star" data-theme="c" data-iconpos="top">L2</a>
+					<a href="index.html" data-role="button" data-icon="star" data-theme="c" data-iconpos="top">L3</a>
 				</div>
 		
 		 
-		 <div class="grid_3" data-role="controlgroup" data-type="horizontal" >
-					<a href="index.html" data-role="button" data-icon="grid" data-theme="b" data-iconpos="top">Man</a>
+		 <div class="grid_4" data-role="controlgroup" data-type="horizontal" >
+					<a href="index.html" data-role="button" data-icon="grid" data-theme="b" data-iconpos="top">M</a>
 		</div>
 	
 	</div>	

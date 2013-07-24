@@ -6,14 +6,28 @@
 BarraDeCerca
 BotoEnText
 ScrollSubfinestra
+BotonsRepartits
 0.1X
 0.2X
+BarraCerca
 BotonsForma
 CambiarAspecteRatioButton
 TransisionsSenseNotarse
 GifsAnimats
 0.3X
 
+++Mode Offilne 
+
+s'hauran de baixar tots els css que es fan referencia al principi del html
+
+TemaCss
+ 
+
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0a2.css" type="text/css" charset="utf-8" />
+
+substituit per 
+
+ <link href="http://jeromeetienne.github.com/jquery-mobile-960/css/jquery-mobile-960.min.css" />
 
 ++Persistencia
 

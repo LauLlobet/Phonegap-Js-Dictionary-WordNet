@@ -1,0 +1,5 @@
+﻿++ Barra Cerca
+
+http://jquerymobile.com/demos/1.2.0/docs/forms/forms-all-compare.html
+
+provar amb data-inline="true" qu eserveix per compactar botons
