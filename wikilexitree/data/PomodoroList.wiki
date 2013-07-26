@@ -1,0 +1,22 @@
+﻿++ Pomodoro List
+
+++Migajas
+
+fer que minimitzats surtin a la palestra amb els tres dits
+
+
+++List
+
+07/26/13 10:42 AM       11
+
+# planificar el mati | email cristian publi
+# linkar PInit PDef | toast msg | 
+# javascript local | botons alineats per abaix
+# crear compte publi android
+# fer versio android phonegap en emulador 
+# fer versio android phonegap en emulador
+# fer versio android phonegap en emulador
+# pulir la visulitzacio amb sg2 : toogle i menu botons , posar definicio mes extensa per catar scroll
+# pulir la visulitzacio amb sg2 : toogle i menu botons , posar definicio mes extensa per catar scroll
+# pulir la visulitzacio amb sg2 : toogle i menu botons , posar definicio mes extensa per catar scroll
+# instalar desenvolupament iphone -> falla la web 
