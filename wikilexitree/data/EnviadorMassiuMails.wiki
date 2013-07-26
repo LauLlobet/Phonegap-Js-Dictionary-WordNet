@@ -1,0 +1,7 @@
+﻿++ Enviador Massiu Mails
+
+es rebran txt
+
+es comprovaran que no siguin repetits
+
+(A-z0-9)*@(A-z0-9).(A-z0-9) , (En|Ca|Es...)
