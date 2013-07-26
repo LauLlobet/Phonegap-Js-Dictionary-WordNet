@@ -45,13 +45,14 @@ Develop 0.02 HwDroid
 # OK buscar informació sobre ratio i css en PubAndroid i PubIphone
 # OK crear compte adwords android
 # OK crear versió phonegap amb PubAndroid 
+# rematar detalls de fromat i velocitat
 
 Develop 0.03 HwIos
 -------------------
-# mirar com publicar en iphone publicitat
-# mirar si s'ha de pagar per una app de prova
+
 # descarregar programa 
 # seguir tutorial phonegap per iphone
+# posar-hi publicitat
 # fer apk
 # enviarla a algun amic
 
