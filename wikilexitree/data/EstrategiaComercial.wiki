@@ -13,8 +13,13 @@ Enviament de e-mails massius en l'idioma que toqui
 
 ++ Components tecnics
 
+ TradduccioEmailPresentacio
+ VideoPresentacio
  WebContadorVisitiesVideo
- EmailReceiverSignUp
+ KeyGen
+ EnviadorMassiuMails
+ FormulariSubscripcioProves
+
 
 
 

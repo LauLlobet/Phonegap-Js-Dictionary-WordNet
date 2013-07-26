@@ -12,6 +12,13 @@
     # universitats
     # escoles
     
+++++Delegat a comercials via elance que cobraran comisio per cada trucada rebuda
+
+
+
+
+
+
 
 ++ Video explicatiu
 
@@ -25,7 +32,6 @@
             # Exclusiu
             # Creació d'examens a mida per a cada nivell i tema
             # Futur seguiment dels alumnes
-            # Creació d'examens a mida per a cada nivell i tema
             # Gratuit
 
     # Instruccions de com registrar-se -> logo + id
@@ -38,14 +44,25 @@
         # oferir ajuda log in
         # oferir futurs premiums gratis
 
-++ Servei de subscripció de escoles 
+++ Servei de subscripció de prova a escoles 
 
-Es rebran emails amb
+Servidor escalable
+
+Ompliran un formulari amb
 
     # un adjunt que sera el logo
-    # el titol del email sera el id de la escola
-    # un texte descriptiu de la escola que es guardara per a questións d'estadistica 
-    # l'email de la escola serà 
+    # el id del mail IdMail
+    # el nom de la escola
+    # l'email de la escola on es rebran les diferents notes i informes
+    
+    *A canvi seran donats d'alta per a un sol telefon movil perque faci proves*
+    
+    S'els oferira un numero de telefon extranger on hauran de trucar en el seguent pas
+    
+++ Servei de alta definitiva
+
+Una teleoperadora rebra les trucades de la
+    
     
 ++ Resposta al email de sign up amb un password
 
