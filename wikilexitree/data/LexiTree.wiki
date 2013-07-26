@@ -44,7 +44,7 @@ Develop 0.02 HwDroid
 # OK crear transició PDef -> PInit via javascript botó enrera
 # OK buscar informació sobre ratio i css en PubAndroid i PubIphone
 # OK crear compte adwords android
-# crear versió phonegap amb PubAndroid 
+# OK crear versió phonegap amb PubAndroid 
 
 Develop 0.03 HwIos
 -------------------
