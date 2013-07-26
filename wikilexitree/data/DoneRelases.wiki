@@ -1,0 +1,10 @@
+﻿++ Done Relases
+
+
+Develop 0.01 HwZero
+-----------------
+# OK desactivar javascript de exemple, veure si la navegació es possible
+# OK crear PInit en html
+# OK crear PDef en html
+# OK crear toast no word found i mostrar-lo en arribar a PInit
+# OK alinear botons d'abaix de PInit amb css i no amb nombre de botons de dalt

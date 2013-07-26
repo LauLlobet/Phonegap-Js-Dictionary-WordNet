@@ -31,7 +31,7 @@ public class MainActivity extends DroidGap {
 		
 		
 		
-		setContentView(R.layout.activity_main);
+		//setContentView(R.layout.activity_main);
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
