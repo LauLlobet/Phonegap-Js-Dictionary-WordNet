@@ -1,10 +1,13 @@
 ﻿++ Lexi Tree
 
-++ To Do
+PomodoroList
+
 
 ++ EstrategiaComercial
 
 EstrategiaComercial
+
+IdeesFutures
 
 
 ++ Disseny
@@ -33,10 +36,11 @@ FuturesReleases
 
 Develop 0.01 HwZero
 -----------------
-# desactivar javascript de exemple, veure si la navegació es possible
-# crear PInit en html
-# crear PDef en html
-# crear toast no word found i mostrar-lo en arribar a PInit
+# OK desactivar javascript de exemple, veure si la navegació es possible
+# OK crear PInit en html
+# OK crear PDef en html
+# OK crear toast no word found i mostrar-lo en arribar a PInit
+# OK alinear botons d'abaix de PInit amb css i no amb nombre de botons de dalt
 
 Develop 0.02 HwDroid
 ------------------
@@ -63,8 +67,8 @@ Develop 0.04 HwAllScreens
 
 Release 0.05 HwRelease
 ---------------------
-# Boto en text
-# Scroll subfinestra
+# OK Boto en text
+# OK Scroll subfinestra
 
 +++ 0.1X
 

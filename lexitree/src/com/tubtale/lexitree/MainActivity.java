@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
+import com.google.ads.*;
+import android.widget.LinearLayout;
+
 public class MainActivity extends DroidGap {
 
 	public void onCreate(Bundle savedInstanceState) {
