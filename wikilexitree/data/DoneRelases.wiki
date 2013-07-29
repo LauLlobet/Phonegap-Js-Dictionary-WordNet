@@ -1,6 +1,17 @@
 ﻿++ Done Relases
 
 
+
+Develop 0.02 HwDroid
+------------------
+# OK crear transició PInit -> PDef via javascript botó cerca
+# OK crear transició PDef -> PInit via javascript botó enrera
+# OK buscar informació sobre ratio i css en PubAndroid i PubIphone
+# OK crear compte adwords android
+# OK crear versió phonegap amb PubAndroid 
+# OK rematar detalls de fromat
+
+
 Develop 0.01 HwZero
 -----------------
 # OK desactivar javascript de exemple, veure si la navegació es possible
