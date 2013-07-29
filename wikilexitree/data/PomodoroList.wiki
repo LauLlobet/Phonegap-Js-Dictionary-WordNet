@@ -17,9 +17,15 @@ fer que minimitzats surtin a la palestra amb els tres dits
 # planificar mati | email iphone | investigar com fer apks instalables de proves
 # executar programa phonegap en ios
 # executar programa phonegap en ios
-
- 
 # insertar-hi publicitat i enviar-lo
+# Admob
+# Admob
+
+# apk
+# apk i decaffeinated version
+# HwAllScreens PGrid
+# HwAllScreens PGrid Ios OK
+# HwAllScreens PGrid Backbutton i iosok
 
 # HwAllScreens PGrid
 # PTest
