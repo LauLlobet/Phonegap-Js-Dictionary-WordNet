@@ -6,9 +6,9 @@
  to you under the Apache License, Version 2.0 (the
  "License"); you may not use this file except in compliance
  with the License.  You may obtain a copy of the License at
-
+ 
  http://www.apache.org/licenses/LICENSE-2.0
-
+ 
  Unless required by applicable law or agreed to in writing,
  software distributed under the License is distributed on an
  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -19,7 +19,7 @@
 
 //
 //  MainViewController.h
-//  DictioTest
+//  ___YOURPROJECT___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
 //  Copyright ___ORGANIZATIONNAME___ ___YEAR___. All rights reserved.
@@ -57,7 +57,7 @@
 {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-
+    
     // Release any cached data, images, etc that aren't in use.
 }
 
@@ -67,7 +67,7 @@
 {
     // View defaults to full size.  If you want to customize the view's size, or its subviews (e.g. webView),
     // you can do so here.
-
+    
     [super viewWillAppear:animated];
 }
 
@@ -93,48 +93,71 @@
 /* Comment out the block below to over-ride */
 
 /*
-- (UIWebView*) newCordovaViewWithFrame:(CGRect)bounds
-{
-    return[super newCordovaViewWithFrame:bounds];
-}
-*/
+ - (UIWebView*) newCordovaViewWithFrame:(CGRect)bounds
+ {
+ return[super newCordovaViewWithFrame:bounds];
+ }
+ */
 
 #pragma mark UIWebDelegate implementation
 
 - (void)webViewDidFinishLoad:(UIWebView*)theWebView
 {
     // Black base color for background matches the native apps
+    self.view.backgroundColor = [UIColor blackColor];
     theWebView.backgroundColor = [UIColor blackColor];
-
+    
+    // Resize frame height to ensure it doesn't get overlapped by ad unit
+    CGRect viewBounds = CGRectMake([[UIScreen mainScreen] applicationFrame].origin.x, [[UIScreen mainScreen] applicationFrame].origin.y-20, [[UIScreen mainScreen] applicationFrame].size.width, [[UIScreen mainScreen] applicationFrame].size.height-CGSizeFromGADAdSize(kGADAdSizeBanner).height);
+    theWebView.frame = viewBounds;
+    
+    // Position ad unit after the web view
+    CGPoint origin = CGPointMake(0.0,theWebView.frame.size.height);
+    
+    // Create a view of the standard size at the top of the screen.
+    // Available AdSize constants are explained in GADAdSize.h.
+    bannerView_ = [[[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:origin] autorelease];
+    
+    // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
+    bannerView_.adUnitID = @"a151f63645ef094";
+    
+    // Let the runtime know which UIViewController to restore after taking
+    // the user wherever the ad goes and add it to the view hierarchy.
+    bannerView_.rootViewController = self;
+    [self.view addSubview:bannerView_];
+    
+    // Initiate a generic request to load it with an ad.
+    [bannerView_ loadRequest:[GADRequest request]];
+    
     return [super webViewDidFinishLoad:theWebView];
 }
 
 /* Comment out the block below to over-ride */
 
 /*
-
-- (void) webViewDidStartLoad:(UIWebView*)theWebView
-{
-    return [super webViewDidStartLoad:theWebView];
-}
-
-- (void) webView:(UIWebView*)theWebView didFailLoadWithError:(NSError*)error
-{
-    return [super webView:theWebView didFailLoadWithError:error];
-}
-
-- (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
-}
-*/
+ 
+ - (void) webViewDidStartLoad:(UIWebView*)theWebView
+ {
+ return [super webViewDidStartLoad:theWebView];
+ }
+ 
+ - (void) webView:(UIWebView*)theWebView didFailLoadWithError:(NSError*)error
+ {
+ return [super webView:theWebView didFailLoadWithError:error];
+ }
+ 
+ - (BOOL) webView:(UIWebView*)theWebView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
+ {
+ return [super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType];
+ }
+ */
 
 @end
 
 @implementation MainCommandDelegate
 
 /* To override the methods, uncomment the line in the init function(s)
-   in MainViewController.m
+ in MainViewController.m
  */
 
 #pragma mark CDVCommandDelegate implementation
@@ -145,10 +168,10 @@
 }
 
 /*
-   NOTE: this will only inspect execute calls coming explicitly from native plugins,
-   not the commandQueue (from JavaScript). To see execute calls from JavaScript, see
-   MainCommandQueue below
-*/
+ NOTE: this will only inspect execute calls coming explicitly from native plugins,
+ not the commandQueue (from JavaScript). To see execute calls from JavaScript, see
+ MainCommandQueue below
+ */
 - (BOOL)execute:(CDVInvokedUrlCommand*)command
 {
     return [super execute:command];
@@ -164,7 +187,7 @@
 @implementation MainCommandQueue
 
 /* To override, uncomment the line in the init function(s)
-   in MainViewController.m
+ in MainViewController.m
  */
 - (BOOL)execute:(CDVInvokedUrlCommand*)command
 {

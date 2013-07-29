@@ -29,8 +29,14 @@
 #import <Cordova/CDVCommandDelegateImpl.h>
 #import <Cordova/CDVCommandQueue.h>
 
-@interface MainViewController : CDVViewController
 
+#import <UIKit/UIKit.h>
+#import "GADBannerView.h"
+
+
+@interface MainViewController : CDVViewController {
+    GADBannerView *bannerView_;
+}
 @end
 
 @interface MainCommandDelegate : CDVCommandDelegateImpl
