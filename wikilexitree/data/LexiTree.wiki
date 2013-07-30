@@ -36,35 +36,18 @@ FuturesReleases
 
 DoneRelases
 
-+++ 0.0X
-
-
-Develop 0.03 HwIos
--------------------
-
-# descarregar programa 
-# seguir tutorial phonegap per iphone
-# posar-hi publicitat
-# fer apk
-# enviarla a algun amic
-
-Develop 0.04 HwAllScreens
----------------------
-# totes les pantalles fetes amb html
-# es prima la funcionalitat html a la vistositat , ej. radio button i no cuadrat
-# transisio entre totes les pantalles sense persistencia
 
 
 +++ 0.1X
 
-Develop 0.11 IPersistNumTest
+Develop 0.11 PersistNumTest
 ----------------------
 # persistencia en el nombre de preguntes en el test
 # persistencia de resposta correcta
 # calcul de total % al final
 # imatge de total % variable segons el resultat
 
-Relase 0.12 IPersistVars
+Relase 0.12 PersistVars
 -----------------------
 # variable distribucio grid
 # variable resposta correcta rand
