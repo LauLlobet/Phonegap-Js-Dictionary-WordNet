@@ -10,8 +10,10 @@
 	<link rel="stylesheet" href="jquery.mobile/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" />
 	<script src="jquery.mobile/jquery-1.7.1.min.js"></script>
 	<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
+	
+	<script src="lexitree.js"></script>
 
-<script type="text/javascript" charset="utf-8" src="phonegap.0.9.4.js"></script>
+<!-- <script type="text/javascript" charset="utf-8" src="jquery.mobile/phonegap.0.9.4.js"></script> -->
 
 
 
@@ -275,7 +277,7 @@ var toast=function(msg){
 	
 	
 <div data-role="header" data-nobackbtn="false" data-theme="b">
-<h1>DictioTest   (2/20)</h1>
+<h1>DictioTest   (<span id="currentSlideCounter">-1</span>/20)</h1>
 		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
 </div>
 
@@ -285,7 +287,7 @@ var toast=function(msg){
 <div class="container_16">
 
 		<div class="grid_5 prefix_1">
-			<h3>Arminstice</h3>
+			<h3 id="test_word" >Arminstice</h3>
 		</div>
 		
 		<div class="grid_3 prefix_1">
@@ -296,28 +298,24 @@ var toast=function(msg){
 </div>		
 
 <div data-role="content">
-
-the state prevailing during the absence of war
-harmonious relations; freedom from disputes "the roommates lived in peace together"
-
+	
+	<span id="test_op1"> 
+	the state prevailing during the absence of war
+	harmonious relations; freedom from disputes "the roommates lived in peace together"
+	</span>
+	
 <div class="container_12">
-
 		<div class="grid_10">
 		<p/>
-		
-		</div>
-		
-		
+		</div>	
 		<div class="grid_2">
-				<a href="#pok" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
+				<a id="btn_op_a" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
 		</div>
 </div>
-
-
  <p style="text-align: center;"> . . . </p>
  
- Cease-fire, truce (a state of peace agreed to between opponents so they can discuss peace terms)
-	
+ <span id="test_op2"> Cease-fire, truce (a state of peace agreed to between opponents so they can discuss peace terms)
+	</span>
 	
 <div class="container_12">
 		
@@ -337,8 +335,9 @@ harmonious relations; freedom from disputes "the roommates lived in peace togeth
  <p style="text-align: center;"> . . . </p>
 		
 
-Aa legal state created by a declaration of war and ended by official declaration during which the international rules of war apply) "war was declared in November but actual fighting did not begin until the following spring"		
-		
+
+ <span id="test_op3">Aa legal state created by a declaration of war and ended by official declaration during which the international rules of war apply) "war was declared in November but actual fighting did not begin until the following spring"		
+		</span>
 
 <div class="container_12">
 		
