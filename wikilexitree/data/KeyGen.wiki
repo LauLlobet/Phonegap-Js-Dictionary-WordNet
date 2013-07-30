@@ -1,0 +1,21 @@
+﻿++ Key Gen
+
+
+
+( IdInvitacio    IdConfirmacioTlf PrefixDominiEscola )
+       A    Av          B                C
+   0000000+0000        0000             0000
+   autovalidat(A)  validable(A+B)  generable obscuritat(A+B)->C
+
+
+A es autovalidable per evitar errors en diccio de teleoperadores
+
+B serveix per forcar a l'usuari a fer servir la demo de movil i evitar que els comercials engañin
+
+C serveix per a fer unic el domini en cas de escoles amb el mateix nom i per donar sensacio de verificacio a l'escola
+
+
+
+Algoritmes:
+
+SHA en piramide

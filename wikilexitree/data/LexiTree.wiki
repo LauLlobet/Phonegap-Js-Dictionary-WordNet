@@ -1,13 +1,22 @@
 ﻿++ Lexi Tree
 
-++ To Do
+PomodoroList
 
+
+desactivar testing al publicar en android
+https://github.com/sainttex/PhoneGap-Android-Native-AdMob
+
+++ EstrategiaComercial
+
+EstrategiaComercial
+
+IdeesFutures
 
 
 ++ Disseny
 
 DificultatsTrobades
-EstrategiaComercial
+
 
 
 ++ Timeline
@@ -20,37 +29,22 @@ EstrategiaComercial
 0.5X Conexio DB remota
 0.6X Interficie xula i css
 1.0X Release Beta privada
-2.0X Relesae Versió escoles
-3.0X Release Temes de colors
-4.0X Release Temes de colors volcables escola
- 
+
+FuturesReleases
 
 ++ Releases
 
+DoneRelases
 
 +++ 0.0X
 
-Develop 0.01 HwZero
------------------
-# desactivar javascript de exemple, veure si la navegació es possible
-# crear PInit en html
-# crear PDef en html
-# crear toast no word found i mostrar-lo en arribar a PInit
-
-Develop 0.02 HwDroid
-------------------
-# crear transició PInit -> PDef via javascript botó cerca
-# crear transició PDef -> PInit via javascript botó enrera
-# buscar informació sobre ratio i css en PubAndroid i PubIphone
-# crear compte adwords android
-# crear versió phonegap amb PubAndroid 
 
 Develop 0.03 HwIos
 -------------------
-# mirar com publicar en iphone publicitat
-# mirar si s'ha de pagar per una app de prova
+
 # descarregar programa 
 # seguir tutorial phonegap per iphone
+# posar-hi publicitat
 # fer apk
 # enviarla a algun amic
 
@@ -60,10 +54,6 @@ Develop 0.04 HwAllScreens
 # es prima la funcionalitat html a la vistositat , ej. radio button i no cuadrat
 # transisio entre totes les pantalles sense persistencia
 
-Release 0.05 HwRelease
----------------------
-# Boto en text
-# Scroll subfinestra
 
 +++ 0.1X
 
@@ -88,10 +78,12 @@ Develop 0.21 CustomButt
 -----------------------
 # botons en forma
 # rationes en forma
+# botons mini segons iphone o androidOld
 
 Release 0.22 CustomAnim
 ------------------------
 # transisions brusques i no brusques
+# velocitats click
 # gifs animats
 # gifs animats solapats
 
