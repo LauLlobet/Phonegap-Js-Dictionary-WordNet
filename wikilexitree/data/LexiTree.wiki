@@ -54,10 +54,6 @@ Develop 0.04 HwAllScreens
 # es prima la funcionalitat html a la vistositat , ej. radio button i no cuadrat
 # transisio entre totes les pantalles sense persistencia
 
-Release 0.05 HwRelease
----------------------
-# OK Boto en text
-# OK Scroll subfinestra
 
 +++ 0.1X
 
@@ -82,10 +78,12 @@ Develop 0.21 CustomButt
 -----------------------
 # botons en forma
 # rationes en forma
+# botons mini segons iphone o androidOld
 
 Release 0.22 CustomAnim
 ------------------------
 # transisions brusques i no brusques
+# velocitats click
 # gifs animats
 # gifs animats solapats
 
