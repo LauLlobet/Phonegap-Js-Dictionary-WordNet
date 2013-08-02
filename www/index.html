@@ -10,8 +10,12 @@
 	<link rel="stylesheet" href="jquery.mobile/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" />
 	<script src="jquery.mobile/jquery-1.7.1.min.js"></script>
 	<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
+	
+	
+	<script src="ptest_pok_pres.js"></script>
+	<script src="lexitree.js"></script>
 
-<script type="text/javascript" charset="utf-8" src="phonegap.0.9.4.js"></script>
+<!-- <script type="text/javascript" charset="utf-8" src="jquery.mobile/phonegap.0.9.4.js"></script> -->
 
 
 
@@ -85,7 +89,7 @@
 	<div class="container_16">
 	
 		<div class="grid_10 prefix_1" data-role="controlgroup" data-type="horizontal" >
-					<a href="#pdef" data-role="button" data-theme="d"  >L1</a>
+					<a id="btn_l1" data-role="button" data-theme="d"  >L1</a>
 					<a href="#pgrid" data-role="button" data-theme="d"  >L2</a>				
 					<a href="#pgrid" data-role="button" data-theme="d"  >L3</a>				
 		</div>
@@ -275,7 +279,7 @@ var toast=function(msg){
 	
 	
 <div data-role="header" data-nobackbtn="false" data-theme="b">
-<h1>DictioTest   (2/20)</h1>
+<h1>DictioTest   (<span id="currentQuestionCounter">-1</span>/<span id="tatalQuestionCounter">-1</span)</h1>
 		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
 </div>
 
@@ -285,39 +289,35 @@ var toast=function(msg){
 <div class="container_16">
 
 		<div class="grid_5 prefix_1">
-			<h3>Arminstice</h3>
+			<h3 id="test_word" >Arminstice</h3>
 		</div>
 		
 		<div class="grid_3 prefix_1">
-			<img id="dial" src="dial.png">
+			<img id="dial" src="img/dial.png">
 		</div>
 	
 		
 </div>		
 
 <div data-role="content">
-
-the state prevailing during the absence of war
-harmonious relations; freedom from disputes "the roommates lived in peace together"
-
+	
+	<span id="test_op0"> 
+	the state prevailing during the absence of war
+	harmonious relations; freedom from disputes "the roommates lived in peace together"
+	</span>
+	
 <div class="container_12">
-
 		<div class="grid_10">
 		<p/>
-		
-		</div>
-		
-		
+		</div>	
 		<div class="grid_2">
-				<a href="#pok" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
+				<a id="btn_op_a" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
 		</div>
 </div>
-
-
  <p style="text-align: center;"> . . . </p>
  
- Cease-fire, truce (a state of peace agreed to between opponents so they can discuss peace terms)
-	
+ <span id="test_op1"> Cease-fire, truce (a state of peace agreed to between opponents so they can discuss peace terms)
+	</span>
 	
 <div class="container_12">
 		
@@ -329,7 +329,7 @@ harmonious relations; freedom from disputes "the roommates lived in peace togeth
 		</div>
 	
 		<div class="grid_2">
-				<a href="#pok" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
+				<a id="btn_op_b" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
 		</div>
 		
 </div>
@@ -337,8 +337,9 @@ harmonious relations; freedom from disputes "the roommates lived in peace togeth
  <p style="text-align: center;"> . . . </p>
 		
 
-Aa legal state created by a declaration of war and ended by official declaration during which the international rules of war apply) "war was declared in November but actual fighting did not begin until the following spring"		
-		
+
+ <span id="test_op2">Aa legal state created by a declaration of war and ended by official declaration during which the international rules of war apply) "war was declared in November but actual fighting did not begin until the following spring"		
+		</span>
 
 <div class="container_12">
 		
@@ -348,7 +349,7 @@ Aa legal state created by a declaration of war and ended by official declaration
 		</div>
 	
 		<div class="grid_2">
-				<a href="#pok" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
+				<a id="btn_op_c" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
 		</div>
 </div>
 		
@@ -378,12 +379,12 @@ Aa legal state created by a declaration of war and ended by official declaration
 		</div>
 		
 		<div class="grid_3 prefix_1">
-			<img id="dial" src="dial.png">
+			<img id="dial" src="img/dial.png">
 		</div>
 		
 		
 		<div class="grid_4 prefix_2">
-			<a href="#pres" data-role="button" data-inline="true"  data-theme="d" >Next</a>
+			<a href="#ptest" data-role="button" data-inline="true"  id="pok_next" data-theme="d" >Next</a>
 		</div>
 		
 </div>		
@@ -399,20 +400,16 @@ harmonious relations; freedom from disputes "the roommates lived in peace togeth
 
 <div class="container_12">
 
-		<div class="grid_9">
+		<div class="grid_10">
 		<p/>
 		
 		</div>
 		
 		
-		<div class="grid_1">
-			<img id="dial" src="ok.png">
+		<div class="grid_1" id="test_op_ok0" >
+			<img id="dial" src="img/ok.png">
 		</div>
 		
-		
-		<div class="grid_2">
-				<a href="#pdef" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
-		</div>
 </div>
 
 
@@ -424,20 +421,17 @@ harmonious relations; freedom from disputes "the roommates lived in peace togeth
 <div class="container_12">
 		
 		
-		<div class="grid_9">
+		<div class="grid_10">
 	
 		<p/>
 		
 		</div>
 		
 		
-		<div class="grid_1">
-			<img id="dial" src="nok.png">
+		<div class="grid_1"  id="test_op_ok1">
+			<img id="dial" src="img/nok.png">
 		</div>
 	
-		<div class="grid_2">
-				<a href="#pdef" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
-		</div>
 		
 </div>
 
@@ -448,15 +442,17 @@ Aa legal state created by a declaration of war and ended by official declaration
 		
 
 <div class="container_12">
-		
+
 		<div class="grid_10">
+	
 		<p/>
 		
 		</div>
-	
-		<div class="grid_2">
-				<a href="#pdef" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
+				
+		<div class="grid_1"  id="test_op_ok2">
+			<img id="dial" src="img/nok.png">
 		</div>
+	
 </div>
 		
 </div>
@@ -480,12 +476,12 @@ Aa legal state created by a declaration of war and ended by official declaration
 <p/>
 <h1 style="text-align: center;">40%</h1>
 
-<img style="text-align: center;" id="dial" src="barra.png">
+<img style="text-align: center;" id="dial" src="img/barra.png">
 	<p/>
 <div class="container_12">
 		
 		<div class="grid_3 prefix_4">
-			<img id="up" src="up.png">		
+			<img id="up" src="img/up.png">		
 		</div>
 		<div class="grid_2 prefix_0">
 			<h3>3</h3>
@@ -496,7 +492,7 @@ Aa legal state created by a declaration of war and ended by official declaration
 <div class="container_12">
 		
 		<div class="grid_3 prefix_4">
-			<img id="up" src="equal.png">		
+			<img id="up" src="img/equal.png">		
 		</div>
 		<div class="grid_2 prefix_0">
 			<h3>2</h3>
@@ -505,7 +501,7 @@ Aa legal state created by a declaration of war and ended by official declaration
 <div class="container_12">
 		
 		<div class="grid_3 prefix_4">
-			<img id="up" src="down.png">		
+			<img id="up" src="img/down.png">		
 		</div>
 		<div class="grid_2 prefix_0">
 			<h3>1</h3>
