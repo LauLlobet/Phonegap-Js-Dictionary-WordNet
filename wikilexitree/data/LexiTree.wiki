@@ -51,10 +51,7 @@ Develop 0.11 PersistNumTest
 Relase 0.12 PersistVars
 -----------------------
 # variable distribucio grid
-# variable resposta correcta rand
-# variable resposta correcta tick en corecció
 # variable array de paraules del historial
-# variable array de paraules a preguntar en un test
 
 +++ 0.2X
 
