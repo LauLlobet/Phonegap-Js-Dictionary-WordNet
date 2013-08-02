@@ -52,6 +52,7 @@ Relase 0.12 PersistVars
 -----------------------
 # variable distribucio grid
 # variable array de paraules del historial
+# boto back button durant el test que porti amb un avis a la pinit
 
 +++ 0.2X
 
