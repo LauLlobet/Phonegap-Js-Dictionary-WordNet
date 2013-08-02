@@ -6,10 +6,6 @@ var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
 
 var grid = new level_grid([25,40,10,5,30]);
 
-Array.max = function( array ){
-    return Math.max.apply( Math, array );
-};
-
 function round(n){
 	return Math.round(n);
 }
@@ -42,9 +38,9 @@ function load_grid(){
 		line = line + '<div class="grid_2 suffix_'+(16-(ls*2+2))+'"><a id="grid_btn'+i+''+j+'" data-role="button"  data-mini="false" data-theme="c" data-icon="arrow-da">.</a></div>\n';   
 	}
 	
-	var line2 = '<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-icon="arrow-r" id="inici-search-btn">.</a></div>  <div class="grid_2 suffix_12"><a href="#pdef" data-role="button" data-mini="false" data-theme="c" data-icon="arrow-da"  id="inici-search-btn">.</a></div> ';
+	var line2 = '<div class="grid_2"><button data-mini="false" data-icon="arrow-r" class="select_all_lvl0">.</button></div>';
 	
-	document.getElementById("grid").innerHTML = line ;//""+test.current_slide;
+	document.getElementById("grid").innerHTML = line2 ;//""+test.current_slide;
 	$('.ui-page-active').page("destroy").page();
 }
 
@@ -60,6 +56,11 @@ function init()
 
 $(document).ready(function() {
 
+	
+	$('#grid').on('vclick','.select_all_lvl0' , function() { 
+		   console.log("select all lvl"+i);
+        return false;
+		});
 //	
 //	for(var i=0;i<5;i++ )//grid.buttons.length 
 //	{
@@ -68,8 +69,8 @@ $(document).ready(function() {
 //           return false;
 //		});
 //	}
-	
-	
+//	
+//	
     $('#btn_op_a').on('vclick', function() { 
     	test_answer(0);
     	 next_slide();
