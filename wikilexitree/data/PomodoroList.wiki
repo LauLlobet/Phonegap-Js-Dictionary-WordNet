@@ -9,16 +9,33 @@ fer que minimitzats surtin a la palestra amb els tres dits
 
 
 
+08/01/13 12:36 PM
 
-07/30/13 11:23 AM
+ 
+# pantalla final amb balanç d'exit
+# fetes/encertades comptador
+# resposta correcta transisio
+
+
+07/01/13 12:36 PM
+
+# planificar test vclick
+# objecte test rep sets de preguntes i genera questions
+# canvi de pantalles intercalant PTest i POk
+# debug eclipse
+
+
+
+
+
+07/30/13 11:23 AM 13
 
 # fer imatges | comprovar css anims jquery | insertar imatges
 # far allscreens POk i PRes
 # far allscreens POk i PRes
 # far allscreens POk i PRes
 
-
-
+# fer persistencia 
 
 
 07/29/13 10:40 AM 12
