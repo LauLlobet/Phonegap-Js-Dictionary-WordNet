@@ -5,6 +5,13 @@
 
 
 
+Develop 0.11 PersistNumTest
+----------------------
+# persistencia en el nombre de preguntes en el test
+# persistencia de resposta correcta
+# calcul de total % al final
+# imatge de total % variable segons el resultat
+# historial d'encerts
 
 
 +++ 0.0X

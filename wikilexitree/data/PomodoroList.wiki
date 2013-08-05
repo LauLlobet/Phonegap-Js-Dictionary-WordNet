@@ -9,6 +9,15 @@ fer que minimitzats surtin a la palestra amb els tres dits
 
 
 
+08/05/13 10:41 AM
+
+# fer que tots els botons del grid siguin dinamics i tinguin el seu event
+# fer que tots els botons del grid siguin dinamics i tinguin el seu event
+# fer que tots els botons del grid siguin dinamics i tinguin el seu event
+# fer que tots els botons del grid siguin dinamics i tinguin el seu event TOOGLE INCLOS
+# 
+# fer que l'arrai de paraules generi els botons de la pantalla
+
 08/01/13 12:36 PM
 
  
