@@ -111,6 +111,15 @@ $(document).ready(function() {
         $.mobile.changePage( "index.html#pgrid", { transition: "slide"} );
         return false;
      });
+    
+    $('#back_init').on('vclick', function() { 
+    	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+         return false;
+    });
+    $('#back_init2').on('vclick', function() { 
+    	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+         return false;
+    });
         
 });
 
