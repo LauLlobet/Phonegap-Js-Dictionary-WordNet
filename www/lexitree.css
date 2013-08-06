@@ -6,6 +6,17 @@
     bottom: -6px;
     }
     .pgridOffButton{
+        width: 40px !important;    
+        height: 40px !important;   
+        background: url('img/pgrid_boff.png') no-repeat center center !important; 
+        background-size: contain !important;
+        border: none !important;
+        outline:0;
+        box-shadow: none;
+        text-shadow: none;
+    }
+    
+    .pgridOffButtonAnd{
         width: 48px !important;    
         height: 47px !important;   
         background: url('img/pgrid_boff.png') no-repeat center center !important; 
@@ -27,7 +38,18 @@
         text-shadow: none;
     } 
     
-        
+   .pgridNullButton {
+     	width: 48px !important;    
+       height: 47px !important;   
+       background: url('img/pgrid_bnull.png') no-repeat center center !important; 
+       background-size: contain !important;
+       border: none !important;
+       outline:0;
+       box-shadow: none;
+       text-shadow: none;
+   } 
+   
+       
     a[data-role="button"][data-theme="reset"] {
     border-radius: 0px; -webkit-border-radius: 0px; -moz-border-radius: 0px;
     box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important;

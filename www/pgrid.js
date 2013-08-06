@@ -35,7 +35,7 @@ function refresh_grid(){
 		if(ls > 0)
 			line = line + '<div class="grid_2  suffix_'+(16-(ls*2+1))+'">  <a data-role="button" class="pgrid'+theme+'Button" data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';   
 		else
-			line = line + '<div class="grid_2  suffix_'+(16-(ls*2+1))+'">&nbsp;</div>';
+			line = line + '<div class="grid_2  suffix_13">   <a data-role="button" class="pgridNullButton"     data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';  
 			
 		document.getElementById("grid").innerHTML = line ;//""+test.current_slide;
 		$('.ui-page-active').page("destroy").page();
