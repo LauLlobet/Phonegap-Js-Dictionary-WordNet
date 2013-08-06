@@ -25,7 +25,7 @@ function refresh_grid(){
 			theme='c';
 			if(buttons[i][j]==1)
 				theme = 'e';	
-			line = line + '<div class="grid_2" style="position:relative;"> <img src="img/pgrid_p'+theme+'.png" class="iconabc"  height=30 width=30 style="position:absolute;z-index:2;left:9px;bottom:13px"> <button data-mini="false" style="z-index:1;position:relative;" data-theme="'+theme+'" class="grid_btn" id="'+i+'_'+j+'" ></button></div>\n';   
+			line = line + '<div class="grid_2" style="position:relative;"> <img src="img/pgrid_p'+theme+'.png" class="iconabc"  height=30 width=30 style="position:absolute;z-index:1;left:9px;bottom:13px"> <button data-mini="false" style="z-index:2;position:relative;" data-theme="'+theme+'" class="grid_btn" id="'+i+'_'+j+'" ></button></div>\n';   
 		}
 	
 		theme='c';

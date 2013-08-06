@@ -1,0 +1,13 @@
+    .pgridOffButton {
+        width: 30px !important;    
+        height: 30px !important;   
+        background: transparent url('img/pgrid_pc.png') no-repeat center center !important; 
+        background-size: contain !important;
+    }
+    
+    .pgridOffButton {
+        width: 30px !important;    
+        height: 30px !important;   
+        background: transparent url('img/pgrid_pe.png') no-repeat center center !important; 
+        background-size: contain !important;
+    }
