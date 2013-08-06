@@ -4,7 +4,7 @@ var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
                        new wordset('job','work',['sentence','escape','pain'])
 					] , 30 ) ;
 
-var grid = new level_grid([25,40,10,5,30]);
+var grid = new level_grid([65,0,4,15,24]);
 
 var buttons = [['0','1','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
 var word_list = ["jollity",
@@ -34,7 +34,7 @@ word_list.page = 0;
 
 
 function round(n){
-	return Math.round(n);
+	return Math.ceil(n);
 }
 
 function load_pdef(def){
