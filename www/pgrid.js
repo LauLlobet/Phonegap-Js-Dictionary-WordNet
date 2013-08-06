@@ -19,21 +19,21 @@ function refresh_grid(){
 	var theme = 'notheme';
 	for(var i=0; i<5; i++){
 		var ls = grid.level_size[i];
-		var line = line + '<div class="grid_2"><button  class="select_all_lvl" id="'+i+'" data-mini="false"  data-icon="arrow-r" >.</div>';
+		var line = line + '<div class="grid_2"><button  class="select_all_lvl" id="'+i+'" data-mini="false"  data-icon="arrow-r" >&nbsp;</div>';
 		
 		for( var j=0;j<ls-1;j++){
 			theme='c';
 			if(buttons[i][j]==1)
-				theme = 'a';	
-			line = line + '<div class="grid_2"><button data-mini="false" data-theme="'+theme+'" data-icon="arrow-da" class="grid_btn" id="'+i+'_'+j+'" >.</button></div>\n';   
+				theme = 'e';	
+			line = line + '<div class="grid_2" style="position:relative;"> <img src="img/pgrid_p'+theme+'.png" class="iconabc"  height=30 width=30 style="position:absolute;z-index:2;left:9px;bottom:13px"> <button data-mini="false" style="z-index:1;position:relative;" data-theme="'+theme+'" class="grid_btn" id="'+i+'_'+j+'" ></button></div>\n';   
 		}
-		
+	
 		theme='c';
 		if(buttons[i][j]==1)
-			theme = 'a';
+			theme = 'e';
 		
-		line = line + '<div class="grid_2 suffix_'+(16-(ls*2+2))+'"><button data-mini="false" data-theme="'+theme+'" data-icon="arrow-da" class="grid_btn" id="'+i+'_'+j+'" >.</button></div>\n';   
-
+		line = line + '<div class="grid_2  suffix_'+(16-(ls*2+2))+'" style="position:relative;"> <img src="img/pgrid_p'+theme+'.png" class="iconabc"  height=30 width=30 style="position:absolute;z-index:1;left:9px;bottom:13px"> <button data-mini="false" style="z-index:2;position:relative;" data-theme="'+theme+'" class="grid_btn" id="'+i+'_'+j+'" ></button></div>\n';   
+		
 		document.getElementById("grid").innerHTML = line ;//""+test.current_slide;
 		$('.ui-page-active').page("destroy").page();
 	}
