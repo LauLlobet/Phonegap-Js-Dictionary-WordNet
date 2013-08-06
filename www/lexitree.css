@@ -6,15 +6,48 @@
     bottom: -6px;
     }
     .pgridOffButton{
-        width: 40px !important;    
-        height: 40px !important;   
+        width: 37px !important;    
+        height: 37px !important;   
         background: url('img/pgrid_boff.png') no-repeat center center !important; 
         background-size: contain !important;
         border: none !important;
         outline:0;
         box-shadow: none;
         text-shadow: none;
+        position:relative;
+        left: 15px;
+        bottom: -4px;
     }
+    
+    
+    .pgridOnButton {
+      	width: 37px !important;    
+        height: 37px !important;   
+        background: url('img/pgrid_bon.png') no-repeat center center !important; 
+        background-size: contain !important;
+        border: none !important;
+        outline:0;
+        box-shadow: none;
+        text-shadow: none;
+        position:relative;
+        left: 15px;
+        bottom: -4px;
+    } 
+    
+     .pgridNullButton {
+      	width: 37px !important;    
+        height: 37px !important;   
+        background: url('img/pgrid_bnullIos.png') no-repeat center center !important; 
+        background-size: contain !important;
+        border: none !important;
+        outline:0;
+        box-shadow: none;
+        text-shadow: none;
+        position:relative;
+        left: 15px;
+        bottom: -4px;
+   } 
+   
     
     .pgridOffButtonAnd{
         width: 48px !important;    
@@ -27,7 +60,7 @@
         text-shadow: none;
     }
     
-    .pgridOnButton {
+    .pgridOnButtonAnd {
       	width: 48px !important;    
         height: 47px !important;   
         background: url('img/pgrid_bon.png') no-repeat center center !important; 
@@ -38,10 +71,10 @@
         text-shadow: none;
     } 
     
-   .pgridNullButton {
+   .pgridNullButtonAnd {
      	width: 48px !important;    
        height: 47px !important;   
-       background: url('img/pgrid_bnull.png') no-repeat center center !important; 
+       background: url('img/pgrid_bnullIos.png') no-repeat center center !important; 
        background-size: contain !important;
        border: none !important;
        outline:0;
