@@ -96,7 +96,7 @@ function next_slide()
 		return;
 	
 	csc = document.getElementById("currentQuestionCounter");
-	csc.innerHTML = test.current_question + 1 ;//""+test.current_slide;
+	csc.innerHTML = test.current_question + 1;//""+test.current_slide;
 	csc = document.getElementById("tatalQuestionCounter");
 	csc.innerHTML = test.questions.length ;//""+test.current_slide;
 	

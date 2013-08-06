@@ -31,7 +31,9 @@ var word_list = ["jollity",
 
 word_list.page = 0;
 
-
+var big = "";
+if(screen.width > 330)
+	big="Big";
 
 function round(n){
 	return Math.ceil(n);
@@ -57,6 +59,9 @@ function init()
 	init_test();
 	load_pinit();
 	load_grid();
+	
+	
+	document.getElementById("welcome").innerHTML = " "+screen.width+" "+screen.height;
 }
 
 /*		*/

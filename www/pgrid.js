@@ -25,7 +25,7 @@ function refresh_grid(){
 			theme='Off';
 			if(buttons[i][j]==1)
 				theme = 'On';	
-			line = line + '<div class="grid_2">  <a data-role="button" class="pgrid'+theme+'Button" data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';   
+			line = line + '<div class="grid_2">  <a data-role="button" class="pgrid'+theme+big+'Button" data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';   
 		
 		}
 	
@@ -33,9 +33,9 @@ function refresh_grid(){
 		if(buttons[i][j]==1)
 			theme = 'On';
 		if(ls > 0)
-			line = line + '<div class="grid_2  suffix_'+(16-(ls*2+1))+'">  <a data-role="button" class="pgrid'+theme+'Button" data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';   
+			line = line + '<div class="grid_2  suffix_'+(16-(ls*2+1))+'">  <a data-role="button" class="pgrid'+theme+big+'Button" data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';   
 		else
-			line = line + '<div class="grid_2  suffix_13">   <a data-role="button" class="pgridNullButton"     data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';  
+			line = line + '<div class="grid_2  suffix_13">   <a data-role="button" class="pgridNull'+big+'Button"     data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';  
 			
 		document.getElementById("grid").innerHTML = line ;//""+test.current_slide;
 		$('.ui-page-active').page("destroy").page();
