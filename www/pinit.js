@@ -23,7 +23,7 @@ function refresh_pinit(){
 		offset = 0;
 	var line = '';
 	
-	for(var i=0; i<20; i++){
+	for(var i=0; i<(word_list.page_size-1); i++){
 		
 		if (i==0){
 				if ( word_list.page == 0){
@@ -48,7 +48,7 @@ function refresh_pinit(){
 
 
 function load_pinit(){
-	word_list.page_size = 21;
+	word_list.page_size = Math.floor( ($(window).height()-160)/40)*3;
 	var pages= Math.floor( (word_list.length/19));
 	refresh_pinit();
 }
