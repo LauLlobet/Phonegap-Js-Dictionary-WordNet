@@ -4,7 +4,8 @@ var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
                        new wordset('job','work',['sentence','escape','pain'])
 					] , 30 ) ;
 
-var grid = new level_grid([25,40,10,5,30]);
+var grid = new level_grid([65,5,4,0,24]);
+var alto =120;
 
 var buttons = [['0','1','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
 var word_list = ["jollity",
@@ -31,10 +32,12 @@ var word_list = ["jollity",
 
 word_list.page = 0;
 
-
+var big = "";
+if(screen.width > 330)
+	big="Big";
 
 function round(n){
-	return Math.round(n);
+	return Math.ceil(n);
 }
 
 function load_pdef(def){
@@ -55,8 +58,12 @@ function refresh_pdef(def){
 function init()
 {
 	init_test();
+    alto = $(document).height();
 	load_pinit();
 	load_grid();
+	
+	
+	//document.getElementById("welcome").innerHTML = " "+screen.width+" "+screen.height;
 }
 
 /*		*/

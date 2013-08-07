@@ -19,21 +19,24 @@ function refresh_grid(){
 	var theme = 'notheme';
 	for(var i=0; i<5; i++){
 		var ls = grid.level_size[i];
-		var line = line + '<div class="grid_2"><button  class="select_all_lvl" id="'+i+'" data-mini="false"  data-icon="arrow-r" >&nbsp;</div>';
-		
+		var line = line + '<div class="grid_1" ><span id="pgridLineBtn" ><button data-iconpos="notext"  class="select_all_lvl" id="'+i+'" data-mini="false"  data-icon="arrow-r" > </span> </div>';
+
 		for( var j=0;j<ls-1;j++){
-			theme='c';
+			theme='Off';
 			if(buttons[i][j]==1)
-				theme = 'e';	
-			line = line + '<div class="grid_2" style="position:relative;"> <img src="img/pgrid_p'+theme+'.png" class="iconabc"  height=30 width=30 style="position:absolute;z-index:2;left:9px;bottom:13px"> <button data-mini="false" style="z-index:1;position:relative;" data-theme="'+theme+'" class="grid_btn" id="'+i+'_'+j+'" ></button></div>\n';   
+				theme = 'On';	
+			line = line + '<div class="grid_2">  <a data-role="button" class="pgrid'+theme+big+'Button" data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';   
+		
 		}
 	
-		theme='c';
+		theme='Off';
 		if(buttons[i][j]==1)
-			theme = 'e';
-		
-		line = line + '<div class="grid_2  suffix_'+(16-(ls*2+2))+'" style="position:relative;"> <img src="img/pgrid_p'+theme+'.png" class="iconabc"  height=30 width=30 style="position:absolute;z-index:1;left:9px;bottom:13px"> <button data-mini="false" style="z-index:2;position:relative;" data-theme="'+theme+'" class="grid_btn" id="'+i+'_'+j+'" ></button></div>\n';   
-		
+			theme = 'On';
+		if(ls > 0)
+			line = line + '<div class="grid_2  suffix_'+(16-(ls*2+1))+'">  <a data-role="button" class="pgrid'+theme+big+'Button" data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';   
+		else
+			line = line + '<div class="grid_2  suffix_13">   <a data-role="button" class="pgridNull'+big+'Button"     data-inline="true" data-mini="true" data-shadow="false" data-theme="reset"  id="'+i+'_'+j+'"></a></div>\n';  
+			
 		document.getElementById("grid").innerHTML = line ;//""+test.current_slide;
 		$('.ui-page-active').page("destroy").page();
 	}
@@ -52,7 +55,7 @@ function load_grid(){
 	        console.log(line);
 	        var onoff = 1;
 	
-	        for(var i=0; i<buttons[line].length; i++){
+	        for(var i=0; i<grid.level_size[line]; i++){
 	        	onoff = onoff && buttons[line][i];
 	        }
 	        
@@ -68,7 +71,7 @@ function load_grid(){
 			return false;
 		});
 		
-		$('#grid').on('vclick','.grid_btn'+''+'' , function() { 
+		$('#grid').on('vclick','.pgridOnButton' , function() { 
 			 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
@@ -79,5 +82,45 @@ function load_grid(){
 			refresh_grid();
 			return false;
 		});
+		
+		$('#grid').on('vclick','.pgridOffButton' , function() { 
+			 
+			var id= $(this).attr('id');
+			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
+				buttons[id.charAt(0)][id.charAt(2)] = 1;
+			else
+				buttons[id.charAt(0)][id.charAt(2)] = 0;
+			
+			refresh_grid();
+			return false;
+		});
+		
+		
+		$('#grid').on('vclick','.pgridOnBigButton' , function() { 
+			 
+			var id= $(this).attr('id');
+			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
+				buttons[id.charAt(0)][id.charAt(2)] = 1;
+			else
+				buttons[id.charAt(0)][id.charAt(2)] = 0;
+			
+			refresh_grid();
+			return false;
+		});
+		
+		$('#grid').on('vclick','.pgridOffBigButton' , function() { 
+			 
+			var id= $(this).attr('id');
+			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
+				buttons[id.charAt(0)][id.charAt(2)] = 1;
+			else
+				buttons[id.charAt(0)][id.charAt(2)] = 0;
+			
+			refresh_grid();
+			return false;
+		});
+		
+		
+		
 	});
 }
