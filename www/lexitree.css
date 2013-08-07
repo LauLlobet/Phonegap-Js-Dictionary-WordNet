@@ -50,7 +50,7 @@
    
     
     .pgridOffBigButton{
-        width: 48px !important;    
+        width: 36px !important;    
         height: 47px !important;   
         background: url('img/pgrid_boff.png') no-repeat center center !important; 
         background-size: contain !important;
@@ -58,10 +58,13 @@
         outline:0;
         box-shadow: none;
         text-shadow: none;
+        position:relative;
+        left: 4px;
+        bottom: 0px;
     }
     
     .pgridOnBigButton {
-      	width: 48px !important;    
+      	width: 36px !important;    
         height: 47px !important;   
         background: url('img/pgrid_bon.png') no-repeat center center !important; 
         background-size: contain !important;
@@ -69,6 +72,9 @@
         outline:0;
         box-shadow: none;
         text-shadow: none;
+        position:relative;
+        left: 4px;
+        bottom: 0px;
     } 
     
    .pgridNullBigButton {

@@ -61,7 +61,7 @@ function init()
 	load_grid();
 	
 	
-	document.getElementById("welcome").innerHTML = " "+screen.width+" "+screen.height;
+	//document.getElementById("welcome").innerHTML = " "+screen.width+" "+screen.height;
 }
 
 /*		*/
