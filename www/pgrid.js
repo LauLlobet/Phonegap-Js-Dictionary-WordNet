@@ -95,5 +95,32 @@ function load_grid(){
 			return false;
 		});
 		
+		
+		$('#grid').on('vclick','.pgridOnBigButton' , function() { 
+			 
+			var id= $(this).attr('id');
+			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
+				buttons[id.charAt(0)][id.charAt(2)] = 1;
+			else
+				buttons[id.charAt(0)][id.charAt(2)] = 0;
+			
+			refresh_grid();
+			return false;
+		});
+		
+		$('#grid').on('vclick','.pgridOffBigButton' , function() { 
+			 
+			var id= $(this).attr('id');
+			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
+				buttons[id.charAt(0)][id.charAt(2)] = 1;
+			else
+				buttons[id.charAt(0)][id.charAt(2)] = 0;
+			
+			refresh_grid();
+			return false;
+		});
+		
+		
+		
 	});
 }

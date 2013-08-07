@@ -5,6 +5,7 @@ var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
 					] , 30 ) ;
 
 var grid = new level_grid([65,5,4,0,24]);
+var alto =120;
 
 var buttons = [['0','1','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
 var word_list = ["jollity",
@@ -57,6 +58,7 @@ function refresh_pdef(def){
 function init()
 {
 	init_test();
+    alto = $(document).height();
 	load_pinit();
 	load_grid();
 	
