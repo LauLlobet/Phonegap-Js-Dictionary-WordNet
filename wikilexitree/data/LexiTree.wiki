@@ -41,25 +41,18 @@ DoneRelases
 
 
 
-+++ 0.1X
++++ 0.3X
 
-Relase 0.12 PersistVars
+
+Release 0.31 DbConnect
 -----------------------
-# variable distribucio grid
-# variable array de paraules del historial
-# boto back button durant el test que porti amb un avis a la pinit
+# conectar phonegap amb bd remota
+#
 
-+++ 0.2X
 
-Develop 0.21 CustomButt
------------------------
-# botons en forma
-# rations en forma
-# botons mini segons iphone o androidOld en pgrid
-# cantitat de paraules a pinit segons resolucio
-# test en iphone
 
-Release 0.22 CustomAnim
+
+Release 0.32 CustomAnim
 ------------------------
 # transisions brusques i no brusques
 # carrega de contingut previa a la presentacio en pantalla per a evitar els flashos
