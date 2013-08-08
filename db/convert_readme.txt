@@ -1,5 +1,31 @@
 
 
+schema
+data
+constraints
+views
+
+
+script 
+----------
+
+sqlite3 lexitree.db < ~/git/lexitree/db/usr_schema.txt 
+cd ..
+sqlite3 lexitree.db < schema2.txt
+sqlite3 lexitree.db < wn_db/data3.sql
+sqlite3 lexitree.db < constraints.sql
+sqlite3 lexitree.db < views2.txt
+
+
+
+test:
+--------
+
+SELECT lemma,pos,sensenum,synsetid,definition,sampleset  FROM dict WHERE lemma = 'want' ORDER BY pos,sensenum
+
+
+
+
 fitxers correctes:
 
 schema2.sql
