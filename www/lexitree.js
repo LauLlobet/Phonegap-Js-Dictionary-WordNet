@@ -1,3 +1,15 @@
+/*
+
+document.addEventListener("deviceready", function onDeviceReady() {
+                          alert('Javascript OK');
+                          }, false);
+*/
+// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+//
+
+
+
+
 
 var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
                        new wordset('prison','place',['lake','river','book']) ,
@@ -68,9 +80,13 @@ function init()
 
 /*		*/
 
+
 $(document).ready(function() {
 
-	$('#word_list').on('vclick','.pinit_back' , function() { 
+             
+                  
+                  
+	$('#word_list').on('vclick','.pinit_back' , function() {
 		 
     	word_list.page--;
     	load_pinit();
@@ -81,6 +97,41 @@ $(document).ready(function() {
 		 
     	word_list.page++;
     	load_pinit();
+    	
+
+    	console.log("PRVANDO 000");
+    	alert("Provado 123");
+    	console.log("PRVANDO 456");
+    	
+
+    	   var db = window.sqlitePlugin.openDatabase("Database", "1.0", "Demo", -1);
+                       
+                       alert("opened?");
+                       
+    	   db.transaction(function(tx) {
+    	     tx.executeSql('DROP TABLE IF EXISTS test_table');
+    	     tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (id integer primary key, data text, data_num integer)');
+    	     tx.executeSql("INSERT INTO test_table (data, data_num) VALUES (?,?)", ["test", 100], function(tx, res) {
+    	     console.log("insertId: " + res.insertId + " -- probably 1"); // check #18/#38 is fixed
+    	     alert("insertId: " + res.insertId + " -- should be valid");
+
+    	       db.transaction(function(tx) {
+    	         tx.executeSql("SELECT data_num from test_table;", [], function(tx, res) {
+    	           console.log("res.rows.length: " + res.rows.length + " -- should be 1");
+    	           alert("res.rows.item(0).data_num: " + res.rows.item(0).data_num + " -- should be 100");
+    	         });
+    	       });
+    	     }, function(e) {
+    	    	 alert("ERROR PACHANGA");
+    	       console.log("ERROR: " + e.message);
+    	     });
+    	   });
+    	
+
+    	
+    	
+    	
+    	
     	return false;
 	});
 	
