@@ -22,16 +22,6 @@ DificultatsTrobades
 
 
 
-++ Timeline
-
-0.0X Html done, hello world 2SO
-0.1X Persistencia per parametre, javascript variables
-0.2X Interficie personalitzada
-0.3X Persistencia per bdlocal
-0.4X Calculs
-0.5X Conexio DB remota
-0.6X Interficie xula i css
-1.0X Release Beta privada
 
 FuturesReleases
 
@@ -41,7 +31,7 @@ DoneRelases
 
 
 
-+++ 0.3X
++++ 0.3X Data base 
 
 
 Release 0.31 DbConnect
@@ -60,7 +50,7 @@ Relase 0.32 DbLocal
 
 
 
-+++ 0.4X
++++ 0.4X Visual surrogates
 
 
 Release 0.4 CssAnim
@@ -72,7 +62,7 @@ Release 0.4 CssAnim
 # botons de colors i mes fosocos surrogate
 
 
-+++ 0.5X
++++ 0.5X Controll
 
 Relase 0.51 CalcCalc
 ------------------
@@ -86,7 +76,7 @@ Relase 0.52 CalcDb
 # calcul de preguntes random segons pgrid i nivell 
 
 
-+++ 0.6X
++++ 0.6X Appearence
 
 Release 0.6 PicXulos
 ---------------------
@@ -95,7 +85,7 @@ Release 0.6 PicXulos
 # dissenyar estrelleta 
 # dissenyar estrelleta brillant
 
-+++ 0.7X
++++ 0.7X Tutorial
 
 Relase 0.71 TutEscrit
 ---------------------
@@ -107,14 +97,39 @@ Relase 0.72 TutFet
 # css de tutorial , dialogs flotants
 
 
++++ 0.8X Challanges
+
+Relase 0.81 RetoSample
+---------------------
+# unlock sample questions in test
+
+Relase 0.81 RetoAntonim
+---------------------
+# unlock antonim
+
+Relase 0.81 RetoSimilar
+---------------------
+# unlock similar word
+
+Relase 0.84 RetoAppearence
+----------------------
+# check updates android i ios per futurs unlocks
+# icono visual que indiqui badge de unlocks , i potser punts aconseguits per a l escola
+# Tutorial retos
+
+
++++ 0.9X Escoles unlock 
 
 
 
-0.3X Persistencia per bdlocal
-0.4X Calculs
-0.5X Conexio DB remota
-0.6X Interficie xula i css
-1.0X Release
++++ 1.0X Detalls
+
+
+
++++ 2.0X Testing
+
+
++++ 1.0.0X Release
 
 
 	* WikiSettings
