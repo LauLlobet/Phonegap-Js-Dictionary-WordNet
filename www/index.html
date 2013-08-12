@@ -9,23 +9,29 @@
 
 		<link rel="stylesheet"  href="jquery.mobile/jquery.mobile-1.2.0.css" type="text/css" charset="utf-8"/>
 		<link rel="stylesheet"  href="lexitree.css" type="text/css" charset="utf-8"/>
-		
+    
+    <script type="text/javascript">
+        window.onerror = function(message, url, lineNumber) {
+            console.log("Error: "+message+" in "+url+" at line "+lineNumber);
+        }
+    </script>
+    
 	<link rel="stylesheet" href="jquery.mobile/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" />
 	<script src="jquery.mobile/jquery-1.7.1.min.js"></script>
 	<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
-	<script src="jquery.mobile/phonegap.0.9.4.js"></script>
+	
+	<script src="cordova/cordova.js"></script>
+	<script src="sqlite.android/SQLitePlugin.js"></script>
+	
+	
 	<script src="ptest_pok_pres.js"></script>
 	<script src="pgrid.js"></script>
 	<script src="pinit.js"></script>
 	<script src="lexitree.js"></script>
 	
-	
-	
 
-
-<!-- <script type="text/javascript" charset="utf-8" src="jquery.mobile/phonegap.0.9.4.js"></script> -->
-
-
+ <script type="text/javascript" charset="utf-8">
+  </script>
 
 
 </head>
