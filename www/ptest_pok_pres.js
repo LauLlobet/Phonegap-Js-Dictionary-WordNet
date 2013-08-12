@@ -92,7 +92,7 @@ function next_slide()
 	
 	var array = test.questions;
 
-	if( test.current_question  == test.questions.length )
+	if( test.current_question  == array.length )
 		return;
 	
 	csc = document.getElementById("currentQuestionCounter");

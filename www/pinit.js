@@ -27,7 +27,7 @@ function refresh_pinit(){
 		
 		if (i==0){
 				if ( word_list.page == 0){
-					line = '<div class="ui-block-'+abc(i)+'"> <button class="word_pinit" id="'+i+'" data-mini="true" data-theme="d" >'+word_list[0]+'</button></div>';
+					line = '<div class="ui-block-'+abc(i)+'"> <button class="word_pinit" id="'+word_list[0]+'" data-mini="true" data-theme="d" >'+word_list[0]+'</button></div>';
 				}else{
 					line = '<div class="ui-block-'+abc(i)+'"> <button class="pinit_back" id="back_wlist" data-mini="true" data-theme="b" data-icon="arrow-l"  data-iconpos="left">...</button></div>';
 				}

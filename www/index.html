@@ -9,23 +9,29 @@
 
 		<link rel="stylesheet"  href="jquery.mobile/jquery.mobile-1.2.0.css" type="text/css" charset="utf-8"/>
 		<link rel="stylesheet"  href="lexitree.css" type="text/css" charset="utf-8"/>
-		
+    
+    <script type="text/javascript">
+        window.onerror = function(message, url, lineNumber) {
+            console.log("Error: "+message+" in "+url+" at line "+lineNumber);
+        }
+    </script>
+    
 	<link rel="stylesheet" href="jquery.mobile/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" />
 	<script src="jquery.mobile/jquery-1.7.1.min.js"></script>
 	<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
-	<script src="jquery.mobile/phonegap.0.9.4.js"></script>
+	
+	<script src="cordova/cordova.js"></script>
+	<script src="sqlite.android/SQLitePlugin.js"></script>
+	
+	
 	<script src="ptest_pok_pres.js"></script>
 	<script src="pgrid.js"></script>
 	<script src="pinit.js"></script>
 	<script src="lexitree.js"></script>
 	
-	
-	
 
-
-<!-- <script type="text/javascript" charset="utf-8" src="jquery.mobile/phonegap.0.9.4.js"></script> -->
-
-
+ <script type="text/javascript" charset="utf-8">
+  </script>
 
 
 </head>
@@ -55,8 +61,8 @@
 
 
 <div class="container_16">
-		<div class="grid_12"> <label for="name"></label><input type="search" data-mini="true" id="search-basic" value="" /></div>
-		<div class="grid_4 prefix_0"><a href="#pdef" data-role="button" data-inline="true" data-icon="search" data-mini="true" data-iconpos="right" id="inici-search-btn">Find</a></div></div>   
+		<div class="grid_12"> <label for="name"></label><input type="search" data-mini="true" id="word_search_box" value="" /></div>
+		<div class="grid_4 prefix_0"><a id="word_search" data-role="button" data-inline="true" data-icon="search" data-mini="true" data-iconpos="right">Find</a></div></div>   
 </div>
 
 
@@ -180,34 +186,9 @@ var toast=function(msg){
 
 <ul>
 <a name="c"></a>
-<li><a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown&amp;i=0&amp;h=000#c">S:</a><a class="pos"> (n) </a><b>clown</b>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=buffoon">buffoon</a> (a rude or vulgar fool) <i></i></li>
-<li><a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown&amp;i=1&amp;h=000#c">S:</a><a class="pos"> (n) </a><b>clown</b>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=buffoon">buffoon</a>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=goof">goof</a>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=goofball">goofball</a>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=merry+andrew">merry andrew</a> (a person who amuses others by ridiculous behavior) <i></i></li>
-</ul>
-<h3>Verb</h3>
-<ul>
-<li><a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown&amp;i=2&amp;h=000#c">S:</a><a class="pos"> (v) </a><b>clown</b>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown+around">clown around</a>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=antic">antic</a> (act as or like a clown) <i></i></li>
-</ul>
 
-<h3>Verb</h3>
-<ul>
-<li><a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown&amp;i=2&amp;h=000#c">S:</a><a class="pos"> (v) </a><b>clown</b>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown+around">clown around</a>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=antic">antic</a> (act as or like a clown) <i></i></li>
-</ul>
-<h3>Verb</h3>
-<ul>
-<li><a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown&amp;i=2&amp;h=000#c">S:</a><a class="pos"> (v) </a><b>clown</b>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown+around">clown around</a>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=antic">antic</a> (act as or like a clown) <i></i></li>
-</ul>
-<h3>Verb</h3>
-<ul>
-<li><a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown&amp;i=2&amp;h=000#c">S:</a><a class="pos"> (v) </a><b>clown</b>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown+around">clown around</a>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=antic">antic</a> (act as or like a clown) <i></i></li>
-</ul>
-<h3>Verb</h3>
-<ul>
-<li><a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown&amp;i=2&amp;h=000#c">S:</a><a class="pos"> (v) </a><b>clown</b>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown+around">clown around</a>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=antic">antic</a> (act as or like a clown) <i></i></li>
-</ul>
-<h3>Verb</h3>
-<ul>
-<li><a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown&amp;i=2&amp;h=000#c">S:</a><a class="pos"> (v) </a><b>clown</b>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=clown+around">clown around</a>, <a href="webwn?o2=&amp;o0=1&amp;o8=1&amp;o1=1&amp;o7=&amp;o5=&amp;o9=&amp;o6=&amp;o3=&amp;o4=&amp;s=antic">antic</a> (act as or like a clown) <i></i></li>
-</ul>
+
+<span id="pdef_def"> (a rude or vulgar fool) </span>
 </div>
 
 </div>
