@@ -53,11 +53,16 @@ Relase 0.32 DbLocal
 +++ 0.4X Visual surrogates
 
 
-Release 0.4 CssAnim
+Release 0.4 CssLoad
 ------------------------
 # transisions brusques i no brusques
+# que la db es carregui durant la pantalla d'inici
 # carrega de contingut previa a la presentacio en pantalla per a evitar els flashos
+# imatge personalitzada surrogate
 # velocitats click
+
+Release 0.4 CssAnim
+------------------------
 # gifs animats surrogates starr, to-starr, dial up, dial down, dial css circular
 # botons de colors i mes fosocos surrogate
 
@@ -74,6 +79,12 @@ Relase 0.51 CalcCalc
 Relase 0.52 CalcDb
 -------------------
 # calcul de preguntes random segons pgrid i nivell 
+
+Relase 0.53 CalcForm
+--------------------
+# afegir inflections.js
+# minuscules en search i humanizes
+# crear preguntes a partir de varies definicions i tenint en compte si son noms o verbs
 
 
 +++ 0.6X Appearence

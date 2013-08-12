@@ -26,9 +26,11 @@ SELECT lemma,pos,sensenum,synsetid,definition,sampleset  FROM dict WHERE lemma =
 
 
 
-fitxers correctes:
 
-schema2.sql
+SELECT * FROM sqlite_master WHERE type='table';
+
+
+
 
 
 
