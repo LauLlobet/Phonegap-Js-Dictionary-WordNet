@@ -93,8 +93,9 @@ function refresh_pdef(word){
 
 function init()
 {
+	console.log('Loading DB');
 	db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
-	alert("dbisready-android!");  
+	alert("dbisready-both!");  
 	init_test();
     alto = $(document).height();
 	load_pinit();
