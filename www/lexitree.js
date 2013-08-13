@@ -113,8 +113,23 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // Cordova is ready
 function onDeviceReady() {
     alert("device ready");
-    //var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"});
+    
+    var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"});
+    
+
+    var db2 = window.sqlitePlugin.openDatabase({name: "testing"});
     // ...
+    
+    //var db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "Demo", -1);
+    
+		    alert("opened?");
+		    
+		db.transaction(function(tx) {
+			tx.executeSql("SELECT * FROM sqlite_master WHERE type='table';", [], function(tx, res) {
+			console.log("res.rows.length: " + res.rows.length + " -- should be !=0");
+			});
+		});
+	
 }
 
 

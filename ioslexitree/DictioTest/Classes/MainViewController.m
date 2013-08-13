@@ -132,14 +132,44 @@
     return [super webViewDidFinishLoad:theWebView];
 }
 
+
+- (void) webViewDidStartLoad:(UIWebView*)theWebView
+{
+    
+    NSString *databaseName = @"test.db"; // inutil , nomes el deixo per no tocar codi
+    NSString *masterName = @"new_lexitree.db";
+    
+    NSArray *libraryPaths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *libraryDir = [libraryPaths objectAtIndex:0];
+    
+    NSString *masterPath = [libraryDir stringByAppendingPathComponent:@"../Documents/"];
+    NSString *databasePath = [libraryDir stringByAppendingPathComponent:@"../Documents/file__0/"];
+    NSString *masterFile = [masterPath stringByAppendingPathComponent:masterName];
+    NSString *databaseFile = [databasePath stringByAppendingPathComponent:databaseName];
+    
+    BOOL success;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    success = [fileManager fileExistsAtPath:databasePath];
+    if(success) return;
+    
+    NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseName];
+    NSString *masterPathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:masterName];
+    
+    [fileManager createDirectoryAtPath:databasePath withIntermediateDirectories:YES attributes:nil error:NULL];
+    [fileManager copyItemAtPath:databasePathFromApp toPath:databaseFile error:nil];
+    [fileManager copyItemAtPath:masterPathFromApp toPath:masterFile error:nil];
+    [fileManager release];
+    
+    return [super webViewDidStartLoad:theWebView];
+}
+
+
+
 /* Comment out the block below to over-ride */
 
 /*
  
- - (void) webViewDidStartLoad:(UIWebView*)theWebView
- {
- return [super webViewDidStartLoad:theWebView];
- }
  
  - (void) webView:(UIWebView*)theWebView didFailLoadWithError:(NSError*)error
  {
