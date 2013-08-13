@@ -65,9 +65,10 @@ function refresh_pdef(word){
 		return;
 	var def= "error";
 	
-	db2 = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
+	if(db == "")
+		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
 
-    db2.transaction(function(tx) {
+    db.transaction(function(tx) {
     	tx.executeSql("SELECT lemma,pos,sensenum,synsetid,definition,sampleset  FROM dict WHERE lemma = '"+word+"' ORDER BY pos,sensenum;", [], function(tx, res) {
          //alert("res.rows.length: " + res.rows.length + " -- should be 1");
 
@@ -94,41 +95,8 @@ function refresh_pdef(word){
 function init()
 {
 	console.log('Loading DB');
-	db2 = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
-	alert("dbisready-both!");
-    
-    
-    var db = window.sqlitePlugin.openDatabase("Database", "1.0", "Demo", -1);
-    
-    alert("opened?");
-    
-    db.transaction(function(tx) {
-                   tx.executeSql('DROP TABLE IF EXISTS test_table');
-                   tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (id integer primary key, data text, data_num integer)');
-                   tx.executeSql("INSERT INTO test_table (data, data_num) VALUES (?,?)", ["test", 100], function(tx, res) {
-                                 console.log("insertId: " + res.insertId + " -- probably 1"); // check #18/#38 is fixed
-                                 alert("insertId: " + res.insertId + " -- should be valid");
-                                 
-                                 db.transaction(function(tx) {
-                                                tx.executeSql("SELECT data_num from test_table;", [], function(tx, res) {
-                                                              console.log("res.rows.length: " + res.rows.length + " -- should be 1");
-                                                              alert("res.rows.item(0).data_num: " + res.rows.item(0).data_num + " -- should be 100");
-                                                              });
-                                                });
-                                 }, function(e) {
-                                 alert("ERROR PACHANGA");
-                                 console.log("ERROR: " + e.message);
-                                 });
-                   });
-    
-    
-    
-    
-    
-    
-    
-    
-    
+	//db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
+	alert("dbisready-both!");  
 	init_test();
     alto = $(document).height();
 	load_pinit();
@@ -137,6 +105,18 @@ function init()
 	
 	//document.getElementById("welcome").innerHTML = " "+screen.width+" "+screen.height;
 }
+
+
+// Wait for Cordova to load
+document.addEventListener("deviceready", onDeviceReady, false);
+
+// Cordova is ready
+function onDeviceReady() {
+    alert("device ready");
+    //var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"});
+    // ...
+}
+
 
 /*		*/
 
