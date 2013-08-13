@@ -94,7 +94,7 @@ function refresh_pdef(word){
 function init()
 {
 	db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
-	alert("dbisready!");  
+	alert("dbisready-android!");  
 	init_test();
     alto = $(document).height();
 	load_pinit();
@@ -106,6 +106,14 @@ function init()
 
 /*		*/
 
+/*//Wait for Cordova to load
+document.addEventListener("deviceready", onDeviceReady, false);
+
+// Cordova is ready
+function onDeviceReady() {
+  var db = window.sqlitePlugin.openDatabase({name: "DB"});
+  // ...
+}*/
 
 $(document).ready(function() {
 

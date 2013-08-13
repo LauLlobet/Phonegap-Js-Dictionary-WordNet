@@ -112,5 +112,7 @@
     </feature>
     <!-- Deprecated plugins element. REmove in 3.0 -->
     <plugins>
+
+	<plugin name="SQLitePlugin" value="com.phonegap.plugin.sqlitePlugin.SQLitePlugin"/>
     </plugins>
 </widget>
