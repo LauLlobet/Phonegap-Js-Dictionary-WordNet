@@ -7,6 +7,8 @@
 <title>Dictio test</title>
 
 		<link rel="stylesheet"  href="jquery.mobile/jquery.mobile-1.2.0.css" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet"  href="lexitree.css" type="text/css" charset="utf-8"/>
+		
 	<link rel="stylesheet" href="jquery.mobile/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" />
 	<script src="jquery.mobile/jquery-1.7.1.min.js"></script>
 	<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
@@ -46,6 +48,9 @@
 
 
 <div data-role="content">
+
+<!-- <span id="welcome">-------</span> -->
+
 
 <div class="container_16">
 		<div class="grid_12"> <label for="name"></label><input type="search" data-mini="true" id="search-basic" value="" /></div>
@@ -144,6 +149,7 @@ var toast=function(msg){
 
 <div data-role="content">
 
+
 <div class="container_16">
 		<div class="grid_12"> <label for="name"></label><input type="search" data-mini="true" id="search-basic" value="" /></div>
 		<div class="grid_4 prefix_0"><a href="#" onclick="toast('nowordfound')" data-role="button" data-inline="true" data-icon="search" data-mini="true" data-iconpos="right" id="inici-search-btn">Find</a></div></div>   
@@ -230,38 +236,9 @@ var toast=function(msg){
 	
 	
 	
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c" data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div> -->
-		
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-icon="arrow-r" id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2 suffix_10"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-	
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-icon="arrow-r" id="inici-search-btn">.</a></div>    -->
-	
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div> -->
-		
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-icon="arrow-r" id="inici-search-btn">.</a></div>    -->
-	
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-<!-- 		<div class="grid_2 suffix_6"><a href="#pdef" data-role="button" data-mini="false" data-theme="c"data-icon="arrow-da"  id="inici-search-btn">.</a></div>    -->
-	
-
 </div>
 
+		
 <div data-role="fieldcontain" id="divBotonsTest">
 
 	<a href="#ptest" data-role="button" data-theme="d" >Test!</a>
@@ -281,6 +258,7 @@ var toast=function(msg){
 	
 	
 <div data-role="header" data-nobackbtn="false" data-theme="b">
+<button data-icon="delete" id="back_init"  >Discard</button>
 <h1>DictioTest   (<span id="currentQuestionCounter">-1</span>/<span id="tatalQuestionCounter">-1</span>)</h1>
 		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
 </div>
@@ -368,6 +346,7 @@ var toast=function(msg){
 	
 	
 <div data-role="header" data-nobackbtn="false" data-theme="b">
+<button data-icon="delete" id="back_init2"  >Discard</button>
 <h1>DictioTest   (2/20)</h1>
 		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
 </div>

@@ -52,8 +52,9 @@ Develop 0.21 CustomButt
 -----------------------
 # botons en forma
 # rations en forma
-# botons mini segons iphone o androidOld
+# botons mini segons iphone o androidOld en pgrid
 # cantitat de paraules a pinit segons resolucio
+# test en iphone
 
 Release 0.22 CustomAnim
 ------------------------
