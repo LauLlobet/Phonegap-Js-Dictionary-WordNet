@@ -1,12 +1,3 @@
-/*
-
-document.addEventListener("deviceready", function onDeviceReady() {
-                          alert('Javascript OK');
-                          }, false);
-*/
-// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-//
-
 
 	
 var db = "";
@@ -94,9 +85,7 @@ function refresh_pdef(word){
 
 function init()
 {
-	console.log('Loading DB');
 	//db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
-	alert("dbisready-both!");  
 	init_test();
     alto = $(document).height();
 	load_pinit();
@@ -112,24 +101,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 // Cordova is ready
 function onDeviceReady() {
-    alert("device ready");
     
     var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"});
-    
-
-    var db2 = window.sqlitePlugin.openDatabase({name: "testing"});
-    // ...
-    
-    //var db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "Demo", -1);
-    
-		    alert("opened?");
-		    
-		db.transaction(function(tx) {
-			tx.executeSql("SELECT * FROM sqlite_master WHERE type='table';", [], function(tx, res) {
-			console.log("res.rows.length: " + res.rows.length + " -- should be !=0");
-			});
-		});
-	
 }
 
 
@@ -172,7 +145,6 @@ $(document).ready(function() {
 	$('#word_search').on('vclick' , function() { 
 		
 		var word = document.getElementById('word_search_box').value;
-		alert("searching:"+word);
 		load_pdef(word);
     	document.getElementById('');
     	return false;
