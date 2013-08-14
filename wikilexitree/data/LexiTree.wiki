@@ -38,11 +38,18 @@ DoneRelases
 Relase 0.32 DbLocal
 ------------------------
 # base de dades en iphone
+
+
+Relase 0.32 DbPdef
+------------------------
+# pdef funcional ( no va gaire amb la versio 0.3 pero bueno )
+
+
+Relase 0.32 DbLocal
+------------------------
 # dissenyar taules del propi usuari
 # funcions de persistencia de els cambis del propi usuari : afegir a preferits
 # idem : despres d'un test 
-
-
 
 +++ 0.4X Visual surrogates
 
