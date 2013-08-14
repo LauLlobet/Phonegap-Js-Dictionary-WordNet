@@ -47,6 +47,32 @@ function refresh_pinit(){
 }
 
 
+
+
+
+
+
+
+$('#index').live('pagebeforeshow',function(e,data){
+    $('input[type="checkbox"]').each(function(){
+        ($(this).is(':checked')) ? $(this).parent().parent().addClass('checked') : $(this).parent().parent().addClass('not-checked');
+    });
+});
+
+$('.checkBoxLeft').bind('click', function(e) {
+    if($(this).find('input[type="checkbox"]').is(':checked')){
+       $(this).removeClass('checked').addClass('not-checked'); 
+       $(this).find('input[type="checkbox"]').attr('checked' , false);
+    } else {
+       $(this).removeClass('not-checked').addClass('checked');             
+       $(this).find('input[type="checkbox"]').attr('checked' , true);
+    }
+});
+    
+    
+
+
+
 function load_pinit(){
 
 	word_list.page_size = Math.floor( (alto-160)/40)*3;

@@ -1,5 +1,6 @@
 
-	
+
+ 
 var db = "";
 
 
@@ -70,9 +71,10 @@ function refresh_pdef(word){
 	        def = '';
 	        for(var i=0 ; i<res.rows.length ; i++){
 	        
-	        	def +=  "<li>"+res.rows.item(i).definition+"</li>";
-	        	
+	   	        def += '<li data-icon="false" data-theme="e" ><a>  <img src="img/pdef_bon.png"  alt="France" class="ui-li-icon ui-corner-none">'+res.rows.item(i).definition+'</a></li>'
 	        }
+	        
+
 	        
     		document.getElementById("pdef_def").innerHTML = def;
     		document.getElementById("pdef_word").innerHTML = word;
@@ -102,7 +104,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // Cordova is ready
 function onDeviceReady() {
     
-    var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"});
+    var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"})
+    var db = window.sqlitePlugin.openDatabase({name: "baldsing"});;
 }
 
 
@@ -115,11 +118,18 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
   var db = window.sqlitePlugin.openDatabase({name: "DB"});
   // ...
-}*/
+}
+
+$('#index').live('pagebeforeshow',function(e,data){
+    $('input[type="checkbox"]').each(function(){
+        ($(this).is(':checked')) ? $(this).parent().parent().addClass('checked') : $(this).parent().parent().addClass('not-checked');
+    });
+});
+
+*/
+
 
 $(document).ready(function() {
-
-             
                   
 	$('#word_list').on('vclick','.pinit_back' , function() {
 		 
