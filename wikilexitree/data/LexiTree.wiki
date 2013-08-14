@@ -34,12 +34,6 @@ DoneRelases
 +++ 0.3X Data base 
 
 
-Release 0.31 DbConnect
------------------------
-# conectar phonegap amb bd android
-# conectar phonegap amb bd arxiu , consulta senzilla
-# consulta de paraula en interficie pdef
-# consulta de buscar i missatge paraula no trovada
 
 Relase 0.32 DbLocal
 ------------------------
@@ -58,7 +52,8 @@ Release 0.4 CssLoad
 # transisions brusques i no brusques
 # que la db es carregui durant la pantalla d'inici
 # carrega de contingut previa a la presentacio en pantalla per a evitar els flashos
-# imatge personalitzada surrogate
+# imatge personalitzada surrogate android
+# idem iphone
 # velocitats click
 
 Release 0.4 CssAnim

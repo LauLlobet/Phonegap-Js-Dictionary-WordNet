@@ -49,6 +49,11 @@
 		C806AF7817A6841900315D35 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806AF7717A6841900315D35 /* MessageUI.framework */; };
 		C806AF7A17A684C200315D35 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806AF7917A684C200315D35 /* AdSupport.framework */; };
 		C806AF7C17A6859400315D35 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806AF7B17A6859400315D35 /* StoreKit.framework */; };
+		C873E2D817BA5942002D706F /* SQLitePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C873E2D717BA5942002D706F /* SQLitePlugin.m */; };
+		C873E2DB17BA5979002D706F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C873E2D917BA5979002D706F /* libsqlite3.0.dylib */; };
+		C873E2DC17BA5979002D706F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C873E2DA17BA5979002D706F /* libsqlite3.dylib */; };
+		C873E2E017BA7A73002D706F /* test.db in Resources */ = {isa = PBXBuildFile; fileRef = C873E2DF17BA7A73002D706F /* test.db */; };
+		C873E2E217BA8304002D706F /* new_lexitree.db in Resources */ = {isa = PBXBuildFile; fileRef = C873E2E117BA8304002D706F /* new_lexitree.db */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
@@ -128,6 +133,12 @@
 		C806AF7717A6841900315D35 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C806AF7917A684C200315D35 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C806AF7B17A6859400315D35 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C873E2D617BA5942002D706F /* SQLitePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLitePlugin.h; sourceTree = "<group>"; };
+		C873E2D717BA5942002D706F /* SQLitePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLitePlugin.m; sourceTree = "<group>"; };
+		C873E2D917BA5979002D706F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		C873E2DA17BA5979002D706F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C873E2DF17BA7A73002D706F /* test.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.db; sourceTree = "<group>"; };
+		C873E2E117BA8304002D706F /* new_lexitree.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_lexitree.db; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = DictioTest/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C873E2DB17BA5979002D706F /* libsqlite3.0.dylib in Frameworks */,
+				C873E2DC17BA5979002D706F /* libsqlite3.dylib in Frameworks */,
 				C806AF7C17A6859400315D35 /* StoreKit.framework in Frameworks */,
 				C806AF7A17A684C200315D35 /* AdSupport.framework in Frameworks */,
 				301BF5B9109A6A2B0062928A /* AudioToolbox.framework in Frameworks */,
@@ -220,6 +233,8 @@
 				C806AF7417A6836B00315D35 /* GADRequestError.h */,
 				C806AF7517A6836B00315D35 /* libGoogleAdMobAds.a */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
+				C873E2D617BA5942002D706F /* SQLitePlugin.h */,
+				C873E2D717BA5942002D706F /* SQLitePlugin.m */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -245,6 +260,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C873E2E117BA8304002D706F /* new_lexitree.db */,
 				30A0434214DC770100060A13 /* de.lproj */,
 				30A0434514DC770100060A13 /* se.lproj */,
 				1F766FDB13BBADB100FB74C0 /* en.lproj */,
@@ -253,6 +269,7 @@
 				308D052D1370CCF300D202BF /* icons */,
 				308D05311370CCF300D202BF /* splash */,
 				8D1107310486CEB800E47090 /* DictioTest-Info.plist */,
+				C873E2DF17BA7A73002D706F /* test.db */,
 			);
 			name = Resources;
 			path = DictioTest/Resources;
@@ -294,6 +311,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				C873E2D917BA5979002D706F /* libsqlite3.0.dylib */,
+				C873E2DA17BA5979002D706F /* libsqlite3.dylib */,
 			);
 			name = Plugins;
 			path = DictioTest/Plugins;
@@ -432,6 +451,8 @@
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				C873E2E017BA7A73002D706F /* test.db in Resources */,
+				C873E2E217BA8304002D706F /* new_lexitree.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +483,7 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				C873E2D817BA5942002D706F /* SQLitePlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

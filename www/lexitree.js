@@ -1,14 +1,6 @@
-/*
-
-document.addEventListener("deviceready", function onDeviceReady() {
-                          alert('Javascript OK');
-                          }, false);
-*/
-// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-//
 
 
-	
+ 
 var db = "";
 
 
@@ -65,9 +57,10 @@ function refresh_pdef(word){
 		return;
 	var def= "error";
 	
-	db2 = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
+	if(db == "")
+		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
 
-    db2.transaction(function(tx) {
+    db.transaction(function(tx) {
     	tx.executeSql("SELECT lemma,pos,sensenum,synsetid,definition,sampleset  FROM dict WHERE lemma = '"+word+"' ORDER BY pos,sensenum;", [], function(tx, res) {
          //alert("res.rows.length: " + res.rows.length + " -- should be 1");
 
@@ -78,9 +71,10 @@ function refresh_pdef(word){
 	        def = '';
 	        for(var i=0 ; i<res.rows.length ; i++){
 	        
-	        	def +=  "<li>"+res.rows.item(i).definition+"</li>";
-	        	
+	   	        def += '<li data-icon="false" data-theme="e" > <span id="defline">'+res.rows.item(i).definition+'</span><div style="float:left;"> <a>second link</a> <div> </li>'
 	        }
+	        
+
 	        
     		document.getElementById("pdef_def").innerHTML = def;
     		document.getElementById("pdef_word").innerHTML = word;
@@ -93,8 +87,7 @@ function refresh_pdef(word){
 
 function init()
 {
-	db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
-	alert("dbisready!");  
+	//db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
 	init_test();
     alto = $(document).height();
 	load_pinit();
@@ -104,12 +97,39 @@ function init()
 	//document.getElementById("welcome").innerHTML = " "+screen.width+" "+screen.height;
 }
 
+
+// Wait for Cordova to load
+document.addEventListener("deviceready", onDeviceReady, false);
+
+// Cordova is ready
+function onDeviceReady() {
+    
+    var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"})
+    var db = window.sqlitePlugin.openDatabase({name: "baldsing"});;
+}
+
+
 /*		*/
+
+/*//Wait for Cordova to load
+document.addEventListener("deviceready", onDeviceReady, false);
+
+// Cordova is ready
+function onDeviceReady() {
+  var db = window.sqlitePlugin.openDatabase({name: "DB"});
+  // ...
+}
+
+$('#index').live('pagebeforeshow',function(e,data){
+    $('input[type="checkbox"]').each(function(){
+        ($(this).is(':checked')) ? $(this).parent().parent().addClass('checked') : $(this).parent().parent().addClass('not-checked');
+    });
+});
+
+*/
 
 
 $(document).ready(function() {
-
-             
                   
 	$('#word_list').on('vclick','.pinit_back' , function() {
 		 
@@ -135,7 +155,6 @@ $(document).ready(function() {
 	$('#word_search').on('vclick' , function() { 
 		
 		var word = document.getElementById('word_search_box').value;
-		alert("searching:"+word);
 		load_pdef(word);
     	document.getElementById('');
     	return false;

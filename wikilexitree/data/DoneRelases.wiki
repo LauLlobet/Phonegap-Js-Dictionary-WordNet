@@ -3,6 +3,13 @@
 
 
 
+Release 0.31 DbConnect
+-----------------------
+# conectar phonegap amb bd android
+# conectar phonegap amb bd arxiu , consulta senzilla
+# consulta de paraula en interficie pdef
+# consulta de buscar i missatge paraula no trovada
+
 +++ 0.2X
 
 Develop 0.21 CustomButt

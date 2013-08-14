@@ -1,6 +1,8 @@
-   
-   
-   
+#defline  {
+    white-space : normal;
+    font-weight:normal;
+}
+
    #pgridLineBtn{
     position:relative;
     bottom: -6px;

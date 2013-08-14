@@ -9,19 +9,17 @@
 
 		<link rel="stylesheet"  href="jquery.mobile/jquery.mobile-1.2.0.css" type="text/css" charset="utf-8"/>
 		<link rel="stylesheet"  href="lexitree.css" type="text/css" charset="utf-8"/>
-    
-    <script type="text/javascript">
-        window.onerror = function(message, url, lineNumber) {
-            console.log("Error: "+message+" in "+url+" at line "+lineNumber);
-        }
-    </script>
+   
     
 	<link rel="stylesheet" href="jquery.mobile/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" />
 	<script src="jquery.mobile/jquery-1.7.1.min.js"></script>
 	<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
 	
-	<script src="cordova/cordova.js"></script>
-	<script src="sqlite.android/SQLitePlugin.js"></script>
+	
+	
+	<script src="loadDbPlugin.js"></script>
+
+	
 	
 	
 	<script src="ptest_pok_pres.js"></script>
@@ -175,22 +173,29 @@ var toast=function(msg){
 	
 	<div class="ui-block-c">
 			
-		<select name="flip-1" id="flip-1" data-role="slider" data-mini="true">
-			<option value="off">Ignore</option>
-			<option value="on">Test!</option>
+		<select data-theme="e" name="flip-1" id="flip-1" data-role="slider" data-mini="true">
+			<option data-theme="e" value="off">Ignore</option>
+			<option data-theme="e" value="on">Test!</option>
 		</select> 
 	</div>
 </div>
 
 	<div class="ui-block-d"> </div>	
 
-<ul>
 <a name="c"></a>
 
+				<ul data-role="listview" data-theme="d" data-inset="true" id="pdef_def" data-split-icon="gear" data-split-theme="d">
+					
+				        <li><a href="index.html">
+				            <h3><div style="float:left;">TEST LEFT</div> <div style="float:right;">TEST RIGHT:</div></h3>
+				
+				            </a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+				   		</li>
+				        
+				</ul>
 
-<span id="pdef_def"> (a rude or vulgar fool) </span>
-</div>
-
+			</div>
+	
 </div>
 
 <!-- --------------------------------- PGrid --------------------------------------------- -->
