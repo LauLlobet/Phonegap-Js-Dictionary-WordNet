@@ -71,7 +71,7 @@ function refresh_pdef(word){
 	        def = '';
 	        for(var i=0 ; i<res.rows.length ; i++){
 	        
-	   	        def += '<li data-icon="false" data-theme="e" ><a>  <img src="img/pdef_bon.png"  alt="France" class="ui-li-icon ui-corner-none">'+res.rows.item(i).definition+'</a></li>'
+	   	        def += '<li data-icon="false" data-theme="e" > <span id="defline">'+res.rows.item(i).definition+'</span><div style="float:left;"> <a>second link</a> <div> </li>'
 	        }
 	        
 
