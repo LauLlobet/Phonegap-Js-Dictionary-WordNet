@@ -40,12 +40,15 @@ Relase 0.32 DbLocal
 # base de dades en iphone
 
 
-Relase 0.32 DbPdef
+Relase 0.33 DbPdef
 ------------------------
 # pdef funcional ( no va gaire amb la versio 0.3 pero bueno )
+# lletres clickables
+# ticks de cada sense
+# tick automatic de tots els senses
 
 
-Relase 0.32 DbLocal
+Relase 0.34 DbLocal
 ------------------------
 # dissenyar taules del propi usuari
 # funcions de persistencia de els cambis del propi usuari : afegir a preferits
