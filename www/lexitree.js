@@ -13,6 +13,8 @@ var grid = new level_grid([65,5,4,0,24]);
 var alto =120;
 
 var buttons = [['0','1','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
+
+
 var word_list = ["house",
                  "want",
                  "nonbenevolence",
@@ -35,7 +37,8 @@ var word_list = ["house",
                 ];
 
 
-word_list.page = 0;
+word_listpage = 0;
+word_listpage_size = 0;
 
 var big = "";
 if(screen.width > 330)
@@ -45,13 +48,31 @@ function round(n){
 	return Math.ceil(n);
 }
 
+function load_words(){
+	
+	if(db == "")
+		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
+
+	
+	db.transaction(function(tx) {
+		word_list = [];
+		tx.executeSql("SELECT lemma  FROM words INNER JOIN favourites ON words.wordid=favourites.wordid;", [], function(tx, res1) {
+			
+			for(var i=0; i<res1.rows.length ; i++){
+				//alert("wordfound"+res1.rows.item(i).lemma);	
+				word_list.push(res1.rows.item(i).lemma);
+			    load_pinit();
+			}
+			
+		});
+		
+	});	
+}
+
 function init()
 {
 	//db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
-	init_test();
-    alto = $(document).height();
-	load_pinit();
-	load_grid();
+
 	
 	
 	//document.getElementById("welcome").innerHTML = " "+screen.width+" "+screen.height;
@@ -66,6 +87,15 @@ function onDeviceReady() {
     
     var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"})
     //var db = window.sqlitePlugin.openDatabase({name: "baldsing"});;
+    
+	load_words();
+	init_test();
+    alto = $(document).height();
+
+    load_pinit();
+	load_grid();
+	
+	
 }
 
 
@@ -97,14 +127,14 @@ $(document).ready(function() {
                   
 	$('#word_list').on('vclick','.pinit_back' , function() {
 		 
-    	word_list.page--;
+    	word_listpage--;
     	load_pinit();
     	return false;
 	});
 	
 	$('#word_list').on('vclick','.pinit_next' , function() { 
 		 
-    	word_list.page++;
+    	word_listpage++;
     	load_pinit(); 	
     	
     	return false;
