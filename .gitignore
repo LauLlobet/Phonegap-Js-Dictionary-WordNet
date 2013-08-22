@@ -1,5 +1,8 @@
 *~
 *.apk
+*.db
+**/*.db
+lexitree/assets/new_lexitree.db
 *.class
 bin
 MilkyWay/bin

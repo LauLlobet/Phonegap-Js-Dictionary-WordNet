@@ -24,6 +24,7 @@
 	
 	<script src="ptest_pok_pres.js"></script>
 	<script src="pgrid.js"></script>
+	<script src="pdef.js"></script>
 	<script src="pinit.js"></script>
 	<script src="lexitree.js"></script>
 	
@@ -57,7 +58,7 @@
 
 <!-- <span id="welcome">-------</span> -->
 
-
+<!--  script>$(load_words);</script -->
 <div class="container_16">
 		<div class="grid_12"> <label for="name"></label><input type="search" data-mini="true" id="word_search_box" value="" /></div>
 		<div class="grid_4 prefix_0"><a id="word_search" data-role="button" data-inline="true" data-icon="search" data-mini="true" data-iconpos="right">Find</a></div></div>   
@@ -124,21 +125,7 @@
 
 <script>
 
-var toast=function(msg){
-	$("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>"+msg+"</h3></div>")
-	.css({ display: "block", 
-		opacity: 0.90, 
-		position: "fixed",
-		padding: "7px",
-		"text-align": "center",
-		width: "270px",
-		left: ($(window).width() - 284)/2,
-		top: $(window).height()/2 })
-	.appendTo( $.mobile.pageContainer ).delay( 1500 )
-	.fadeOut( 400, function(){
-		$(this).remove();
-	});
-}
+
 
 </script>
 
@@ -157,11 +144,8 @@ var toast=function(msg){
 
 
 <div class="container_16">
-		<div class="grid_12"> <label for="name"></label><input type="search" data-mini="true" id="search-basic" value="" /></div>
-		<div class="grid_4 prefix_0"><a href="#" onclick="toast('nowordfound')" data-role="button" data-inline="true" data-icon="search" data-mini="true" data-iconpos="right" id="inici-search-btn">Find</a></div></div>   
-</div>
-
-<div  data-role="content">
+		<div class="grid_12"> <label for="name"></label><input type="search" data-mini="true" id="word_search_box_pdef" value="" /></div>
+		<div class="grid_4 prefix_0"><a id="word_search_pdef" data-role="button" data-inline="true" data-icon="search" data-mini="true" data-iconpos="right">Find</a></div></div>   
 	
 <div class="ui-grid-c">
 
@@ -184,14 +168,25 @@ var toast=function(msg){
 
 <a name="c"></a>
 
-				<ul data-role="listview" data-theme="d" data-inset="true" id="pdef_def" data-split-icon="gear" data-split-theme="d">
+				<ul data-role="listview" data-theme="d" data-inset="true" id="pdef_def" class="pdef_def" data-split-icon="plus" data-split-theme="e" data-inset="true">
+					<li data-icon="check" data-theme="e" id="defline"><a> 
+					Broken  Bells <span class="word_to_search_e" id="special">specialword</span> thisis hot</a><a href="#index.html">tick</a>
+					</li>
 					
-				        <li><a href="index.html">
-				            <h3><div style="float:left;">TEST LEFT</div> <div style="float:right;">TEST RIGHT:</div></h3>
-				
-				            </a><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
-				   		</li>
-				        
+					<li data-icon="false" > <a>
+						Broken Bells</a>
+					</li>
+					
+					<li data-icon="false" data-theme="e" ><a> 
+						<span id="defline">
+						  Broken BellsBroken <b>BellsBroken</b> BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken Bells</a>
+					    </span>
+					</li>
+					
+					<li data-icon="false"> <a> 
+						 Broken Bells</a>
+					</li>
+					
 				</ul>
 
 			</div>

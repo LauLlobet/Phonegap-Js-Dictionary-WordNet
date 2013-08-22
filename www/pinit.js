@@ -18,28 +18,34 @@ function abc(n){
 }
 
 function refresh_pinit(){
+	
+	if( word_list.length == 0){
+
+		document.getElementById("word_list").innerHTML = 'add words by searching...' ;
+		return;
+	}
 	var offset = 1;
-	if( word_list.page == 0)
+	if( word_listpage == 0)
 		offset = 0;
 	var line = '';
-	var psize = word_list.page_size;
-	for(var i=0; i<(word_list.page_size-1); i++){
+	var psize = word_listpage_size;
+	for(var i=0; i<(word_listpage_size-1); i++){
 		
 		if (i==0){
-				if ( word_list.page == 0){
+				if ( word_listpage == 0){
 					line = '<div class="ui-block-'+abc(i)+'"> <button class="word_pinit" id="'+word_list[0]+'" data-mini="true" data-theme="d" >'+word_list[0]+'</button></div>';
 				}else{
 					line = '<div class="ui-block-'+abc(i)+'"> <button class="pinit_back" id="back_wlist" data-mini="true" data-theme="b" data-icon="arrow-l"  data-iconpos="left">...</button></div>';
 				}
 		}else{
 			j = i;// - offset;
-			word_i = j+word_list.page*(word_list.page_size-2)+1;
+			word_i = j+word_listpage*(word_listpage_size-2)+1;
 			
 			if(word_list[word_i]!=undefined)
 				line = line + '<div class="ui-block-'+abc(i)+'"> <button class="word_pinit" id="'+word_list[word_i]+'" data-mini="true" data-theme="d" >'+word_list[word_i]+'</button></div>';
 		}
 	}
-	if( word_list.length > (word_list.page + 1 )*(word_list.page_size -2 )+ 1 )
+	if( word_list.length > (word_listpage + 1 )*(word_listpage_size -2 )+ 1 )
 		line = line + '<div class="ui-block-'+abc(i)+'"> <button class="pinit_next" id="pinit_next" data-mini="true" data-theme="b" data-icon="arrow-r"  data-iconpos="right">...</button></div>';
 	
 	document.getElementById("word_list").innerHTML = line ;//""+test.current_slide;
@@ -50,6 +56,29 @@ function refresh_pinit(){
 
 
 
+function load_words(){
+	
+	if(db == ""){
+		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
+	}
+	
+	db.transaction(function(tx) {
+		word_list = [];
+		tx.executeSql("SELECT lemma  FROM words INNER JOIN favourites ON words.wordid=favourites.wordid ORDER BY favourites.time DESC;", [], function(tx, res1) {
+			
+			for(var i=0; i<res1.rows.length ; i++){
+				//alert("wordfound"+res1.rows.item(i).lemma);	
+				word_list.push(res1.rows.item(i).lemma);
+				if(i==0)
+					word_list.push(res1.rows.item(i).lemma); //marranada per sortir del pas
+			}
+			
+			load_pinit();
+			
+		});
+		
+	});
+}
 
 
 
@@ -75,7 +104,7 @@ $('.checkBoxLeft').bind('click', function(e) {
 
 function load_pinit(){
 
-	word_list.page_size = Math.floor( (alto-160)/40)*3;
+	word_listpage_size = Math.floor( (alto-160)/40)*3;
 	var pages= Math.floor( (word_list.length/19));
 	refresh_pinit();
 }
