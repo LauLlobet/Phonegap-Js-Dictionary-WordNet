@@ -113,7 +113,8 @@ function refresh_pdef(word){
 		tx.executeSql("SELECT wordid  FROM words WHERE lemma = '"+word+"';", [], function(tx, res1) {
 			
 			if(res1.rows.length == 0){
-				alert('wordid not found');
+				toast('Sorry,word not found');
+				return;
 			}
 				
 		   wordid = res1.rows.item(0).wordid;

@@ -137,6 +137,13 @@ $(document).ready(function() {
     	return false;
 	});
 	
+	$('#word_search_pdef').on('vclick' , function() { 
+		
+		var word = document.getElementById('word_search_box_pdef').value;
+		load_pdef(word);
+    	return false;
+	});
+	
 	
 	//-----------------------pdef---------------------------
 	
@@ -212,4 +219,20 @@ $(document).ready(function() {
         
 });
 
+
+var toast=function(msg){
+	$("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>"+msg+"</h3></div>")
+	.css({ display: "block", 
+		opacity: 0.90, 
+		position: "fixed",
+		padding: "7px",
+		"text-align": "center",
+		width: "270px",
+		left: ($(window).width() - 284)/2,
+		top: $(window).height()/5 })
+	.appendTo( $.mobile.pageContainer ).delay( 1500 )
+	.fadeOut( 400, function(){
+		$(this).remove();
+	});
+}
 
