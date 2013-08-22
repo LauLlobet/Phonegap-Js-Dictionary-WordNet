@@ -64,7 +64,7 @@ function load_words(){
 	
 	db.transaction(function(tx) {
 		word_list = [];
-		tx.executeSql("SELECT lemma  FROM words INNER JOIN favourites ON words.wordid=favourites.wordid ORDER BY favourites.favouriteid DESC;", [], function(tx, res1) {
+		tx.executeSql("SELECT lemma  FROM words INNER JOIN favourites ON words.wordid=favourites.wordid ORDER BY favourites.time DESC;", [], function(tx, res1) {
 			
 			for(var i=0; i<res1.rows.length ; i++){
 				//alert("wordfound"+res1.rows.item(i).lemma);	

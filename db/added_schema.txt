@@ -6,9 +6,9 @@ CREATE TABLE `favourites_senses` (
 );
 
 CREATE TABLE `favourites` (
-   `favouriteid` integer  NOT NULL DEFAULT '0'
+   `time` integer  NOT NULL DEFAULT '0'
 ,  `wordid` integer  NOT NULL DEFAULT '0'
 ,  `ok` integer  NOT NULL DEFAULT '0'
 ,  `nok` integer  NOT NULL DEFAULT '0'
-,  PRIMARY KEY (`favouriteid`,`wordid`)
+,  PRIMARY KEY (`wordid`)
 );

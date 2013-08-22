@@ -36,6 +36,8 @@ var word_list = ["house",
                 "them","kayak","poikiloblast","oxter","sanforise","timoshenko","superallowance","reinduced","overtheorization","fifo","sinistrad","ambage","weighty","chrismatory","delimitation","chron","odontiasis","ophelia","gamekeeping","licetus","accusal","lienal","eunomus","whites","phrenetic","uncomputableness","objectivistic","depersonalised","induplicated","uninterchangeable","unabject","sedately","sniffer","brachycardia","foundling","diarchic","kindredship","artifact","dilate","prepurposed","legazpi","cloot","skipdent","vantage","alyssum","depreciated","compositeness","detrital","vetchling","nonpurchase","superconductivity","fireman","nasal","callipus","lasker","unfilched","lithophyte","revet","rewrite","mewar","pangolin","descension","pedanthood","ahasuerus","unrescinded","barretter","nga","biannual"
                 ];
 
+var specialword = "";
+var word_pdef = "helo";
 
 word_listpage = 0;
 word_listpage_size = 0;
@@ -132,7 +134,6 @@ $(document).ready(function() {
 		
 		var word = document.getElementById('word_search_box').value;
 		load_pdef(word);
-    	document.getElementById('');
     	return false;
 	});
 	
@@ -142,7 +143,15 @@ $(document).ready(function() {
 
 	$('#pdef_def').on('click' ,'.word_to_search_e', function() { 
 		
-		alert('tosearch'+$(this).attr('id'));
+		//alert('tosearch'+$(this).attr('id'));
+		special_word($(this).attr('id'));
+    	return false;
+	});
+	
+	$('#pdef_def').on('click' ,'.word_to_search_c', function() { 
+		
+		//alert('tosearch'+$(this).attr('id'));
+		special_word($(this).attr('id'));
     	return false;
 	});
 	

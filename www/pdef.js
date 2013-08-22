@@ -26,7 +26,11 @@ function toogle_sense(senseid,word){
 			tx.executeSql("SELECT synsetid  FROM favourites_senses WHERE synsetid = '"+senseid+"' AND wordid='"+wordid+"';", [], function(tx, res2) {
 	
 				if(res2.rows.length == 0){
-					tx.executeSql("INSERT INTO favourites ( wordid, ok , nok) SELECT * FROM (SELECT '"+wordid+"', '0', '0') AS tmp WHERE NOT EXISTS (SELECT wordid FROM favourites WHERE wordid = '"+wordid+"') LIMIT 1;");
+					
+					var d = new Date();
+					var n = d.getTime();
+					
+					tx.executeSql("INSERT INTO favourites ( time,wordid, ok , nok) SELECT * FROM (SELECT '"+n+"','"+wordid+"', '0', '0') AS tmp WHERE NOT EXISTS (SELECT wordid FROM favourites WHERE wordid = '"+wordid+"') LIMIT 1;");
 					tx.executeSql("insert into favourites_senses(wordid,synsetid) values  ('"+wordid+"', '"+senseid+"');");
 				
 				}else{
@@ -45,8 +49,38 @@ function toogle_sense(senseid,word){
 	
 }
 
+function special_word(word){
+	
+	if( specialword == word ){
+		
+		load_pdef(word);
+		return;
+	}
+	
+	specialword=word;
+	refresh_pdef(word_pdef);
+	
+}
+
+function format_definition(def){
+	
+	var words=def.split(" ");
+	
+	var result="";
+	
+	for(var i=0;i<words.length;i++){
+		
+		if(words[i]==specialword)
+			result+='<span class="word_to_search_e" id="'+words[i]+'">'+words[i]+"</span> ";
+		else
+			result+='<span class="word_to_search_c" id="'+words[i]+'">'+words[i]+"</span> ";
+	}
+	return result;
+}
+
 function refresh_pdef(word){
 
+	word_pdef = word;
 	/*var def  = '<li data-icon="check" data-theme="e"><a><span id="defline">+res.rows.item(i).definition+</span></a><a class="tick_sense" word="+word+" sense="+res.rows.item(i).synsetid+" >tick</a></li>';
     def += '<li data-icon="check" data-theme="d"><a><span id="defline">+res.rows.item(i).definition+</span></a><a class="tick_sense" word="+word+" sense="+res.rows.item(i).synsetid+" data-theme="d" data-icon="plus" >tick</a></li>';
 
@@ -103,9 +137,9 @@ function refresh_pdef(word){
 		   	        for(var i=0 ; i<res.rows.length ; i++){
 		   	        
 		   	           if( -1 != $.inArray(res.rows.item(i).synsetid, senses)){
-		   	   	    	   def += '<li data-icon="check" data-theme="e"><a><span id="defline">'+res.rows.item(i).definition+'</span></a><a class="tick_sense" word="'+word+'" sense="'+res.rows.item(i).synsetid+'" >tick</a></li>';
+		   	   	    	   def += '<li data-icon="check" data-theme="e"><a><span id="defline">'+format_definition(res.rows.item(i).definition)+'</span></a><a class="tick_sense" word="'+word+'" sense="'+res.rows.item(i).synsetid+'" >tick</a></li>';
 		   	   	       }else{
-		   	   	    	   def += '<li data-icon="check" data-theme="d"><a><span id="defline">'+res.rows.item(i).definition+'</span></a><a class="tick_sense" word="'+word+'" sense="'+res.rows.item(i).synsetid+'" data-theme="d" data-icon="plus" >tick</a></li>';
+		   	   	    	   def += '<li data-icon="check" data-theme="d"><a><span id="defline">'+format_definition(res.rows.item(i).definition)+'</span></a><a class="tick_sense" word="'+word+'" sense="'+res.rows.item(i).synsetid+'" data-theme="d" data-icon="plus" >tick</a></li>';
 		   	   	       }
 		   	   	       
 		   	   	    }
