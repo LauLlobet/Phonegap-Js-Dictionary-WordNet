@@ -27,7 +27,7 @@ function toogle_sense(senseid,word){
 	
 				if(res2.rows.length == 0){
 					tx.executeSql("INSERT INTO favourites ( wordid, ok , nok) SELECT * FROM (SELECT '"+wordid+"', '0', '0') AS tmp WHERE NOT EXISTS (SELECT wordid FROM favourites WHERE wordid = '"+wordid+"') LIMIT 1;");
-					tx.executeSql("insert into favourites_senses values  ('"+wordid+"', '"+senseid+"');");
+					tx.executeSql("insert into favourites_senses(wordid,synsetid) values  ('"+wordid+"', '"+senseid+"');");
 				
 				}else{
 					//ToDo: count en comptes de select per a millrar rendiment

@@ -18,6 +18,12 @@ function abc(n){
 }
 
 function refresh_pinit(){
+	
+	if( word_list.length == 0){
+
+		document.getElementById("word_list").innerHTML = 'add words by searching...' ;
+		return;
+	}
 	var offset = 1;
 	if( word_listpage == 0)
 		offset = 0;
@@ -50,6 +56,29 @@ function refresh_pinit(){
 
 
 
+function load_words(){
+	
+	if(db == ""){
+		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
+	}
+	
+	db.transaction(function(tx) {
+		word_list = [];
+		tx.executeSql("SELECT lemma  FROM words INNER JOIN favourites ON words.wordid=favourites.wordid ORDER BY favourites.favouriteid DESC;", [], function(tx, res1) {
+			
+			for(var i=0; i<res1.rows.length ; i++){
+				//alert("wordfound"+res1.rows.item(i).lemma);	
+				word_list.push(res1.rows.item(i).lemma);
+				if(i==0)
+					word_list.push(res1.rows.item(i).lemma); //marranada per sortir del pas
+			}
+			
+			load_pinit();
+			
+		});
+		
+	});
+}
 
 
 

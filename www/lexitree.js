@@ -48,26 +48,6 @@ function round(n){
 	return Math.ceil(n);
 }
 
-function load_words(){
-	
-	if(db == "")
-		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
-
-	
-	db.transaction(function(tx) {
-		word_list = [];
-		tx.executeSql("SELECT lemma  FROM words INNER JOIN favourites ON words.wordid=favourites.wordid;", [], function(tx, res1) {
-			
-			for(var i=0; i<res1.rows.length ; i++){
-				//alert("wordfound"+res1.rows.item(i).lemma);	
-				word_list.push(res1.rows.item(i).lemma);
-			    load_pinit();
-			}
-			
-		});
-		
-	});	
-}
 
 function init()
 {
@@ -86,16 +66,16 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     
     var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"})
-    //var db = window.sqlitePlugin.openDatabase({name: "baldsing"});;
-    
-	load_words();
+    $(document).delegate("#pinit", "pageshow", function() {
+        load_words();
+    });
+
+	//load_words();
 	init_test();
     alto = $(document).height();
-
-    load_pinit();
+    load_words();
+    //load_pinit();
 	load_grid();
-	
-	
 }
 
 
@@ -117,7 +97,6 @@ $('#index').live('pagebeforeshow',function(e,data){
 });
 
 */
-
 
 $(document).ready(function() {
 	

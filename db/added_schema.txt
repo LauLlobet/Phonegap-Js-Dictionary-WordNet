@@ -1,12 +1,14 @@
 CREATE TABLE `favourites_senses` (
-  `wordid` integer  NOT NULL DEFAULT '0'
+  `senseid`integer NOT NULL DEFAULT '0'
+,  `wordid` integer  NOT NULL DEFAULT '0'
 ,  `synsetid` integer  DEFAULT NULL
-,  PRIMARY KEY (`wordid`,`synsetid`)
+,  PRIMARY KEY (`senseid`,`wordid`,`synsetid`)
 );
 
-REATE TABLE `favourites` (
-  `wordid` integer  NOT NULL DEFAULT '0'
+CREATE TABLE `favourites` (
+   `favouriteid` integer  NOT NULL DEFAULT '0'
+,  `wordid` integer  NOT NULL DEFAULT '0'
 ,  `ok` integer  NOT NULL DEFAULT '0'
 ,  `nok` integer  NOT NULL DEFAULT '0'
-,  PRIMARY KEY (`wordid`)
-)
+,  PRIMARY KEY (`favouriteid`,`wordid`)
+);
