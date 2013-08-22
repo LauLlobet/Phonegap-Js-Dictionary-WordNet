@@ -46,13 +46,18 @@ Relase 0.33 DbPdef
 # lletres clickables
 # ticks de cada sense
 # tick automatic de tots els senses
+# max info DataBase : 
+
+( timestamp per senses , deleted senses , deleted timestamp ) // deleted wordid  
 
 
-Relase 0.34 DbLocal
+Relase 0.34 DbPtest
 ------------------------
-# dissenyar taules del propi usuari
-# funcions de persistencia de els cambis del propi usuari : afegir a preferits
-# idem : despres d'un test 
+# senses aleatoris per paraula
+# guardar resultats
+# taula per guardar el maxim d'info: (test id , grid snapshot id , test) (test id , test word , sc,s2,s3, lvl snapshot_corr, lvlsnapshot_done)
+
+
 
 +++ 0.4X Visual surrogates
 

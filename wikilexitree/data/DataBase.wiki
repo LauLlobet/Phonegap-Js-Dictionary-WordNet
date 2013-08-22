@@ -1,0 +1,55 @@
+﻿++ Data Base
+
+
+++Todo
+
+delete favourites
+
+renames favourite_senses senses
+
+fer de senses delete , nodelete amb timestamp
+
+create tables SENSECASE TEST GRID SENSESET
+
+grid random generator instances
+
+create save_grid()
+
+test random generator instances
+
+create save_test()
+
+create ans_sensecase()
+
+create get_calc_testresult()
+
+++Schema
+
+
+SENSES( id ,senseid , timestamp , deleted timestamp(0) ) 
+
+SENSECASE( sensecaseid , timestamp , senseid , testid , sense_trap1, sense_trap2 , senseans(senseid,st_1,st_2) ) 
+
+TEST(test id , grid snapshot id , timestamp start, timestamp end , up , down, percent)
+
+GRID(id , grid snapshot id,  selected/noselected, amount, y_lvl, x_serie, sensecases_set )
+
+SENSECASESET(id sensecases_set , sensecase_id )
+
+
+
+
+CREATE TABLE `favourites_senses` (
+  `senseid`integer NOT NULL DEFAULT '0'
+,  `wordid` integer  NOT NULL DEFAULT '0'
+,  `synsetid` integer  DEFAULT NULL
+,  PRIMARY KEY (`senseid`,`wordid`,`synsetid`)
+);
+
+CREATE TABLE `favourites` (
+   `time` integer  NOT NULL DEFAULT '0'
+,  `wordid` integer  NOT NULL DEFAULT '0'
+,  `ok` integer  NOT NULL DEFAULT '0'
+,  `nok` integer  NOT NULL DEFAULT '0'
+,  PRIMARY KEY (`wordid`)
+);
