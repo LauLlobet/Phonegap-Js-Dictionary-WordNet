@@ -30,10 +30,12 @@ function toogle_sense(senseid,word){
 					var d = new Date();
 					var n = d.getTime();
 					
+//					tx.executeSql("INSERT INTO favourites ( time,wordid, ok , nok) SELECT * FROM (SELECT '"+n+"','"+wordid+"', '0', '0') AS tmp WHERE NOT EXISTS (SELECT wordid FROM favourites WHERE wordid = '"+wordid+"') LIMIT 1;");
+//					tx.executeSql("insert into favourites_senses(wordid,synsetid,ctime) values  ('"+wordid+"', '"+senseid+", '"+n+"');");
+					
 					tx.executeSql("INSERT INTO favourites ( time,wordid, ok , nok) SELECT * FROM (SELECT '"+n+"','"+wordid+"', '0', '0') AS tmp WHERE NOT EXISTS (SELECT wordid FROM favourites WHERE wordid = '"+wordid+"') LIMIT 1;");
-					tx.executeSql("insert into favourites_senses(wordid,synsetid,ctime) values  ('"+wordid+"', '"+senseid+", '"+n+"');");
-
-
+					tx.executeSql("insert into favourites_senses(wordid,synsetid) values  ('"+wordid+"', '"+senseid+"');");
+				
 				
 				}else{
 					//ToDo: count en comptes de select per a millrar rendiment

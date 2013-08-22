@@ -14,3 +14,5 @@ CREATE TABLE `favourites` (
 ,  `nok` integer  NOT NULL DEFAULT '0'
 ,  PRIMARY KEY (`wordid`)
 );
+
+
