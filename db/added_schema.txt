@@ -1,8 +1,10 @@
 CREATE TABLE `favourites_senses` (
   `senseid`integer NOT NULL DEFAULT '0'
+,  `ctime` integer DEFAULT NULL
+,  `dtime` integer DEFAULT NULL
 ,  `wordid` integer  NOT NULL DEFAULT '0'
 ,  `synsetid` integer  DEFAULT NULL
-,  PRIMARY KEY (`senseid`,`wordid`,`synsetid`)
+,  PRIMARY KEY (`senseid`)
 );
 
 CREATE TABLE `favourites` (
