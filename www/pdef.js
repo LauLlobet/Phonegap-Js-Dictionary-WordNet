@@ -22,13 +22,13 @@ function toogle_sense(senseid,word){
 				
 		   wordid = res1.rows.item(0).wordid;
 		   
-			tx.executeSql("SELECT synsetid  FROM selected_senses WHERE synsetid = '"+senseid+"' AND wordid='"+wordid+"';", [], function(tx, res2) {
+			tx.executeSql("SELECT synsetid,ssenseid FROM selected_senses WHERE synsetid = '"+senseid+"' AND wordid='"+wordid+"' AND dtime IS NULL;", [], function(tx, res2) {
+				var d = new Date();
+				var n = d.getTime();
 				if(res2.rows.length == 0){
-					var d = new Date();
-					var n = d.getTime();
 					tx.executeSql("insert into selected_senses(wordid,synsetid,ctime) values  ('"+wordid+"', '"+senseid+"', '"+n+"');");
 				}else{
-					tx.executeSql("delete from selected_senses where synsetid='"+senseid+"' and wordid='"+wordid+"';");
+					tx.executeSql("UPDATE selected_senses SET dtime = "+n+" where ssenseid ='"+res2.rows.item(0).ssenseid+"' ;");
 				}
 			});
 		});
@@ -106,8 +106,7 @@ function refresh_pdef(word){
 				
 		   wordid = res1.rows.item(0).wordid;
 		
-		
-			tx.executeSql("SELECT synsetid  FROM selected_senses WHERE wordid = '"+wordid+"';", [], function(tx, res2) {
+			tx.executeSql("SELECT synsetid  FROM selected_senses WHERE wordid = '"+wordid+"' AND dtime IS NULL;", [], function(tx, res2) {
 	
 				senses = [];
 		        for(var i=0 ; i<res2.rows.length ; i++){

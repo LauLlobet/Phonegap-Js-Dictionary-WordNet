@@ -7,8 +7,9 @@ CREATE TABLE `selected_senses` (
 ,  PRIMARY KEY (`ssenseid`)
 );
 
+CREATE VIEW selected_words AS SELECT lemma, ctime,dtime,wordid,synsetid FROM selected_senses LEFT JOIN words s USING (wordid) 
+WHERE dtime IS NULL   GROUP BY lemma ORDER BY ctime DESC;
 
-CREATE VIEW selected_words AS SELECT lemma, ctime,dtime,wordid,synsetid FROM selected_senses LEFT JOIN words s USING (wordid) ORDER BY ctime DESC GROUP BY lemma;
 
 
 -----------------------------------------
@@ -18,6 +19,7 @@ senseid -> ssenseid i afegirlo a la view selected_words
 -----------------------------------------
 
 
+SELECT synsetid  FROM selected_senses WHERE wordid = '21635' AND ctime IS NULL;
 
 
 CREATE TABLE `favourites_senses` (

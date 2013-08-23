@@ -18,7 +18,8 @@ function abc(n){
 }
 
 function refresh_pinit(){
-	
+
+	var specialword = "";
 	if( word_list.length == 0){
 
 		document.getElementById("word_list").innerHTML = 'add words by searching...' ;
