@@ -1,15 +1,18 @@
 ﻿++ Data Base
 
+ReL0p34
 
 ++Todo
 
 delete favourites
 
-renames favourite_senses senses
+renames favourite_senses selected_senses
 
 fer de senses delete , nodelete amb timestamp
 
-create tables SENSECASE TEST GRID SENSESET
+insert previous sense
+
+create tables ANS_SENSE_CASE TEST GRID SENSE_SET
 
 grid random generator instances
 
@@ -26,15 +29,15 @@ create get_calc_testresult()
 ++Schema
 
 
-SENSES( id ,senseid , timestamp , deleted timestamp(0) ) 
+SELECTED_SENSES( id ,senseid , timestamp , deleted timestamp(0),previous_sense ) 
 
-SENSECASE( sensecaseid , timestamp , senseid , testid , sense_trap1, sense_trap2 , senseans(senseid,st_1,st_2) ) 
+ANS_SENSE_CASE( sensecaseid , timestamp , senseid , testid , sense_trap1, sense_trap2 , senseans(senseid,st_1,st_2) ) 
 
 TEST(test id , grid snapshot id , timestamp start, timestamp end , up , down, percent)
 
 GRID(id , grid snapshot id,  selected/noselected, amount, y_lvl, x_serie, sensecases_set )
 
-SENSECASESET(id sensecases_set , sensecase_id )
+SENSE_SET(id sensecases_set , sensecase_id )
 
 
 
@@ -53,3 +56,10 @@ CREATE TABLE `favourites` (
 ,  `nok` integer  NOT NULL DEFAULT '0'
 ,  PRIMARY KEY (`wordid`)
 );
+
+
+++ Export to server :
+
+
+1) servei web avoid sqlinjection
+2) export tables avoid sqlinjection -> afegir columna usuari a totes les taules i inserts

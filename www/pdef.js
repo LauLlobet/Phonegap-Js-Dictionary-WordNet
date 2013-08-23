@@ -14,7 +14,6 @@ function toogle_sense(senseid,word){
 	
 	db.transaction(function(tx) {
 		
-		
 		tx.executeSql("SELECT wordid  FROM words WHERE lemma = '"+word+"';", [], function(tx, res1) {
 			
 			if(res1.rows.length == 0){
@@ -22,30 +21,14 @@ function toogle_sense(senseid,word){
 			}
 				
 		   wordid = res1.rows.item(0).wordid;
-		   //alert("wordid found"+wordid);
+		   
 			tx.executeSql("SELECT synsetid  FROM favourites_senses WHERE synsetid = '"+senseid+"' AND wordid='"+wordid+"';", [], function(tx, res2) {
-	
 				if(res2.rows.length == 0){
-					
 					var d = new Date();
 					var n = d.getTime();
-					
-//					tx.executeSql("INSERT INTO favourites ( time,wordid, ok , nok) SELECT * FROM (SELECT '"+n+"','"+wordid+"', '0', '0') AS tmp WHERE NOT EXISTS (SELECT wordid FROM favourites WHERE wordid = '"+wordid+"') LIMIT 1;");
-//					tx.executeSql("insert into favourites_senses(wordid,synsetid,ctime) values  ('"+wordid+"', '"+senseid+", '"+n+"');");
-					
-					tx.executeSql("INSERT INTO favourites ( time,wordid, ok , nok) SELECT * FROM (SELECT '"+n+"','"+wordid+"', '0', '0') AS tmp WHERE NOT EXISTS (SELECT wordid FROM favourites WHERE wordid = '"+wordid+"') LIMIT 1;");
-					tx.executeSql("insert into favourites_senses(wordid,synsetid) values  ('"+wordid+"', '"+senseid+"');");
-				
-				
+					tx.executeSql("insert into favourites_senses(wordid,synsetid,ctime) values  ('"+wordid+"', '"+senseid+"', '"+n+"');");
 				}else{
-					//ToDo: count en comptes de select per a millrar rendiment
-					tx.executeSql("SELECT synsetid  FROM favourites_senses WHERE wordid='"+wordid+"';", [], function(tx, res3) {
-						if(res3.rows.length == 1){
-							tx.executeSql("delete from favourites where wordid='"+wordid+"';");
-						}
-					});
 					tx.executeSql("delete from favourites_senses where synsetid='"+senseid+"' and wordid='"+wordid+"';");
-					
 				}
 			});
 		});
