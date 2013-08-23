@@ -10,7 +10,9 @@ ReL0p34
 
 3 fer de senses delete , nodelete amb timestamp
 
-insert previous sense
+4 insert previous sense
+
+test origin push default
 
 create tables ANS_SENSE_CASE TEST GRID SENSE_SET
 
