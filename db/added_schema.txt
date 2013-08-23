@@ -1,19 +1,14 @@
-CREATE TABLE `favourites_senses` (
-  `senseid`integer NOT NULL DEFAULT '0'
+CREATE TABLE `selected_senses` (
+  `ssenseid`integer NOT NULL DEFAULT '0'
 ,  `ctime` integer DEFAULT NULL
 ,  `dtime` integer DEFAULT NULL
 ,  `wordid` integer  NOT NULL DEFAULT '0'
 ,  `synsetid` integer  DEFAULT NULL
-,  PRIMARY KEY (`senseid`)
+,  PRIMARY KEY (`ssenseid`)
 );
 
-CREATE TABLE `favourites` (
-   `time` integer  NOT NULL DEFAULT '0'
-,  `wordid` integer  NOT NULL DEFAULT '0'
-,  `ok` integer  NOT NULL DEFAULT '0'
-,  `nok` integer  NOT NULL DEFAULT '0'
-,  PRIMARY KEY (`wordid`)
-);
+
+CREATE VIEW selected_words AS SELECT lemma, ctime,dtime,wordid,synsetid FROM selected_senses LEFT JOIN words s USING (wordid) ORDER BY ctime DESC GROUP BY lemma;
 
 
 -----------------------------------------
@@ -22,39 +17,14 @@ senseid -> ssenseid i afegirlo a la view selected_words
 
 -----------------------------------------
 
-SELECT lemma  FROM words INNER JOIN favourites ON words.wordid=favourites.wordid ORDER BY favourites.time DESC;
-
-
-++POCA VOLTA
-===========
-CREATE VIEW selected_words AS SELECT lemma, ctime,dtime,wordid,synsetid FROM favourites_senses LEFT JOIN words s USING (wordid) ORDER BY ctime DESC GROUP BY lemma;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-MOLTA VOLTA
-============
-create view dict2 as SELECT DISTINCT synsetid,lemma,ctime,dtime,wordid from favourites_senses LEFT JOIN senses s USING (synsetid) LEFT JOIN words USING (wordid) ORDER BY ctime DESC;
-
-
-CREATE  VIEW dict AS SELECT * FROM words LEFT JOIN senses s USING (wordid) LEFT JOIN casedwords USING (wordid,casedwordid) LEFT JOIN synsets USING (synsetid) LEFT JOIN samplesets USING (synsetid);
-
-
-
-
-create view selected as select synsetid,lemma from favourites_senses LEFT JOIN dict USING (synsetid);
-
-SELECT lemma,pos,sensenum,synsetid,definition,sampleset  FROM dict WHERE lemma = 'gate' ORDER BY pos,sensenum;
-		        
-
+CREATE TABLE `favourites_senses` (
+  `senseid`integer NOT NULL DEFAULT '0'
+,  `ctime` integer DEFAULT NULL
+,  `dtime` integer DEFAULT NULL
+,  `wordid` integer  NOT NULL DEFAULT '0'
+,  `synsetid` integer  DEFAULT NULL
+,  PRIMARY KEY (`senseid`)
+);

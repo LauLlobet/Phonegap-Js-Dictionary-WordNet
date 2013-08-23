@@ -4,7 +4,7 @@ ReL0p34
 
 ++Todo
 
-delete favourites
+1 delete favourites
 
 renames favourite_senses selected_senses
 
@@ -29,17 +29,17 @@ create get_calc_testresult()
 ++Schema
 
 
-SELECTED_SENSES( id ,senseid , timestamp , deleted timestamp(0),previous_sense ) 
+SELECTED_SENSE( id ,ssenseid , timestamp , deleted timestamp(0),previous_sense ) 
 
-ANS_SENSE_CASE( sensecaseid , timestamp , senseid , testid , sense_trap1, sense_trap2 , senseans(senseid,st_1,st_2) ) 
+ANS_SENSE_CASES( sensecaseid , timestamp , senseid , testid , sense_trap1, sense_trap2 , senseans(senseid,st_1,st_2) ) 
 
-TEST(test id , grid snapshot id , timestamp start, timestamp end , up , down, percent)
+TESTS(test id , grid snapshot id , timestamp start, timestamp end , up , down, percent)
 
-GRID(id , grid snapshot id,  selected/noselected, amount, y_lvl, x_serie, sensecases_set )
+GRIDS(id , grid snapshot id,  selected/noselected, amount, y_lvl, x_serie, sensecases_set )
 
-SENSE_SET(id sensecases_set , sensecase_id )
+GRID_SENSE_CASE_SETS(id grid_sense_set , sensecase_id )
 
-
+SUBJECTS( subject_key, subject_id , ssenseid )
 
 
 CREATE TABLE `favourites_senses` (
