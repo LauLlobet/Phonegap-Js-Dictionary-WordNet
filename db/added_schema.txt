@@ -4,6 +4,7 @@ CREATE TABLE `selected_senses` (
 ,  `dtime` integer DEFAULT NULL
 ,  `wordid` integer  NOT NULL DEFAULT '0'
 ,  `synsetid` integer  DEFAULT NULL
+,  `previous_synsetid` integer DEFAULT NULL
 ,  PRIMARY KEY (`ssenseid`)
 );
 
@@ -20,6 +21,8 @@ senseid -> ssenseid i afegirlo a la view selected_words
 
 
 SELECT synsetid  FROM selected_senses WHERE wordid = '21635' AND ctime IS NULL;
+
+insert into selected_senses(wordid,synsetid,ctime) values  ('1313', '1212', '1030');
 
 
 CREATE TABLE `favourites_senses` (

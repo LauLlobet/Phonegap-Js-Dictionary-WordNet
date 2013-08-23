@@ -38,6 +38,9 @@ var word_list = ["house",
 
 var specialword = "";
 var word_pdef = "helo";
+var previous_synsetid = "pnull";
+
+var pdef_tick = 0;
 
 word_listpage = 0;
 word_listpage_size = 0;
@@ -122,8 +125,8 @@ $(document).ready(function() {
 	});
 	
 	$('#word_list').on('vclick','.word_pinit' , function() { 
-		 
-    	load_pdef($(this).attr('id'));
+		
+		load_pdef($(this).attr('id'));
     	return false;
 	});
 	
@@ -133,6 +136,7 @@ $(document).ready(function() {
 	$('#word_search').on('vclick' , function() { 
 		
 		var word = document.getElementById('word_search_box').value;
+		previous_synsetid = "pnull";
 		load_pdef(word);
     	return false;
 	});
@@ -140,6 +144,7 @@ $(document).ready(function() {
 	$('#word_search_pdef').on('vclick' , function() { 
 		
 		var word = document.getElementById('word_search_box_pdef').value;
+		previous_synsetid = "pnull";
 		load_pdef(word);
     	return false;
 	});
@@ -151,14 +156,15 @@ $(document).ready(function() {
 	$('#pdef_def').on('click' ,'.word_to_search_e', function() { 
 		
 		//alert('tosearch'+$(this).attr('id'));
-		special_word($(this).attr('id'));
+		//alert("wordtserc:"+$(this).attr('psid'));
+		special_word($(this).attr('id'),$(this).attr('psid'));
     	return false;
 	});
 	
 	$('#pdef_def').on('click' ,'.word_to_search_c', function() { 
 		
 		//alert('tosearch'+$(this).attr('id'));
-		special_word($(this).attr('id'));
+		special_word($(this).attr('id'),"pnull");
     	return false;
 	});
 	
