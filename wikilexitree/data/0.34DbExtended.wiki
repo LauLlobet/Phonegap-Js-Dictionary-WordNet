@@ -1,0 +1,33 @@
+﻿++ 0.*DONE *DONE 34Db Extended**
+
+*DONE c:1 delete favourites*
+
+*DONE c:2 renames favourite_senses selected_senses*
+
+*DONE c:3 fer de senses delete , nodelete amb timestamp*
+
+*DONE c:4 insert previous sense*
+
+*DONE c:5 test origin push default*
+
+- create commiter script
+
+falta mirar excepcio no hi han guions
+falta fer el mergebranch
+falta descafeinarlo per a publicarlo
+falta publicarlo amb la app restartwikidpad.wiki
+
+- create tables ANS_SENSE_CASE TEST GRID SENSE_SET
+
+- grid random generator instances
+
+- create save_grid()
+
+- test random generator instances
+
+- create save_test()
+
+- create ans_sensecase()
+
+- create get_calc_testresult()
+

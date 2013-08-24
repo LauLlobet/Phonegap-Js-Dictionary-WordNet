@@ -4,29 +4,35 @@ ReL0p34
 
 ++Todo
 
-1 delete favourites
+*DONE 1 delete favourites*
 
-2 renames favourite_senses selected_senses
+*DONE 2 renames favourite_senses selected_senses*
 
-3 fer de senses delete , nodelete amb timestamp
+*DONE 3 fer de senses delete , nodelete amb timestamp*
 
-4 insert previous sense
+*DONE 4 insert previous sense*
 
-test origin push default
+*DONE 5 test origin push default*
 
-create tables ANS_SENSE_CASE TEST GRID SENSE_SET
+- create commiter script
 
-grid random generator instances
+mirar excepcio no hi han guions
 
-create save_grid()
+- create tables ANS_SENSE_CASE TEST GRID SENSE_SET
 
-test random generator instances
+- grid random generator instances
 
-create save_test()
+- create save_grid()
 
-create ans_sensecase()
+- test random generator instances
 
-create get_calc_testresult()
+- create save_test()
+
+- create ans_sensecase()
+
+- create get_calc_testresult()
+
+
 
 
 ++EXTRA

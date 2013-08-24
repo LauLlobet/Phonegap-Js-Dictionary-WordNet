@@ -29,18 +29,20 @@ FuturesReleases
 
 DoneRelases
 
+AutomaticCommiter
 
 
 +++ 0.3X Data base 
 
 
 
-Relase 0.32 DbLocal
+
+Relase [0.32DbLocal]      
 ------------------------
 # base de dades en iphone
 
 
-Relase 0.33 DbPdef
+Relase [0.33DbPdef]
 ------------------------
 # pdef funcional ( no va gaire amb la versio 0.3 pero bueno )
 # lletres clickables
@@ -51,7 +53,7 @@ Relase 0.33 DbPdef
 ( timestamp per senses , deleted senses , deleted timestamp ) // deleted wordid  
 
 
-Relase 0.34 DbExtended
+Relase [0.34DbExtended]  <======(CURRENT)
 ------------------------
 # max info DataBase
 
@@ -68,7 +70,7 @@ Relase 0.34 DbExtended
 +++ 0.4X Visual surrogates
 
 
-Release 0.4 CssLoad
+Release [0.4CssLoad]
 ------------------------
 # transisions brusques i no brusques
 # que la db es carregui durant la pantalla d'inici
@@ -77,7 +79,7 @@ Release 0.4 CssLoad
 # idem iphone
 # velocitats click
 
-Release 0.4 CssAnim
+Release [0.4CssAnim]
 ------------------------
 # gifs animats surrogates starr, to-starr, dial up, dial down, dial css circular
 # botons de colors i mes fosocos surrogate
@@ -85,18 +87,18 @@ Release 0.4 CssAnim
 
 +++ 0.5X Controll
 
-Relase 0.51 CalcCalc
+Relase [0.51CalcCalc]
 ------------------
 # calcul distribucio pgrid level -> fixe
 # calcul distribucio pgrid envelliment -> gauss 
 # calcul % del test pres
 # navegacio paraula a paraula 
 
-Relase 0.52 CalcDb
+Relase [0.52CalcDb]
 -------------------
 # calcul de preguntes random segons pgrid i nivell 
 
-Relase 0.53 CalcForm
+Relase [0.53CalcForm]
 --------------------
 # afegir inflections.js
 # minuscules en search i humanizes
@@ -105,7 +107,7 @@ Relase 0.53 CalcForm
 
 +++ 0.6X Appearence
 
-Release 0.6 PicXulos
+Release [0.6PicXulos]
 ---------------------
 # dissenyar icones pdef
 # dissenyar dial
@@ -114,11 +116,11 @@ Release 0.6 PicXulos
 
 +++ 0.7X Tutorial
 
-Relase 0.71 TutEscrit
+Relase [0.71TutEscrit]
 ---------------------
 # dissenyar tutorial
 
-Relase 0.72 TutFet
+Relase [0.72TutFet]
 ---------------------
 # mode tutorial
 # css de tutorial , dialogs flotants
@@ -126,19 +128,19 @@ Relase 0.72 TutFet
 
 +++ 0.8X Challanges
 
-Relase 0.81 RetoSample
+Relase [0.81RetoSample]
 ---------------------
 # unlock sample questions in test
 
-Relase 0.81 RetoAntonim
+Relase [0.81RetoAntonim]
 ---------------------
 # unlock antonim
 
-Relase 0.81 RetoSimilar
+Relase [0.81RetoSimilar]
 ---------------------
 # unlock similar word
 
-Relase 0.84 RetoAppearence
+Relase [0.84RetoAppearence]
 ----------------------
 # check updates android i ios per futurs unlocks
 # icono visual que indiqui badge de unlocks , i potser punts aconseguits per a l escola
