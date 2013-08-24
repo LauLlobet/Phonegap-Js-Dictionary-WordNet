@@ -22,7 +22,7 @@ function refresh_pinit(){
 	var specialword = "";
 	if( word_list.length == 0){
 
-		document.getElementById("word_list").innerHTML = 'add words by searching...' ;
+		document.getElementById("word_list").innerHTML = 'HOLA PAPA add words by searching...' ;
 		return;
 	}
 	var offset = 1;

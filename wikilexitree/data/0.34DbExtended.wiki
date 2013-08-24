@@ -10,12 +10,16 @@
 
 *DONE c:5 test origin push default*
 
-- create commiter script
+*DONE c:6 create commiter script*
 
 falta mirar excepcio no hi han guions
 falta fer el mergebranch
 falta descafeinarlo per a publicarlo
 falta publicarlo amb la app restartwikidpad.wiki
+
+- ensenyar al papa el sistema
+
+# fer que la caixa de paraula sigui contrastada en el fons groc
 
 - create tables ANS_SENSE_CASE TEST GRID SENSE_SET
 
