@@ -67,6 +67,10 @@ CREATE TABLE `subject_sets` (
 
 
 
+CREATE VIEW selected_wordsXsenses AS SELECT lemma, ctime,dtime,wordid,synsetid,definition FROM selected_senses LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid)
+WHERE dtime IS NULL ORDER BY ctime DESC;
+
+
 -----------------------------------------
 
 - create tables ANS_SENSE_CASE TEST GRID SENSE_SETSELECTED_SENSE( id ,ssenseid , timestamp , deleted timestamp(0),previous_sense ) ANS_SENSE_CASES( sensecaseid , stime , etime , senseid , testid , sense_trap1, sense_trap2 , senseans(senseid,st_1,st_2) ) TESTS(test id , grid snapshot id , timestamp start, timestamp end , up , down, percent)GRIDS(id , grid snapshot id,  selected/noselected, amount, y_lvl, x_serie, sensecases_set )GRID_SENSE_CASE_SETS(id grid_sense_set , sensecase_id )SUBJECTS( subject_key, subject_id , ssenseid )

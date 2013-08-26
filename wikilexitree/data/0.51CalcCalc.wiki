@@ -1,0 +1,10 @@
+﻿++ 0.51Calc Calc
+
+# calcul distribucio pgrid level -> fixe
+# calcul distribucio pgrid envelliment -> gauss 
+# calcul % del test pres
+# com crear la llogica que decidira el pgrid
+    # op1 : volcar totes les words i senses i fer la criba amb js
+        
+    # op2 : obtenir estadistiques via sql , decidir mesures, selects
+        select by level, order by timestamp , group by timestamp ...

@@ -13,6 +13,32 @@ function level_grid(levels){
 
 }
 
+function load_wordsXsenses(){
+	
+	if(db == ""){
+		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
+	}
+	
+	db.transaction(function(tx) {
+		word_list = [];
+		tx.executeSql("select * from selected_wordsXsenses;", [], function(tx, res1) {
+			
+			for(var i=0; i<res1.rows.length ; i++){
+				//alert("wordfound"+res1.rows.item(i).lemma);	
+				//word_list.push(res1.rows.item(i).lemma);
+				//if(i==0)
+				//	word_list.push(res1.rows.item(i).lemma); //marranada per sortir del pas
+				alert(res1.rows.item(i).definition)
+			
+			}
+			
+			load_pinit();
+			
+		});
+		
+	});
+}
+
 function refresh_grid(){
 	
 	var line = '';
@@ -46,6 +72,7 @@ function refresh_grid(){
 function load_grid(){
 	
 	refresh_grid();
+	load_wordsXsenses();
 	
 	$(document).ready(function() {	
 		$('#grid').on('vclick','.select_all_lvl'+''+'' , function() { 
