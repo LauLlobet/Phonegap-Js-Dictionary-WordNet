@@ -49,6 +49,7 @@ var big = "";
 if(screen.width > 330)
 	big="Big";
 
+
 function round(n){
 	return Math.ceil(n);
 }
@@ -71,16 +72,22 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     
     var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"})
-    $(document).delegate("#pinit", "pageshow", function() {
-        load_words();
-    });
+	JS.require('JS.Set','JS.Comparable', function(Set,Comparable) {
 
-	//load_words();
-	init_test();
-    alto = $(document).height();
-    load_words();
-    //load_pinit();
-	load_grid();
+		//alert("lib loaded");
+		var evensUnderTen = new Set([2,4,6,8]);
+	    $(document).delegate("#pinit", "pageshow", function() {
+	        load_words();
+	    });
+
+		//load_words();
+		init_test();
+	    alto = $(document).height();
+	    load_words();
+	    //load_pinit();
+		load_grid();
+		
+	});
 }
 
 

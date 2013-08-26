@@ -8,3 +8,4 @@
         
     # op2 : obtenir estadistiques via sql , decidir mesures, selects
         select by level, order by timestamp , group by timestamp ...
+# evitar que es pregunti una definicio de lift esperant lift i que una de les respostes sigui elevator ... el usr clicka elevator estant be i es puntua malament

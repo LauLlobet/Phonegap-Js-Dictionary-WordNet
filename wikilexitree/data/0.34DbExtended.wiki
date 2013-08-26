@@ -23,12 +23,25 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:8 create tables ANS_SENSE_CASE TEST GRID SENSE_SET*
 
+*DONE c:9 crear view selected_wordsXsenses i select a load_pgrid()*
 
-- crear view selected_wordsXsenses i select a load_pgrid()
+- instalar llibreria sets 
 
+- crear objecte sense()
+
+- carregar objecte senses en un set
+
+- randomitzar ordre del set
+
+- surrogate distribute_grid
+    li entra el set carregat
+    contindra randomized set anterior commit
+    retornara objecte grid que sera un array de sets de wordsXsenses amb atts:
+        x=rand y=rand setsize=1 old=rand=(1-7)
+        
 - [grid random generator instances a partir de deu preguntes]
-# distribute_pgrid(grid,senses) x=rand y=rand setsize=1 old=rand=(1-7)
-# grid es mostra
+    es mostrara el set en el grid
+    es podran seleccionar elements del grid, amb toogle 
 
 - [grid es guarda snapshot a la db]
 
