@@ -19,30 +19,43 @@ function load_wordsXsenses(){
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
 	}
 	
+	//wordsxsenses = new Set();
+	//var oo = new Set([0,1,2]);
 	db.transaction(function(tx) {
-		word_list = [];
-		tx.executeSql("select * from selected_wordsXsenses;", [], function(tx, res1) {
+		
+		JS.require('JS.Set','JS.Comparable', function(Set,Comparable) {
+
+			wordsxsenses = new Set([]);
 			
-			for(var i=0; i<res1.rows.length ; i++){
-				//alert("wordfound"+res1.rows.item(i).lemma);	
-				//word_list.push(res1.rows.item(i).lemma);
-				//if(i==0)
-				//	word_list.push(res1.rows.item(i).lemma); //marranada per sortir del pas
-				alert(res1.rows.item(i).definition)
-			
-			}
-			
-			load_pinit();
+			word_list = [];
+			tx.executeSql("select * from selected_wordsXsenses;", [], function(tx, res1) {
+				
+				for(var i=0; i<res1.rows.length ; i++){
+					wordsxsenses.add(res1.rows.item(i));
+				}
+				
+
+				refresh_grid();
+		
+			});
 			
 		});
 		
+
+
 	});
 }
 
 function refresh_grid(){
-	
 	var line = '';
 	var theme = 'notheme';
+	
+	///commit
+	JS.require('JS.Set','JS.Comparable', function(Set,Comparable) {
+		alert("commitOKpk->"+wordsxsenses.toArray()[0].definition);
+	});
+	///commit
+	
 	for(var i=0; i<5; i++){
 		var ls = grid.level_size[i];
 		var line = line + '<div class="grid_1" ><span id="pgridLineBtn" ><button data-iconpos="notext"  class="select_all_lvl" id="'+i+'" data-mini="false"  data-icon="arrow-r" > </span> </div>';
@@ -71,8 +84,8 @@ function refresh_grid(){
 }
 function load_grid(){
 	
-	refresh_grid();
-	load_wordsXsenses();
+
+	load_wordsXsenses();// is included 	refresh_grid();
 	
 	$(document).ready(function() {	
 		$('#grid').on('vclick','.select_all_lvl'+''+'' , function() { 
@@ -94,7 +107,7 @@ function load_grid(){
 	        for(var i=0; i<buttons[line].length; i++){
 	        	buttons[line][i]=onoff;
 	        }
-	        refresh_grid();      
+	        load_wordsXsenses();      
 			return false;
 		});
 		
@@ -106,7 +119,7 @@ function load_grid(){
 			else
 				buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
-			refresh_grid();
+			load_wordsXsenses();
 			return false;
 		});
 		
@@ -118,7 +131,7 @@ function load_grid(){
 			else
 				buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
-			refresh_grid();
+			load_wordsXsenses();
 			return false;
 		});
 		
@@ -131,7 +144,7 @@ function load_grid(){
 			else
 				buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
-			refresh_grid();
+			load_wordsXsenses();
 			return false;
 		});
 		
@@ -143,7 +156,7 @@ function load_grid(){
 			else
 				buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
-			refresh_grid();
+			load_wordsXsenses();
 			return false;
 		});
 		

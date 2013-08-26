@@ -17,24 +17,7 @@ var buttons = [['0','1','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0',
 
 var word_list = ["house",
                  "want",
-                 "nonbenevolence",
-                 "nonfanatical","tinplate","presupplication","displaced","sorrier","loculus","centibar","convinced","upswell","prober","punty","qualifyingly","elector","graves","kipnis","liddie","undetained","zaragoza",
-                
-                 "presa","cyanic","eyetooth","sandman","inofficiousness",
-                 "pinner","plastometric","bargelli","browning","constrainingly","testament","figurate","gelatinizer","glutting",
-                "keeley","kneel","lithically","ludhiana",
-                "beeves",
-                
-                "prefabricate","pussy","diatomaceous","finialed","unenlivening","unrefunding","recapitulating","veritas","crushingly","saltier","sorry","stingy","gettable",
-                "judicialness","meconium","snatchable","unweeping","recalculate",
-                "unfugitive",
-                
-                "hidalgism","blotchier","durion","toluca","wurst","intellectualization","natal","carthage","brattishing","wright","unlivableness","pulverising","gracility","ecthlipsis","silliness","overfold","tagus",
-                
-                "impinged",
-                
-                "them","kayak","poikiloblast","oxter","sanforise","timoshenko","superallowance","reinduced","overtheorization","fifo","sinistrad","ambage","weighty","chrismatory","delimitation","chron","odontiasis","ophelia","gamekeeping","licetus","accusal","lienal","eunomus","whites","phrenetic","uncomputableness","objectivistic","depersonalised","induplicated","uninterchangeable","unabject","sedately","sniffer","brachycardia","foundling","diarchic","kindredship","artifact","dilate","prepurposed","legazpi","cloot","skipdent","vantage","alyssum","depreciated","compositeness","detrital","vetchling","nonpurchase","superconductivity","fireman","nasal","callipus","lasker","unfilched","lithophyte","revet","rewrite","mewar","pangolin","descension","pedanthood","ahasuerus","unrescinded","barretter","nga","biannual"
-                ];
+                 "nonbenevolence",];
 
 var specialword = "";
 var word_pdef = "helo";
@@ -44,6 +27,9 @@ var pdef_tick = 0;
 
 word_listpage = 0;
 word_listpage_size = 0;
+
+var wordsxsenses = "";
+
 
 var big = "";
 if(screen.width > 330)
@@ -74,8 +60,8 @@ function onDeviceReady() {
     var db = window.sqlitePlugin.openDatabase({name: "new_lexitree"})
 	JS.require('JS.Set','JS.Comparable', function(Set,Comparable) {
 
-		//alert("lib loaded");
-		var evensUnderTen = new Set([2,4,6,8]);
+		
+		//alert("lib loaded"+ evensUnderTen.get(1));
 	    $(document).delegate("#pinit", "pageshow", function() {
 	        load_words();
 	    });
@@ -84,7 +70,6 @@ function onDeviceReady() {
 		init_test();
 	    alto = $(document).height();
 	    load_words();
-	    //load_pinit();
 		load_grid();
 		
 	});

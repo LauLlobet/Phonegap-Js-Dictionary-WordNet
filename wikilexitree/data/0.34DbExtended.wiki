@@ -25,11 +25,9 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:9 crear view selected_wordsXsenses i select a load_pgrid()*
 
-- instalar llibreria sets 
+*DONE c:10 instalar llibreria sets *
 
-- crear objecte sense()
-
-- carregar objecte senses en un set
+- carregar objecte senses en un set accesible desde altres funcions
 
 - randomitzar ordre del set
 
