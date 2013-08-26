@@ -2,10 +2,12 @@ CREATE TABLE `selected_senses` (
   `ssenseid`integer NOT NULL DEFAULT '0'
 ,  `ctime` integer DEFAULT NULL
 ,  `dtime` integer DEFAULT NULL
+,  `correct` integer DEFAULT NULL
+,  `incorrect` integer DEFAULT NULL
 ,  `wordid` integer  NOT NULL DEFAULT '0'
 ,  `synsetid` integer  DEFAULT NULL
 ,  `previous_synsetid` integer DEFAULT NULL
-,  PRIMARY KEY (`ssenseid`)
+,  PRIMARY KEY (`ssenseid`,`wordid`)
 );
 
 CREATE VIEW selected_words AS SELECT lemma, ctime,dtime,wordid,synsetid FROM selected_senses LEFT JOIN words s USING (wordid) 
@@ -16,32 +18,34 @@ CREATE TABLE `ans_sense_cases` (
 ,  `stime` integer DEFAULT NULL
 ,  `etime` integer DEFAULT NULL
 ,  `ssenseid` integer  DEFAULT NULL
+,  `wordid` integer  NOT NULL DEFAULT '0'
 ,  `testid` integer  DEFAULT NULL
-,  `trap1ssid` integer  DEFAULT NULL
-,  `trap2ssid` integer  DEFAULT NULLL
-,  `ansssid` integer  DEFAULT NULL
+,  `trap1id` integer  DEFAULT NULL
+,  `trap2id` integer  DEFAULT NULLL
+,  `anssid` integer  DEFAULT NULL
+,  `type`  varchar(30) DEFAULT NULL
 ,  PRIMARY KEY (`sensecaseid`)
 );
+
 
 CREATE TABLE `tests` (
   `testid` integer NOT NULL DEFAULT '0'
 ,  `ctime` integer DEFAULT NULL
 ,  `dtime` integer DEFAULT NULL
-,  `wordid` integer  NOT NULL DEFAULT '0'
-,  `synsetid` integer  DEFAULT NULL
-,  `previous_synsetid` integer DEFAULT NULL
 ,  PRIMARY KEY (`testid`)
 );
 
 CREATE TABLE `grid` (
   `id`integer NOT NULL DEFAULT '0'
-, `gridid` integer NOT NULL DEFAULT '0'
+, `testid` integer NOT NULL DEFAULT '0'
 ,  `selected` integer DEFAULT NULL
 ,  `y_lvl` integer DEFAULT NULL
 ,  `x_serie` integer DEFAULT NULL
 ,  `sensecasesetid` integer DEFAULT NULL
-,  PRIMARY KEY (`id`,`gridid`)
+,  PRIMARY KEY (`id`,`testid`)
 );
+
+
 
 CREATE TABLE `grid_sense_case_sets` (
   `id` integer NOT NULL DEFAULT '0'

@@ -1,0 +1,31 @@
+﻿++ Altres Menus
+
+PomodoroList
+
+++ Resolucio pantalla
+480 800 android ---> 315x488
+320 480 iphone
+
+desactivar testing al publicar en android
+https://github.com/sainttex/PhoneGap-Android-Native-AdMob
+
+++ EstrategiaComercial
+
+EstrategiaComercial
+
+IdeesFutures
+
+
+++ Disseny
+
+DificultatsTrobades
+
+FuturesReleases
+
+++ Releases
+
+DoneRelases
+
+AutomaticCommiter
+
+

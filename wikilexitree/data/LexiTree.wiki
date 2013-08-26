@@ -1,69 +1,21 @@
 ﻿++ Lexi Tree
 
-PomodoroList
+AltresMenus
 
-++ Resolucio pantalla
-480 800 android ---> 315x488
-320 480 iphone
+++TODO
 
-desactivar testing al publicar en android
-https://github.com/sainttex/PhoneGap-Android-Native-AdMob
+ToDo
 
-++ EstrategiaComercial
-
-EstrategiaComercial
-
-IdeesFutures
-
-
-++ Disseny
-
-DificultatsTrobades
-
-
-
-
-FuturesReleases
 
 ++ Releases
 
 DoneRelases
 
-AutomaticCommiter
-
-
 +++ 0.3X Data base 
-
-
-
-
-Relase [0.32DbLocal]      
-------------------------
-# base de dades en iphone
-
-
-Relase [0.33DbPdef]
-------------------------
-# pdef funcional ( no va gaire amb la versio 0.3 pero bueno )
-# lletres clickables
-# ticks de cada sense
-# tick automatic de tots els senses
-
-
-( timestamp per senses , deleted senses , deleted timestamp ) // deleted wordid  
-
 
 Relase [0.34DbExtended]  <======(CURRENT)
 ------------------------
-# max info DataBase
-
-
-
-
--------------
-# senses aleatoris per paraula
-# guardar resultats
-# taula per guardar el maxim d'info: (test id , grid snapshot id , test) (test id , test word , sc,s2,s3, lvl snapshot_corr, lvlsnapshot_done)
+# mes info DataBase
 
 
 

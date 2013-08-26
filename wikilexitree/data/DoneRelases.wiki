@@ -2,6 +2,16 @@
 
 
 
+Relase [0.33DbPdef]
+------------------------
+# pdef funcional ( no va gaire amb la versio 0.3 pero bueno )
+# lletres clickables
+# ticks de cada sense
+# tick automatic de tots els senses
+
+Relase [0.32DbLocal]      
+------------------------
+# base de dades en iphone
 
 Release 0.31 DbConnect
 -----------------------

@@ -1,0 +1,10 @@
+﻿++ To Do
+
+
+bug , dps de paraula no en el diccionari , la seleccio de la seguent no es fa visual tot i ser efectiva
+
+back button a pdef ha de portar a carregar la definicio anterior cuan s'aperti
+
+separadors verb adjectiu a pdef
+
+mirar si els add load_grid document ready triggers 2..n times events

@@ -27,11 +27,20 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:10 instalar llibreria sets *
 
-- carregar objecte senses en un set accesible desde altres funcions
+*DONE c:11 carregar objecte senses en un set accesible desde altres funcions*
 
-- randomitzar ordre del set
+- taules pensades 1 per a la persistencia del test i la grid
+# s'ha eliminat camps que no es corresponien
+
+- taules pensades 2 per a la persistencia del test i la grid
+
+
+- surrogate del ordre del set
+random level
+random old
 
 - surrogate distribute_grid
+    PgridUsage
     li entra el set carregat
     contindra randomized set anterior commit
     retornara objecte grid que sera un array de sets de wordsXsenses amb atts:
