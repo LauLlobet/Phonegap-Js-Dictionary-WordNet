@@ -1,0 +1,6 @@
+﻿++ 0.53Calc Form
+
+- afegir inflections.js
+- minuscules en search i humanizes
+- crear preguntes a partir de varies definicions i tenint en compte si son noms o verbs
+- crear en java la taula WORDS_IN_SENSES amb inflections .js

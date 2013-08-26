@@ -17,13 +17,13 @@ falta fer el mergebranch
 falta descafeinarlo per a publicarlo
 falta publicarlo amb la app restartwikidpad.wiki
 
-- ensenyar al papa el sistema
+*DONE c:7 ensenyar al papa el sistema*
 
 # fer que la caixa de paraula sigui contrastada en el fons groc
 
 - create tables ANS_SENSE_CASE TEST GRID SENSE_SET
 
-- grid random generator instances
+- grid random generator instances a partir de deu preguntes
 
 - create save_grid()
 
