@@ -9,7 +9,9 @@ var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
                        new wordset('job','work',['sentence','escape','pain'])
 					] , 30 ) ;
 
-var grid = new level_grid([65,5,4,0,24]);
+var grid = new level_grid([56,5,4,0,24]);
+var senses_grid;
+
 var alto =120;
 
 var buttons = [['0','1','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];

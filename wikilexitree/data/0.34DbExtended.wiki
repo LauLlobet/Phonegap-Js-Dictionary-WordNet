@@ -60,9 +60,9 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:20 crear sorted sets de cada level segons nivell*
 
-- (Demo2Learn) resquebrajar sets lvl_case_id per level : com funciona forEachSlice
+*DONE c:21 (Demo2Learn) resquebrajar sets lvl_case_id per level : com funciona forEachSlice*
 
-- resquebrajar sets lvl_case_id per level
+- resquebrajar sets al 100% fet, read del grid OK
 
 - crear fragmentador per sets de N -> no clustering :( 
 

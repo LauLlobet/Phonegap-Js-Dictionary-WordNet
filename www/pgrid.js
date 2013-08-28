@@ -1,10 +1,10 @@
 
 function level_grid(levels){
 	
-	this.size = 5;
+	this.size = 4;
 	var max = Math.max.apply( Math, levels );
-	if( max > 35)
-		this.size = 10;
+	if( max > 28)
+		this.size = 8;
 	
 	// 10 o 5 , si el maxim es 
 	this.level_size = [round(levels[0]/this.size),round(levels[1]/this.size),round(levels[2]/this.size),round(levels[3]/this.size),round(levels[4]/this.size)];
@@ -105,33 +105,25 @@ function refresh_grid(){
 		var lvl5 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 5 }));
 		
 		
-		/*lvl2.forEach(function(x) {
-		    alert("DbgOk->"+x.row.lemma);
-		});
-		*/
-		var senses_grid = [ [],[],[],[],[] ];
+		senses_grid = [ [],[],[],[],[] ];
 		
-	   /* lvl1.forEachCons(2, function(list) {
+		lvl1.forEachSlice(4, function(list) {
 		    senses_grid[0].push(list);
-		});*/
-		
-		var i = 0;
-		lvl2.forEachSlice(2, function(list) {
+		});
+		lvl2.forEachSlice(4, function(list) {
 		    senses_grid[1].push(list);
-			
-		    var tmpset2 = new Set(list); 
-			
-			tmpset2.forEach(function(x) {
-			    alert(i+"0->"+x.row.lemma);
-			});
-			i++;
+		});
+		lvl3.forEachSlice(4, function(list) {
+		    senses_grid[2].push(list);
+		});
+		lvl4.forEachSlice(4, function(list) {
+		    senses_grid[3].push(list);
+		});
+		lvl5.forEachSlice(4, function(list) {
+		    senses_grid[4].push(list);
 		});
 		
-		var tmpset = new Set( senses_grid[1][1] ); 
-		
-		tmpset.forEach(function(x) {
-		    alert("1_0->"+x.row.lemma);
-		});
+		grid = new level_grid([lvl1.count(),lvl2.count(),lvl3.count(),lvl4.count(),lvl5.count()]);
 		
 	//}	
 	});
