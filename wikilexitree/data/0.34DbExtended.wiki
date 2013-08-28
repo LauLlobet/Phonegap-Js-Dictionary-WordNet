@@ -40,7 +40,9 @@ falta publicarlo amb la app restartwikidpad.wiki
 *DONE c:14 taules pensades 2 WORKING per a la persistencia del test i la grid*
     # carregar old schema a old_added_schema.txt
 
-- simbolic links habien petat !!! arreglat , simbolic links relatius ara
+*DONE c:15 simbolic links habien petat !!! arreglat , simbolic links relatius ara*
+
+- taules pensades 3 WORKING 100% per a la persistencia del test i la grid
 
 - end
 

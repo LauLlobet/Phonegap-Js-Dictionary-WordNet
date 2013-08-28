@@ -38,7 +38,7 @@ function toogle_sense(senseid,word){
 				var n = d.getTime();
 				if(res2.rows.length == 0){
 					if(previous_synsetid != "pnull"){
-						toast("chained!");
+						toast("chainedQQ!");
 						tx.executeSql("insert into selected_senses(wordid,synsetid,ctime,previous_synsetid) values  ('"+wordid+"', '"+senseid+"', '"+n+"', '"+previous_synsetid+"');");
 					}else{
 						toast("unchained!");
