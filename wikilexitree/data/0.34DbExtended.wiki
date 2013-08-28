@@ -29,11 +29,13 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:11 carregar objecte senses en un set accesible desde altres funcions*
 
-- taules pensades 1 per a la persistencia del test i la grid
+*DONE c:12 taules pensades 1 per a la persistencia del test i la grid*
 # s'ha eliminat camps que no es corresponien
+# trap1|2id ja no son ssenseids per permetre altres tipus
 
 - taules pensades 2 per a la persistencia del test i la grid
-
+#hi haura redundancia i posibles mals entesos dels selected del grid en les sensetestcase
+#s'eliminen els test_sets 
 
 - surrogate del ordre del set
 random level

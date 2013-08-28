@@ -1,3 +1,12 @@
+
+drop table `selected_senses`;
+drop table `ans_sense_cases`;
+drop table `test`;
+drop table `subjects`;
+drop table `subject_sets`;
+drop view  selected_wordsXsenses;
+drop view  selected_words;
+
 CREATE TABLE `selected_senses` (
   `ssenseid`integer NOT NULL DEFAULT '0'
 ,  `ctime` integer DEFAULT NULL
@@ -10,8 +19,6 @@ CREATE TABLE `selected_senses` (
 ,  PRIMARY KEY (`ssenseid`,`wordid`)
 );
 
-CREATE VIEW selected_words AS SELECT lemma, ctime,dtime,wordid,synsetid FROM selected_senses LEFT JOIN words s USING (wordid) 
-WHERE dtime IS NULL   GROUP BY lemma ORDER BY ctime DESC;
 
 CREATE TABLE `ans_sense_cases` (
   `sensecaseid`integer NOT NULL DEFAULT '0'
@@ -23,36 +30,20 @@ CREATE TABLE `ans_sense_cases` (
 ,  `trap1id` integer  DEFAULT NULL
 ,  `trap2id` integer  DEFAULT NULLL
 ,  `anssid` integer  DEFAULT NULL
-,  `type`  varchar(30) DEFAULT NULL
-,  PRIMARY KEY (`sensecaseid`)
-);
-
-
-CREATE TABLE `tests` (
-  `testid` integer NOT NULL DEFAULT '0'
-,  `ctime` integer DEFAULT NULL
-,  `dtime` integer DEFAULT NULL
-,  PRIMARY KEY (`testid`)
-);
-
-CREATE TABLE `grid` (
-  `id`integer NOT NULL DEFAULT '0'
-, `testid` integer NOT NULL DEFAULT '0'
+,  `anstype`  varchar(30) DEFAULT NULL
+,  `testid`integer NOT NULL DEFAULT '0'
 ,  `selected` integer DEFAULT NULL
 ,  `y_lvl` integer DEFAULT NULL
 ,  `x_serie` integer DEFAULT NULL
-,  `sensecasesetid` integer DEFAULT NULL
-,  PRIMARY KEY (`id`,`testid`)
+,  PRIMARY KEY (`sensecaseid`)
 );
 
-
-
-CREATE TABLE `grid_sense_case_sets` (
-  `id` integer NOT NULL DEFAULT '0'
-, `sensecasesetid` integer NOT NULL DEFAULT '0'
-,  PRIMARY KEY (`id`,`sensecasesetid`)
+CREATE TABLE `test` (
+  `testid`integer NOT NULL DEFAULT '0'
+,  `stime` integer DEFAULT NULL
+,  `etime` integer DEFAULT NULL
+,  PRIMARY KEY (`gridtestid`)
 );
-
 
 CREATE TABLE `subjects` (
   `subject_id` integer NOT NULL DEFAULT '0'
@@ -69,6 +60,9 @@ CREATE TABLE `subject_sets` (
 ,  PRIMARY KEY (`subject_id`,`ssenseid `)
 );
 
+
+CREATE VIEW selected_words AS SELECT lemma, ctime,dtime,wordid,synsetid FROM selected_senses LEFT JOIN words s USING (wordid) 
+WHERE dtime IS NULL   GROUP BY lemma ORDER BY ctime DESC;
 
 
 CREATE VIEW selected_wordsXsenses AS SELECT lemma, ctime,dtime,wordid,synsetid,definition FROM selected_senses LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid)
