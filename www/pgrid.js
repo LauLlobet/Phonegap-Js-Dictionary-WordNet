@@ -23,7 +23,7 @@ function load_wordsXsenses(){
 	//var oo = new Set([0,1,2]);
 	db.transaction(function(tx) {
 		
-		JS.require('JS.Set','JS.Comparable','JS.Class', function(Set,Comparable,Class) {
+		JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 
 			var SenseCase = new Class({
 				include: Comparable,
@@ -51,7 +51,7 @@ function load_wordsXsenses(){
 			});
 			
 			
-			wordsxsenses = new Set([]);
+			wordsxsenses = new SortedSet([]);
 			
 			word_list = [];
 			tx.executeSql("select * from selected_wordsXsenses;", [], function(tx, res1) {
@@ -105,11 +105,34 @@ function refresh_grid(){
 		var lvl5 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 5 }));
 		
 		
-		lvl2.forEach(function(x) {
+		/*lvl2.forEach(function(x) {
 		    alert("DbgOk->"+x.row.lemma);
 		});
+		*/
+		var senses_grid = [ [],[],[],[],[] ];
 		
-
+	   /* lvl1.forEachCons(2, function(list) {
+		    senses_grid[0].push(list);
+		});*/
+		
+		var i = 0;
+		lvl2.forEachSlice(2, function(list) {
+		    senses_grid[1].push(list);
+			
+		    var tmpset2 = new Set(list); 
+			
+			tmpset2.forEach(function(x) {
+			    alert(i+"0->"+x.row.lemma);
+			});
+			i++;
+		});
+		
+		var tmpset = new Set( senses_grid[1][1] ); 
+		
+		tmpset.forEach(function(x) {
+		    alert("1_0->"+x.row.lemma);
+		});
+		
 	//}	
 	});
 	///commit
