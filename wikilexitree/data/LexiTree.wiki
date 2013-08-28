@@ -30,31 +30,24 @@ Release [0.4CssLoad]
 # imatge personalitzada surrogate android
 # idem iphone
 # velocitats click
+# bug , dps de paraula no en el diccionari , la seleccio de la seguent no es fa visual tot i ser efectiva
+# back button a pdef ha de portar a carregar la definicio anterior cuan s'aperti
+# mirar si els add load_grid document ready triggers 2..n times events
 
 Release [0.4CssAnim]
 ------------------------
 # gifs animats surrogates starr, to-starr, dial up, dial down, dial css circular
-# botons de colors i mes fosocos surrogate
+# botons de colors i mes fosocos pgrid surrogate
 
 
 +++ 0.5X Controll
-
-Relase [0.51CalcCalc]
-------------------
-# calcul distribucio pgrid level -> fixe
-# calcul distribucio pgrid envelliment -> gauss 
-# calcul % del test pres
-# navegacio paraula a paraula 
-
-Relase [0.52CalcDb]
--------------------
-# calcul de preguntes random segons pgrid i nivell 
 
 Relase [0.53CalcForm]
 --------------------
 # afegir inflections.js
 # minuscules en search i humanizes
-# crear preguntes a partir de varies definicions i tenint en compte si son noms o verbs
+# crear preguntes a partir de varies definicions i tenint en compte si son noms o verbs ???
+# separar noms i verbls a la pdef
 
 
 +++ 0.6X Appearence
@@ -66,33 +59,25 @@ Release [0.6PicXulos]
 # dissenyar estrelleta 
 # dissenyar estrelleta brillant
 
-+++ 0.7X Tutorial
++++ 0.7X Groups
 
-Relase [0.71TutEscrit]
----------------------
-# dissenyar tutorial
+Relase [0.71GroupsIn]
 
-Relase [0.72TutFet]
----------------------
-# mode tutorial
-# css de tutorial , dialogs flotants
+Relase [0.71GroupsNet]
 
 
 +++ 0.8X Challanges
 
-Relase [0.81RetoSample]
+Relase [0.81RetoScreen]
 ---------------------
-# unlock sample questions in test
+UlnLocks
 
-Relase [0.81RetoAntonim]
+
+Relase [0.81RetoMap]
 ---------------------
-# unlock antonim
+UlnLocks
 
-Relase [0.81RetoSimilar]
----------------------
-# unlock similar word
-
-Relase [0.84RetoAppearence]
+Relase [0.84RetoUpdate]
 ----------------------
 # check updates android i ios per futurs unlocks
 # icono visual que indiqui badge de unlocks , i potser punts aconseguits per a l escola

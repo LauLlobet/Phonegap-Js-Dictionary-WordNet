@@ -30,45 +30,44 @@ falta publicarlo amb la app restartwikidpad.wiki
 *DONE c:11 carregar objecte senses en un set accesible desde altres funcions*
 
 *DONE c:12 taules pensades 1 per a la persistencia del test i la grid*
-# s'ha eliminat camps que no es corresponien
-# trap1|2id ja no son ssenseids per permetre altres tipus
+    # s'ha eliminat camps que no es corresponien
+    # trap1|2id ja no son ssenseids per permetre altres tipus
 
-- taules pensades 2 per a la persistencia del test i la grid
-#hi haura redundancia i posibles mals entesos dels selected del grid en les sensetestcase
-#s'eliminen els test_sets 
+*DONE c:13 taules pensades 2 per a la persistencia del test i la grid*
+    #hi haura redundancia i posibles mals entesos dels selected del grid en les sensetestcase
+    #s'eliminen els test_sets 
 
-- surrogate del ordre del set
-random level
-random old
+- taules pensades 2 WORKING per a la persistencia del test i la grid
+    # carregar old schema a old_added_schema.txt
 
-- surrogate distribute_grid
-    PgridUsage
-    li entra el set carregat
-    contindra randomized set anterior commit
-    retornara objecte grid que sera un array de sets de wordsXsenses amb atts:
-        x=rand y=rand setsize=1 old=rand=(1-7)
-        
-- [grid random generator instances a partir de deu preguntes]
-    es mostrara el set en el grid
-    es podran seleccionar elements del grid, amb toogle 
-
-- [grid es guarda snapshot a la db]
+- taules pensades 3 integrades amb el codi
 
 
+++ [calc del ordre del set]
+
+    distribute grid agafara el set total de preguntes selected 
+    el distribuira en sets de uns 5/10 elements interiors
+    els sets estaran ordenats per level(fixe) i dps per vellesa(= tamany)
+
+- insert de random correct/incorrect al seleccionar paraules
+
+- crear norma de distribucio de les levels ¿lineal?
+
+- crear classes lvl_case_id(array) , duplicar atribut level amb compare 
+
+- crear classe old_case_id(lvl_case_id) duplicant atribut vellesa amb compare
+
+- resquebrajar sets lvl_case_id per level 
+
+- crear fragmentador per sets de N -> no clustering :( 
 
 
+++ [test_grid contra base de dades]
 
-- [create save_grid()]
+++ [tooggle pgrid contra base de dades]
 
-- [test random generator instances]
+++ [ans de preguntes test a test contra base de dades]
 
-- [create save_test()]
+++ [resultats test contra base de dades]
 
-- [create ans_sensecase()]
-
-- [create get_calc_testresult()]
-
-- [
-- [
-- [
-- [
+ evitar que es pregunti una definicio de lift esperant lift i que una de les respostes sigui elevator ... el usr clicka elevator estant be i es puntua malament

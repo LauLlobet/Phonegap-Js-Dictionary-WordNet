@@ -1,0 +1,516 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dictio test try</title>
+
+		<link rel="stylesheet"  href="jquery.mobile/jquery.mobile-1.2.0.css" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet"  href="lexitree.css" type="text/css" charset="utf-8"/>
+   
+	<script type="text/javascript">
+	    window.onerror = function(message, url, lineNumber) {
+	        console.log("Error: "+message+" in "+url+" at line "+lineNumber);
+	   }
+	</script>
+    
+    
+    <script type="text/javascript">JSCLASS_PATH = 'js.class/min'</script>
+	<script type="text/javascript" src="js.class/min/loader-browser.js"></script>
+	
+	<script type="text/javascript">
+		load(JSCLASS_PATH + '/loader.js');
+	</script>
+	
+
+
+	<link rel="stylesheet" href="jquery.mobile/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" />
+	<script src="jquery.mobile/jquery-1.7.1.min.js"></script>
+	<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
+	
+	
+	
+	<script src="loadDbPlugin.js"></script>
+
+	
+	
+	
+	<script src="ptest_pok_pres.js"></script>
+	<script src="pgrid.js"></script>
+	<script src="pdef.js"></script>
+	<script src="pinit.js"></script>
+	<script src="lexitree.js"></script>
+	
+
+ <script type="text/javascript" charset="utf-8">
+  </script>
+
+
+</head>
+<body onload="init();">
+
+
+
+
+
+<div data-role="page" data-theme="b" id="pinit">
+	
+				
+<!-- <div data-role="header" data-nobackbtn="true" data-theme="b"> -->
+<!-- 	<h1>DictioTest</h1> -->
+<!-- 		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a> -->
+<!-- </div> -->
+
+
+
+<!-- ------------------------------------------------PInit------------------------------------ -->
+
+
+
+<div data-role="content">
+
+<!-- <span id="welcome">-------</span> -->
+
+<!--  script>$(load_words);</script -->
+<div class="container_16">
+		<div class="grid_12"> <label for="name"></label><input type="search" data-mini="true" id="word_search_box" value="" /></div>
+		<div class="grid_4 prefix_0"><a id="word_search" data-role="button" data-inline="true" data-icon="search" data-mini="true" data-iconpos="right">Find</a></div></div>   
+</div>
+
+
+ <div class="ui-grid-b" id="word_list">
+	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Love</a></div>
+	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Cocossss9</a></div>
+	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Rascal</a></div>	    
+	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Equivocalness</a></div>
+	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Overmystified</a></div>
+	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Retrieving</a></div>	    
+	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Equivocalness</a></div>
+	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Overmystified</a></div>
+	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Retrieving</a></div>	    
+	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Underlight</a></div>
+	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Zaragoza</a></div>
+	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Affirmably</a></div>	    
+	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Preenlist</a></div>
+	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Unpolished</a></div>
+	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Waveringly</a></div>	    
+	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Squaring</a></div>
+	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Maid</a></div>
+	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Waviness</a></div>	    
+	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Cathouses</a></div>
+    <div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Volar</a></div>
+	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="b" data-icon="arrow-r"  data-iconpos="right" id="inici-search-btn">...</a>
+</div>
+
+</div>
+
+<style type="text/css">
+#divBotonsTest{
+    position:absolute;
+    bottom:0px;
+    width:94%;
+}​
+</style>
+
+
+<div data-role="fieldcontain" id="divBotonsTest">
+
+	<div class="container_16">
+	
+		<div class="grid_10 prefix_1" data-role="controlgroup" data-type="horizontal" >
+					<a id="btn_l1" data-role="button" data-theme="d"  >L1</a>
+					<a href="#pgrid" data-role="button" data-theme="d"  >L2</a>				
+					<a href="#pgrid" data-role="button" data-theme="d"  >L3</a>				
+		</div>
+		 
+		 <div class="grid_4 prefix_0" data-role="controlgroup" data-type="horizontal" >
+					<a href="index.html" data-role="button" data-theme="d" >Man</a>
+		</div>
+	
+	</div>	
+</div>
+
+</div>
+
+
+
+<!-- ------------------------------------------------PDef------------------------------------ -->
+
+<script>
+
+
+
+</script>
+
+
+<div data-role="page" data-theme="b" id="pdef" data-add-back-btn="true">
+	
+	
+<div data-role="header" data-nobackbtn="false" data-theme="b">
+<h1>DictioTest</h1>
+		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
+</div>
+
+
+
+<div data-role="content">
+
+
+<div class="container_16">
+		<div class="grid_12"> <label for="name"></label><input type="search" data-mini="true" id="word_search_box_pdef" value="" /></div>
+		<div class="grid_4 prefix_0"><a id="word_search_pdef" data-role="button" data-inline="true" data-icon="search" data-mini="true" data-iconpos="right">Find</a></div></div>   
+	
+<div class="ui-grid-c">
+
+
+	<div class="ui-block-a" > <h3 id="pdef_word">Noun</h3> </div>
+	<div class="ui-block-b"> </div>
+    
+	
+	
+	<div class="ui-block-c">
+			
+		<select data-theme="e" name="flip-1" id="flip-1" data-role="slider" data-mini="true">
+			<option data-theme="e" value="off">Ignore</option>
+			<option data-theme="e" value="on">Test!</option>
+		</select> 
+	</div>
+</div>
+
+	<div class="ui-block-d"> </div>	
+
+<a name="c"></a>
+
+				<ul data-role="listview" data-theme="d" data-inset="true" id="pdef_def" class="pdef_def" data-split-icon="plus" data-split-theme="e" data-inset="true">
+					<li data-icon="check" data-theme="e" id="defline"><a> 
+					Broken  Bells <span class="word_to_search_e" id="special">specialword</span> thisis hot</a><a href="#index.html">tick</a>
+					</li>
+					
+					<li data-icon="false" > <a>
+						Broken Bells</a>
+					</li>
+					
+					<li data-icon="false" data-theme="e" ><a> 
+						<span id="defline">
+						  Broken BellsBroken <b>BellsBroken</b> BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken BellsBroken Bells</a>
+					    </span>
+					</li>
+					
+					<li data-icon="false"> <a> 
+						 Broken Bells</a>
+					</li>
+					
+				</ul>
+
+			</div>
+	
+</div>
+
+<!-- --------------------------------- PGrid --------------------------------------------- -->
+
+
+
+
+<div data-role="page" data-theme="b" id="pgrid" data-add-back-btn="true">
+	
+	
+<div data-role="header" data-nobackbtn="false" data-theme="b">
+<h1>DictioTest</h1>
+		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
+</div>
+
+
+
+<div data-role="content">
+
+	
+
+<div class="container_16" id="grid">
+
+	
+		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-icon="arrow-r" id="select_all_lvl0">.</a></div>  <div class="grid_2 suffix_12"><a href="#pdef" data-role="button" data-mini="false" data-theme="c" data-icon="arrow-da"  id="inici-search-btn">.</a></div>;
+	
+	
+	
+</div>
+
+		
+<div data-role="fieldcontain" id="divBotonsTest">
+
+	<a href="#ptest" data-role="button" data-theme="d" >Test!</a>
+		
+</div>
+
+</div>
+
+</div>
+
+
+<!-- --------------------------------- Ptest --------------------------------------------- -->
+
+
+
+<div data-role="page" data-theme="b" id="ptest" data-add-back-btn="true">
+	
+	
+<div data-role="header" data-nobackbtn="false" data-theme="b">
+<button data-icon="delete" id="back_init"  >Discard</button>
+<h1>DictioTest   (<span id="currentQuestionCounter">-1</span>/<span id="tatalQuestionCounter">-1</span>)</h1>
+		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
+</div>
+
+
+<p/>
+
+<div class="container_16">
+
+		<div class="grid_5 prefix_1">
+			<h3 id="test_word" >Arminstice</h3>
+		</div>
+		
+		<div class="grid_3 prefix_1">
+			<img id="dial" src="img/dial.png">
+		</div>
+	
+		
+</div>		
+
+<div data-role="content">
+	
+	<span id="test_op0"> 
+	the state prevailing during the absence of war
+	harmonious relations; freedom from disputes "the roommates lived in peace together"
+	</span>
+	
+<div class="container_12">
+		<div class="grid_10">
+		<p/>
+		</div>	
+		<div class="grid_2">
+				<a id="btn_op_a" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
+		</div>
+</div>
+ <p style="text-align: center;"> . . . </p>
+ 
+ <span id="test_op1"> Cease-fire, truce (a state of peace agreed to between opponents so they can discuss peace terms)
+	</span>
+	
+<div class="container_12">
+		
+		
+		<div class="grid_10">
+	
+		<p/>
+		
+		</div>
+	
+		<div class="grid_2">
+				<a id="btn_op_b" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
+		</div>
+		
+</div>
+
+ <p style="text-align: center;"> . . . </p>
+		
+
+
+ <span id="test_op2">Aa legal state created by a declaration of war and ended by official declaration during which the international rules of war apply) "war was declared in November but actual fighting did not begin until the following spring"		
+		</span>
+
+<div class="container_12">
+		
+		<div class="grid_10">
+		<p/>
+		
+		</div>
+	
+		<div class="grid_2">
+				<a id="btn_op_c" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
+		</div>
+</div>
+		
+</div>
+</div>
+
+
+
+<!-- --------------------------------- POk --------------------------------------------- -->
+
+
+
+<div data-role="page" data-theme="b" id="pok" data-add-back-btn="true">
+	
+	
+<div data-role="header" data-nobackbtn="false" data-theme="b">
+<button data-icon="delete" id="back_init2"  >Discard</button>
+<h1>DictioTest   (2/20)</h1>
+		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
+</div>
+
+<p/>
+
+<div class="container_16">
+
+		<div class="grid_5 prefix_1">
+			<h3>Arminstice</h3>
+		</div>
+		
+		<div class="grid_3 prefix_1">
+			<img id="dial" src="img/dial.png">
+		</div>
+		
+		
+		<div class="grid_4 prefix_2">
+			<a href="#ptest" data-role="button" data-inline="true"  id="pok_next" data-theme="d" >Next</a>
+		</div>
+		
+</div>		
+
+
+<div data-role="content">
+
+
+<p/>
+
+the state prevailing during the absence of war
+harmonious relations; freedom from disputes "the roommates lived in peace together"
+
+<div class="container_12">
+
+		<div class="grid_10">
+		<p/>
+		
+		</div>
+		
+		
+		<div class="grid_1" id="test_op_ok0" >
+			<img id="dial" src="img/ok.png">
+		</div>
+		
+</div>
+
+
+ <p style="text-align: center;"> . . . </p>
+ 
+ Cease-fire, truce (a state of peace agreed to between opponents so they can discuss peace terms)
+	
+	
+<div class="container_12">
+		
+		
+		<div class="grid_10">
+	
+		<p/>
+		
+		</div>
+		
+		
+		<div class="grid_1"  id="test_op_ok1">
+			<img id="dial" src="img/nok.png">
+		</div>
+	
+		
+</div>
+
+ <p style="text-align: center;"> . . . </p>
+		
+
+Aa legal state created by a declaration of war and ended by official declaration during which the international rules of war apply) "war was declared in November but actual fighting did not begin until the following spring"		
+		
+
+<div class="container_12">
+
+		<div class="grid_10">
+	
+		<p/>
+		
+		</div>
+				
+		<div class="grid_1"  id="test_op_ok2">
+			<img id="dial" src="img/nok.png">
+		</div>
+	
+</div>
+		
+</div>
+</div>
+
+
+<!-- --------------------------------- PRes --------------------------------------------- -->
+
+
+
+<div data-role="page" data-theme="b" id="pres" data-add-back-btn="true">
+	
+	
+<div data-role="header" data-nobackbtn="false" data-theme="b">
+<h1>DictioTest </h1>
+		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
+</div>	
+
+
+<div data-role="content">
+<p/>
+<h1 style="text-align: center;">40%</h1>
+
+<img style="text-align: center;" id="dial" src="img/barra.png">
+	<p/>
+<div class="container_12">
+		
+		<div class="grid_3 prefix_4">
+			<img id="up" src="img/up.png">		
+		</div>
+		<div class="grid_2 prefix_0">
+			<h3>3</h3>
+		</div>
+</div>
+
+
+<div class="container_12">
+		
+		<div class="grid_3 prefix_4">
+			<img id="up" src="img/equal.png">		
+		</div>
+		<div class="grid_2 prefix_0">
+			<h3>2</h3>
+		</div>
+</div>
+<div class="container_12">
+		
+		<div class="grid_3 prefix_4">
+			<img id="up" src="img/down.png">		
+		</div>
+		<div class="grid_2 prefix_0">
+			<h3>1</h3>
+		</div>
+</div>
+<p/>
+<a href="#ptest" data-role="button" data-theme="d" >One more Test!</a>
+<a href="#pinit" data-role="button" data-theme="d" > Home</a>
+		
+		
+</div>
+</div>
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+vframe sentence mappings (write)>sentidx.vrb:123 exception=[NoSuchElementException] message=[ask%2:32:00::]
+vframe sentence mappings (write)>sentidx.vrb:411 exception=[NoSuchElementException] message=[canalize%2:38:00::]
+vframe sentence mappings (write)>sentidx.vrb:689 exception=[MySQLIntegrityConstraintViolationException] message=[Duplicate entry '201889370-31127-152' for key 'PRIMARY']
+vframe sentence mappings (write)>sentidx.vrb:807 exception=[NoSuchElementException] message=[demolish%2:37:00::]
+vframe sentence mappings (write)>sentidx.vrb:3403 exception=[NoSuchElementException] message=[write%2:36:02::]
