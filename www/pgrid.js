@@ -23,15 +23,41 @@ function load_wordsXsenses(){
 	//var oo = new Set([0,1,2]);
 	db.transaction(function(tx) {
 		
-		JS.require('JS.Set','JS.Comparable', function(Set,Comparable) {
+		JS.require('JS.Set','JS.Comparable','JS.Class', function(Set,Comparable,Class) {
 
+			var SenseCase = new Class({
+				include: Comparable,
+				
+			    initialize: function(row) {
+			        this.row = row;
+			        this.level =  get_level(row.correct,row.incorrect);
+			        this.ctime = row.ctime;
+			    },
+			    equals: function(object) {
+			        return (object instanceof this.klass)
+			            && object.ctime == this.ctime;
+			    },
+			    hash: function() {
+			        return this.ctime;
+			    },
+			    
+			    compareTo: function(other) {
+			        if (this.ctime < other.ctime) return 1;
+			        if (this.ctime > other.ctime) return -1;
+			        return 0;
+			    }
+			    
+			    
+			});
+			
+			
 			wordsxsenses = new Set([]);
 			
 			word_list = [];
 			tx.executeSql("select * from selected_wordsXsenses;", [], function(tx, res1) {
 				
 				for(var i=0; i<res1.rows.length ; i++){
-					wordsxsenses.add(res1.rows.item(i));
+					wordsxsenses.add(new SenseCase(res1.rows.item(i)));
 				}
 				
 
@@ -62,7 +88,7 @@ function refresh_grid(){
 	var theme = 'notheme';
 	
 	///commit
-	JS.require('JS.Set','JS.Comparable','JS.Class', function(Set,Comparable,Class) {
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 	//if(wordsxsenses.toArray().lenght >= 1){
 				
 		//alert("commitOKpk->"+wordsxsenses.toArray()[0].definition);
@@ -71,39 +97,19 @@ function refresh_grid(){
 		var corrects = 16;
 		var incorrects = 4; // 4 -> 17
 		level = get_level(corrects,incorrects);
-		alert("level:"+level);
 		
-		var SenseCase = new Class({
-			include: Comparable,
-			
-		    initialize: function(row) {
-		        this.row = row;
-		        this.level =  get_level(row.correct,row.incorrect);
-		        this.ctime = row.ctime;
-		    },
-		    equals: function(object) {
-		        return (object instanceof this.klass)
-		            && object.ctime == this.ctime;
-		    },
-		    hash: function() {
-		        return this.ctime;
-		    },
-		    
-		    compareTo: function(other) {
-		        if (this.ctime < other.ctime) return -1;
-		        if (this.ctime > other.ctime) return 1;
-		        return 0;
-		    }
-		    
-		    
+		var lvl1 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 1 }));
+		var lvl2 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 2 }));
+		var lvl3 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 3 }));
+		var lvl4 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 4 }));
+		var lvl5 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 5 }));
+		
+		
+		lvl2.forEach(function(x) {
+		    alert("DbgOk->"+x.row.lemma);
 		});
-
-		alert("haell");
-		var sensecase = new SenseCase(wordsxsenses.toArray()[1]);
 		
 
-		alert("haell2");
-		
 	//}	
 	});
 	///commit
