@@ -53,11 +53,9 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:17 insert de random correct/incorrect al seleccionar paraules*
 
-- crear norma de distribucio de les levels => lineal
+*DONE c:18 crear norma de distribucio de les levels => lineal*
     s haura de fer cinc vegades be per cada malament
-
-- crear classes lvl_case_id(array) , duplicar atribut level amb compare 
-
+∫
 - crear classe old_case_id(lvl_case_id) duplicant atribut vellesa amb compare
 
 - resquebrajar sets lvl_case_id per level 

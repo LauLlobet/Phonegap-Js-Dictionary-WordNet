@@ -56,12 +56,13 @@ function get_level(corrects,incorrects){
 	
 }
 
+
 function refresh_grid(){
 	var line = '';
 	var theme = 'notheme';
 	
 	///commit
-	JS.require('JS.Set','JS.Comparable', function(Set,Comparable) {
+	JS.require('JS.Set','JS.Comparable','JS.Class', function(Set,Comparable,Class) {
 	//if(wordsxsenses.toArray().lenght >= 1){
 				
 		//alert("commitOKpk->"+wordsxsenses.toArray()[0].definition);
@@ -71,6 +72,37 @@ function refresh_grid(){
 		var incorrects = 4; // 4 -> 17
 		level = get_level(corrects,incorrects);
 		alert("level:"+level);
+		
+		var SenseCase = new Class({
+			include: Comparable,
+			
+		    initialize: function(row) {
+		        this.row = row;
+		        this.level =  get_level(row.correct,row.incorrect);
+		        this.ctime = row.ctime;
+		    },
+		    equals: function(object) {
+		        return (object instanceof this.klass)
+		            && object.ctime == this.ctime;
+		    },
+		    hash: function() {
+		        return this.ctime;
+		    },
+		    
+		    compareTo: function(other) {
+		        if (this.ctime < other.ctime) return -1;
+		        if (this.ctime > other.ctime) return 1;
+		        return 0;
+		    }
+		    
+		    
+		});
+
+		alert("haell");
+		var sensecase = new SenseCase(wordsxsenses.toArray()[1]);
+		
+
+		alert("haell2");
 		
 	//}	
 	});
