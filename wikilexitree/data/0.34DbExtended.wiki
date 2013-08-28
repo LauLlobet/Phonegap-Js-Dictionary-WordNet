@@ -37,11 +37,12 @@ falta publicarlo amb la app restartwikidpad.wiki
     #hi haura redundancia i posibles mals entesos dels selected del grid en les sensetestcase
     #s'eliminen els test_sets 
 
-- taules pensades 2 WORKING per a la persistencia del test i la grid
+*DONE c:14 taules pensades 2 WORKING per a la persistencia del test i la grid*
     # carregar old schema a old_added_schema.txt
 
-- taules pensades 3 integrades amb el codi
+- simbolic links habien petat !!! arreglat , simbolic links relatius ara
 
+- end
 
 ++ [calc del ordre del set]
 
