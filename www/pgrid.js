@@ -46,13 +46,33 @@ function load_wordsXsenses(){
 	});
 }
 
+
+function get_level(corrects,incorrects){
+	
+	if(corrects+incorrects < 4 )
+		return 5;
+	
+	return Math.ceil(5 - corrects/(corrects+incorrects)*5);
+	
+}
+
 function refresh_grid(){
 	var line = '';
 	var theme = 'notheme';
 	
 	///commit
 	JS.require('JS.Set','JS.Comparable', function(Set,Comparable) {
-		alert("commitOKpk->"+wordsxsenses.toArray()[0].definition);
+	//if(wordsxsenses.toArray().lenght >= 1){
+				
+		//alert("commitOKpk->"+wordsxsenses.toArray()[0].definition);
+	
+		var level;
+		var corrects = 16;
+		var incorrects = 4; // 4 -> 17
+		level = get_level(corrects,incorrects);
+		alert("level:"+level);
+		
+	//}	
 	});
 	///commit
 	

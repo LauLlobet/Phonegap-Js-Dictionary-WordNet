@@ -51,9 +51,10 @@ falta publicarlo amb la app restartwikidpad.wiki
     el distribuira en sets de uns 5/10 elements interiors
     els sets estaran ordenats per level(fixe) i dps per vellesa(= tamany)
 
-- insert de random correct/incorrect al seleccionar paraules
+*DONE c:17 insert de random correct/incorrect al seleccionar paraules*
 
-- crear norma de distribucio de les levels ¿lineal?
+- crear norma de distribucio de les levels => lineal
+    s haura de fer cinc vegades be per cada malament
 
 - crear classes lvl_case_id(array) , duplicar atribut level amb compare 
 
