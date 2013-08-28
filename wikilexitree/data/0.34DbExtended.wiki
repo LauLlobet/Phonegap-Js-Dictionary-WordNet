@@ -42,9 +42,8 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:15 simbolic links habien petat !!! arreglat , simbolic links relatius ara*
 
-- taules pensades 3 WORKING 100% per a la persistencia del test i la grid
+*DONE c:16 taules pensades 3 WORKING 100% per a la persistencia del test i la grid*
 
-- end
 
 ++ [calc del ordre del set]
 
