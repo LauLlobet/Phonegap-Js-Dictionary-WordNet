@@ -58,7 +58,7 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:19 crear classe (lvl_case_set) duplicant atribut vellesa amb compare*
 
-- crear sorted sets de cada level 
+- crear sorted sets de cada level segons nivell
 
 - resquebrajar sets lvl_case_id per level 
 

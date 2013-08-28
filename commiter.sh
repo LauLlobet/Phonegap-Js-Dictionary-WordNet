@@ -47,8 +47,11 @@ sed -e "1,/\(\-\)/s/\(\-\)/c:$LAST_NUM/" <./wikilexitree/data/$BRANCH.wiki > ./w
 
 cp ./wikilexitree/data/tmp.$BRANCH.wiki ./wikilexitree/data/$BRANCH.wiki
 
+#read -p "step2"
 
 sed -e "s/c:$LAST_NUM.*/\*DONE &\*/" <./wikilexitree/data/$BRANCH.wiki > ./wikilexitree/data/tmp.$BRANCH.wiki
+
+#read -p "step3"
 
 cp ./wikilexitree/data/tmp.$BRANCH.wiki ./wikilexitree/data/$BRANCH.wiki
 
