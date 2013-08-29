@@ -62,12 +62,25 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:21 (Demo2Learn) resquebrajar sets lvl_case_id per level : com funciona forEachSlice*
 
-- resquebrajar sets al 100% fet, read del grid OK
-
-- crear fragmentador per sets de N -> no clustering :( 
-
+*DONE c:22 resquebrajar sets al 100% fet, read del grid OK*
 
 ++ [test_grid contra base de dades]
+
+- es fara un test nou cada vegada que es WHEN
+            # modifiqui la llista de senses 
+            # s'accedeixi al pgrid
+            
+- save els ans_senses_case en bd 
+
+    # pot cambiar el selected words i no el testcases ultim guardat
+        # arxivar la ultima linea de selected senses en la creacio del test
+
+    # update testcases where testid is newest WHEN pgridrefresh && someselected
+    # create testcases where testid is newest WHEN pgridrefresh && noneselected
+        # if not result , insert for that testid
+
+- write del grid , boto oprimit bd_selected  
+
 
 ++ [tooggle pgrid contra base de dades]
 

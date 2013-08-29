@@ -204,6 +204,8 @@ $(document).ready(function() {
     //--------------------------???????--------------------------
 
     $('#btn_l1').on('vclick', function() { 
+    	
+    	load_wordsXsenses();
         $.mobile.changePage( "index.html#pgrid", { transition: "slide"} );
         return false;
      });

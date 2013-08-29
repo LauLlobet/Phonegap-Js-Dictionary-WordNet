@@ -32,6 +32,7 @@ function load_wordsXsenses(){
 			        this.row = row;
 			        this.level =  get_level(row.correct,row.incorrect);
 			        this.ctime = row.ctime;
+			        this.selected = 0;
 			    },
 			    equals: function(object) {
 			        return (object instanceof this.klass)
@@ -82,6 +83,29 @@ function get_level(corrects,incorrects){
 	
 }
 
+function save_grid(){
+	
+	if(db == "")
+		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
+			
+	db.transaction(function(tx) {		
+			
+		JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+			
+			if(wordsxsenses.select(function(x) { return x.selected == 1 })==0)
+				return;
+			
+			tx.executeSql("insert into test(testid) values((select MAX(ssenseid) from selected_senses));");
+			alert("hi");
+//			wordsxsenses.forEach(function(x) {
+//				alert(x.row.lemma);
+//			});
+			
+		});
+	});
+		
+	
+}
 
 function refresh_grid(){
 	var line = '';
@@ -125,9 +149,13 @@ function refresh_grid(){
 		
 		grid = new level_grid([lvl1.count(),lvl2.count(),lvl3.count(),lvl4.count(),lvl5.count()]);
 		
+		lvl2.toArray()[0].selected=1;
+		
+		
 	//}	
 	});
-	///commit
+	
+	save_grid();
 	
 	for(var i=0; i<5; i++){
 		var ls = grid.level_size[i];
