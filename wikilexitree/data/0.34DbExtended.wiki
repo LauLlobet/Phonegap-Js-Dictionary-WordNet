@@ -82,7 +82,9 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:26 abans de promises*
 
-- promises no funcionen alhora de modificar variables globals :( 
+*DONE c:27 promises no funcionen alhora de modificar variables globals :( *
+
+- sincronous calls at load pgrid , using callbacks
 
 - crear objectes selected_senses a partir dels selected_senses i el testID
 

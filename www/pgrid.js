@@ -13,10 +13,9 @@ function level_grid(levels){
 
 }
 
-function load_wordsXsenses(){
-	
-	var deferred = new $.Deferred();
+function load_wordsXsenses(callback){
 
+	alert("load wordsXsenses");
 	if(db == ""){
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
 	}
@@ -60,9 +59,7 @@ function load_wordsXsenses(){
 				for(var i=0; i<res1.rows.length ; i++){
 					wordsxsenses.add(new SenseCase(res1.rows.item(i)));
 				}
-				global2 = "post";
-				alert("globals changed"+global2);
-				deferred.resolve();
+				callback();
 			});
 			
 		});
@@ -70,10 +67,6 @@ function load_wordsXsenses(){
 
 
 	});
-	//window.global = "postfake";
-	
-	return deferred.promise();
-
 }
 
 
@@ -86,64 +79,9 @@ function get_level(corrects,incorrects){
 	
 }
 
-function create_test_or_not(){
+function classify_senses(callback){
 	
-	if(db == "")
-		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
-			
-	db.transaction(function(tx) {		
-			
-		JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
-			
-			if(wordsxsenses.select(function(x) { return x.selected == 1 })==0)
-				return;
-		
-			tx.executeSql(" select MAX(ssenseid) from selected_senses ;", [], function(tx, res0) {
-				
-				if(res0.rows.length == 0)
-					return;
-				
-				tx.executeSql(' select MAX(lastssenseid), MAX(testid)  ,stime from test ;', [], function(tx, res) {
-					
-					if( res.rows.length == 0 ){
-						alert("newtest x empty tests");
-						return;
-					}
-					var filanova = 0;
-					filanova = filanova || ( res.rows.item(0)["MAX(lastssenseid)"] < res0.rows.item(0)["MAX(ssenseid)"] ); // si esta desactualitzat en paraules seleccionades
-					filanova = filanova || res.rows.item(0).stime != null;
-					
-					
-					alert(res.rows.item(0)["MAX(testid)"]);
-					if( filanova ){
-						tx.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');");
-					}
-
-					});
-			});
-		});
-	});
-	
-	
-}
-function instance_cases(){
-	
-
-		//select de ja existents segons testid
-		//si hi han 0 resultats 
-	
-	    alert("asenseid"+actual_testid);
-	    
-		//			wordsxsenses.forEach(function(x) {
-		//				alert(x.row.lemma);
-		//			});
-	
-}
-var global2 ="previous";
-
-function classify_senses(parameter){
-	
-	var prom = new $.Deferred();
+	alert("class senses");
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 	//if(wordsxsenses.toArray().lenght >= 1){
 				
@@ -154,8 +92,7 @@ function classify_senses(parameter){
 		var incorrects = 4; // 4 -> 17
 		level = get_level(corrects,incorrects);
 	
-		alert(parameter);
-/*		var lvl1 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 1 }));
+		var lvl1 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 1 }));
 		var lvl2 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 2 }));
 		var lvl3 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 3 }));
 		var lvl4 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 4 }));
@@ -183,13 +120,70 @@ function classify_senses(parameter){
 		grid = new level_grid([lvl1.count(),lvl2.count(),lvl3.count(),lvl4.count(),lvl5.count()]);
 		
 		lvl2.toArray()[0].selected=1;
-*/
-		prom.resolve();
+
+	callback();
 	});
-	return prom.promise();
 }
 
+
+function create_test_or_not(callback){
+	
+	if(db == "")
+		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
+	alert("create test or not");		
+	db.transaction(function(tx) {		
+			
+		JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+			
+			if(wordsxsenses.select(function(x) { return x.selected == 1 })==0)
+				return;
+		
+			tx.executeSql(" select MAX(ssenseid) from selected_senses ;", [], function(tx, res0) {
+				
+				if(res0.rows.length == 0)
+					return;
+				
+				tx.executeSql(' select MAX(lastssenseid), MAX(testid)  ,stime from test ;', [], function(tx, res) {
+					
+					if( res.rows.length == 0 ){
+						tx.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');");
+						callback();
+						return;
+					}
+					var filanova = 0;
+					filanova = filanova || ( res.rows.item(0)["MAX(lastssenseid)"] < res0.rows.item(0)["MAX(ssenseid)"] ); // si esta desactualitzat en paraules seleccionades
+					filanova = filanova || res.rows.item(0).stime != null;
+					
+					if( filanova ){
+						tx.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');");
+					}
+					callback();
+					});
+			});
+		});
+	});
+}
+
+
+function instance_cases(callback){
+		alert("instancecases");
+		//select de ja existents segons testid
+		//si hi han 0 resultats 
+	
+	    //alert("asenseid"+actual_testid);
+	    
+		//			wordsxsenses.forEach(function(x) {
+		//				alert(x.row.lemma);
+		//			});
+	    callback();
+}
+
+
+
 function print_grid(){
+	
+	alert("printgrid");
+	
 	var line = '';
 	var theme = 'notheme';
 	
@@ -221,16 +215,15 @@ function print_grid(){
 }
 function load_grid(){
 	
-
-	load_wordsXsenses().done(classify_senses(global2)).done(function(){alert("potser")});
-	//load_wordsXsenses().then( );
-	//classify_senses().then(function(){alert("semblaquesi")});
-	//classify_senses();
-	create_test_or_not();
-	instance_cases(); 
-	print_grid();
-	
-	
+	load_wordsXsenses(function(){
+		classify_senses(function(){
+			create_test_or_not(function(){
+				instance_cases(function(){
+					print_grid();
+				})
+			})
+		})
+	});
 	
 	$(document).ready(function() {	
 		$('#grid').on('vclick','.select_all_lvl'+''+'' , function() { 
