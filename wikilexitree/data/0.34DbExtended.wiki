@@ -84,25 +84,10 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:27 promises no funcionen alhora de modificar variables globals :( *
 
-- sincronous calls at load pgrid , using callbacks
+*DONE c:28 sincronous calls at load pgrid , using callbacks*
 
 - crear objectes selected_senses a partir dels selected_senses i el testID
 
-- Persistencia es mirara (si selected)
-    quines files respon a l'ultim test sense acabar
-Si no hi ha files es crearan
- 
-
-
-
-- save els ans_senses_case en bd 
-
-    # pot cambiar el selected words i no el testcases ultim guardat
-        # arxivar la ultima linea de selected senses en la creacio del test
-
-    # update testcases where testid is newest WHEN pgridrefresh && someselected
-    # create testcases where testid is newest WHEN pgridrefresh && someselected numselect=0
-        # if not result , insert for that testid
 
 - write del grid , boto oprimit bd_selected  
 

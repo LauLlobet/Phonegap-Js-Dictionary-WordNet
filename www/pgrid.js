@@ -15,7 +15,6 @@ function level_grid(levels){
 
 function load_wordsXsenses(callback){
 
-	alert("load wordsXsenses");
 	if(db == ""){
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
 	}
@@ -32,6 +31,7 @@ function load_wordsXsenses(callback){
 			    initialize: function(row) {
 			        this.row = row;
 			        this.level =  get_level(row.correct,row.incorrect);
+			        this.serie = -1;
 			        this.ctime = row.ctime;
 			        this.selected = 0;
 			    },
@@ -81,7 +81,6 @@ function get_level(corrects,incorrects){
 
 function classify_senses(callback){
 	
-	alert("class senses");
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 	//if(wordsxsenses.toArray().lenght >= 1){
 				
@@ -101,19 +100,39 @@ function classify_senses(callback){
 		
 		senses_grid = [ [],[],[],[],[] ];
 		
+		var snum = 0;
 		lvl1.forEachSlice(4, function(list) {
-		    senses_grid[0].push(list);
+			var slice = new Set(list);
+			slice.forEach(function(x){x.serie=snum}); // x.serie=snum
+			snum++;
+			senses_grid[0].push(list);
 		});
+		snum = 0;
 		lvl2.forEachSlice(4, function(list) {
-		    senses_grid[1].push(list);
+			var slice = new Set(list);
+			slice.forEach(function(x){x.serie=snum}); // x.serie=snum
+			snum++;
+			senses_grid[1].push(list);
 		});
+		snum = 0;
 		lvl3.forEachSlice(4, function(list) {
+			var slice = new Set(list);
+			slice.forEach(function(x){x.serie=snum}); // x.serie=snum
+			snum++;
 		    senses_grid[2].push(list);
 		});
+		snum = 0;
 		lvl4.forEachSlice(4, function(list) {
+			var slice = new Set(list);
+			slice.forEach(function(x){x.serie=snum}); // x.serie=snum
+			snum++;
 		    senses_grid[3].push(list);
 		});
+		snum = 0;
 		lvl5.forEachSlice(4, function(list) {
+			var slice = new Set(list);
+			slice.forEach(function(x){x.serie=snum}); // x.serie=snum
+			snum++;
 		    senses_grid[4].push(list);
 		});
 		
@@ -130,7 +149,7 @@ function create_test_or_not(callback){
 	
 	if(db == "")
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
-	alert("create test or not");		
+	
 	db.transaction(function(tx) {		
 			
 		JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
@@ -166,23 +185,37 @@ function create_test_or_not(callback){
 
 
 function instance_cases(callback){
-		alert("instancecases");
-		//select de ja existents segons testid
-		//si hi han 0 resultats 
+
+	//select de ja existents segons testid
+	//si hi han 0 resultats 
+
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 	
-	    //alert("asenseid"+actual_testid);
-	    
-		//			wordsxsenses.forEach(function(x) {
-		//				alert(x.row.lemma);
-		//			});
-	    callback();
+		db.transaction(function(tx) {		
+			tx.executeSql("select * from ans_sense_cases where testid= (select MAX(testid) from test);", [], function(tx, res) {
+				if( res.rows.length == 0 ){
+					// s'han de carregar de wordxsenses 
+					wordsxsenses.forEach(function(x) {
+						tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid,x_serie,y_lvl) values('definition',(select MAX(testid) from test),"+x.row.ssenseid+","+x.row.wordid+","+x.serie+","+x.level+");");
+						//alert("row");
+						//alert("faha");			//insert into ans_sense_cases(anstype,testid,ssenseid,wordid,x_serie,y_lvl) values('definition',(select MAX(testid) from test),333,444,5,6);
+
+					});	
+				}
+			});
+		});
+	
+	
+	});	
+    //alert("asenseid"+actual_testid);
+    
+	//			
+    callback();
 }
 
 
 
 function print_grid(){
-	
-	alert("printgrid");
 	
 	var line = '';
 	var theme = 'notheme';
