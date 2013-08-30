@@ -66,17 +66,33 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 ++ [test_grid contra base de dades]
 
-- es fara un test nou cada vegada que es WHEN
+*DONE c:23 es fara un test nou cada vegada que es WHEN*
             # modifiqui la llista de senses 
             # s'accedeixi al pgrid
-            
+
+- es crearan testos nous en les seguents condicions
+
+    Si el test no esta acabat i s' afegeix una paraula nova:
+    # fila nova de test amb senseid actualitzada
+
+    Si el test s'ha començat i no s'ha afegit una paraula nova
+    # fila nova de test amb senseid identica 
+
+
+- Persistencia es mirara (si selected)
+    quines files respon a l'ultim test sense acabar
+Si no hi ha files es crearan
+ 
+
+
+
 - save els ans_senses_case en bd 
 
     # pot cambiar el selected words i no el testcases ultim guardat
         # arxivar la ultima linea de selected senses en la creacio del test
 
     # update testcases where testid is newest WHEN pgridrefresh && someselected
-    # create testcases where testid is newest WHEN pgridrefresh && noneselected
+    # create testcases where testid is newest WHEN pgridrefresh && someselected numselect=0
         # if not result , insert for that testid
 
 - write del grid , boto oprimit bd_selected  

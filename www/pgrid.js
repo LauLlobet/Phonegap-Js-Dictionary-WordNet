@@ -94,13 +94,33 @@ function save_grid(){
 			
 			if(wordsxsenses.select(function(x) { return x.selected == 1 })==0)
 				return;
-			
-			tx.executeSql("insert into test(testid) values((select MAX(ssenseid) from selected_senses));");
-			alert("hi");
-//			wordsxsenses.forEach(function(x) {
-//				alert(x.row.lemma);
-//			});
-			
+		
+			tx.executeSql(" select MAX(ssenseid) from selected_senses ;", [], function(tx, res0) {
+				
+				if(res0.rows.length == 0)
+					return;
+				
+				tx.executeSql(' select MAX(lastssenseid) ,stime from test ;', [], function(tx, res) {
+					
+					if( res.rows.length == 0 ){
+						alert("newtest x empty tests");
+						return;
+					}
+					var filanova = 0;
+					filanova = filanova || ( res.rows.item(0)["MAX(lastssenseid)"] < res0.rows.item(0)["MAX(ssenseid)"] ); // si esta desactualitzat en paraules seleccionades
+					filanova = filanova || res.rows.item(0).stime != null;
+						
+					if( filanova ){
+						tx.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');");
+						alert("filanova");
+					}
+
+					alert("hoi2");
+					});
+		//			wordsxsenses.forEach(function(x) {
+		//				alert(x.row.lemma);
+		//			});
+			});
 		});
 	});
 		
