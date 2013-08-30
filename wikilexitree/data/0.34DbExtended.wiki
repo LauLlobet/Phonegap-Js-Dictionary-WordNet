@@ -70,7 +70,7 @@ falta publicarlo amb la app restartwikidpad.wiki
             # modifiqui la llista de senses 
             # s'accedeixi al pgrid
 
-- es crearan testos nous en les seguents condicions
+*DONE c:24 es crearan testos nous en les seguents condicions*
 
     Si el test no esta acabat i s' afegeix una paraula nova:
     # fila nova de test amb senseid actualitzada
@@ -78,6 +78,9 @@ falta publicarlo amb la app restartwikidpad.wiki
     Si el test s'ha començat i no s'ha afegit una paraula nova
     # fila nova de test amb senseid identica 
 
+- BUG REPAIR es crearan testos nous en les seguents condicions
+
+- crear objectes selected_senses amb els camps de la taula a partir dels selected_senses
 
 - Persistencia es mirara (si selected)
     quines files respon a l'ultim test sense acabar

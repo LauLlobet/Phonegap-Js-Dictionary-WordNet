@@ -83,7 +83,7 @@ function get_level(corrects,incorrects){
 	
 }
 
-function save_grid(){
+function instance_cases(){
 	
 	if(db == "")
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
@@ -100,7 +100,7 @@ function save_grid(){
 				if(res0.rows.length == 0)
 					return;
 				
-				tx.executeSql(' select MAX(lastssenseid) ,stime from test ;', [], function(tx, res) {
+				tx.executeSql(' select MAX(lastssenseid), MAX(testid)  ,stime from test ;', [], function(tx, res) {
 					
 					if( res.rows.length == 0 ){
 						alert("newtest x empty tests");
@@ -127,9 +127,7 @@ function save_grid(){
 	
 }
 
-function refresh_grid(){
-	var line = '';
-	var theme = 'notheme';
+function classify_senses(){
 	
 	///commit
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
@@ -174,8 +172,15 @@ function refresh_grid(){
 		
 	//}	
 	});
+}
+
+function refresh_grid(){
+	var line = '';
+	var theme = 'notheme';
 	
-	save_grid();
+
+	classify_senses();
+	instance_cases();
 	
 	for(var i=0; i<5; i++){
 		var ls = grid.level_size[i];
