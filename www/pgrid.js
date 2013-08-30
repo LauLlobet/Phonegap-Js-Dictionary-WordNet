@@ -83,7 +83,7 @@ function get_level(corrects,incorrects){
 	
 }
 
-function instance_cases(){
+function create_test_or_not(){
 	
 	if(db == "")
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
@@ -109,21 +109,31 @@ function instance_cases(){
 					var filanova = 0;
 					filanova = filanova || ( res.rows.item(0)["MAX(lastssenseid)"] < res0.rows.item(0)["MAX(ssenseid)"] ); // si esta desactualitzat en paraules seleccionades
 					filanova = filanova || res.rows.item(0).stime != null;
-						
+					
+					
+					alert(res.rows.item(0)["MAX(testid)"]);
 					if( filanova ){
 						tx.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');");
-						alert("filanova");
 					}
 
-					alert("hoi2");
 					});
-		//			wordsxsenses.forEach(function(x) {
-		//				alert(x.row.lemma);
-		//			});
 			});
 		});
 	});
-		
+	
+	
+}
+function instance_cases(){
+	
+
+		//select de ja existents segons testid
+		//si hi han 0 resultats 
+	
+	    alert("asenseid"+actual_testid);
+	    
+		//			wordsxsenses.forEach(function(x) {
+		//				alert(x.row.lemma);
+		//			});
 	
 }
 
@@ -178,9 +188,11 @@ function refresh_grid(){
 	var line = '';
 	var theme = 'notheme';
 	
-
 	classify_senses();
-	instance_cases();
+
+	//instance_cases();
+	//create_test_or_not();
+   
 	
 	for(var i=0; i<5; i++){
 		var ls = grid.level_size[i];

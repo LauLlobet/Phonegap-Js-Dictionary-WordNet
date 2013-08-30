@@ -30,6 +30,8 @@ var pdef_tick = 0;
 word_listpage = 0;
 word_listpage_size = 0;
 
+actual_testid = 0;
+
 var wordsxsenses = "";
 
 
