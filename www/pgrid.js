@@ -15,6 +15,8 @@ function level_grid(levels){
 
 function load_wordsXsenses(){
 	
+	var deferred = new $.Deferred();
+
 	if(db == ""){
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
 	}
@@ -53,17 +55,14 @@ function load_wordsXsenses(){
 			
 			
 			wordsxsenses = new SortedSet([]);
-			
 			word_list = [];
 			tx.executeSql("select * from selected_wordsXsenses;", [], function(tx, res1) {
-				
 				for(var i=0; i<res1.rows.length ; i++){
 					wordsxsenses.add(new SenseCase(res1.rows.item(i)));
 				}
-				
-
-				refresh_grid();
-		
+				global2 = "post";
+				alert("globals changed"+global2);
+				deferred.resolve();
 			});
 			
 		});
@@ -71,6 +70,10 @@ function load_wordsXsenses(){
 
 
 	});
+	//window.global = "postfake";
+	
+	return deferred.promise();
+
 }
 
 
@@ -136,10 +139,11 @@ function instance_cases(){
 		//			});
 	
 }
+var global2 ="previous";
 
-function classify_senses(){
+function classify_senses(parameter){
 	
-	///commit
+	var prom = new $.Deferred();
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 	//if(wordsxsenses.toArray().lenght >= 1){
 				
@@ -149,8 +153,9 @@ function classify_senses(){
 		var corrects = 16;
 		var incorrects = 4; // 4 -> 17
 		level = get_level(corrects,incorrects);
-		
-		var lvl1 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 1 }));
+	
+		alert(parameter);
+/*		var lvl1 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 1 }));
 		var lvl2 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 2 }));
 		var lvl3 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 3 }));
 		var lvl4 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 4 }));
@@ -178,21 +183,15 @@ function classify_senses(){
 		grid = new level_grid([lvl1.count(),lvl2.count(),lvl3.count(),lvl4.count(),lvl5.count()]);
 		
 		lvl2.toArray()[0].selected=1;
-		
-		
-	//}	
+*/
+		prom.resolve();
 	});
+	return prom.promise();
 }
 
-function refresh_grid(){
+function print_grid(){
 	var line = '';
 	var theme = 'notheme';
-	
-	classify_senses();
-
-	//instance_cases();
-	//create_test_or_not();
-   
 	
 	for(var i=0; i<5; i++){
 		var ls = grid.level_size[i];
@@ -223,7 +222,15 @@ function refresh_grid(){
 function load_grid(){
 	
 
-	load_wordsXsenses();// is included 	refresh_grid();
+	load_wordsXsenses().done(classify_senses(global2)).done(function(){alert("potser")});
+	//load_wordsXsenses().then( );
+	//classify_senses().then(function(){alert("semblaquesi")});
+	//classify_senses();
+	create_test_or_not();
+	instance_cases(); 
+	print_grid();
+	
+	
 	
 	$(document).ready(function() {	
 		$('#grid').on('vclick','.select_all_lvl'+''+'' , function() { 

@@ -75,12 +75,14 @@ falta publicarlo amb la app restartwikidpad.wiki
     Si el test no esta acabat i s' afegeix una paraula nova:
     # fila nova de test amb senseid actualitzada
 
-    Si el test s'ha començat i no s'ha afegit una paraula nova
+    Si el test s'ha començat i no s'ha afegit una paraula nova∫
     # fila nova de test amb senseid identica 
 
 *DONE c:25 BUG REPAIR es crearan testos nous en les seguents condicions*
 
-- abans de promises
+*DONE c:26 abans de promises*
+
+- promises no funcionen alhora de modificar variables globals :( 
 
 - crear objectes selected_senses a partir dels selected_senses i el testID
 
