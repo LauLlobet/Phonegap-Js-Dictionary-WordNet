@@ -1,6 +1,4 @@
 
-
- 
 var db = "";
 
 
@@ -9,10 +7,12 @@ var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
                        new wordset('job','work',['sentence','escape','pain'])
 					] , 30 ) ;
 
-var grid = new level_grid([65,5,4,0,24]);
+var grid = new level_grid([56,5,4,0,24]);
+var senses_grid;
+
 var alto =120;
 
-var buttons = [['0','1','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
+var buttons = [['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
 
 
 var word_list = ["house",
@@ -27,6 +27,8 @@ var pdef_tick = 0;
 
 word_listpage = 0;
 word_listpage_size = 0;
+
+actual_testid = 0;
 
 var wordsxsenses = "";
 
@@ -76,27 +78,10 @@ function onDeviceReady() {
 }
 
 
-/*		*/
 
-/*//Wait for Cordova to load
-document.addEventListener("deviceready", onDeviceReady, false);
-
-// Cordova is ready
-function onDeviceReady() {
-  var db = window.sqlitePlugin.openDatabase({name: "DB"});
-  // ...
-}
-
-$('#index').live('pagebeforeshow',function(e,data){
-    $('input[type="checkbox"]').each(function(){
-        ($(this).is(':checked')) ? $(this).parent().parent().addClass('checked') : $(this).parent().parent().addClass('not-checked');
-    });
-});
-
-*/
 
 $(document).ready(function() {
-	
+//$('#pinit').bind('pageinit',function(){
 	
 	
 	//------------------------ pinit -----------------------------------
@@ -141,7 +126,9 @@ $(document).ready(function() {
     	return false;
 	});
 	
+	//----------------------pgrid---------------------------
 	
+
 	//-----------------------pdef---------------------------
 	
 
@@ -202,6 +189,8 @@ $(document).ready(function() {
     //--------------------------???????--------------------------
 
     $('#btn_l1').on('vclick', function() { 
+    	alert("buton");
+    	load_grid();
         $.mobile.changePage( "index.html#pgrid", { transition: "slide"} );
         return false;
      });

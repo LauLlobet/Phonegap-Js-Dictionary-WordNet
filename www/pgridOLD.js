@@ -13,49 +13,10 @@ function level_grid(levels){
 
 }
 
-function load_wordsXsenses(){
-	
-	if(db == ""){
-		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
-	}
-	
-	//wordsxsenses = new Set();
-	//var oo = new Set([0,1,2]);
-	db.transaction(function(tx) {
-		
-		JS.require('JS.Set','JS.Comparable', function(Set,Comparable) {
-
-			wordsxsenses = new Set([]);
-			
-			word_list = [];
-			tx.executeSql("select * from selected_wordsXsenses;", [], function(tx, res1) {
-				
-				for(var i=0; i<res1.rows.length ; i++){
-					wordsxsenses.add(res1.rows.item(i));
-				}
-				
-
-				refresh_grid();
-		
-			});
-			
-		});
-		
-
-
-	});
-}
-
 function refresh_grid(){
+	
 	var line = '';
 	var theme = 'notheme';
-	
-	///commit
-	JS.require('JS.Set','JS.Comparable', function(Set,Comparable) {
-		alert("commitOKpk->"+wordsxsenses.toArray()[0].definition);
-	});
-	///commit
-	
 	for(var i=0; i<5; i++){
 		var ls = grid.level_size[i];
 		var line = line + '<div class="grid_1" ><span id="pgridLineBtn" ><button data-iconpos="notext"  class="select_all_lvl" id="'+i+'" data-mini="false"  data-icon="arrow-r" > </span> </div>';
@@ -84,8 +45,7 @@ function refresh_grid(){
 }
 function load_grid(){
 	
-
-	load_wordsXsenses();// is included 	refresh_grid();
+	refresh_grid();
 	
 	$(document).ready(function() {	
 		$('#grid').on('vclick','.select_all_lvl'+''+'' , function() { 
@@ -107,7 +67,7 @@ function load_grid(){
 	        for(var i=0; i<buttons[line].length; i++){
 	        	buttons[line][i]=onoff;
 	        }
-	        load_wordsXsenses();      
+	        refresh_grid();      
 			return false;
 		});
 		
@@ -119,7 +79,7 @@ function load_grid(){
 			else
 				buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
-			load_wordsXsenses();
+			refresh_grid();
 			return false;
 		});
 		
@@ -131,7 +91,7 @@ function load_grid(){
 			else
 				buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
-			load_wordsXsenses();
+			refresh_grid();
 			return false;
 		});
 		
@@ -144,7 +104,7 @@ function load_grid(){
 			else
 				buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
-			load_wordsXsenses();
+			refresh_grid();
 			return false;
 		});
 		
@@ -156,7 +116,7 @@ function load_grid(){
 			else
 				buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
-			load_wordsXsenses();
+			refresh_grid();
 			return false;
 		});
 		

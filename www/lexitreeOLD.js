@@ -1,6 +1,7 @@
 
 
- var db = "";
+ 
+var db = "";
 
 
 var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
@@ -8,36 +9,42 @@ var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
                        new wordset('job','work',['sentence','escape','pain'])
 					] , 30 ) ;
 
-var grid = new level_grid([56,5,4,0,24]);
-var senses_grid;
-
+var grid = new level_grid([65,5,4,0,24]);
 var alto =120;
 
-var buttons = [['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
+var buttons = [['0','1','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
 
 
 var word_list = ["house",
                  "want",
-                 "nonbenevolence",];
+                 "nonbenevolence",
+                 "nonfanatical","tinplate","presupplication","displaced","sorrier","loculus","centibar","convinced","upswell","prober","punty","qualifyingly","elector","graves","kipnis","liddie","undetained","zaragoza",
+                
+                 "presa","cyanic","eyetooth","sandman","inofficiousness",
+                 "pinner","plastometric","bargelli","browning","constrainingly","testament","figurate","gelatinizer","glutting",
+                "keeley","kneel","lithically","ludhiana",
+                "beeves",
+                
+                "prefabricate","pussy","diatomaceous","finialed","unenlivening","unrefunding","recapitulating","veritas","crushingly","saltier","sorry","stingy","gettable",
+                "judicialness","meconium","snatchable","unweeping","recalculate",
+                "unfugitive",
+                
+                "hidalgism","blotchier","durion","toluca","wurst","intellectualization","natal","carthage","brattishing","wright","unlivableness","pulverising","gracility","ecthlipsis","silliness","overfold","tagus",
+                
+                "impinged",
+                
+                "them","kayak","poikiloblast","oxter","sanforise","timoshenko","superallowance","reinduced","overtheorization","fifo","sinistrad","ambage","weighty","chrismatory","delimitation","chron","odontiasis","ophelia","gamekeeping","licetus","accusal","lienal","eunomus","whites","phrenetic","uncomputableness","objectivistic","depersonalised","induplicated","uninterchangeable","unabject","sedately","sniffer","brachycardia","foundling","diarchic","kindredship","artifact","dilate","prepurposed","legazpi","cloot","skipdent","vantage","alyssum","depreciated","compositeness","detrital","vetchling","nonpurchase","superconductivity","fireman","nasal","callipus","lasker","unfilched","lithophyte","revet","rewrite","mewar","pangolin","descension","pedanthood","ahasuerus","unrescinded","barretter","nga","biannual"
+                ];
 
 var specialword = "";
 var word_pdef = "helo";
-var previous_synsetid = "pnull";
-
-var pdef_tick = 0;
 
 word_listpage = 0;
 word_listpage_size = 0;
 
-actual_testid = 0;
-
-var wordsxsenses = "";
-
-
 var big = "";
 if(screen.width > 330)
 	big="Big";
-
 
 function round(n){
 	return Math.ceil(n);
@@ -64,13 +71,13 @@ function onDeviceReady() {
     $(document).delegate("#pinit", "pageshow", function() {
         load_words();
     });
-    
+
 	//load_words();
 	init_test();
     alto = $(document).height();
     load_words();
     //load_pinit();
-	//load_grid();
+	load_grid();
 }
 
 
@@ -93,9 +100,8 @@ $('#index').live('pagebeforeshow',function(e,data){
 
 */
 
-
 $(document).ready(function() {
-//$('#pinit').bind('pageinit',function(){
+	
 	
 	
 	//------------------------ pinit -----------------------------------
@@ -116,8 +122,8 @@ $(document).ready(function() {
 	});
 	
 	$('#word_list').on('vclick','.word_pinit' , function() { 
-		
-		load_pdef($(this).attr('id'));
+		 
+    	load_pdef($(this).attr('id'));
     	return false;
 	});
 	
@@ -127,7 +133,6 @@ $(document).ready(function() {
 	$('#word_search').on('vclick' , function() { 
 		
 		var word = document.getElementById('word_search_box').value;
-		previous_synsetid = "pnull";
 		load_pdef(word);
     	return false;
 	});
@@ -135,29 +140,25 @@ $(document).ready(function() {
 	$('#word_search_pdef').on('vclick' , function() { 
 		
 		var word = document.getElementById('word_search_box_pdef').value;
-		previous_synsetid = "pnull";
 		load_pdef(word);
     	return false;
 	});
 	
-	//----------------------pgrid---------------------------
 	
-
 	//-----------------------pdef---------------------------
 	
 
 	$('#pdef_def').on('click' ,'.word_to_search_e', function() { 
 		
 		//alert('tosearch'+$(this).attr('id'));
-		//alert("wordtserc:"+$(this).attr('psid'));
-		special_word($(this).attr('id'),$(this).attr('psid'));
+		special_word($(this).attr('id'));
     	return false;
 	});
 	
 	$('#pdef_def').on('click' ,'.word_to_search_c', function() { 
 		
 		//alert('tosearch'+$(this).attr('id'));
-		special_word($(this).attr('id'),"pnull");
+		special_word($(this).attr('id'));
     	return false;
 	});
 	
@@ -203,7 +204,6 @@ $(document).ready(function() {
     //--------------------------???????--------------------------
 
     $('#btn_l1').on('vclick', function() { 
-    	load_grid();
         $.mobile.changePage( "index.html#pgrid", { transition: "slide"} );
         return false;
      });
@@ -216,6 +216,7 @@ $(document).ready(function() {
     	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
          return false;
     });
+        
 });
 
 

@@ -88,7 +88,7 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:29 crear objectes selected_senses a partir dels selected_senses i el testID*
 
-- NOT WORKING arreglant els botons de grid
+*DONE c:30 NOT WORKING arreglant els botons de grid*
     s'ha arreglat l'ordre de load pgrid per a que es faci un test nou abans de carregarlo
 
 - botons de grid arreglats

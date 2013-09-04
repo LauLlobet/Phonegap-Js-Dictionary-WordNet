@@ -9,10 +9,12 @@ var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
                        new wordset('job','work',['sentence','escape','pain'])
 					] , 30 ) ;
 
-var grid = new level_grid([65,5,4,0,24]);
+var grid = new level_grid([56,5,4,0,24]);
+var senses_grid;
+
 var alto =120;
 
-var buttons = [['0','1','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
+var buttons = [['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
 
 
 var word_list = ["house",
@@ -27,6 +29,8 @@ var pdef_tick = 0;
 
 word_listpage = 0;
 word_listpage_size = 0;
+
+actual_testid = 0;
 
 var wordsxsenses = "";
 
@@ -96,7 +100,7 @@ $('#index').live('pagebeforeshow',function(e,data){
 */
 
 $(document).ready(function() {
-	
+//$('#pinit').bind('pageinit',function(){
 	
 	
 	//------------------------ pinit -----------------------------------
@@ -141,6 +145,85 @@ $(document).ready(function() {
     	return false;
 	});
 	
+	//----------------------pgrid---------------------------
+	
+	$('#grid').on('vclick','.select_all_lvl'+''+'' , function() { 
+		
+		alert("--SA-->"+ $(this).attr('id'));
+        var line = $(this).attr('id');
+        console.log(line);
+        var onoff = 1;
+
+        for(var i=0; i<grid.level_size[line]; i++){
+        	onoff = onoff && buttons[line][i];
+        }
+        
+        if(onoff==0)
+        	onoff=1;
+        else
+        	onoff=0;
+        
+        for(var i=0; i<buttons[line].length; i++){
+        	buttons[line][i]=onoff;
+        }
+        load_wordsXsenses();      
+		return false;
+	});
+	
+	$('#grid').on('vclick','.pgridOnButton' , function() { 
+
+		alert("pgridOnButton");
+		
+		var id= $(this).attr('id');
+		if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
+			buttons[id.charAt(0)][id.charAt(2)] = 1;
+		else
+			buttons[id.charAt(0)][id.charAt(2)] = 0;
+		
+		load_wordsXsenses();
+		return false;
+	});
+	
+	$('#grid').on('vclick','.pgridOffButton' , function(e) { 
+
+			var id= $(this).attr('id');
+			alert("pgridOffButton"+id);
+			
+			/*if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
+				buttons[id.charAt(0)][id.charAt(2)] = 1;
+			else
+				buttons[id.charAt(0)][id.charAt(2)] = 0;
+			*/
+			//load_wordsXsenses();
+			return false;
+	});
+	
+	
+	$('#grid').on('vclick','.pgridOnBigButton' , function() { 
+		
+		alert("Big");
+		var id= $(this).attr('id');
+		if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
+			buttons[id.charAt(0)][id.charAt(2)] = 1;
+		else
+			buttons[id.charAt(0)][id.charAt(2)] = 0;
+		
+		load_wordsXsenses();
+		return false;
+	});
+	
+	$('#grid').on('vclick','.pgridOffBigButton' , function() { 
+		
+		alert("pgridOffBigButton");
+		var id= $(this).attr('id');
+		if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
+			buttons[id.charAt(0)][id.charAt(2)] = 1;
+		else
+			buttons[id.charAt(0)][id.charAt(2)] = 0;
+		
+		load_wordsXsenses();
+		return false;
+	});
 	
 	//-----------------------pdef---------------------------
 	
@@ -202,6 +285,8 @@ $(document).ready(function() {
     //--------------------------???????--------------------------
 
     $('#btn_l1').on('vclick', function() { 
+    	
+    	load_grid();
         $.mobile.changePage( "index.html#pgrid", { transition: "slide"} );
         return false;
      });
