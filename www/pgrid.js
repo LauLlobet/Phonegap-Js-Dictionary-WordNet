@@ -34,6 +34,8 @@ function load_wordsXsenses(callback){
 			        this.serie = -1;
 			        this.ctime = row.ctime;
 			        this.selected = 0;
+			        if(row.selected == 1)
+				        this.selected = 1;
 			    },
 			    equals: function(object) {
 			        return (object instanceof this.klass)
@@ -55,7 +57,7 @@ function load_wordsXsenses(callback){
 			
 			wordsxsenses = new SortedSet([]);
 			word_list = [];
-			tx.executeSql("select * from selected_wordsXsenses;", [], function(tx, res1) {
+			tx.executeSql("select * from selected_wordsXsensesXcases;", [], function(tx, res1) {
 				for(var i=0; i<res1.rows.length ; i++){
 					wordsxsenses.add(new SenseCase(res1.rows.item(i)));
 				}
@@ -99,11 +101,15 @@ function classify_senses(callback){
 		
 		
 		senses_grid = [ [],[],[],[],[] ];
-		
+
+		buttons = [['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
+
 		var snum = 0;
 		lvl1.forEachSlice(4, function(list) {
 			var slice = new Set(list);
 			slice.forEach(function(x){x.serie=snum}); // x.serie=snum
+			if(slice.any(function(x){return x.selected == 1}))
+				buttons[0][snum]=1;
 			snum++;
 			senses_grid[0].push(list);
 		});
@@ -111,13 +117,17 @@ function classify_senses(callback){
 		lvl2.forEachSlice(4, function(list) {
 			var slice = new Set(list);
 			slice.forEach(function(x){x.serie=snum}); // x.serie=snum
-			snum++;
 			senses_grid[1].push(list);
+			if(slice.any(function(x){return x.selected == 1}))
+				buttons[1][snum]=1;
+			snum++;
 		});
 		snum = 0;
 		lvl3.forEachSlice(4, function(list) {
 			var slice = new Set(list);
 			slice.forEach(function(x){x.serie=snum}); // x.serie=snum
+			if(slice.any(function(x){return x.selected == 1}))
+				buttons[2][snum]=1;
 			snum++;
 		    senses_grid[2].push(list);
 		});
@@ -125,6 +135,8 @@ function classify_senses(callback){
 		lvl4.forEachSlice(4, function(list) {
 			var slice = new Set(list);
 			slice.forEach(function(x){x.serie=snum}); // x.serie=snum
+			if(slice.any(function(x){return x.selected == 1}))
+				buttons[3][snum]=1;
 			snum++;
 		    senses_grid[3].push(list);
 		});
@@ -132,13 +144,17 @@ function classify_senses(callback){
 		lvl5.forEachSlice(4, function(list) {
 			var slice = new Set(list);
 			slice.forEach(function(x){x.serie=snum}); // x.serie=snum
+			if(slice.any(function(x){return x.selected == 1}))
+				buttons[4][snum]=1;
 			snum++;
 		    senses_grid[4].push(list);
 		});
 		
 		grid = new level_grid([lvl1.count(),lvl2.count(),lvl3.count(),lvl4.count(),lvl5.count()]);
 		
-		lvl2.toArray()[0].selected=1;
+		
+		
+		//lvl2.toArray()[0].selected=1;
 
 	callback();
 	});
@@ -154,8 +170,8 @@ function create_test_or_not(callback){
 			
 		JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 			
-			if(wordsxsenses.select(function(x) { return x.selected == 1 })==0)
-				return;
+			//if(wordsxsenses.select(function(x) { return x.selected == 1 })==0)
+			//	return;
 		
 			tx.executeSql(" select MAX(ssenseid) from selected_senses ;", [], function(tx, res0) {
 				
@@ -172,7 +188,7 @@ function create_test_or_not(callback){
 					var filanova = 0;
 					filanova = filanova || ( res.rows.item(0)["MAX(lastssenseid)"] < res0.rows.item(0)["MAX(ssenseid)"] ); // si esta desactualitzat en paraules seleccionades
 					filanova = filanova || res.rows.item(0).stime != null;
-					
+					alert("ton:"+ res.rows.item(0)["MAX(lastssenseid)"]+"<"+ res0.rows.item(0)["MAX(ssenseid)"])
 					if( filanova ){
 						tx.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');");
 					}
@@ -192,6 +208,7 @@ function instance_cases(callback){
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 	
 		db.transaction(function(tx) {		
+			//Tes estara buit com a minim , com que s'ha executat create test or not mai hi haura un test antic , ho dic per el left join de select wordsXsenses()
 			tx.executeSql("select * from ans_sense_cases where testid= (select MAX(testid) from test);", [], function(tx, res) {
 				if( res.rows.length == 0 ){
 					// s'han de carregar de wordxsenses 
@@ -248,90 +265,13 @@ function print_grid(){
 }
 function load_grid(){
 	
-	load_wordsXsenses(function(){
-		classify_senses(function(){
-			create_test_or_not(function(){
-				instance_cases(function(){
+	create_test_or_not(function(){
+		instance_cases(function(){
+			load_wordsXsenses(function(){
+				classify_senses(function(){
 					print_grid();
 				})
 			})
 		})
-	});
-	
-	$(document).ready(function() {	
-		$('#grid').on('vclick','.select_all_lvl'+''+'' , function() { 
-			 
-			console.log("--SA-->"+ $(this).attr('id'));
-	        var line = $(this).attr('id');
-	        console.log(line);
-	        var onoff = 1;
-	
-	        for(var i=0; i<grid.level_size[line]; i++){
-	        	onoff = onoff && buttons[line][i];
-	        }
-	        
-	        if(onoff==0)
-	        	onoff=1;
-	        else
-	        	onoff=0;
-	        
-	        for(var i=0; i<buttons[line].length; i++){
-	        	buttons[line][i]=onoff;
-	        }
-	        load_wordsXsenses();      
-			return false;
-		});
-		
-		$('#grid').on('vclick','.pgridOnButton' , function() { 
-			 
-			var id= $(this).attr('id');
-			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
-				buttons[id.charAt(0)][id.charAt(2)] = 1;
-			else
-				buttons[id.charAt(0)][id.charAt(2)] = 0;
-			
-			load_wordsXsenses();
-			return false;
-		});
-		
-		$('#grid').on('vclick','.pgridOffButton' , function() { 
-			 
-			var id= $(this).attr('id');
-			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
-				buttons[id.charAt(0)][id.charAt(2)] = 1;
-			else
-				buttons[id.charAt(0)][id.charAt(2)] = 0;
-			
-			load_wordsXsenses();
-			return false;
-		});
-		
-		
-		$('#grid').on('vclick','.pgridOnBigButton' , function() { 
-			 
-			var id= $(this).attr('id');
-			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
-				buttons[id.charAt(0)][id.charAt(2)] = 1;
-			else
-				buttons[id.charAt(0)][id.charAt(2)] = 0;
-			
-			load_wordsXsenses();
-			return false;
-		});
-		
-		$('#grid').on('vclick','.pgridOffBigButton' , function() { 
-			 
-			var id= $(this).attr('id');
-			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
-				buttons[id.charAt(0)][id.charAt(2)] = 1;
-			else
-				buttons[id.charAt(0)][id.charAt(2)] = 0;
-			
-			load_wordsXsenses();
-			return false;
-		});
-		
-		
-		
 	});
 }

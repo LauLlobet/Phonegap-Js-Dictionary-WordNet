@@ -86,16 +86,30 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:28 sincronous calls at load pgrid , using callbacks*
 
-- crear objectes selected_senses a partir dels selected_senses i el testID
+*DONE c:29 crear objectes selected_senses a partir dels selected_senses i el testID*
 
+- NOT WORKING arreglant els botons de grid
+    s'ha arreglat l'ordre de load pgrid per a que es faci un test nou abans de carregarlo
 
-- write del grid , boto oprimit bd_selected  
+- botons de grid arreglats
 
+- toggle funcionant
 
 ++ [tooggle pgrid contra base de dades]
+
+- boto apretat show lemas del set
+
+- boto apretat set lemmas selected
+
+- boto apretat set lemmas selected i write en db i actualitzat
+
+- boto apretat i level up ( per comprovar ) , backup db.
+
 
 ++ [ans de preguntes test a test contra base de dades]
 
 ++ [resultats test contra base de dades]
+
+
 
  evitar que es pregunti una definicio de lift esperant lift i que una de les respostes sigui elevator ... el usr clicka elevator estant be i es puntua malament
