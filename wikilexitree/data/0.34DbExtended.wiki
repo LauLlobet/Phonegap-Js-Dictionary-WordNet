@@ -93,7 +93,14 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:31 botons de grid arreglats*
 
-- arreglat instanciacio de sensecases de senses afegits novament
+++ Changes en el workflow de persistencia/ordre/presentacio
+
+*DONE c:32 arreglat instanciacio de sensecases de senses afegits novament*
+
+- arreglat 2 instanciacio de sensecases de senses afegits 
+    l'anterior no funcionava al afegir paraules noves
+
+- order guarda independentment de lectura i instanciacio
 
 - toggle funcionant
 

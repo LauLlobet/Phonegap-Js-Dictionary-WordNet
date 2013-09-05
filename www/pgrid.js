@@ -212,12 +212,12 @@ function instance_cases(callback){
 			tx.executeSql("select * from ans_sense_cases where testid= (select MAX(testid) from test);", [], function(tx, res) {
 				if( res.rows.length == 0 ){
 					// s'han de carregar de wordxsenses 
-
-					alert("instance_cases preforeach");
-					wordsxsenses.forEach(function(x) {
-						tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+x.row.ssenseid+","+x.row.wordid+");");
-						//alert("row");
-						//alert("faha");			//insert into ans_sense_cases(anstype,testid,ssenseid,wordid,x_serie,y_lvl) values('definition',(select MAX(testid) from test),333,444,5,6);
+					tx.executeSql("select * from selected_wordsXsenses;", [], function(tx, res1) {
+							
+						for(var i=0; i<res1.rows.length ; i++){
+							tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+res1.rows.item(i).ssenseid+","+res1.rows.item(i).wordid+");");
+							alert("faha");
+						}
 					});
 				}
 				callback();
@@ -233,6 +233,24 @@ function instance_cases(callback){
   
 }
 
+function save_order(callback){
+	
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+	
+		wordsxsenses.forEach(function(x) {
+		
+			//alert(x.row.lemma+"fahaorder:"+x.row.sensecaseid);
+			//tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+x.row.ssenseid+","+x.row.wordid+");");
+		});
+
+	
+	
+	});
+	
+	
+	
+}
+
 function instance_new_selected(callback){
 	
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
@@ -242,8 +260,8 @@ function instance_new_selected(callback){
 			tx.executeSql("select * from selected_wordsXsensesXcases where sensecaseid IS NULL;", [], function(tx, res) {
 				
 				for(var i=0; i<res.rows.length ; i++){
+					alert("aixo no ha de sortir mai num:1");
 					tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+res.rows.item(i).ssenseid+","+res.rows.item(i).wordid+");");
-					alert("faha");
 				}
 				callback();
 			});
@@ -370,6 +388,7 @@ function load_grid(){
 			instance_new_selected(function(){
 				load_wordsXsenses(function(){
 					classify_senses(function(){
+						save_order();
 						print_grid();
 						set_buttons_ready();
 					})

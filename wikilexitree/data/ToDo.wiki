@@ -1,3 +1,5 @@
 ﻿++ To Do
 
 - que fer amb els corrects/incorrects d'una paraula que s'ha tret i tornat a posar
+
+- dos senses posats a diferent temps com es llisten a la botonera de pinit ? -> hauria de ser sempre el mes nou pq repetit es lletx.
