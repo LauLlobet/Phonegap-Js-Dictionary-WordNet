@@ -40,9 +40,10 @@ function load_wordsXsenses(callback){
 					        this.ctime = row.ctime;
 					        this.selected = 0;
 					        this.ssenseid = row.ssenseid; 
+					        this.sensecaseid = row.sensecaseid; 
 					        if(row.selected == 1)
 						        this.selected = 1;
-							//alert(row.lemma+"instanciant:"+row.ssenseid);
+							//alert(row.lemma+"instanciant:"+row.sensecaseid);
 					    },
 					    equals: function(object) {
 					        return (object instanceof this.klass)
@@ -102,9 +103,7 @@ function classify_senses(callback){
 		var lvl3 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 3 }));
 		var lvl4 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 4 }));
 		var lvl5 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 5 }));
-		
-		
-		senses_grid = [ [],[],[],[],[] ];
+	
 
 		buttons = [['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
 
@@ -216,7 +215,6 @@ function instance_cases(callback){
 							
 						for(var i=0; i<res1.rows.length ; i++){
 							tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+res1.rows.item(i).ssenseid+","+res1.rows.item(i).wordid+");");
-							alert("faha");
 						}
 					});
 				}
@@ -236,15 +234,19 @@ function instance_cases(callback){
 function save_order(callback){
 	
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
-	
-		wordsxsenses.forEach(function(x) {
 		
-			//alert(x.row.lemma+"fahaorder:"+x.row.sensecaseid);
-			//tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+x.row.ssenseid+","+x.row.wordid+");");
+		db.transaction(function(tx) {		
+				
+			wordsxsenses.forEach(function(x) {
+			
+				//alert(x.serie+"fahaorder:"+x.level+" "+x.serie+" "+x.sensecaseid);
+				tx.executeSql("UPDATE ans_sense_cases SET x_serie='"+x.serie+"', y_lvl='"+x.level+"'  where sensecaseid='"+x.sensecaseid+"' ;");
+				//tx.executeSql("select * from selected_wordsXsensesXcases where sensecaseid IS NULL;");
+			
+					
+			})
+			callback();
 		});
-
-	
-	
 	});
 	
 	
@@ -301,6 +303,28 @@ function print_grid(){
 	
 }
 
+function toggle_selected( togg, x, y, callback){
+	
+	
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+		
+	
+			var set = new Set(senses_grid[x][y]);
+			set.forEach(function(x) {
+			
+				//alert("serie:"+x.serie +"level:"+x.level+" "+x.sensecaseid+" togg"+togg);
+				db.transaction(function(tx) {			
+					tx.executeSql("UPDATE ans_sense_cases SET selected='"+togg+"' where sensecaseid='"+x.sensecaseid+"' ;");
+				});
+				
+				//tx.executeSql("select * from selected_wordsXsensesXcases where sensecaseid IS NULL;");
+			})
+			//alert("faha"+Object.keys([0]));
+			callback();
+	});
+	
+}
+
 function set_buttons_ready(){
 	
 	$(document).ready(function() {	
@@ -330,24 +354,28 @@ function set_buttons_ready(){
 		$('#grid').on('vclick','.pgridOnButton' , function() { 
 			 
 			var id= $(this).attr('id');
-			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
-				buttons[id.charAt(0)][id.charAt(2)] = 1;
-			else
-				buttons[id.charAt(0)][id.charAt(2)] = 0;
-			
-			refresh_grid();
+			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
+				//buttons[id.charAt(0)][id.charAt(2)] = 1;
+				toggle_selected(1,id.charAt(0),id.charAt(2),load_grid());
+				
+			}else
+				toggle_selected(0,id.charAt(0),id.charAt(2),load_grid());
+				//buttons[id.charAt(0)][id.charAt(2)] = 0;
 			return false;
 		});
 		
 		$('#grid').on('vclick','.pgridOffButton' , function() { 
 			 
 			var id= $(this).attr('id');
-			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
-				buttons[id.charAt(0)][id.charAt(2)] = 1;
-			else
-				buttons[id.charAt(0)][id.charAt(2)] = 0;
+			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
+				//buttons[id.charAt(0)][id.charAt(2)] = 1;
+				toggle_selected(1,id.charAt(0),id.charAt(2),load_grid());
+				
+			}else
+				toggle_selected(0,id.charAt(0),id.charAt(2),load_grid());
+				//buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
-			refresh_grid();
+	//		refresh_grid();
 			return false;
 		});
 		
@@ -388,9 +416,10 @@ function load_grid(){
 			instance_new_selected(function(){
 				load_wordsXsenses(function(){
 					classify_senses(function(){
-						save_order();
-						print_grid();
-						set_buttons_ready();
+						save_order(function(){
+							print_grid();
+							set_buttons_ready();
+						});
 					})
 				})
 			})

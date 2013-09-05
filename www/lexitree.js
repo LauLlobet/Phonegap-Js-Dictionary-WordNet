@@ -34,6 +34,8 @@ actual_testid = 0;
 var wordsxsenses = "";
 
 
+senses_grid = [ [],[],[],[],[] ];
+
 var big = "";
 if(screen.width > 330)
 	big="Big";
