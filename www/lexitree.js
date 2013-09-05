@@ -3,10 +3,7 @@
  var db = "";
 
 
-var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
-                       new wordset('prison','place',['lake','river','book']) ,
-                       new wordset('job','work',['sentence','escape','pain'])
-					] , 30 ) ;
+var test = "";
 
 var grid = new level_grid([56,5,4,0,24]);
 var senses_grid;
@@ -68,7 +65,6 @@ function onDeviceReady() {
     });
     
 	//load_words();
-	init_test();
     alto = $(document).height();
     load_words();
     //load_pinit();
@@ -144,6 +140,20 @@ $(document).ready(function() {
 	
 	//----------------------pgrid---------------------------
 	
+    $('#btn_ptest').on('touchstart', function() { 
+    	
+
+    	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+    		if( wordsxsenses.any(function(x) {return x.selected == 1}) ){
+	    		test = new Test() ;
+	        	init_test();
+	        	$.mobile.changePage( "index.html#ptest", { transition: "slide"} );   
+    		}else
+    			toast("Select word sets to make a test.");
+    	});
+    	return false;
+ 
+    });
 
 	//-----------------------pdef---------------------------
 	

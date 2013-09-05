@@ -328,7 +328,7 @@ function toggle_selected( togg, x, y, callback){
 function set_buttons_ready(){
 	
 	$(document).ready(function() {	
-		$('#grid').on('vclick','.select_all_lvl'+''+'' , function() { 
+		$('#grid').on('touchstart','.select_all_lvl'+''+'' , function() { 
 			 
 			console.log("--SA-->"+ $(this).attr('id'));
 	        var line = $(this).attr('id');
@@ -351,7 +351,7 @@ function set_buttons_ready(){
 			return false;
 		});
 		
-		$('#grid').on('vclick','.pgridOnButton' , function() { 
+		$('#grid').on('touchstart','.pgridOnButton' , function() { 
 			 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
@@ -364,7 +364,7 @@ function set_buttons_ready(){
 			return false;
 		});
 		
-		$('#grid').on('vclick','.pgridOffButton' , function() { 
+		$('#grid').on('touchstart','.pgridOffButton' , function() { 
 			 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
@@ -380,7 +380,7 @@ function set_buttons_ready(){
 		});
 		
 		
-		$('#grid').on('vclick','.pgridOnBigButton' , function() { 
+		$('#grid').on('touchstart','.pgridOnBigButton' , function() { 
 			 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
@@ -392,7 +392,7 @@ function set_buttons_ready(){
 			return false;
 		});
 		
-		$('#grid').on('vclick','.pgridOffBigButton' , function() { 
+		$('#grid').on('touchstart','.pgridOffBigButton' , function() { 
 			 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )

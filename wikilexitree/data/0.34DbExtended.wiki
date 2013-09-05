@@ -103,9 +103,16 @@ falta publicarlo amb la app restartwikidpad.wiki
 *DONE c:34 toggle funcionant i order guarda independentment de lectura i instanciacio*
 
 
+
+++ FALTA EL SELECT ALL
+
+
+
 ++ [Creacio de testos]
 
-- la objecte test suporta id's + definicions
+*DONE c:35 la objecte test suporta id's + definicions*
+
+- entrada al test via codi 
 
 - crear distribució de fonts 35% selected 35% non_selected 30% desconegudes
 

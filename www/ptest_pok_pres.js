@@ -71,9 +71,23 @@ function wordset(word,op_c,op_e_array){
 	
 }
 
-function test(wordset_array, initial_improvment){
+function Test(){
 	this.questions = [];
-	for(i=0;i<wordset_array.length;i++){
+	
+	var prob_selected = 35;
+	var prob_unselected = 70;
+	var prob_other = 30;
+	
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+		wordsxsenses.forEach(function(x) {
+		
+			alert(x.selected);
+			//alert(x.rows.lemma);
+		
+		});
+	});
+	
+	for(i=0;i<4;i++){
 	
 		//this.questions.push(["swift","bird","plane","ship"]);// = new question(wordset_array[i].get_word_ops());
 		this.questions.push( new question([new answer('swift',23),new answer('bird',12),new answer('plane',45),new answer('ship',77)]));
@@ -82,8 +96,6 @@ function test(wordset_array, initial_improvment){
 		
 	}
 	this.current_question = -1;
-	
-	this.initial_improvment = initial_improvment;
 }
 
 
