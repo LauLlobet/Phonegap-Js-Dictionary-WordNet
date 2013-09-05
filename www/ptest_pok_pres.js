@@ -35,6 +35,12 @@ function question(a)
 	this.correct=rand;
 }
 
+function answer(text,id){
+	
+	this.text = text;
+	this.id = id;
+}
+
 function wordset(word,op_c,op_e_array){
 	this.word = word;
 	this.op_c = op_c;
@@ -67,8 +73,14 @@ function wordset(word,op_c,op_e_array){
 
 function test(wordset_array, initial_improvment){
 	this.questions = [];
-	for(i=0;i<wordset_array.length;i++)
-		this.questions[i] = new question(wordset_array[i].get_word_ops());
+	for(i=0;i<wordset_array.length;i++){
+	
+		//this.questions.push(["swift","bird","plane","ship"]);// = new question(wordset_array[i].get_word_ops());
+		this.questions.push( new question([new answer('swift',23),new answer('bird',12),new answer('plane',45),new answer('ship',77)]));
+		//this.questions.push( new question(['swift','bird','plane','ship']));
+		//var wer = new answer("adsas",23);
+		
+	}
 	this.current_question = -1;
 	
 	this.initial_improvment = initial_improvment;
@@ -102,10 +114,10 @@ function next_slide()
 	csc.innerHTML = test.questions.length ;//""+test.current_slide;
 	
 	var q = test.questions[test.current_question]; 
-	document.getElementById("test_word").innerHTML = q.word;
-	document.getElementById("test_op0").innerHTML = q.op[0];
-	document.getElementById("test_op1").innerHTML = q.op[1];
-	document.getElementById("test_op2").innerHTML = q.op[2];
+	document.getElementById("test_word").innerHTML = q.word.text;
+	document.getElementById("test_op0").innerHTML = q.op[0].text;
+	document.getElementById("test_op1").innerHTML = q.op[1].text;
+	document.getElementById("test_op2").innerHTML = q.op[2].text;
 
 }
 

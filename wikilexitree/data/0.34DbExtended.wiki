@@ -100,22 +100,29 @@ falta publicarlo amb la app restartwikidpad.wiki
 *DONE c:33 arreglat 2 instanciacio de sensecases de senses afegits *
     l'anterior no funcionava al afegir paraules noves
 
-- toggle funcionant i order guarda independentment de lectura i instanciacio
-
-- 
-
-++ [tooggle pgrid contra base de dades]
-
-- boto apretat show lemas del set
-
-- boto apretat set lemmas selected
-
-- boto apretat set lemmas selected i write en db i actualitzat
-
-- boto apretat i level up ( per comprovar ) , backup db.
+*DONE c:34 toggle funcionant i order guarda independentment de lectura i instanciacio*
 
 
-++ [ans de preguntes test a test contra base de dades]
+++ [Creacio de testos]
+
+- la objecte test suporta id's + definicions
+
+- crear distribució de fonts 35% selected 35% non_selected 30% desconegudes
+
+- crear selected words
+
+- crear selected words brothers
+    
+- word(i), coin , remove wordi from selected , 
+    
+-        1) rand from selected     => not brother word(i), if empty
+-        2) rand from non_selected => not brother word(i), if empty
+-        3) rand from all          => not brother word(i), not selected
+
+- test stime = now
+    
+- es crea el test a partir de les instancies
+
 
 ++ [resultats test contra base de dades]
 
