@@ -91,7 +91,9 @@ falta publicarlo amb la app restartwikidpad.wiki
 *DONE c:30 NOT WORKING arreglant els botons de grid*
     s'ha arreglat l'ordre de load pgrid per a que es faci un test nou abans de carregarlo
 
-- botons de grid arreglats
+*DONE c:31 botons de grid arreglats*
+
+- arreglat instanciacio de sensecases de senses afegits novament
 
 - toggle funcionant
 

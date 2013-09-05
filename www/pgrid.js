@@ -20,14 +20,8 @@ function load_wordsXsenses(callback){
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
 	}
 	
-	//wordsxsenses = new Set();
-	//var oo = new Set([0,1,2]);
 	db.transaction(function(tx) {
-		alert("hi");
-		
-			/*alert("faha");
-			print_grid();
-			set_buttons_ready();*/
+	
 			
 			word_list = [];
 			tx.executeSql("select * from selected_wordsXsensesXcases;", [], function(tx, res1) {
@@ -45,9 +39,10 @@ function load_wordsXsenses(callback){
 					        this.serie = -1;
 					        this.ctime = row.ctime;
 					        this.selected = 0;
+					        this.ssenseid = row.ssenseid; 
 					        if(row.selected == 1)
 						        this.selected = 1;
-							//alert("instanciant"+row.lemma);
+							//alert(row.lemma+"instanciant:"+row.ssenseid);
 					    },
 					    equals: function(object) {
 					        return (object instanceof this.klass)
@@ -210,7 +205,6 @@ function instance_cases(callback){
 	//select de ja existents segons testid
 	//si hi han 0 resultats 
 
-	alert("instance_cases init");
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 	
 		db.transaction(function(tx) {		
@@ -221,13 +215,14 @@ function instance_cases(callback){
 
 					alert("instance_cases preforeach");
 					wordsxsenses.forEach(function(x) {
-						tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid,x_serie,y_lvl) values('definition',(select MAX(testid) from test),"+x.row.ssenseid+","+x.row.wordid+","+x.serie+","+x.level+");");
+						tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+x.row.ssenseid+","+x.row.wordid+");");
 						//alert("row");
 						//alert("faha");			//insert into ans_sense_cases(anstype,testid,ssenseid,wordid,x_serie,y_lvl) values('definition',(select MAX(testid) from test),333,444,5,6);
-						alert("foreach");
-					});	
+					});
 				}
+				callback();
 			});
+						
 		});
 	
 	
@@ -235,10 +230,26 @@ function instance_cases(callback){
     //alert("asenseid"+actual_testid);
     
 	//			
-    callback();
+  
 }
 
-
+function instance_new_selected(callback){
+	
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+		
+		db.transaction(function(tx) {		
+			
+			tx.executeSql("select * from selected_wordsXsensesXcases where sensecaseid IS NULL;", [], function(tx, res) {
+				
+				for(var i=0; i<res.rows.length ; i++){
+					tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+res.rows.item(i).ssenseid+","+res.rows.item(i).wordid+");");
+					alert("faha");
+				}
+				callback();
+			});
+		});
+	});
+}
 
 function print_grid(){
 	
@@ -355,14 +366,17 @@ function load_grid(){
 	
 
 	create_test_or_not(function(){
-		instance_cases(function(){		
-			load_wordsXsenses(function(){
-				classify_senses(function(){
-					print_grid();
-					set_buttons_ready();
-					alert("fahend");
+		instance_cases(function(){	
+			instance_new_selected(function(){
+				load_wordsXsenses(function(){
+					classify_senses(function(){
+						print_grid();
+						set_buttons_ready();
+					})
 				})
-		})})});	
+			})
+		})
+	});	
 }
 
 function refresh_grid(){
