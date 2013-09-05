@@ -35,10 +35,11 @@ function question(a)
 	this.correct=rand;
 }
 
-function answer(text,id){
+function answer(text,id,cid){
 	
 	this.text = text;
 	this.id = id;
+	this.cid = cid;
 }
 
 function wordset(word,op_c,op_e_array){
@@ -79,12 +80,18 @@ function Test(){
 	var prob_other = 30;
 	
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+		
+		var selected = new Set([]);
+		var unselected = new Set([]);
+		
 		wordsxsenses.forEach(function(x) {
-		
-			alert(x.selected);
-			//alert(x.rows.lemma);
-		
+			if(x.selected == 1)
+				selected.add(new answer(x.row.definition,x.ssenseid,x.sensecaseid));
+			else
+				unselected.add(new answer(x.row.definition,x.ssenseid,x.sensecaseid));
 		});
+		alert("faha"+selected.count());
+		alert("fahaun"+unselected.count());
 	});
 	
 	for(i=0;i<4;i++){
