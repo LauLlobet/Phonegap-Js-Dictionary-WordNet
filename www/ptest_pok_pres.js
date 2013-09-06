@@ -1,5 +1,34 @@
 
-
+var SenseAns = "";
+JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+		
+		SenseAns = new Class({
+			include: Comparable,
+			
+		    initialize: function(text,id,cid,lemma) {
+		    	this.text = text;
+		    	this.id = id;
+		    	this.cid = cid;
+		    	this.lemma = lemma;
+				//alert(row.lemma+"instanciant:"+row.sensecaseid);
+		    },
+		    equals: function(object) {
+		    	return (object instanceof this.klass)
+		        	 && object.id == this.id;
+		    },
+		    hash: function() {
+		        return this.id;
+		    },
+		    
+		    compareTo: function(other) {
+		        if (this.id < other.id) return 1;
+		        if (this.id > other.id) return -1;
+		        return 0;
+		    }
+		    
+		    
+		});	
+});
 function question(a)
 {
 	
@@ -35,11 +64,12 @@ function question(a)
 	this.correct=rand;
 }
 
-function answer(text,id,cid){
+function answer(text,id,cid,lemma){
 	
 	this.text = text;
 	this.id = id;
 	this.cid = cid;
+	this.lemma = lemma;
 }
 
 function wordset(word,op_c,op_e_array){
@@ -72,12 +102,23 @@ function wordset(word,op_c,op_e_array){
 	
 }
 
-function Test(){
+function Test(callit){
 	this.questions = [];
 	
 	var prob_selected = 35;
 	var prob_unselected = 70;
 	var prob_other = 30;
+	
+	for(i=0;i<4;i++){
+		
+		//this.questions.push(["swift","bird","plane","ship"]);// = new question(wordset_array[i].get_word_ops());
+		this.questions.push( new question([new answer('swift',23),new answer('bird',12),new answer('plane',45),new answer('ship',77)]));
+		//this.questions.push( new question(['swift','bird','plane','ship']));
+		//var wer = new answer("adsas",23);
+		
+	}
+	test = this;
+	this.current_question = -1;
 	
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 		
@@ -85,24 +126,48 @@ function Test(){
 		var unselected = new Set([]);
 		
 		wordsxsenses.forEach(function(x) {
-			if(x.selected == 1)
-				selected.add(new answer(x.row.definition,x.ssenseid,x.sensecaseid));
-			else
-				unselected.add(new answer(x.row.definition,x.ssenseid,x.sensecaseid));
+			if(x.selected == 1){
+				selected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma));
+			}else
+				unselected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma));
 		});
-		alert("faha"+selected.count());
-		alert("fahaun"+unselected.count());
+		//alert("faha"+selected.count());
+		//alert("fahaun"+unselected.count());
+		
+		var brothers = new Set([]);
+		find_brothers(0,selected,brothers,function(){
+			
+			alert("adas"+brothers.count());
+			brothers = brothers.difference(selected);
+			alert("adas2a"+brothers.count());
+			
+			callit();
+		});
+	
 	});
 	
-	for(i=0;i<4;i++){
+
+}
+
+function find_brothers(i,selected,brothers,callback){
 	
-		//this.questions.push(["swift","bird","plane","ship"]);// = new question(wordset_array[i].get_word_ops());
-		this.questions.push( new question([new answer('swift',23),new answer('bird',12),new answer('plane',45),new answer('ship',77)]));
-		//this.questions.push( new question(['swift','bird','plane','ship']));
-		//var wer = new answer("adsas",23);
-		
+	if(i==selected.count()){
+		callback();
+		return;
 	}
-	this.current_question = -1;
+		
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+		
+		db.transaction(function(tx) {
+			tx.executeSql("select definition , synsetid  , lemma  from dict where lemma='"+selected.toArray()[i].lemma+"';", [], function(tx, res1) {
+				for(var j=0; j<res1.rows.length ; j++){
+					brothers.add(new SenseAns(res1.rows.item(j).definition,res1.rows.item(j).synsetid,-1,res1.rows.item(j).lemma));
+				}
+				find_brothers(i+1, selected, brothers, callback);
+			});
+		});
+	});
+	
 }
 
 

@@ -142,12 +142,13 @@ $(document).ready(function() {
 	
     $('#btn_ptest').on('touchstart', function() { 
     	
-
     	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
     		if( wordsxsenses.any(function(x) {return x.selected == 1}) ){
-	    		test = new Test() ;
-	        	init_test();
-	        	$.mobile.changePage( "index.html#ptest", { transition: "slide"} );   
+	    		new Test(function(){
+	    			init_test();
+		        	$.mobile.changePage( "index.html#ptest", { transition: "slide"} ); 
+	        	}) ;
+	        	  
     		}else
     			toast("Select word sets to make a test.");
     	});

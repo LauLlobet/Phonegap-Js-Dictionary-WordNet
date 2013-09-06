@@ -114,7 +114,7 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:36 entrada al test via codi *
 
-- crear selected words i unselected
+*DONE c:37 crear selected words i unselected*
 
 - crear selected words brothers
     
