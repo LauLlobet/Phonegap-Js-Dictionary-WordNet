@@ -126,7 +126,7 @@ falta publicarlo amb la app restartwikidpad.wiki
         2) rand from non_selected => not brother word(i), if empty
         3) rand from all          => not brother word(i), not selected
 
-- test stime = now
+*DONE c:40 test stime = now*
 
 - test endtime
 

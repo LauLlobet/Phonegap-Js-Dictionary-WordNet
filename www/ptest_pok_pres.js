@@ -263,7 +263,7 @@ function next_slide()
 		
 		db.transaction(function(tx) {
 			
-			tx.executeSql("update test set stime = "+n+" where testid=(select MAX(testid) from test);", [], function(tx, res1) {alert("fahita")});
+			tx.executeSql("update test set stime = "+n+" where testid=(select MAX(testid) from test);", [], function(tx, res1) {});
 				
 		});
 	}
@@ -285,6 +285,11 @@ function next_slide()
 	document.getElementById("test_op1").innerHTML = q.op[1].text;
 	document.getElementById("test_op2").innerHTML = q.op[2].text;
 
+	var d = new Date();
+	var n = d.getTime();
+	db.transaction(function(tx) {
+		tx.executeSql("update ans_sense_cases set stime ="+n+", trap1id = " + test.questions[test.current_question].op_e1.id +", trap2id="+ test.questions[test.current_question].op_e2.id+" where sensecaseid="+test.questions[test.current_question].op_c.cid+";", [], function(tx, res1) {});
+	});
 }
 
 function test_answer(ans){
@@ -296,6 +301,12 @@ function test_answer(ans){
 	console.log(test.questions[test.current_question].op[ans]+test.questions[test.current_question].op_c );
 	save_answered_question(ans);
 	
+	
+	var d = new Date();
+	var n = d.getTime();
+	db.transaction(function(tx) {
+		tx.executeSql("update ans_sense_cases set etime ="+n+", anssid = " + test.questions[test.current_question].op[ans].id + " where sensecaseid="+test.questions[test.current_question].op_c.cid+";", [], function(tx, res1) {});
+	});
 	
 	if( test.questions[test.current_question].correct == ans )
 	{
@@ -316,12 +327,26 @@ function test_answer(ans){
 	
 	if( test.current_question  == test.questions.length -1 ){
 		console.log("okok");
-		document.getElementById("pok_next").href="#pres";
+		
+		$('#pok_next').off('vclick');
+		$('#pok_next').on('vclick', function(){ 
+		    	next_slide();
+		    	 $.mobile.changePage( "index.html#pres", { transition: "slide"} );
+		         return false;
+		    });
+		
 		prepare_pres();
 	}
 }
 
 function prepare_pres(){
+	
+	var d = new Date();
+	var n = d.getTime();
+	
+	db.transaction(function(tx) {
+		tx.executeSql("update test set etime = "+n+" where testid=(select MAX(testid) from test);", [], function(tx, res1) {});
+	});
 	
 	// acces a db de preguntes ben contestades
 	//calcul de %encerts %improvment baixades i puijades
