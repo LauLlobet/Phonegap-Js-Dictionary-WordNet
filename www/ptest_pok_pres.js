@@ -193,9 +193,7 @@ function fill_test(selected,unselected,callit,randoms) {
 		var safe_selected = selected.difference(brothers);
 		var safe_unselected = unselected.difference(brothers);
 		var safe_randoms = randoms.difference(brothers).difference(selected);
-		
-		//alert("2faha"+safe_randoms.count());
-
+	
 		for(var i=0;i<2;i++){
 			
 			 var rand = Math.random()*100;
@@ -257,6 +255,19 @@ function next_slide()
 {
 
 	test.current_question++;
+	
+	if(test.current_question == 0 ){
+		var d = new Date();
+		var n = d.getTime();
+		alert("fahaq"+n);
+		
+		db.transaction(function(tx) {
+			
+			tx.executeSql("update test set stime = "+n+" where testid=(select MAX(testid) from test);", [], function(tx, res1) {alert("fahita")});
+				
+		});
+	}
+	
 	
 	var array = test.questions;
 
