@@ -10,6 +10,16 @@
 # girls colours
 # kids colours
 
+# lamparas en el skill tree
+# loading game -> triar paraules que s'escriuen complicades amb l'ordre de les lletres mal
+# remove adds for n day
+# adds up or down
+# long branch returns points + X
+# branch that makes questions more difficult and gives a plus as a return 
+# "" in means of time -> timed test 
+# public forum post level 1 2 3 4 5 ...
+# 
+
 ++++Challanges
 # chain
 # number of questions in level 1

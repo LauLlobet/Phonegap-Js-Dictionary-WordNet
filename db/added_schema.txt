@@ -56,9 +56,17 @@ CREATE TABLE `subjects` (
 
 CREATE TABLE `subject_sets` (
   `subject_id` integer NOT NULL DEFAULT '0'
-, `ssenseid ` integer NOT NULL DEFAULT '0'
-,  PRIMARY KEY (`subject_id`,`ssenseid `)
+, `ssenseid` integer NOT NULL DEFAULT '0'
+,  PRIMARY KEY (`subject_id`,`ssenseid`)
 );
+
+CREATE TABLE `synsets_index` (
+  `id` integer NOT NULL DEFAULT '0'
+, `synsetid` integer NOT NULL DEFAULT '0'
+,  PRIMARY KEY (`id`)
+);
+
+insert into synsets_index(synsetid) select synsetid from synsets;
 
 
 CREATE VIEW selected_words AS SELECT lemma, ctime,dtime,wordid,synsetid FROM selected_senses LEFT JOIN words s USING (wordid) 
@@ -70,3 +78,7 @@ WHERE dtime IS NULL ORDER BY ctime DESC;
 
 
 CREATE VIEW selected_wordsXsensesXcases AS SELECT * FROM selected_senses LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid) LEFT JOIN (select * from ans_sense_cases where testid= (select MAX(testid) from test)) USING (ssenseid) WHERE dtime IS NULL ORDER BY ctime DESC ;
+
+CREATE VIEW wordsXsensesXcases AS SELECT * FROM words LEFT JOIN synsets USING (synsetid) LEFT JOIN synsets_index USING (synsetid);
+
+

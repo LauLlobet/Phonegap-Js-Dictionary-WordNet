@@ -1,4 +1,9 @@
 
+	var prob_selected = 35;
+	var prob_unselected = 70;
+	var prob_other = 100;
+
+
 var SenseAns = "";
 JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 		
@@ -48,6 +53,8 @@ function question(a)
 	var rand3=Math.floor(Math.random()*3);
 	
 	this.op = new Array();
+	//console.log(rand);
+	//alert("rand:"+rand);
 	this.op[rand]=op_c;
 	
 	while(rand2 == rand){
@@ -104,19 +111,6 @@ function wordset(word,op_c,op_e_array){
 
 function Test(callit){
 	this.questions = [];
-	
-	var prob_selected = 35;
-	var prob_unselected = 70;
-	var prob_other = 30;
-	
-	for(i=0;i<4;i++){
-		
-		//this.questions.push(["swift","bird","plane","ship"]);// = new question(wordset_array[i].get_word_ops());
-		this.questions.push( new question([new answer('swift',23),new answer('bird',12),new answer('plane',45),new answer('ship',77)]));
-		//this.questions.push( new question(['swift','bird','plane','ship']));
-		//var wer = new answer("adsas",23);
-		
-	}
 	test = this;
 	this.current_question = -1;
 	
@@ -124,6 +118,7 @@ function Test(callit){
 		
 		var selected = new Set([]);
 		var unselected = new Set([]);
+		var randoms = new Set([]);
 		
 		wordsxsenses.forEach(function(x) {
 			if(x.selected == 1){
@@ -131,22 +126,99 @@ function Test(callit){
 			}else
 				unselected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma));
 		});
-		//alert("faha"+selected.count());
-		//alert("fahaun"+unselected.count());
+
+		var id = 4545; 
 		
-		var brothers = new Set([]);
-		find_brothers(0,selected,brothers,function(){
-			
-			alert("adas"+brothers.count());
-			brothers = brothers.difference(selected);
-			alert("adas2a"+brothers.count());
-			
-			callit();
-		});
+		fill_randoms(0,selected,randoms,function(){alert("done");fill_test(selected,unselected,callit,randoms); }); 
+		
 	
 	});
-	
+}
 
+function fill_randoms(i,selected,randoms,callback){
+	
+	if(i==selected.count()*3){
+		callback();
+		return;
+	}
+		
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+		
+		db.transaction(function(tx) {
+			var pos =  Math.floor(Math.random()*117370) +1 ;
+			tx.executeSql("SELECT * FROM sensesXindex where id="+pos+";", [], function(tx, res5) {
+				randoms.add(new SenseAns(res5.rows.item(0).definition,res5.rows.item(0).synsetid,-1,"Error:random-loaded"));
+				fill_randoms(i+1, selected, randoms, callback);
+			});
+		});
+	});
+}
+
+
+function randPick(set){
+
+	var done = false;
+	var ans = -1;
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+		var pos =  Math.floor(Math.random()*set.count());
+	
+		ans = set.toArray()[pos];
+		done = true;
+	});
+	
+	while(!done){
+		console.log("randpick waiting");
+	}
+	return ans;
+
+}
+
+
+function fill_test(selected,unselected,callit,randoms) {
+	
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {	
+	
+		if(selected.count()==0){
+			//alert("end");
+			callit();
+		}
+		var x = selected.toArray()[0];
+		selected.remove(x);
+		
+		var brothers = new Set([]);
+
+		var traps = ["",""];
+		find_brothers(0,new Set([x]),brothers,function(){
+			
+		var safe_selected = selected.difference(brothers);
+		var safe_unselected = unselected.difference(brothers);
+		var safe_randoms = randoms.difference(brothers).difference(selected);
+		
+		//alert("2faha"+safe_randoms.count());
+
+		for(var i=0;i<2;i++){
+			
+			 var rand = Math.random()*100;
+			 traps[i] = new answer('error 3434',12,12,'error 3434');
+			 
+			 if(rand < prob_selected && !safe_selected.isEmpty() ){
+				 traps[i] = randPick(safe_selected);
+				 safe_selected.remove(traps[i]);
+				 //.lemma);
+			 }else 
+			 if( (rand > prob_selected && rand < prob_unselected || safe_selected.isEmpty() ) && !safe_unselected.isEmpty() ){
+				 traps[i] = randPick(safe_unselected);
+				 safe_unselected.remove(traps[i]);
+				 //alert(randPick(safe_unselected).lemma); 
+			 }else
+				 traps[i] = randPick(safe_randoms);
+		}
+		test.questions.push( new question([x,x,traps[0],traps[1]] ));
+		fill_test(selected,unselected,callit,randoms);
+		return;	
+		})
+
+	});
 }
 
 function find_brothers(i,selected,brothers,callback){
@@ -167,7 +239,6 @@ function find_brothers(i,selected,brothers,callback){
 			});
 		});
 	});
-	
 }
 
 
@@ -198,7 +269,7 @@ function next_slide()
 	csc.innerHTML = test.questions.length ;//""+test.current_slide;
 	
 	var q = test.questions[test.current_question]; 
-	document.getElementById("test_word").innerHTML = q.word.text;
+	document.getElementById("test_word").innerHTML = q.word.lemma;
 	document.getElementById("test_op0").innerHTML = q.op[0].text;
 	document.getElementById("test_op1").innerHTML = q.op[1].text;
 	document.getElementById("test_op2").innerHTML = q.op[2].text;

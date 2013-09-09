@@ -116,13 +116,15 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:37 crear selected words i unselected*
 
-- crear selected words brothers
+*DONE c:38 crear selected words brothers*
+    s'han creat un conjunt de tots els brothers de totes les preguntes
+    pero el que es necesita es un conjunt de brothers d'una sola paraula en cada cas
     
 - word(i), coin , remove wordi from selected , 
     
--        1) rand from selected     => not brother word(i), if empty
--        2) rand from non_selected => not brother word(i), if empty
--        3) rand from all          => not brother word(i), not selected
+        1) rand from selected     => not brother word(i), if empty
+        2) rand from non_selected => not brother word(i), if empty
+        3) rand from all          => not brother word(i), not selected
 
 - test stime = now
     
