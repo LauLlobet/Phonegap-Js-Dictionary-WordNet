@@ -224,7 +224,7 @@ $(document).ready(function() {
     //--------------------------???????--------------------------
 
     $('#btn_l1').on('vclick', function() { 
-    	load_grid();
+    	load_words(function(){load_grid();});
         $.mobile.changePage( "index.html#pgrid", { transition: "slide"} );
         return false;
      });

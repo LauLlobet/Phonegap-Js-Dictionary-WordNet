@@ -141,12 +141,17 @@ question stime  endtime
 
  en cada pok mostrar l'increment de % i sumarlo a una variable global, 
  
-- sumar pujades i baixades
+*DONE c:43 sumar pujades i baixades*
 
 * al final veure el sumatori de diffs totals, pujades i baixades
 
 
 ++ tests de fluxe
 
-- delete all senses manually and see grid 
+- poguer re-començar un test un cop acabat
+    es per una rao de base de dades;
+    
+- botons de select all
+
+delete all senses manually and see grid 
 

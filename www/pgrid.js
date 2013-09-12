@@ -118,7 +118,9 @@ function classify_senses(callback){
 	
 
 		buttons = [['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
+		senses_grid = [ [],[],[],[],[] ];
 
+		
 		var snum = 0;
 		lvl1.forEachSlice(4, function(list) {
 			var slice = new Set(list);
@@ -340,7 +342,7 @@ function toggle_selected( togg, x, y, callback){
 function set_buttons_ready(){
 	
 	$(document).ready(function() {	
-		$('#grid').on('touchstart','.select_all_lvl'+''+'' , function() { 
+		$('body').on('touchstart','.select_all_lvl'+''+'' , function() { 
 			 
 			console.log("--SA-->"+ $(this).attr('id'));
 	        var line = $(this).attr('id');
@@ -363,7 +365,7 @@ function set_buttons_ready(){
 			return false;
 		});
 		
-		$('#grid').on('touchstart','.pgridOnButton' , function() { 
+		$('body').on('touchstart','.pgridOnButton' , function() { 
 			 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
@@ -376,7 +378,7 @@ function set_buttons_ready(){
 			return false;
 		});
 		
-		$('#grid').on('touchstart','.pgridOffButton' , function() { 
+		$('body').on('touchstart','.pgridOffButton' , function() { 
 			 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
@@ -392,7 +394,7 @@ function set_buttons_ready(){
 		});
 		
 		
-		$('#grid').on('touchstart','.pgridOnBigButton' , function() { 
+		$('body').on('touchstart','.pgridOnBigButton' , function() { 
 			 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
@@ -404,7 +406,7 @@ function set_buttons_ready(){
 			return false;
 		});
 		
-		$('#grid').on('touchstart','.pgridOffBigButton' , function() { 
+		$('body').on('touchstart','.pgridOffBigButton' , function() { 
 			 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )

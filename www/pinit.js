@@ -57,7 +57,7 @@ function refresh_pinit(){
 
 
 
-function load_words(){
+function load_words(callback){
 	
 	if(db == ""){
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
@@ -75,7 +75,7 @@ function load_words(){
 			}
 			
 			load_pinit();
-			
+			callback();
 		});
 		
 	});
