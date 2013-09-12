@@ -69,6 +69,7 @@ function onDeviceReady() {
     load_words();
     //load_pinit();
 	//load_grid();
+	
 }
 
 

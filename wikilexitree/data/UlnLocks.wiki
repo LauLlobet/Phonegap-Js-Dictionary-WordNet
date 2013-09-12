@@ -21,6 +21,11 @@
 # grafic de muntanya de cada paraula amb les seves pujades i baixades
 # grafic general de les paraules amb les seves pujades i baixades
 
+personatge vestit amb accessoris
+
+barra de progress erratica + divertit
+
+
 ++++Challanges
 # chain
 # number of questions in level 1

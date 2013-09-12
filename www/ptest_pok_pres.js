@@ -10,13 +10,15 @@ JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,Sort
 		SenseAns = new Class({
 			include: Comparable,
 			
-		    initialize: function(text,id,cid,lemma,status,inc) {
+		    initialize: function(text,id,cid,lemma,status,inc,correct,incorrect) {
 		    	this.text = text;
 		    	this.id = id;
 		    	this.cid = cid;
 		    	this.lemma = lemma;
 		    	this.status = status;
 		    	this.inc = inc;
+		    	this.correct = correct;
+		    	this.incorrect = incorrect;
 				//alert(row.lemma+"instanciant:"+row.sensecaseid);
 		    },
 		    equals: function(object) {
@@ -116,6 +118,12 @@ function Test(callit){
 	test = this;
 	this.current_question = -1;
 	
+	this.points = 0;
+	this.up = 0;
+	this.down = 0;
+	this.equal = 0;
+	this.level_points = 0;
+	
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 		
 		var selected = new Set([]);
@@ -124,9 +132,9 @@ function Test(callit){
 		
 		wordsxsenses.forEach(function(x) {
 			if(x.selected == 1){
-				selected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc));
+				selected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc,x.correct,x.incorrect));
 			}else
-				unselected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc));
+				unselected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc,x.correct,x.incorrect));
 		});
 
 		var id = 4545; 
@@ -149,7 +157,7 @@ function fill_randoms(i,selected,randoms,callback){
 		db.transaction(function(tx) {
 			var pos =  Math.floor(Math.random()*117370) +1 ;
 			tx.executeSql("SELECT * FROM sensesXindex where id="+pos+";", [], function(tx, res5) {
-				randoms.add(new SenseAns(res5.rows.item(0).definition,res5.rows.item(0).synsetid,-1,"Error:random-loaded",-293,0.6969696));
+				randoms.add(new SenseAns(res5.rows.item(0).definition,res5.rows.item(0).synsetid,-1,"Error:random-loaded",-293,0.6969696,0,0));
 				fill_randoms(i+1, selected, randoms, callback);
 			});
 		});
@@ -233,7 +241,7 @@ function find_brothers(i,selected,brothers,callback){
 		db.transaction(function(tx) {
 			tx.executeSql("select definition , synsetid  , lemma  from dict where lemma='"+selected.toArray()[i].lemma+"';", [], function(tx, res1) {
 				for(var j=0; j<res1.rows.length ; j++){
-					brothers.add(new SenseAns(res1.rows.item(j).definition,res1.rows.item(j).synsetid,-1,res1.rows.item(j).lemma,294,0.6868686));
+					brothers.add(new SenseAns(res1.rows.item(j).definition,res1.rows.item(j).synsetid,-1,res1.rows.item(j).lemma,294,0.6868686,0,0));
 				}
 				find_brothers(i+1, selected, brothers, callback);
 			});
@@ -286,7 +294,7 @@ function next_slide()
 	document.getElementById("test_op1").innerHTML = q.op[1].text;
 	document.getElementById("test_op2").innerHTML = q.op[2].text;
 
-	alert("acum:"+q.op_c.status+"\n inc+-:"+q.op_c.inc);
+	alert("acum:"+q.op_c.status+"\n inc+-:"+q.op_c.inc+" points:"+test.points);
 	var d = new Date();
 	var n = d.getTime();
 	db.transaction(function(tx) {
@@ -306,6 +314,8 @@ function test_answer(ans){
 	
 	var d = new Date();
 	var n = d.getTime();
+	var next_lvl = 4;
+	var ant_lvl =  get_level(test.questions[test.current_question].op_c.correct,test.questions[test.current_question].op_c.incorrect)[0];
 	db.transaction(function(tx) {
 		tx.executeSql("update ans_sense_cases set etime ="+n+", anssid = " + test.questions[test.current_question].op[ans].id + " where sensecaseid="+test.questions[test.current_question].op_c.cid+";", [], function(tx, res1) {});
 	});
@@ -315,14 +325,32 @@ function test_answer(ans){
 		db.transaction(function(tx) {
 			tx.executeSql("update selected_senses set correct = correct +1  where synsetid = "+test.questions[test.current_question].op_c.id+" and dtime is NULL;;", [], function(tx, res1) {});
 		});
+		test.points += test.questions[test.current_question].op_c.inc;
 
+		next_lvl = get_level(test.questions[test.current_question].op_c.correct + 1,test.questions[test.current_question].op_c.incorrect)[0];
+		
+		
 	}else{
 		
 		document.getElementById("test_op_ok"+ans).innerHTML = "<img id=\"nok\" src=\"img/nok.png\">";
 		db.transaction(function(tx) {
 			tx.executeSql("update selected_senses set incorrect = incorrect +1  where synsetid = "+test.questions[test.current_question].op_c.id+" and dtime is NULL;", [], function(tx, res1) {});
 		});
+		test.points -= test.questions[test.current_question].op_c.inc;
+		
+		next_lvl = lvl = get_level(test.questions[test.current_question].op_c.correct,test.questions[test.current_question].op_c.incorrect + 1)[0];
+		
 	}
+	
+	// test.questions[test.current_question].op_c.level + test.questions[test.current_question].op_c.status;
+	test.level_points += ( ant_lvl + test.questions[test.current_question].op_c.status );
+	alert("tlp:"+test.level_points);
+	if(ant_lvl>next_lvl)
+		test.up++;
+	if(ant_lvl<next_lvl)
+		test.down++;
+	if(ant_lvl==next_lvl)
+		test.equal++;
 	
 	document.getElementById("test_op_ok"+test.questions[test.current_question].correct ).innerHTML = 
 		"<img id=\"nok\" src=\"img/ok.png\">";
@@ -354,6 +382,13 @@ function prepare_pres(){
 		tx.executeSql("update test set etime = "+n+" where testid=(select MAX(testid) from test);", [], function(tx, res1) {});
 	});
 	
+	var percent_total = Math.round(1000*test.points*100/test.questions.length)/1000;
+	var level_total_ant = test.level_points/test.questions.length;
+	document.getElementById("pres_points").innerHTML=percent_total+"-"+level_total_ant;
+	document.getElementById("pres_up").innerHTML=test.up;
+	document.getElementById("pres_down").innerHTML=test.down;
+	document.getElementById("pres_equal").innerHTML=test.equal;
+			
 	// acces a db de preguntes ben contestades
 	//calcul de %encerts %improvment baixades i puijades
 	
