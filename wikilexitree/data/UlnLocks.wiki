@@ -18,7 +18,8 @@
 # branch that makes questions more difficult and gives a plus as a return 
 # "" in means of time -> timed test 
 # public forum post level 1 2 3 4 5 ...
-# 
+# grafic de muntanya de cada paraula amb les seves pujades i baixades
+# grafic general de les paraules amb les seves pujades i baixades
 
 ++++Challanges
 # chain

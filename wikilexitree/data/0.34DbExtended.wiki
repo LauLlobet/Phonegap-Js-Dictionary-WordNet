@@ -128,15 +128,25 @@ falta publicarlo amb la app restartwikidpad.wiki
 
 *DONE c:40 test stime = now*
 
-- test endtime
+*DONE c:41 test endtime*
 
-- question stime - endtime
-    
-- es crea el test a partir de les instancies
+question stime  endtime
+
+- update del selected senses i seguents :
 
 
 ++ [resultats test contra base de dades]
 
+ en cada pregunta obtenir el % del level i el diff de la pregunta mostrarlo
+
+ en cada pok mostrar l'increment de % i sumarlo a una variable global, 
+ 
+- sumar pujades i baixades
+
+- al final veure el sumatori de diffs totals, pujades i baixades
 
 
- evitar que es pregunti una definicio de lift esperant lift i que una de les respostes sigui elevator ... el usr clicka elevator estant be i es puntua malament
+++ tests de fluxe
+
+- delete all senses manually and see grid 
+

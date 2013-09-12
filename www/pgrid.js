@@ -1,4 +1,16 @@
 
+function get_level(corrects,incorrects){
+	
+	
+	if(corrects+incorrects < 1 ){
+		return [4,-1];
+	}
+	var lvl =  Math.floor( ( 1 - corrects/(corrects+incorrects)) *4.999);
+	var inc =  ( ( 1 - corrects/(corrects+incorrects)) *4.999) - ( ( 1 - (corrects+1)/(corrects+1+incorrects)) *4.999);
+	var percent_lvl =  ( 1 - corrects/(corrects+incorrects)) *4.999 - Math.floor( ( 1 - corrects/(corrects+incorrects)) *4.9999) ;
+	return [ lvl , percent_lvl, inc ];//- Math.floor(5 - corrects/(corrects+incorrects)*5) ];
+	
+}
 
 function level_grid(levels){
 	
@@ -35,12 +47,19 @@ function load_wordsXsenses(callback){
 						
 					    initialize: function(row) {
 					        this.row = row;
-					        this.level =  get_level(row.correct,row.incorrect);
+					        var levels = get_level(row.correct,row.incorrect); 
+					        this.level =  levels[0];
+					        this.status = levels[1];
+					        this.inc = levels[2];
 					        this.serie = -1;
 					        this.ctime = row.ctime;
 					        this.selected = 0;
 					        this.ssenseid = row.ssenseid; 
 					        this.sensecaseid = row.sensecaseid; 
+					        this.correct = row.correct;
+					        this.incorrect = row.incorrect;
+					        
+					        
 					        if(row.selected == 1)
 						        this.selected = 1;
 							//alert(row.lemma+"instanciant:"+row.sensecaseid);
@@ -77,14 +96,7 @@ function load_wordsXsenses(callback){
 }
 
 
-function get_level(corrects,incorrects){
-	
-	if(corrects+incorrects < 4 )
-		return 5;
-	
-	return Math.ceil(5 - corrects/(corrects+incorrects)*5);
-	
-}
+
 
 function classify_senses(callback){
 	
@@ -98,11 +110,11 @@ function classify_senses(callback){
 		var incorrects = 4; // 4 -> 17
 		level = get_level(corrects,incorrects);
 	
-		var lvl1 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 1 }));
-		var lvl2 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 2 }));
-		var lvl3 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 3 }));
-		var lvl4 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 4 }));
-		var lvl5 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 5 }));
+		var lvl1 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 0 }));
+		var lvl2 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 1 }));
+		var lvl3 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 2 }));
+		var lvl4 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 3 }));
+		var lvl5 = new SortedSet(wordsxsenses.select(function(x) { return x.level == 4 }));
 	
 
 		buttons = [['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];

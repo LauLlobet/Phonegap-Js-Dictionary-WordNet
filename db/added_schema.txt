@@ -1,4 +1,14 @@
 
+
+delete from `selected_senses`;
+delete from  `ans_sense_cases`;
+delete from  `test`;
+delete from  `subjects`;
+delete from  `subject_sets`;
+
+
+
+
 drop table `selected_senses`;
 drop table `ans_sense_cases`;
 drop table `test`;

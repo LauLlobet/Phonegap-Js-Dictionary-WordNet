@@ -39,10 +39,10 @@ function toogle_sense(senseid,word){
 				if(res2.rows.length == 0){
 					if(previous_synsetid != "pnull"){
 						toast("chained!");
-						tx.executeSql("insert into selected_senses(wordid,synsetid,ctime,previous_synsetid,correct,incorrect) values  ('"+wordid+"', '"+senseid+"', '"+n+"', '"+previous_synsetid+"' , '"+ Math.ceil(Math.random()*10)+"', '"+ Math.ceil(Math.random()*10)+"');");
+						tx.executeSql("insert into selected_senses(wordid,synsetid,ctime,previous_synsetid,correct,incorrect) values  ('"+wordid+"', '"+senseid+"', '"+n+"', '"+previous_synsetid+"' , '"+0+"', '"+0+"');");
 					}else{
 						toast("unchained!");
-						tx.executeSql("insert into selected_senses(wordid,synsetid,ctime,correct,incorrect) values  ('"+wordid+"', '"+senseid+"', '"+n+"', '"+ Math.ceil(Math.random()*10)+"', '"+ Math.ceil(Math.random()*10)+"');");
+						tx.executeSql("insert into selected_senses(wordid,synsetid,ctime,correct,incorrect) values  ('"+wordid+"', '"+senseid+"', '"+n+"', '"+0+"', '"+0+"');");
 					}
 						
 				}else{
