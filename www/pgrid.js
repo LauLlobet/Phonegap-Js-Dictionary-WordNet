@@ -339,9 +339,22 @@ function toggle_selected( togg, x, y, callback){
 	
 }
 
+function toggle_level(i,line,onoff,callback){
+	if(i<=0){
+		callback();
+		return;
+	}
+	toggle_selected(onoff,line,i-1,function(){
+		toggle_level(i-1,line,onoff,callback)	
+	});
+	
+}
+
 function set_buttons_ready(){
 	
 	$(document).ready(function() {	
+		
+		$('body').off('touchstart','.select_all_lvl');
 		$('body').on('touchstart','.select_all_lvl'+''+'' , function() { 
 			 
 			console.log("--SA-->"+ $(this).attr('id'));
@@ -358,13 +371,18 @@ function set_buttons_ready(){
 	        else
 	        	onoff=0;
 	        
-	        for(var i=0; i<buttons[line].length; i++){
-	        	buttons[line][i]=onoff;
-	        }
-	        refresh_grid();      
+	       /* for(var i=0; i<buttons[line].length; i++){
+	        	//buttons[line][i]=onoff;
+	        	toggle_selected(onoff,line,1,function(){toggle_selected(onoff,line,2,load_grid());});
+	        }*/
+	        
+	        toggle_level(buttons[line].length,line,onoff,function(){load_grid();})
+	        
+	        //refresh_grid();      
 			return false;
 		});
 		
+		$('body').off('touchstart','.pgridOnButton');
 		$('body').on('touchstart','.pgridOnButton' , function() { 
 			 
 			var id= $(this).attr('id');
@@ -378,6 +396,7 @@ function set_buttons_ready(){
 			return false;
 		});
 		
+		$('body').off('touchstart','.pgridOffButton');
 		$('body').on('touchstart','.pgridOffButton' , function() { 
 			 
 			var id= $(this).attr('id');
@@ -394,27 +413,33 @@ function set_buttons_ready(){
 		});
 		
 		
+		$('body').off('touchstart','.pgridOnBigButton');
 		$('body').on('touchstart','.pgridOnBigButton' , function() { 
 			 
 			var id= $(this).attr('id');
-			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
-				buttons[id.charAt(0)][id.charAt(2)] = 1;
-			else
-				buttons[id.charAt(0)][id.charAt(2)] = 0;
-			
-			refresh_grid();
+			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
+				//buttons[id.charAt(0)][id.charAt(2)] = 1;
+				toggle_selected(1,id.charAt(0),id.charAt(2),load_grid());
+				
+			}else
+				toggle_selected(0,id.charAt(0),id.charAt(2),load_grid());
+				//buttons[id.charAt(0)][id.charAt(2)] = 0;
 			return false;
 		});
 		
+		$('body').off('touchstart','.pgridOffBigButton');
 		$('body').on('touchstart','.pgridOffBigButton' , function() { 
 			 
 			var id= $(this).attr('id');
-			if( buttons[id.charAt(0)][id.charAt(2)] == 0 )
-				buttons[id.charAt(0)][id.charAt(2)] = 1;
-			else
-				buttons[id.charAt(0)][id.charAt(2)] = 0;
+			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
+				//buttons[id.charAt(0)][id.charAt(2)] = 1;
+				toggle_selected(1,id.charAt(0),id.charAt(2),load_grid());
+				
+			}else
+				toggle_selected(0,id.charAt(0),id.charAt(2),load_grid());
+				//buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
-			refresh_grid();
+	//		refresh_grid();
 			return false;
 		});
 		

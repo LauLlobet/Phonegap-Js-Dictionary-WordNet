@@ -148,10 +148,10 @@ question stime  endtime
 
 ++ tests de fluxe
 
-- poguer re-començar un test un cop acabat
+*DONE c:44 poguer re-començar un test un cop acabat*
     es per una rao de base de dades;
     
-- botons de select all
+- botons de select all i back desde pres
 
 delete all senses manually and see grid 
 

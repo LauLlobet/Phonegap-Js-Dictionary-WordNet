@@ -237,6 +237,10 @@ $(document).ready(function() {
     	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
          return false;
     });
+    $('#back_init3').on('vclick', function() { 
+    	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+         return false;
+    });
 });
 
 
