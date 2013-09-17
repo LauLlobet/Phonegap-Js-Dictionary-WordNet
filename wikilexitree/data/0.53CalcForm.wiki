@@ -1,6 +1,15 @@
 ﻿++ 0.53Calc Form
 
-- afegir inflections.js
+- afegir inflections.js a la cerca i a les chained
+
 - minuscules en search i humanizes
+
+- particio noms i verbs en la pdef
+
 - crear preguntes a partir de varies definicions i tenint en compte si son noms o verbs
+
 - crear en java la taula WORDS_IN_SENSES amb inflections .js
+
+- censurar les propies paraules a la definicio perque no es repeteixin O emular les de sinonim, en tot cas posarles entre ()
+
+- mirar llista de paraules censurades als diccionaris d'apple

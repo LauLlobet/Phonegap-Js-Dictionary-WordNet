@@ -6,4 +6,3 @@
 
 - el promig de puntuacio d'una paraula totalment desconeguda es 0.333 -> nivell 2 :( ha de ser nivell 1 0.0 -> 0.4 , 0.4 -> 0.55 , 0.55 -> 0.70 , 0.70 -> 0.85 , 0.85 -> 1 
 
-- censurar les propies paraules a la definicio perque no es repeteixin O emular les de sinonim, en tot cas posarles entre ()

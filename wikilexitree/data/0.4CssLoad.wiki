@@ -1,0 +1,11 @@
+﻿++ 0.4Css Load
+
+- test en android
+- test en iphone
+
+- pinit find esta tallat
+- pgrid incloure selectors de nivell sobre test
+
+- ptest i pok comprimida i ben repartida 
+
+- pres ben formateijada

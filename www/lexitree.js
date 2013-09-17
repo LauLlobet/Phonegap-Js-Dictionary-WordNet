@@ -64,6 +64,10 @@ function onDeviceReady() {
         load_words();
     });
     
+    $(document).delegate("#pgrid", "pageshow", function() {
+    	load_words(function(){load_grid();});
+    });
+    
 	//load_words();
     alto = $(document).height();
     load_words();
@@ -224,9 +228,24 @@ $(document).ready(function() {
     //--------------------------???????--------------------------
 
     $('#btn_l1').on('vclick', function() { 
-    	load_words(function(){load_grid();});
+    	//load_words(function(){load_grid();});
         $.mobile.changePage( "index.html#pgrid", { transition: "slide"} );
         return false;
+     });
+    
+    $('#edb').on('vclick', function() { 
+    	
+    	db.transaction(function(tx) {		
+			tx.executeSql("delete from 'selected_senses';");
+			tx.executeSql("delete from 'ans_sense_cases';");
+			tx.executeSql("delete from 'test';");
+			tx.executeSql("delete from 'subjects';");
+			tx.executeSql("delete from 'subject_sets';");	
+			load_words();
+			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+	    	//alert("empty data base");
+    	});
+    	return false;
      });
     
     $('#back_init').on('vclick', function() { 

@@ -194,16 +194,26 @@ function create_test_or_not(callback){
 				tx.executeSql(' select MAX(lastssenseid), MAX(testid)  ,stime from test ;', [], function(tx, res) {
 					
 					if( res.rows.length == 0 ){
-						tx.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');");
+						
+						alert("empty rows");
+						tx.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');",[], function(tx,res){});
 						callback();
 						return;
 					}
 					var filanova = 0;
 					filanova = filanova || ( res.rows.item(0)["MAX(lastssenseid)"] < res0.rows.item(0)["MAX(ssenseid)"] ); // si esta desactualitzat en paraules seleccionades
 					filanova = filanova || res.rows.item(0).stime != null;
+					filanova = filanova || res.rows.item(0)["MAX(lastssenseid)"] == null;
+					filanova = filanova || res.rows.item(0)["MAX(lastssenseid)"] == undefined;
 					//alert("ton:"+ res.rows.item(0)["MAX(lastssenseid)"]+"<"+ res0.rows.item(0)["MAX(ssenseid)"])
+					//alert("1:"+res.rows.item(0)["MAX(lastssenseid)"]+"2:"+res0.rows.item(0)["MAX(ssenseid)"]+"filanova "+ filanova);
 					if( filanova ){
-						tx.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');");
+						db.transaction(function(ty) {	
+							//alert("primaty");
+							ty.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');",[], function(tx,res){callback();});
+						});
+						
+						return;
 					}
 					callback();
 					});
@@ -224,25 +234,40 @@ function instance_cases(callback){
 			//Tes estara buit com a minim , com que s'ha executat create test or not mai hi haura un test antic , ho dic per el left join de select wordsXsenses()
 			tx.executeSql("select * from ans_sense_cases where testid= (select MAX(testid) from test);", [], function(tx, res) {
 				if( res.rows.length == 0 ){
+					//alert("noneintest");
 					// s'han de carregar de wordxsenses 
 					tx.executeSql("select * from selected_wordsXsenses;", [], function(tx, res1) {
-							
-						for(var i=0; i<res1.rows.length ; i++){
-							tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+res1.rows.item(i).ssenseid+","+res1.rows.item(i).wordid+");");
-						}
+						insert_instance_cases(0,res1,callback);
 					});
+					return;
 				}
+				//alert("thereare in test");
 				callback();
 			});
 						
 		});
-	
 	
 	});	
     //alert("asenseid"+actual_testid);
     
 	//			
   
+}
+
+function insert_instance_cases(i,res1,callback){
+	
+	if(i>=res1.rows.length){
+		//alert("calling back happily");
+		callback();
+		return;
+	}
+	db.transaction(function(tx) {		
+		//alert("inserting before callback REC");		
+		tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+res1.rows.item(i).ssenseid+","+res1.rows.item(i).wordid+");");
+		i++;
+		insert_instance_cases(i,res1,callback);
+	});
+	
 }
 
 function save_order(callback){
@@ -272,14 +297,19 @@ function instance_new_selected(callback){
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 		
 		db.transaction(function(tx) {		
-			
 			tx.executeSql("select * from selected_wordsXsensesXcases where sensecaseid IS NULL;", [], function(tx, res) {
-				
 				for(var i=0; i<res.rows.length ; i++){
-					alert("aixo no ha de sortir mai num:1");
-					tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+res.rows.item(i).ssenseid+","+res.rows.item(i).wordid+");");
+					//alert("aixo poster surt");
+					//tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+res.rows.item(i).ssenseid+","+res.rows.item(i).wordid+");");
 				}
-				callback();
+				
+				tx.executeSql("select * from selected_wordsXsensesXcases where sensecaseid IS NULL;", [], function(tx, res) {
+					for(var i=0; i<res.rows.length ; i++){
+						alert("aixo no surt mai");
+						//tx.executeSql("insert into ans_sense_cases(anstype,testid,ssenseid,wordid) values('definition',(select MAX(testid) from test),"+res.rows.item(i).ssenseid+","+res.rows.item(i).wordid+");");
+					}			
+					callback();
+				});
 			});
 		});
 	});
@@ -324,19 +354,30 @@ function toggle_selected( togg, x, y, callback){
 		
 	
 			var set = new Set(senses_grid[x][y]);
-			set.forEach(function(x) {
 			
+			set.forEach(function(x) {
 				//alert("serie:"+x.serie +"level:"+x.level+" "+x.sensecaseid+" togg"+togg);
-				db.transaction(function(tx) {			
+				db.transaction(function(tx) {
+					//alert("lalalal:"+x.sensecaseid);
 					tx.executeSql("UPDATE ans_sense_cases SET selected='"+togg+"' where sensecaseid='"+x.sensecaseid+"' ;");
-				});
 				
-				//tx.executeSql("select * from selected_wordsXsensesXcases where sensecaseid IS NULL;");
-			})
-			//alert("faha"+Object.keys([0]));
+					db.transaction(function(ty) {
+						ty.executeSql("UPDATE ans_sense_cases SET selected='"+togg+"' where sensecaseid='"+x.sensecaseid+"' ;");
+					});
+				});
+			});	
 			callback();
+			/*db.transaction(function(tq) {
+				//alert("sensecaseid:"+x.sensecaseid);
+				tq.executeSql("UPDATE ans_sense_cases SET selected='"+togg+"' where sensecaseid='1' ;",[],function(tx,res){
+					callback();
+					//alert("callback");
+				});*/
+			
+			//})
+			//alert("faha"+Object.keys([0]));
+
 	});
-	
 }
 
 function toggle_level(i,line,onoff,callback){
@@ -384,28 +425,23 @@ function set_buttons_ready(){
 		
 		$('body').off('touchstart','.pgridOnButton');
 		$('body').on('touchstart','.pgridOnButton' , function() { 
-			 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
-				//buttons[id.charAt(0)][id.charAt(2)] = 1;
-				toggle_selected(1,id.charAt(0),id.charAt(2),load_grid());
-				
+				alert("mai hauria de sortir toggle onMini");//toggle_selected(0,id.charAt(0),id.charAt(2),load_grid());
 			}else
-				toggle_selected(0,id.charAt(0),id.charAt(2),load_grid());
-				//buttons[id.charAt(0)][id.charAt(2)] = 0;
+				toggle_selected(0,id.charAt(0),id.charAt(2),function(){load_grid("button");}); // 
+			     //buttons[id.charAt(0)][id.charAt(2)] = 0;
 			return false;
 		});
 		
 		$('body').off('touchstart','.pgridOffButton');
-		$('body').on('touchstart','.pgridOffButton' , function() { 
-			 
+		$('body').on('touchstart','.pgridOffButton' , function() { 	 
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
-				//buttons[id.charAt(0)][id.charAt(2)] = 1;
-				toggle_selected(1,id.charAt(0),id.charAt(2),load_grid());
+				toggle_selected(1,id.charAt(0),id.charAt(2),function(){load_grid("buttoff");}); // 
 				
 			}else
-				toggle_selected(0,id.charAt(0),id.charAt(2),load_grid());
+				alert("mai hauria de sortir toggle off");//toggle_selected(0,id.charAt(0),id.charAt(2),load_grid());
 				//buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
 	//		refresh_grid();
@@ -419,11 +455,11 @@ function set_buttons_ready(){
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
 				//buttons[id.charAt(0)][id.charAt(2)] = 1;
-				toggle_selected(1,id.charAt(0),id.charAt(2),load_grid());
-				
+				//toggle_selected(1,id.charAt(0),id.charAt(2),load_grid());
+				alert("mai hauria de sortir toggle on big");
 			}else
-				toggle_selected(0,id.charAt(0),id.charAt(2),load_grid());
-				//buttons[id.charAt(0)][id.charAt(2)] = 0;
+				toggle_selected(0,id.charAt(0),id.charAt(2),function(){load_grid("button");}); // 
+			//buttons[id.charAt(0)][id.charAt(2)] = 0;
 			return false;
 		});
 		
@@ -433,10 +469,10 @@ function set_buttons_ready(){
 			var id= $(this).attr('id');
 			if( buttons[id.charAt(0)][id.charAt(2)] == 0 ){
 				//buttons[id.charAt(0)][id.charAt(2)] = 1;
-				toggle_selected(1,id.charAt(0),id.charAt(2),load_grid());
+				toggle_selected(1,id.charAt(0),id.charAt(2),function(){load_grid("buttoff");}); // 
 				
 			}else
-				toggle_selected(0,id.charAt(0),id.charAt(2),load_grid());
+				alert("mai hauria de sortir toggle off big");
 				//buttons[id.charAt(0)][id.charAt(2)] = 0;
 			
 	//		refresh_grid();
@@ -447,15 +483,15 @@ function set_buttons_ready(){
 		
 	});
 }
-function load_grid(){
-	
+function load_grid(msg){
+	//alert("load grid:"+msg);
 
-	create_test_or_not(function(){
-		instance_cases(function(){	
-			instance_new_selected(function(){
-				load_wordsXsenses(function(){
-					classify_senses(function(){
-						save_order(function(){
+	create_test_or_not(function(){				//alert("create done");
+		instance_cases(function(){				//alert("instance done");
+			instance_new_selected(function(){	//alert("instance2 done");
+				load_wordsXsenses(function(){	//alert("load_words done");
+					classify_senses(function(){	//alert("classify done");
+						save_order(function(){ 	//alert("save done");
 							print_grid();
 							set_buttons_ready();
 						});
@@ -465,6 +501,25 @@ function load_grid(){
 		})
 	});	
 }
+
+//function load_grid(){
+//	
+//
+//	create_test_or_not(function(){				alert("create done");
+//		instance_cases(function(){				alert("instance done");
+//			instance_new_selected(function(){	alert("instance2 done");
+//				load_wordsXsenses(function(){	alert("load_words done");
+//					classify_senses(function(){	alert("classify done");
+//						save_order(function(){ 	alert("save done");
+//							print_grid();
+//							set_buttons_ready();
+//						});
+//					})
+//				})
+//			})
+//		})
+//	});	
+//}
 
 function refresh_grid(){
 	

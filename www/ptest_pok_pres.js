@@ -344,7 +344,7 @@ function test_answer(ans){
 	
 	// test.questions[test.current_question].op_c.level + test.questions[test.current_question].op_c.status;
 	test.level_points += ( ant_lvl + test.questions[test.current_question].op_c.status );
-	alert("tlp:"+test.level_points);
+	//alert("tlp:"+test.level_points);
 	if(ant_lvl>next_lvl)
 		test.up++;
 	if(ant_lvl<next_lvl)

@@ -1,0 +1,4 @@
+﻿++ 0.4Css Anim
+
+- animació agulla
+- animacio fletxa

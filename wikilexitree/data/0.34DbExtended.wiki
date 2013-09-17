@@ -146,12 +146,16 @@ question stime  endtime
 * al final veure el sumatori de diffs totals, pujades i baixades
 
 
-++ tests de fluxe
+++ [ tests de fluxe ]
 
-*DONE c:44 poguer re-començar un test un cop acabat*
+*DONE c:45 poguer recomençar un test un cop acabat**
     es per una rao de base de dades;
-    
-- botons de select all i back desde pres
 
-delete all senses manually and see grid 
+++ [ test ANDROID ]
+
+- pgrid instance cases asynchronous +  botons de select all i back desde pres
+
+- si es borra una paraula no es fa test nou !!! insert new test al borrar paraula
+
+- toggle_selected nomes guarda les files del nivell i serie actual, per deixar un historic de selected analitzable en el futur.
 

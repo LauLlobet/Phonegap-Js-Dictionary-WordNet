@@ -1,12 +1,11 @@
 
+/system/xbin/sqlite3 /data/data/com.tubtale.lexitree/databases/new_lexitree.db
 
 delete from `selected_senses`;
-delete from  `ans_sense_cases`;
-delete from  `test`;
-delete from  `subjects`;
-delete from  `subject_sets`;
-
-
+delete from `ans_sense_cases`;
+delete from `test`;
+delete from `subjects`;
+delete from `subject_sets`;
 
 
 drop table `selected_senses`;
