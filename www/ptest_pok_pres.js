@@ -133,13 +133,16 @@ function Test(callit){
 		wordsxsenses.forEach(function(x) {
 			if(x.selected == 1){
 				selected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc,x.correct,x.incorrect));
+				//console.log("selected ADDDD"+x.row.synsetid+" lemma "+x.row.lemma);
 			}else
 				unselected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc,x.correct,x.incorrect));
 		});
 
 		var id = 4545; 
 		
+		//console.log("selected after fill:"+selected.count());
 		fill_randoms(0,selected,randoms,function(){fill_test(selected,unselected,callit,randoms); }); 
+		//console.log("selected after fill2:"+selected.count());
 		
 	
 	});
@@ -188,6 +191,8 @@ function fill_test(selected,unselected,callit,randoms) {
 	
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {	
 	
+		//console.log("===========> selected:"+selected.count());
+		
 		if(selected.count()==0){
 			//alert("end");
 			callit();
@@ -222,6 +227,7 @@ function fill_test(selected,unselected,callit,randoms) {
 				 traps[i] = randPick(safe_randoms);
 		}
 		test.questions.push( new question([x,x,traps[0],traps[1]] ));
+		//console.log("===========> push after:"+test.questions.length);
 		fill_test(selected,unselected,callit,randoms);
 		return;	
 		})
@@ -308,7 +314,7 @@ function test_answer(ans){
 	document.getElementById("test_op_ok1").innerHTML = "";
 	document.getElementById("test_op_ok2").innerHTML = "";
 	
-	console.log(test.questions[test.current_question].op[ans]+test.questions[test.current_question].op_c );
+	//console.log(test.questions[test.current_question].op[ans]+test.questions[test.current_question].op_c );
 	save_answered_question(ans);
 	
 	
@@ -360,7 +366,7 @@ function test_answer(ans){
 	var b = test.questions.length;
 	
 	if( test.current_question  == test.questions.length -1 ){
-		console.log("okok");
+		//console.log("okok");
 		
 		$('#pok_next').off('vclick');
 		$('#pok_next').on('vclick', function(){ 

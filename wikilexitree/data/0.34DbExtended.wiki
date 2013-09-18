@@ -153,9 +153,50 @@ question stime  endtime
 
 ++ [ test ANDROID ]
 
-- pgrid instance cases asynchronous +  botons de select all i back desde pres
+*DONE c:46 pgrid instance cases asynchronous +  botons de select all i back desde pres*
+
+
+++ [ Get things done ]
+
+- test de dues paraules nomes fa una pregunta , es tracta de sinonims
+    que fer amb els sinonims i la puntuació de paraules amb ells ??
+    fer que el set de senses tingui el duo lemma sense , 
+    pero despres es poden produir errors
+    deixar-ho estar de moment...
+
+- desordenar les preguntes
 
 - si es borra una paraula no es fa test nou !!! insert new test al borrar paraula
 
 - toggle_selected nomes guarda les files del nivell i serie actual, per deixar un historic de selected analitzable en el futur.
+
+- reduir vista arminstice de pok
+
+- verificar puntuacions casos especials i casos generals
+
+- discard dins ptest_pok porta a pres
+
+- treure botó one more test
+
+- treure botó configuracio durant ptest_pok_pres
+
+- que fer amb els corrects/incorrects d'una paraula que s'ha tret i tornat a posar
+
+- el promig de puntuacio d'una paraula totalment desconeguda es 0.333 -> nivell 2 :( ha de ser nivell 1 0.0 -> 0.4 , 0.4 -> 0.55 , 0.55 -> 0.70 , 0.70 -> 0.85 , 0.85 -> 1 
+
+- separador de verbs/adjctius/noms a pdef
+
+- treure ignore de pdef, insertar botó select all
+
+- create_test cuan no hi han selected_senses
+
+++ [ Humanize ]
+
+- humanize/inflections in seraches
+
+- humanize/inflections in clicks 
+
+
+
+
 

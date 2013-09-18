@@ -180,7 +180,6 @@ function classify_senses(callback){
 
 function create_test_or_not(callback){
 	
-
 	if(db == "")
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
 	
@@ -193,13 +192,6 @@ function create_test_or_not(callback){
 				
 				tx.executeSql(' select MAX(lastssenseid), MAX(testid)  ,stime from test ;', [], function(tx, res) {
 					
-					if( res.rows.length == 0 ){
-						
-						alert("empty rows");
-						tx.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');",[], function(tx,res){});
-						callback();
-						return;
-					}
 					var filanova = 0;
 					filanova = filanova || ( res.rows.item(0)["MAX(lastssenseid)"] < res0.rows.item(0)["MAX(ssenseid)"] ); // si esta desactualitzat en paraules seleccionades
 					filanova = filanova || res.rows.item(0).stime != null;
@@ -209,19 +201,26 @@ function create_test_or_not(callback){
 					//alert("1:"+res.rows.item(0)["MAX(lastssenseid)"]+"2:"+res0.rows.item(0)["MAX(ssenseid)"]+"filanova "+ filanova);
 					if( filanova ){
 						db.transaction(function(ty) {	
-							//alert("primaty");
 							ty.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');",[], function(tx,res){callback();});
 						});
-						
 						return;
 					}
 					callback();
 					});
 			});
-		//});
 	});
 }
 
+function force_new_test(){
+	
+	db.transaction(function(tx) {			
+		tx.executeSql(" select MAX(ssenseid) from selected_senses ;", [], function(tx, res0) {
+			db.transaction(function(ty) {	
+				ty.executeSql("insert into test(lastssenseid) values('"+res0.rows.item(0)["MAX(ssenseid)"]+"');",[], function(tx,res){alert("forced test")});
+			});
+		});
+	});
+}
 
 function instance_cases(callback){
 
@@ -348,35 +347,23 @@ function print_grid(){
 }
 
 function toggle_selected( togg, x, y, callback){
-	
-	
+
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 		
-	
 			var set = new Set(senses_grid[x][y]);
 			
 			set.forEach(function(x) {
 				//alert("serie:"+x.serie +"level:"+x.level+" "+x.sensecaseid+" togg"+togg);
 				db.transaction(function(tx) {
-					//alert("lalalal:"+x.sensecaseid);
 					tx.executeSql("UPDATE ans_sense_cases SET selected='"+togg+"' where sensecaseid='"+x.sensecaseid+"' ;");
-				
+					//alert("toggled:"+x.sensecaseid);
 					db.transaction(function(ty) {
 						ty.executeSql("UPDATE ans_sense_cases SET selected='"+togg+"' where sensecaseid='"+x.sensecaseid+"' ;");
 					});
 				});
-			});	
+			});
+			//alert("before callback");
 			callback();
-			/*db.transaction(function(tq) {
-				//alert("sensecaseid:"+x.sensecaseid);
-				tq.executeSql("UPDATE ans_sense_cases SET selected='"+togg+"' where sensecaseid='1' ;",[],function(tx,res){
-					callback();
-					//alert("callback");
-				});*/
-			
-			//})
-			//alert("faha"+Object.keys([0]));
-
 	});
 }
 
