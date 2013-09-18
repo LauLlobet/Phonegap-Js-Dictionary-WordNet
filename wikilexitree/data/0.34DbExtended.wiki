@@ -171,11 +171,12 @@ question stime  endtime
 
 *DONE c:49 reduir vista arminstice de pok*
 
-- discard dins ptest_pok porta a un popup , no es sumen punts
+*DONE c:50 discard dins ptest_pok porta a un popup , no es sumen punts*
 
-- treure botó one more test
+- treure botó one more test, treure botó configuracio durant ptest_pok_pres 
+    discard nomes sera un icone i a la dreta
 
-- treure botó configuracio durant ptest_pok_pres
+- current question counter en el pok ha de ser dinamic
 
 - que fer amb els corrects/incorrects d'una paraula que s'ha tret i tornat a posar
 
