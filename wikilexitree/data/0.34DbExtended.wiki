@@ -183,7 +183,7 @@ question stime  endtime
 
 *Done c:53 separador de verbs/adjctius/noms a pdef*
 
-- BUGFIX nomes es podia fer un test , els seguents tenien nomes una pregunta
+*DONE c:53 BUGFIX nomes es podia fer un test , els seguents tenien nomes una pregunta*
 
 - treure ignore de pdef, insertar botó select all
 

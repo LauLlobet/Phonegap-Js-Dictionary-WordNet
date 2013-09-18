@@ -10,7 +10,7 @@
 # girls colours
 # kids colours
 
-# lamparas en el skill tree
+# lamparas en el skill tree iluminen mes endevant per veure que hi ha
 # loading game -> triar paraules que s'escriuen complicades amb l'ordre de les lletres mal
 # remove adds for n day
 # adds up or down

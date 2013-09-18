@@ -215,13 +215,13 @@ function fill_test(selected,unselected,callit,randoms) {
 			
 			 var rand = Math.random()*100;
 			 traps[i] = new answer('error 3434',12,12,'error 3434');
-			 
+			 console.log("rand:"+rand+" prob_unselected:"+prob_unselected );
 			 if(rand < prob_selected && !safe_selected.isEmpty() ){
 				 traps[i] = randPick(safe_selected);
 				 safe_selected.remove(traps[i]);
 				 //.lemma);
 			 }else 
-			 if( (rand > prob_selected && rand < prob_unselected || safe_selected.isEmpty() ) && !safe_unselected.isEmpty() ){
+			 if( (rand > prob_selected && rand < prob_unselected ) && !safe_unselected.isEmpty() ){
 				 traps[i] = randPick(safe_unselected);
 				 safe_unselected.remove(traps[i]);
 				 //alert(randPick(safe_unselected).lemma); 
@@ -279,7 +279,7 @@ function next_slide()
 		
 	test.current_question++;
 	
-	alert("next slide:"+test.current_question);
+	//alert("next slide:"+test.current_question);
 	if(test.current_question == 0 ){
 		var d = new Date();
 		var n = d.getTime();
@@ -312,7 +312,7 @@ function next_slide()
 	document.getElementById("test_op2").innerHTML = q.op[2].text;
 
 	alert("acum:"+q.op_c.status+"\n inc+-:"+q.op_c.inc+" points:"+test.points);
-	alert("questions:"+test.questions.length);
+	//alert("questions:"+test.questions.length);
 	var d = new Date();
 	var n = d.getTime();
 	db.transaction(function(tx) {
