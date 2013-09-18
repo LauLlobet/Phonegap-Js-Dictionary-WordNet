@@ -141,7 +141,8 @@ function Test(callit){
 		var id = 4545; 
 		
 		//console.log("selected after fill:"+selected.count());
-		fill_randoms(0,selected,randoms,function(){fill_test(selected,unselected,callit,randoms); }); 
+		fill_randoms(0,selected,randoms,function(){
+			fill_test(selected,unselected,callit,randoms); }); 
 		//console.log("selected after fill2:"+selected.count());
 		
 	
@@ -199,6 +200,7 @@ function fill_test(selected,unselected,callit,randoms) {
 		}
 		var x = randPick(selected); //selected.toArray()[0];
 		selected.remove(x);
+		//console.log("===========> after remove:"+selected.count());
 		
 		var brothers = new Set([]);
 
@@ -263,7 +265,12 @@ function find_brothers(i,selected,brothers,callback){
 function init_test(){
 	
 	next_slide();
-//	test.current_question--;
+	$('#pok_next').off('vclick');
+	$('#pok_next').on('vclick', function(){ 
+    	next_slide();
+    	 $.mobile.changePage( "index.html#ptest", { transition: "slide"} );
+         return false;
+    });
 	
 }
 
@@ -272,6 +279,7 @@ function next_slide()
 		
 	test.current_question++;
 	
+	alert("next slide:"+test.current_question);
 	if(test.current_question == 0 ){
 		var d = new Date();
 		var n = d.getTime();
@@ -304,6 +312,7 @@ function next_slide()
 	document.getElementById("test_op2").innerHTML = q.op[2].text;
 
 	alert("acum:"+q.op_c.status+"\n inc+-:"+q.op_c.inc+" points:"+test.points);
+	alert("questions:"+test.questions.length);
 	var d = new Date();
 	var n = d.getTime();
 	db.transaction(function(tx) {
