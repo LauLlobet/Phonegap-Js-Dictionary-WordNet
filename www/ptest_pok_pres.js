@@ -197,7 +197,7 @@ function fill_test(selected,unselected,callit,randoms) {
 			//alert("end");
 			callit();
 		}
-		var x = selected.toArray()[0];
+		var x = randPick(selected); //selected.toArray()[0];
 		selected.remove(x);
 		
 		var brothers = new Set([]);

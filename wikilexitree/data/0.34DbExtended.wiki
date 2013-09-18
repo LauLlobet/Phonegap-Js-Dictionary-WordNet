@@ -158,13 +158,13 @@ question stime  endtime
 
 ++ [ Get things done ]
 
-- test de dues paraules nomes fa una pregunta , es tracta de sinonims
+*DONE c:47 test de dues paraules nomes fa una pregunta , es tracta de sinonims*
     que fer amb els sinonims i la puntuació de paraules amb ells ??
     fer que el set de senses tingui el duo lemma sense , 
     pero despres es poden produir errors
-    deixar-ho estar de moment...
+    deixarho estar de moment...
 
-- desordenar les preguntes
+- desordenar les preguntes en el test
 
 - si es borra una paraula no es fa test nou !!! insert new test al borrar paraula
 
