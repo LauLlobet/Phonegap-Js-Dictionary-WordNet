@@ -169,11 +169,9 @@ question stime  endtime
 *???? si es borra una paraula no es fa test nou !!! insert new test al borrar paraula*
     misteriosament funciona
 
-- reduir vista arminstice de pok
+*DONE c:49 reduir vista arminstice de pok*
 
-- verificar puntuacions casos especials i casos generals
-
-- discard dins ptest_pok porta a pres
+- discard dins ptest_pok porta a un popup , no es sumen punts
 
 - treure botó one more test
 
@@ -181,13 +179,15 @@ question stime  endtime
 
 - que fer amb els corrects/incorrects d'una paraula que s'ha tret i tornat a posar
 
+- verificar puntuacions casos especials i casos generals
+
 - el promig de puntuacio d'una paraula totalment desconeguda es 0.333 -> nivell 2 :( ha de ser nivell 1 0.0 -> 0.4 , 0.4 -> 0.55 , 0.55 -> 0.70 , 0.70 -> 0.85 , 0.85 -> 1 
 
 - separador de verbs/adjctius/noms a pdef
 
 - treure ignore de pdef, insertar botó select all
 
-- create_test cuan no hi han selected_senses
+- que pasa amb create_test cuan no hi han selected_senses
 
 ++ [ Humanize ]
 

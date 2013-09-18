@@ -73,7 +73,6 @@ function onDeviceReady() {
     load_words();
     //load_pinit();
 	//load_grid();
-	
 }
 
 
@@ -198,7 +197,7 @@ $(document).ready(function() {
     	test_answer(0);
 //    	 $.mobile.changePage( "index.html#ptest", { transition: "slide"} );
     	 $.mobile.changePage( "index.html#pok", { transition: "slide"} );
-          return false;
+    	return false;
     });
     
     $('#btn_op_b').on('vclick', function() { 
@@ -249,12 +248,12 @@ $(document).ready(function() {
      });
     
     $('#back_init').on('vclick', function() { 
-    	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+    	$( '#popup_option' ).popup( 'open', { transition: "fade" } ); 
          return false;
     });
     $('#back_init2').on('vclick', function() { 
-    	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
-         return false;
+    	$( '#popup_option2' ).popup( 'open', { transition: "fade" } ); 
+        return false;
     });
     $('#back_init3').on('vclick', function() { 
     	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );

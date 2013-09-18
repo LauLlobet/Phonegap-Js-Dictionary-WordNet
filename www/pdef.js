@@ -88,23 +88,7 @@ function format_definition(def,psid){
 function refresh_pdef(word){
 
 	word_pdef = word;
-	/*var def  = '<li data-icon="check" data-theme="e"><a><span id="defline">+res.rows.item(i).definition+</span></a><a class="tick_sense" word="+word+" sense="+res.rows.item(i).synsetid+" >tick</a></li>';
-    def += '<li data-icon="check" data-theme="d"><a><span id="defline">+res.rows.item(i).definition+</span></a><a class="tick_sense" word="+word+" sense="+res.rows.item(i).synsetid+" data-theme="d" data-icon="plus" >tick</a></li>';
 
-	$.mobile.changePage( "index.html#pdef", { transition: "slide"} );
-	
-    $('#pdef_def').html(def).promise().done(function () {
-		   //refresh here - $(this) refers to ul here
-		   $(this).listview().listview("refresh");
-    	   //$(this).listview("create");
-		   //causes a refresh to happen on the elements such as button etc. WHICH lie inside ul
-		   //$(this).trigger("create");
-		});
-	
-	
-	document.getElementById("pdef_word").innerHTML = word;
-	*/
-	
 	if(word=="" || word==undefined )
 		return;
 	var def= "error";

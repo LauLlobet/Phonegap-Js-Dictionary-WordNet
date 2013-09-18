@@ -269,7 +269,7 @@ function init_test(){
 
 function next_slide()
 {
-
+		
 	test.current_question++;
 	
 	if(test.current_question == 0 ){
@@ -282,7 +282,6 @@ function next_slide()
 				
 		});
 	}
-	
 	
 	var array = test.questions;
 
