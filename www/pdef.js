@@ -118,14 +118,21 @@ function refresh_pdef(word){
 		   	    }
 		        
 		        
-		        tx.executeSql("SELECT lemma,pos,sensenum,synsetid,definition,sampleset  FROM dict WHERE lemma = '"+word+"' ORDER BY pos,sensenum;", [], function(tx, res) {
+		        //tx.executeSql("SELECT lemma,pos,sensenum,synsetid,definition,sampleset  FROM dict WHERE lemma = '"+word+"' ORDER BY pos,sensenum;", [], function(tx, res) {
 		            //alert("res.rows.length: " + res.rows.length + " -- should be 1");
-
+		        tx.executeSql("SELECT lemma,pos,posname,sensenum,synsetid,definition,sampleset  FROM dict LEFT JOIN postypes USING(pos) WHERE lemma = '"+word+"' ORDER BY pos,sensenum;", [], function(tx, res){
 		   	        if( res.rows.length == 0 ){
 		   	        	return;
 		   	        }
 		   	        def = '';
+		   	        var posname = 'notknown';
 		   	        for(var i=0 ; i<res.rows.length ; i++){
+		   	        	
+		   	        	if(posname != res.rows.item(i).posname){
+		   	        		posname = res.rows.item(i).posname;
+		   	        		def += '<li data-role="list-divider" ><a>'+posname+'</a></li>';
+			   	   	     
+		   	        	}
 		   	        	
 		   	        	var synsetid = res.rows.item(i).synsetid;
 		   	        	

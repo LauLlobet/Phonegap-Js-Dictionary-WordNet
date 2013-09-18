@@ -176,15 +176,17 @@ question stime  endtime
 *DONE c:51 treure botó one more test, treure botó configuracio durant ptest_pok_pres *
     discard nomes sera un icone i a la dreta
 
-- current question counter en el pok ha de ser dinamic
+*DONE c:52 current question counter en el pok ha de ser dinamic*
 
-- que fer amb els corrects/incorrects d'una paraula que s'ha tret i tornat a posar
+*??? que fer amb els corrects/incorrects d'una paraula que s'ha tret i tornat a posar*
+    es fan de nou
+
+- separador de verbs/adjctius/noms a pdef
 
 - verificar puntuacions casos especials i casos generals
 
 - el promig de puntuacio d'una paraula totalment desconeguda es 0.333 -> nivell 2 :( ha de ser nivell 1 0.0 -> 0.4 , 0.4 -> 0.55 , 0.55 -> 0.70 , 0.70 -> 0.85 , 0.85 -> 1 
 
-- separador de verbs/adjctius/noms a pdef
 
 - treure ignore de pdef, insertar botó select all
 
@@ -194,7 +196,9 @@ question stime  endtime
 
 - humanize/inflections in seraches
 
-- humanize/inflections in clicks 
+- humanize/inflections in clicks
+
+- humanize definitions i posnames
 
 
 
