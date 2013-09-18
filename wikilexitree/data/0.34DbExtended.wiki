@@ -185,11 +185,13 @@ question stime  endtime
 
 *DONE c:53 BUGFIX nomes es podia fer un test , els seguents tenien nomes una pregunta*
 
-- treure ignore de pdef, insertar botó select all
+*DONE c:54 treure ignore de pdef, insertar botó select all*
 
 - que pasa amb create_test cuan no hi han selected_senses
 
 - verificar puntuacions casos especials i casos generals
+
+- habilitar limbo de paraules
 
 - el promig de puntuacio d'una paraula totalment desconeguda es 0.333 -> nivell 2 :( ha de ser nivell 1 0.0 -> 0.4 , 0.4 -> 0.55 , 0.55 -> 0.70 , 0.70 -> 0.85 , 0.85 -> 1 
 
