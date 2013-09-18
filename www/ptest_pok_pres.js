@@ -10,7 +10,7 @@ JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,Sort
 		SenseAns = new Class({
 			include: Comparable,
 			
-		    initialize: function(text,id,cid,lemma,status,inc,correct,incorrect) {
+		    initialize: function(text,id,cid,lemma,status,inc,correct,incorrect,sensecase) {
 		    	this.text = text;
 		    	this.id = id;
 		    	this.cid = cid;
@@ -19,6 +19,8 @@ JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,Sort
 		    	this.inc = inc;
 		    	this.correct = correct;
 		    	this.incorrect = incorrect;
+		    	if(sensecase != null)
+		    		this.level = sensecase.level;
 				//alert(row.lemma+"instanciant:"+row.sensecaseid);
 		    },
 		    equals: function(object) {
@@ -132,10 +134,10 @@ function Test(callit){
 		
 		wordsxsenses.forEach(function(x) {
 			if(x.selected == 1){
-				selected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc,x.correct,x.incorrect));
+				selected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc,x.correct,x.incorrect,x));
 				//console.log("selected ADDDD"+x.row.synsetid+" lemma "+x.row.lemma);
 			}else
-				unselected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc,x.correct,x.incorrect));
+				unselected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc,x.correct,x.incorrect,x));
 		});
 
 		var id = 4545; 
@@ -161,7 +163,7 @@ function fill_randoms(i,selected,randoms,callback){
 		db.transaction(function(tx) {
 			var pos =  Math.floor(Math.random()*117370) +1 ;
 			tx.executeSql("SELECT * FROM sensesXindex where id="+pos+";", [], function(tx, res5) {
-				randoms.add(new SenseAns(res5.rows.item(0).definition,res5.rows.item(0).synsetid,-1,"Error:random-loaded",-293,0.6969696,0,0));
+				randoms.add(new SenseAns(res5.rows.item(0).definition,res5.rows.item(0).synsetid,-1,"Error:random-loaded",-293,0.6969696,0,0,null));
 				fill_randoms(i+1, selected, randoms, callback);
 			});
 		});
@@ -249,7 +251,7 @@ function find_brothers(i,selected,brothers,callback){
 		db.transaction(function(tx) {
 			tx.executeSql("select definition , synsetid  , lemma  from dict where lemma='"+selected.toArray()[i].lemma+"';", [], function(tx, res1) {
 				for(var j=0; j<res1.rows.length ; j++){
-					brothers.add(new SenseAns(res1.rows.item(j).definition,res1.rows.item(j).synsetid,-1,res1.rows.item(j).lemma,294,0.6868686,0,0));
+					brothers.add(new SenseAns(res1.rows.item(j).definition,res1.rows.item(j).synsetid,-1,res1.rows.item(j).lemma,294,0.6868686,0,0,null));
 				}
 				find_brothers(i+1, selected, brothers, callback);
 			});
@@ -311,7 +313,7 @@ function next_slide()
 	document.getElementById("test_op1").innerHTML = q.op[1].text;
 	document.getElementById("test_op2").innerHTML = q.op[2].text;
 
-	alert("acum:"+q.op_c.status+"\n inc+-:"+q.op_c.inc+" points:"+test.points);
+	alert("decimals:"+q.op_c.status+"\n inc+-:"+q.op_c.inc+" level:"+q.op_c.level+" points:"+test.points);
 	//alert("questions:"+test.questions.length);
 	var d = new Date();
 	var n = d.getTime();
@@ -399,9 +401,9 @@ function prepare_pres(){
 	db.transaction(function(tx) {
 		tx.executeSql("update test set etime = "+n+" where testid=(select MAX(testid) from test);", [], function(tx, res1) {});
 	});
-	
-	var percent_total = Math.round(1000*test.points*100/test.questions.length)/1000;
-	var level_total_ant = test.level_points/test.questions.length;
+	//alert(test.points+" "+test.questions.length);
+	var percent_total = Math.round(1000*  test.points/test.questions.length  )/1000;
+	var level_total_ant = test.level_points/test.questions.length; // level amb decimal
 	document.getElementById("pres_points").innerHTML=percent_total+"-"+level_total_ant;
 	document.getElementById("pres_up").innerHTML=test.up;
 	document.getElementById("pres_down").innerHTML=test.down;

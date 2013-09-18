@@ -181,13 +181,15 @@ question stime  endtime
 *??? que fer amb els corrects/incorrects d'una paraula que s'ha tret i tornat a posar*
     es fan de nou
 
-*Done c:53 separador de verbs/adjctius/noms a pdef*
+*DONE c:53 separador de verbs/adjctius/noms a pdef*
 
 *DONE c:53 BUGFIX nomes es podia fer un test , els seguents tenien nomes una pregunta*
 
 *DONE c:54 treure ignore de pdef, insertar botó select all*
 
-- que pasa amb create_test cuan no hi han selected_senses
+*DONE c:55 que pasa amb create_test cuan no hi han selected_senses*
+
+no passa res
 
 - verificar puntuacions casos especials i casos generals
 
@@ -195,7 +197,7 @@ question stime  endtime
 
 - el promig de puntuacio d'una paraula totalment desconeguda es 0.333 -> nivell 2 :( ha de ser nivell 1 0.0 -> 0.4 , 0.4 -> 0.55 , 0.55 -> 0.70 , 0.70 -> 0.85 , 0.85 -> 1 
 
-
+- randoms traps han de deixar de poguer ser repetits
 
 ++ [ Humanize ]
 
@@ -204,6 +206,8 @@ question stime  endtime
 - humanize/inflections in clicks
 
 - humanize definitions i posnames
+
+- separar paraules per apostrofs "house's"
 
 
 

@@ -1,12 +1,25 @@
 
 function get_level(corrects,incorrects){
 	
+
 	
 	if(corrects+incorrects < 1 ){
-		return [4,-1];
+		return [4,0,0.3];
+	}
+	
+	/*
+	 * inc = diferencia percentual al pujar de nivell 
+	 * lvl = nivell , de 4 dolent a 0 excelent
+	 * percent_lvl = part decilmal del nivell  ----> AKA .status
+	 */
+	var inc =  ( ( 1 - corrects/(corrects+incorrects)) *4.999) - ( ( 1 - (corrects+1)/(corrects+1+incorrects)) *4.999);
+	var deinc =  - ( ( 1 - corrects/(corrects+incorrects)) *4.999) + ( ( 1 - (corrects)/(corrects+1+incorrects)) *4.999);
+	//alert("inc0 "+inc +"deinc "+ deinc);
+	
+	if(inc == 0){
+		inc = deinc;
 	}
 	var lvl =  Math.floor( ( 1 - corrects/(corrects+incorrects)) *4.999);
-	var inc =  ( ( 1 - corrects/(corrects+incorrects)) *4.999) - ( ( 1 - (corrects+1)/(corrects+1+incorrects)) *4.999);
 	var percent_lvl =  ( 1 - corrects/(corrects+incorrects)) *4.999 - Math.floor( ( 1 - corrects/(corrects+incorrects)) *4.9999) ;
 	return [ lvl , percent_lvl, inc ];//- Math.floor(5 - corrects/(corrects+incorrects)*5) ];
 	
@@ -49,7 +62,7 @@ function load_wordsXsenses(callback){
 					        this.row = row;
 					        var levels = get_level(row.correct,row.incorrect); 
 					        this.level =  levels[0];
-					        this.status = levels[1];
+					        this.status = levels[1]; // decimal de level
 					        this.inc = levels[2];
 					        this.serie = -1;
 					        this.ctime = row.ctime;
