@@ -173,7 +173,7 @@ question stime  endtime
 
 *DONE c:50 discard dins ptest_pok porta a un popup , no es sumen punts*
 
-- treure botó one more test, treure botó configuracio durant ptest_pok_pres 
+*DONE c:51 treure botó one more test, treure botó configuracio durant ptest_pok_pres *
     discard nomes sera un icone i a la dreta
 
 - current question counter en el pok ha de ser dinamic

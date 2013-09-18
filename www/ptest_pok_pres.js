@@ -292,6 +292,10 @@ function next_slide()
 	csc.innerHTML = test.current_question + 1;//""+test.current_slide;
 	csc = document.getElementById("tatalQuestionCounter");
 	csc.innerHTML = test.questions.length ;//""+test.current_slide;
+	csc = document.getElementById("currentQuestionCounter2");
+	csc.innerHTML = test.current_question + 1;//""+test.current_slide;
+	csc = document.getElementById("tatalQuestionCounter2");
+	csc.innerHTML = test.questions.length ;//""+test.current_slide;
 	
 	var q = test.questions[test.current_question]; 
 	document.getElementById("test_word").innerHTML = q.word.lemma;
