@@ -227,8 +227,10 @@ function fill_test(selected,unselected,callit,randoms) {
 				 traps[i] = randPick(safe_unselected);
 				 safe_unselected.remove(traps[i]);
 				 //alert(randPick(safe_unselected).lemma); 
-			 }else
+			 }else{
 				 traps[i] = randPick(safe_randoms);
+				 safe_randoms.remove(traps[i]);
+			 }
 		}
 		test.questions.push( new question([x,x,traps[0],traps[1]] ));
 		//console.log("===========> push after:"+test.questions.length);

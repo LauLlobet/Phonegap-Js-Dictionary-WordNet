@@ -3,7 +3,7 @@ function get_level(corrects,incorrects){
 	
 
 	
-	if(corrects+incorrects < 1 ){
+	if(corrects+incorrects <= 3 ){
 		return [4,0,0.3];
 	}
 	
