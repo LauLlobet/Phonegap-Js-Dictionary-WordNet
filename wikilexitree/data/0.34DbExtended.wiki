@@ -164,11 +164,10 @@ question stime  endtime
     pero despres es poden produir errors
     deixarho estar de moment...
 
-- desordenar les preguntes en el test
+*DONE c:48 desordenar les preguntes en el test*
 
-- si es borra una paraula no es fa test nou !!! insert new test al borrar paraula
-
-- toggle_selected nomes guarda les files del nivell i serie actual, per deixar un historic de selected analitzable en el futur.
+*???? si es borra una paraula no es fa test nou !!! insert new test al borrar paraula*
+    misteriosament funciona
 
 - reduir vista arminstice de pok
 
