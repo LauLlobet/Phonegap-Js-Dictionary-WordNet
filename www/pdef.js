@@ -85,8 +85,25 @@ function format_definition(def,psid){
 	return result;
 }
 
-function refresh_pdef(word){
+function refresh_pdef(original_word){
+	
+	original_word = original_word.camelize(true);
+	var sing = original_word.singularize();
+	
+	
+	db.transaction(function(tx) {
+		tx.executeSql("SELECT wordid  FROM words WHERE lemma = '"+sing+"';", [], function(tx, res1) {
+			if(res1.rows.length == 0){
+				refresh_pdef_big(original_word);
+			}else
+				refresh_pdef_big(sing);
+		});
+	});
+}
 
+function refresh_pdef_big(word){
+
+	//alert(word);
 	word_pdef = word;
 
 	if(word=="" || word==undefined )

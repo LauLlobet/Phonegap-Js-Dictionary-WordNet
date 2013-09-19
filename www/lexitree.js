@@ -71,6 +71,7 @@ function onDeviceReady() {
 	//load_words();
     alto = $(document).height();
     load_words();
+    
     //load_pinit();
 	//load_grid();
 }

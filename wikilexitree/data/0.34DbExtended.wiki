@@ -103,11 +103,6 @@ falta publicarlo amb la app restartwikidpad.wiki
 *DONE c:34 toggle funcionant i order guarda independentment de lectura i instanciacio*
 
 
-
-++ FALTA EL SELECT ALL
-
-
-
 ++ [Creacio de testos]
 
 *DONE c:35 la objecte test suporta id's + definicions*
@@ -193,7 +188,7 @@ no passa res
 
 *DONE c:56 verificar puntuacions casos especials i casos generals*
 
-- habilitar limbo de paraules,  randoms traps han de deixar de poguer ser repetits
+*DONE c:57 habilitar limbo de paraules,  randoms traps han de deixar de poguer ser repetits*
 
 ++ [ Humanize ]
 
