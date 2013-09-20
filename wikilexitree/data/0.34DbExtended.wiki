@@ -192,9 +192,9 @@ no passa res
 
 ++ [ Humanize ]
 
-- humanize/inflections in seraches
-
-- humanize/inflections in clicks
+*DONE c:58 humanize/inflections in seraches*
+ 
+ humanize/inflections in clicks
 
 - humanize definitions i posnames
 

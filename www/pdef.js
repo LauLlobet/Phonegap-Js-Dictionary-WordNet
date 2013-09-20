@@ -71,7 +71,7 @@ function special_word(word,psid){
 
 function format_definition(def,psid){
 	
-	var words=def.split(" ");
+	var words=def.camelize().split(" ");
 	
 	var result="";
 	
@@ -82,7 +82,7 @@ function format_definition(def,psid){
 		else
 			result+='<span class="word_to_search_c" id="'+words[i]+'">'+words[i]+"</span> ";
 	}
-	return result;
+	return result.substr(0,result.length-1)+".";
 }
 
 function refresh_pdef(original_word){
@@ -92,11 +92,11 @@ function refresh_pdef(original_word){
 	
 	
 	db.transaction(function(tx) {
-		tx.executeSql("SELECT wordid  FROM words WHERE lemma = '"+sing+"';", [], function(tx, res1) {
+		tx.executeSql("SELECT wordid  FROM words WHERE lemma = '"+original_word+"';", [], function(tx, res1) {
 			if(res1.rows.length == 0){
-				refresh_pdef_big(original_word);
-			}else
 				refresh_pdef_big(sing);
+			}else
+				refresh_pdef_big(original_word);
 		});
 	});
 }
@@ -180,7 +180,7 @@ function refresh_pdef_big(word){
 		    			});
 		    		
 		    		
-		    		document.getElementById("pdef_word").innerHTML = word;
+		    		document.getElementById("pdef_word").innerHTML = word.camelize();
 		    		
 
 
