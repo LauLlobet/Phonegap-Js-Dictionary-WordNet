@@ -196,7 +196,7 @@ no passa res
  
  humanize/inflections in clicks
 
-- humanize definitions i posnames
+*DONE c:59 humanize definitions i posnames*
 
 - separar paraules per apostrofs "house's"
 
