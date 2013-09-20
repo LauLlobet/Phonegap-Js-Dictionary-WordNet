@@ -49,11 +49,12 @@
 		C806AF7817A6841900315D35 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806AF7717A6841900315D35 /* MessageUI.framework */; };
 		C806AF7A17A684C200315D35 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806AF7917A684C200315D35 /* AdSupport.framework */; };
 		C806AF7C17A6859400315D35 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C806AF7B17A6859400315D35 /* StoreKit.framework */; };
+		C8079BB917C66EDB00229D77 /* test.db in Resources */ = {isa = PBXBuildFile; fileRef = C8079BB817C66EDB00229D77 /* test.db */; };
 		C873E2D817BA5942002D706F /* SQLitePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C873E2D717BA5942002D706F /* SQLitePlugin.m */; };
 		C873E2DB17BA5979002D706F /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C873E2D917BA5979002D706F /* libsqlite3.0.dylib */; };
 		C873E2DC17BA5979002D706F /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C873E2DA17BA5979002D706F /* libsqlite3.dylib */; };
 		C873E2E017BA7A73002D706F /* test.db in Resources */ = {isa = PBXBuildFile; fileRef = C873E2DF17BA7A73002D706F /* test.db */; };
-		C873E2E217BA8304002D706F /* new_lexitree.db in Resources */ = {isa = PBXBuildFile; fileRef = C873E2E117BA8304002D706F /* new_lexitree.db */; };
+		C8C8F64C17C66B7B0024F952 /* new_lexitree.db in Resources */ = {isa = PBXBuildFile; fileRef = C8C8F64B17C66B7B0024F952 /* new_lexitree.db */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
@@ -133,12 +134,13 @@
 		C806AF7717A6841900315D35 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C806AF7917A684C200315D35 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C806AF7B17A6859400315D35 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C8079BB817C66EDB00229D77 /* test.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.db; path = ../../../../../development/test.db; sourceTree = "<group>"; };
 		C873E2D617BA5942002D706F /* SQLitePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLitePlugin.h; sourceTree = "<group>"; };
 		C873E2D717BA5942002D706F /* SQLitePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLitePlugin.m; sourceTree = "<group>"; };
 		C873E2D917BA5979002D706F /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		C873E2DA17BA5979002D706F /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		C873E2DF17BA7A73002D706F /* test.db */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.db; sourceTree = "<group>"; };
-		C873E2E117BA8304002D706F /* new_lexitree.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = new_lexitree.db; sourceTree = "<group>"; };
+		C8C8F64B17C66B7B0024F952 /* new_lexitree.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = new_lexitree.db; path = ../../../lexitree/assets/new_lexitree.db; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = DictioTest/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,7 +262,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C873E2E117BA8304002D706F /* new_lexitree.db */,
+				C8079BB817C66EDB00229D77 /* test.db */,
+				C8C8F64B17C66B7B0024F952 /* new_lexitree.db */,
 				30A0434214DC770100060A13 /* de.lproj */,
 				30A0434514DC770100060A13 /* se.lproj */,
 				1F766FDB13BBADB100FB74C0 /* en.lproj */,
@@ -452,7 +455,8 @@
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
 				C873E2E017BA7A73002D706F /* test.db in Resources */,
-				C873E2E217BA8304002D706F /* new_lexitree.db in Resources */,
+				C8C8F64C17C66B7B0024F952 /* new_lexitree.db in Resources */,
+				C8079BB917C66EDB00229D77 /* test.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

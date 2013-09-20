@@ -1,50 +1,42 @@
 
 
- 
-var db = "";
+ var db = "";
 
 
-var test = new test( [ new wordset('swift','bird',['dog','ape','mamal']) ,
-                       new wordset('prison','place',['lake','river','book']) ,
-                       new wordset('job','work',['sentence','escape','pain'])
-					] , 30 ) ;
+var test = "";
 
-var grid = new level_grid([65,5,4,0,24]);
+var grid = new level_grid([56,5,4,0,24]);
+var senses_grid;
+
 var alto =120;
 
-var buttons = [['0','1','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
+var buttons = [['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0'],['0','0','0','0','0','0','0']];
 
 
 var word_list = ["house",
                  "want",
-                 "nonbenevolence",
-                 "nonfanatical","tinplate","presupplication","displaced","sorrier","loculus","centibar","convinced","upswell","prober","punty","qualifyingly","elector","graves","kipnis","liddie","undetained","zaragoza",
-                
-                 "presa","cyanic","eyetooth","sandman","inofficiousness",
-                 "pinner","plastometric","bargelli","browning","constrainingly","testament","figurate","gelatinizer","glutting",
-                "keeley","kneel","lithically","ludhiana",
-                "beeves",
-                
-                "prefabricate","pussy","diatomaceous","finialed","unenlivening","unrefunding","recapitulating","veritas","crushingly","saltier","sorry","stingy","gettable",
-                "judicialness","meconium","snatchable","unweeping","recalculate",
-                "unfugitive",
-                
-                "hidalgism","blotchier","durion","toluca","wurst","intellectualization","natal","carthage","brattishing","wright","unlivableness","pulverising","gracility","ecthlipsis","silliness","overfold","tagus",
-                
-                "impinged",
-                
-                "them","kayak","poikiloblast","oxter","sanforise","timoshenko","superallowance","reinduced","overtheorization","fifo","sinistrad","ambage","weighty","chrismatory","delimitation","chron","odontiasis","ophelia","gamekeeping","licetus","accusal","lienal","eunomus","whites","phrenetic","uncomputableness","objectivistic","depersonalised","induplicated","uninterchangeable","unabject","sedately","sniffer","brachycardia","foundling","diarchic","kindredship","artifact","dilate","prepurposed","legazpi","cloot","skipdent","vantage","alyssum","depreciated","compositeness","detrital","vetchling","nonpurchase","superconductivity","fireman","nasal","callipus","lasker","unfilched","lithophyte","revet","rewrite","mewar","pangolin","descension","pedanthood","ahasuerus","unrescinded","barretter","nga","biannual"
-                ];
+                 "nonbenevolence",];
 
 var specialword = "";
 var word_pdef = "helo";
+var previous_synsetid = "pnull";
+
+var pdef_tick = 0;
 
 word_listpage = 0;
 word_listpage_size = 0;
 
+actual_testid = 0;
+
+var wordsxsenses = "";
+
+
+senses_grid = [ [],[],[],[],[] ];
+
 var big = "";
 if(screen.width > 330)
 	big="Big";
+
 
 function round(n){
 	return Math.ceil(n);
@@ -71,13 +63,17 @@ function onDeviceReady() {
     $(document).delegate("#pinit", "pageshow", function() {
         load_words();
     });
-
+    
+    $(document).delegate("#pgrid", "pageshow", function() {
+    	load_words(function(){load_grid();});
+    });
+    
 	//load_words();
-	init_test();
     alto = $(document).height();
     load_words();
+    
     //load_pinit();
-	load_grid();
+	//load_grid();
 }
 
 
@@ -100,8 +96,9 @@ $('#index').live('pagebeforeshow',function(e,data){
 
 */
 
+
 $(document).ready(function() {
-	
+//$('#pinit').bind('pageinit',function(){
 	
 	
 	//------------------------ pinit -----------------------------------
@@ -122,8 +119,8 @@ $(document).ready(function() {
 	});
 	
 	$('#word_list').on('vclick','.word_pinit' , function() { 
-		 
-    	load_pdef($(this).attr('id'));
+		
+		load_pdef($(this).attr('id'));
     	return false;
 	});
 	
@@ -133,6 +130,7 @@ $(document).ready(function() {
 	$('#word_search').on('vclick' , function() { 
 		
 		var word = document.getElementById('word_search_box').value;
+		previous_synsetid = "pnull";
 		load_pdef(word);
     	return false;
 	});
@@ -140,25 +138,44 @@ $(document).ready(function() {
 	$('#word_search_pdef').on('vclick' , function() { 
 		
 		var word = document.getElementById('word_search_box_pdef').value;
+		previous_synsetid = "pnull";
 		load_pdef(word);
     	return false;
 	});
 	
+	//----------------------pgrid---------------------------
 	
+    $('#btn_ptest').on('touchstart', function() { 
+    	
+    	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+    		if( wordsxsenses.any(function(x) {return x.selected == 1}) ){
+	    		new Test(function(){
+	    			init_test();
+		        	$.mobile.changePage( "index.html#ptest", { transition: "slide"} ); 
+	        	}) ;
+	        	  
+    		}else
+    			toast("Select word sets to make a test.");
+    	});
+    	return false;
+ 
+    });
+
 	//-----------------------pdef---------------------------
 	
 
 	$('#pdef_def').on('click' ,'.word_to_search_e', function() { 
 		
 		//alert('tosearch'+$(this).attr('id'));
-		special_word($(this).attr('id'));
+		//alert("wordtserc:"+$(this).attr('psid'));
+		special_word($(this).attr('id'),$(this).attr('psid'));
     	return false;
 	});
 	
 	$('#pdef_def').on('click' ,'.word_to_search_c', function() { 
 		
 		//alert('tosearch'+$(this).attr('id'));
-		special_word($(this).attr('id'));
+		special_word($(this).attr('id'),"pnull");
     	return false;
 	});
 	
@@ -179,15 +196,13 @@ $(document).ready(function() {
 	
     $('#btn_op_a').on('vclick', function() { 
     	test_answer(0);
-    	 next_slide();
 //    	 $.mobile.changePage( "index.html#ptest", { transition: "slide"} );
     	 $.mobile.changePage( "index.html#pok", { transition: "slide"} );
-          return false;
+    	return false;
     });
     
     $('#btn_op_b').on('vclick', function() { 
     	test_answer(1);
-    	next_slide();
 //    	$.mobile.changePage( "index.html#ptest", { transition: "slide"} );
     	 $.mobile.changePage( "index.html#pok", { transition: "slide"} );
          return false;
@@ -195,28 +210,56 @@ $(document).ready(function() {
     
     $('#btn_op_c').on('vclick', function() { 
     	test_answer(2);
-    	next_slide();
 //    	$.mobile.changePage( "index.html#ptest", { transition: "slide"} );
     	 $.mobile.changePage( "index.html#pok", { transition: "slide"} );
          return false;
     });
     
+    //-----------------------pok--------------------------------
+    
+    $('#pok_next').on('vclick', function(){ 
+    	next_slide();
+//    	$.mobile.changePage( "index.html#ptest", { transition: "slide"} );
+    	 $.mobile.changePage( "index.html#ptest", { transition: "slide"} );
+         return false;
+    });
+    
+    
     //--------------------------???????--------------------------
 
     $('#btn_l1').on('vclick', function() { 
+    	//load_words(function(){load_grid();});
         $.mobile.changePage( "index.html#pgrid", { transition: "slide"} );
         return false;
      });
     
+    $('#edb').on('vclick', function() { 
+    	
+    	db.transaction(function(tx) {		
+			tx.executeSql("delete from 'selected_senses';");
+			tx.executeSql("delete from 'ans_sense_cases';");
+			tx.executeSql("delete from 'test';");
+			tx.executeSql("delete from 'subjects';");
+			tx.executeSql("delete from 'subject_sets';");	
+			load_words();
+			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+	    	//alert("empty data base");
+    	});
+    	return false;
+     });
+    
     $('#back_init').on('vclick', function() { 
-    	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+    	$( '#popup_option' ).popup( 'open', { transition: "fade" } ); 
          return false;
     });
     $('#back_init2').on('vclick', function() { 
+    	$( '#popup_option2' ).popup( 'open', { transition: "fade" } ); 
+        return false;
+    });
+    $('#back_init3').on('vclick', function() { 
     	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
          return false;
     });
-        
 });
 
 

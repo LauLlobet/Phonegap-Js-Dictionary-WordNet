@@ -18,7 +18,8 @@ function abc(n){
 }
 
 function refresh_pinit(){
-	
+
+	var specialword = "";
 	if( word_list.length == 0){
 
 		document.getElementById("word_list").innerHTML = 'add words by searching...' ;
@@ -56,7 +57,7 @@ function refresh_pinit(){
 
 
 
-function load_words(){
+function load_words(callback){
 	
 	if(db == ""){
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
@@ -64,7 +65,7 @@ function load_words(){
 	
 	db.transaction(function(tx) {
 		word_list = [];
-		tx.executeSql("SELECT lemma  FROM words INNER JOIN favourites ON words.wordid=favourites.wordid ORDER BY favourites.time DESC;", [], function(tx, res1) {
+		tx.executeSql("select lemma from selected_words;", [], function(tx, res1) {
 			
 			for(var i=0; i<res1.rows.length ; i++){
 				//alert("wordfound"+res1.rows.item(i).lemma);	
@@ -74,7 +75,7 @@ function load_words(){
 			}
 			
 			load_pinit();
-			
+			callback();
 		});
 		
 	});

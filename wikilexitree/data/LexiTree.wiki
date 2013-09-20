@@ -1,68 +1,28 @@
 ﻿++ Lexi Tree
 
-PomodoroList
+AltresMenus
 
-++ Resolucio pantalla
-480 800 android ---> 315x488
-320 480 iphone
+++TODO
 
-desactivar testing al publicar en android
-https://github.com/sainttex/PhoneGap-Android-Native-AdMob
+ToDo
 
-++ EstrategiaComercial
-
-EstrategiaComercial
-
-IdeesFutures
-
-
-++ Disseny
-
-DificultatsTrobades
-
-
-
-
-FuturesReleases
 
 ++ Releases
 
 DoneRelases
 
-
-
 +++ 0.3X Data base 
 
-
-
-Relase 0.32 DbLocal
+Relase [0.34DbExtended]  <======(CURRENT)
 ------------------------
-# base de dades en iphone
-
-
-Relase 0.33 DbPdef
-------------------------
-# pdef funcional ( no va gaire amb la versio 0.3 pero bueno )
-# lletres clickables
-# ticks de cada sense
-# tick automatic de tots els senses
-# max info DataBase : 
-
-( timestamp per senses , deleted senses , deleted timestamp ) // deleted wordid  
-
-
-Relase 0.34 DbPtest
-------------------------
-# senses aleatoris per paraula
-# guardar resultats
-# taula per guardar el maxim d'info: (test id , grid snapshot id , test) (test id , test word , sc,s2,s3, lvl snapshot_corr, lvlsnapshot_done)
+# mes info DataBase
 
 
 
 +++ 0.4X Visual surrogates
 
 
-Release 0.4 CssLoad
+Release [0.4CssLoad]
 ------------------------
 # transisions brusques i no brusques
 # que la db es carregui durant la pantalla d'inici
@@ -70,69 +30,54 @@ Release 0.4 CssLoad
 # imatge personalitzada surrogate android
 # idem iphone
 # velocitats click
+# bug , dps de paraula no en el diccionari , la seleccio de la seguent no es fa visual tot i ser efectiva
+# back button a pdef ha de portar a carregar la definicio anterior cuan s'aperti
+# mirar si els add load_grid document ready triggers 2..n times events
 
-Release 0.4 CssAnim
+Release [0.4CssAnim]
 ------------------------
 # gifs animats surrogates starr, to-starr, dial up, dial down, dial css circular
-# botons de colors i mes fosocos surrogate
+# botons de colors i mes fosocos pgrid surrogate
 
 
 +++ 0.5X Controll
 
-Relase 0.51 CalcCalc
-------------------
-# calcul distribucio pgrid level -> fixe
-# calcul distribucio pgrid envelliment -> gauss 
-# calcul % del test pres
-# navegacio paraula a paraula 
-
-Relase 0.52 CalcDb
--------------------
-# calcul de preguntes random segons pgrid i nivell 
-
-Relase 0.53 CalcForm
+Relase [0.53CalcForm]
 --------------------
 # afegir inflections.js
 # minuscules en search i humanizes
-# crear preguntes a partir de varies definicions i tenint en compte si son noms o verbs
+# crear preguntes a partir de varies definicions i tenint en compte si son noms o verbs ???
+# separar noms i verbls a la pdef
 
 
 +++ 0.6X Appearence
 
-Release 0.6 PicXulos
+Release [0.6PicXulos]
 ---------------------
 # dissenyar icones pdef
 # dissenyar dial
 # dissenyar estrelleta 
 # dissenyar estrelleta brillant
 
-+++ 0.7X Tutorial
++++ 0.7X Groups
 
-Relase 0.71 TutEscrit
----------------------
-# dissenyar tutorial
+Relase [0.71GroupsIn]
 
-Relase 0.72 TutFet
----------------------
-# mode tutorial
-# css de tutorial , dialogs flotants
+Relase [0.71GroupsNet]
 
 
 +++ 0.8X Challanges
 
-Relase 0.81 RetoSample
+Relase [0.81RetoScreen]
 ---------------------
-# unlock sample questions in test
+UlnLocks
 
-Relase 0.81 RetoAntonim
+
+Relase [0.81RetoMap]
 ---------------------
-# unlock antonim
+UlnLocks
 
-Relase 0.81 RetoSimilar
----------------------
-# unlock similar word
-
-Relase 0.84 RetoAppearence
+Relase [0.84RetoUpdate]
 ----------------------
 # check updates android i ios per futurs unlocks
 # icono visual que indiqui badge de unlocks , i potser punts aconseguits per a l escola

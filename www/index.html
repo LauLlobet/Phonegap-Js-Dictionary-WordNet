@@ -9,18 +9,28 @@
 
 		<link rel="stylesheet"  href="jquery.mobile/jquery.mobile-1.2.0.css" type="text/css" charset="utf-8"/>
 		<link rel="stylesheet"  href="lexitree.css" type="text/css" charset="utf-8"/>
-   
+ 
     
+    
+    <script type="text/javascript">JSCLASS_PATH = 'js.class/min'</script>
+	<script src="js.class/min/loader-browser.js"></script>
+	
+	<script type="text/javascript">
+		load(JSCLASS_PATH + '/loader.js');
+	</script>
+	
+
+
 	<link rel="stylesheet" href="jquery.mobile/jquery-mobile-fluid960.min.css" type="text/css" charset="utf-8" />
 	<script src="jquery.mobile/jquery-1.7.1.min.js"></script>
 	<script src="jquery.mobile/jquery.mobile-1.2.0.js"></script>
-	
+	<script src="inflections/inflections.js"></script>
 	
 	
 	<script src="loadDbPlugin.js"></script>
-
 	
 	
+	<!--script src="canvas.js"></script-->
 	
 	<script src="ptest_pok_pres.js"></script>
 	<script src="pgrid.js"></script>
@@ -64,31 +74,10 @@
 		<div class="grid_4 prefix_0"><a id="word_search" data-role="button" data-inline="true" data-icon="search" data-mini="true" data-iconpos="right">Find</a></div></div>   
 </div>
 
-
  <div class="ui-grid-b" id="word_list">
-	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Love</a></div>
-	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Cocossss9</a></div>
-	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Rascal</a></div>	    
-	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Equivocalness</a></div>
-	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Overmystified</a></div>
-	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Retrieving</a></div>	    
-	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Equivocalness</a></div>
-	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Overmystified</a></div>
-	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Retrieving</a></div>	    
-	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Underlight</a></div>
-	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Zaragoza</a></div>
-	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Affirmably</a></div>	    
-	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Preenlist</a></div>
-	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Unpolished</a></div>
-	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Waveringly</a></div>	    
-	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Squaring</a></div>
-	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Maid</a></div>
-	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Waviness</a></div>	    
-	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Cathouses</a></div>
-    <div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Volar</a></div>
-	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="b" data-icon="arrow-r"  data-iconpos="right" id="inici-search-btn">...</a>
-</div>
-
+	<div class="ui-block-a"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">HTML</a></div>
+	<div class="ui-block-b"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">Error</a></div>
+	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">on Load</a></div>	    
 </div>
 
 <style type="text/css">
@@ -106,7 +95,7 @@
 	
 		<div class="grid_10 prefix_1" data-role="controlgroup" data-type="horizontal" >
 					<a id="btn_l1" data-role="button" data-theme="d"  >L1</a>
-					<a href="#pgrid" data-role="button" data-theme="d"  >L2</a>				
+					<a id="edb" data-role="button" data-theme="d"  >db</a>				
 					<a href="#pgrid" data-role="button" data-theme="d"  >L3</a>				
 		</div>
 		 
@@ -153,15 +142,6 @@
 	<div class="ui-block-a" > <h3 id="pdef_word">Noun</h3> </div>
 	<div class="ui-block-b"> </div>
     
-	
-	
-	<div class="ui-block-c">
-			
-		<select data-theme="e" name="flip-1" id="flip-1" data-role="slider" data-mini="true">
-			<option data-theme="e" value="off">Ignore</option>
-			<option data-theme="e" value="on">Test!</option>
-		</select> 
-	</div>
 </div>
 
 	<div class="ui-block-d"> </div>	
@@ -201,7 +181,7 @@
 <div data-role="page" data-theme="b" id="pgrid" data-add-back-btn="true">
 	
 	
-<div data-role="header" data-nobackbtn="false" data-theme="b">
+<div data-role="header" data-nobackbtn="true" data-theme="b">
 <h1>DictioTest</h1>
 		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
 </div>
@@ -224,7 +204,8 @@
 		
 <div data-role="fieldcontain" id="divBotonsTest">
 
-	<a href="#ptest" data-role="button" data-theme="d" >Test!</a>
+	<a id="btn_ptest" data-role="button" data-theme="d"  >Test!</a>
+					
 		
 </div>
 
@@ -237,14 +218,38 @@
 
 
 
-<div data-role="page" data-theme="b" id="ptest" data-add-back-btn="true">
+<div data-role="page" data-theme="b" id="ptest">
 	
 	
-<div data-role="header" data-nobackbtn="false" data-theme="b">
-<button data-icon="delete" id="back_init"  >Discard</button>
+<div data-role="header" data-nobackbtn="true" data-theme="b">
+
 <h1>DictioTest   (<span id="currentQuestionCounter">-1</span>/<span id="tatalQuestionCounter">-1</span>)</h1>
-		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
+		<button data-icon="delete" id="back_init" data-iconpos="notext" class="ui-btn-right"  >Discard</button>
 </div>
+
+
+
+<div data-role="popup" id="popup_option" 
+    data-theme="a" class="ui-corner-bottom ui-content" data-overlay-theme="b">
+
+    <div data-role="content">
+        <h3 class="ui-title">Are you sure?</h3>
+
+        <p>Your points will be lost but words may change level.</p>
+
+        <a data-role="button" data-inline="true" data-rel="back" data-theme="b">
+            Cancel
+        </a>
+
+        <a href="#pinit" class="ui-corner-all" data-role="button" data-inline="true" data-transition="fade" data-theme="b">
+            OK
+        </a>
+    </div>
+</div>
+
+
+
+
 
 
 <p/>
@@ -265,8 +270,7 @@
 <div data-role="content">
 	
 	<span id="test_op0"> 
-	the state prevailing during the absence of war
-	harmonious relations; freedom from disputes "the roommates lived in peace together"
+	option zero
 	</span>
 	
 <div class="container_12">
@@ -279,7 +283,7 @@
 </div>
  <p style="text-align: center;"> . . . </p>
  
- <span id="test_op1"> Cease-fire, truce (a state of peace agreed to between opponents so they can discuss peace terms)
+ <span id="test_op1"> option one
 	</span>
 	
 <div class="container_12">
@@ -301,7 +305,7 @@
 		
 
 
- <span id="test_op2">Aa legal state created by a declaration of war and ended by official declaration during which the international rules of war apply) "war was declared in November but actual fighting did not begin until the following spring"		
+ <span id="test_op2"> option two
 		</span>
 
 <div class="container_12">
@@ -325,16 +329,36 @@
 
 
 
-<div data-role="page" data-theme="b" id="pok" data-add-back-btn="true">
+<div data-role="page" data-theme="b" id="pok">
 	
 	
-<div data-role="header" data-nobackbtn="false" data-theme="b">
-<button data-icon="delete" id="back_init2"  >Discard</button>
-<h1>DictioTest   (2/20)</h1>
-		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
+<div data-role="header" data-nobackbtn="true" data-theme="b">
+<h1>DictioTest   (<span id="currentQuestionCounter2">-1</span>/<span id="tatalQuestionCounter2">-1</span>)</h1>
+<button data-icon="delete" id="back_init" data-iconpos="notext" class="ui-btn-right"  >Discard</button>
 </div>
 
 <p/>
+
+
+<div data-role="popup" id="popup_option2" 
+    data-theme="a" class="ui-corner-bottom ui-content" data-overlay-theme="b">
+
+    <div data-role="content">
+        <h3 class="ui-title">Are you sure?</h3>
+
+        <p>Your points will be lost but words may change level.</p>
+
+        <a data-role="button" data-inline="true" data-rel="back" data-theme="b">
+            Cancel
+        </a>
+
+        <a href="#pinit" class="ui-corner-all" data-role="button" data-inline="true" data-transition="fade" data-theme="b">
+            OK
+        </a>
+    </div>
+</div>
+
+
 
 <div class="container_16">
 
@@ -359,13 +383,11 @@
 
 <p/>
 
-the state prevailing during the absence of war
-harmonious relations; freedom from disputes "the roommates lived in peace together"
 
 <div class="container_12">
 
 		<div class="grid_10">
-		<p/>
+		text 1
 		
 		</div>
 		
@@ -377,17 +399,16 @@ harmonious relations; freedom from disputes "the roommates lived in peace togeth
 </div>
 
 
- <p style="text-align: center;"> . . . </p>
+ <!--  p style="text-align: center;"> . . . </p-->
  
- Cease-fire, truce (a state of peace agreed to between opponents so they can discuss peace terms)
-	
+ 
 	
 <div class="container_12">
 		
 		
 		<div class="grid_10">
 	
-		<p/>
+		text 2
 		
 		</div>
 		
@@ -399,17 +420,11 @@ harmonious relations; freedom from disputes "the roommates lived in peace togeth
 		
 </div>
 
- <p style="text-align: center;"> . . . </p>
-		
-
-Aa legal state created by a declaration of war and ended by official declaration during which the international rules of war apply) "war was declared in November but actual fighting did not begin until the following spring"		
-		
-
 <div class="container_12">
 
 		<div class="grid_10">
 	
-		<p/>
+		text 3
 		
 		</div>
 				
@@ -430,15 +445,16 @@ Aa legal state created by a declaration of war and ended by official declaration
 <div data-role="page" data-theme="b" id="pres" data-add-back-btn="true">
 	
 	
-<div data-role="header" data-nobackbtn="false" data-theme="b">
+<div data-role="header" data-nobackbtn="true" data-theme="b">
 <h1>DictioTest </h1>
+		<button data-icon="arrow-l" id="back_init3"  >Main</button>
 		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
 </div>	
 
 
 <div data-role="content">
 <p/>
-<h1 style="text-align: center;">40%</h1>
+<h1 style="text-align: center;"><span id="pres_points"></span>%</h1>
 
 <img style="text-align: center;" id="dial" src="img/barra.png">
 	<p/>
@@ -448,7 +464,7 @@ Aa legal state created by a declaration of war and ended by official declaration
 			<img id="up" src="img/up.png">		
 		</div>
 		<div class="grid_2 prefix_0">
-			<h3>3</h3>
+			<h3 id="pres_up">3</h3>
 		</div>
 </div>
 
@@ -459,7 +475,7 @@ Aa legal state created by a declaration of war and ended by official declaration
 			<img id="up" src="img/equal.png">		
 		</div>
 		<div class="grid_2 prefix_0">
-			<h3>2</h3>
+			<h3 id="pres_equal">2</h3>
 		</div>
 </div>
 <div class="container_12">
@@ -468,17 +484,15 @@ Aa legal state created by a declaration of war and ended by official declaration
 			<img id="up" src="img/down.png">		
 		</div>
 		<div class="grid_2 prefix_0">
-			<h3>1</h3>
+			<h3 id="pres_down">1</h3>
 		</div>
 </div>
 <p/>
-<a href="#ptest" data-role="button" data-theme="d" >One more Test!</a>
 <a href="#pinit" data-role="button" data-theme="d" > Home</a>
 		
 		
 </div>
 </div>
-
 
 
 

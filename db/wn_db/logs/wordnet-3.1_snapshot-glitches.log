@@ -1,0 +1,325 @@
+DUPLICATE (8)
+
+--1--
+data.noun:25611
+04570858 07 n 02 sternness 0 strictness 1 008 @ 04570600 n 0000 + 02446669 a 0202 + 02446669 a 0202 + 00714865 a 0202 + 01790022 a 0104 + 00714865 a 0101 ~ 04571078 n 0000 ~ 04571219 n 0000 | uncompromising resolution  
+synset (write)>data.noun:25611 synset=[id=104570858 words={sternness,strictness} pos=n lexdomain=7 links={hypernym(104570600),derivation(302446669:126072-126069),derivation(302446669:126072-126069),derivation(300714865:126072-126069),derivation(301790022:125172-125164),derivation(300714865:125172-125164),hyponym(104571078),hyponym(104571219)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '126072-104570858-126069-302446669-81' for key 'PRIMARY']
+synset=[
+	id=104570858 
+	words={sternness,strictness} 
+	pos=n 
+	lexdomain=7 
+	links={
+		hypernym(104570600),
+		derivation(302446669:126072-126069),
+		derivation(302446669:126072-126069),	2x
+		derivation(300714865:126072-126069),
+		derivation(301790022:125172-125164),
+		derivation(300714865:125172-125164),
+		hyponym(104571078),
+		hyponym(104571219)}]
+--2--
+data.noun:25648
+04578965 07 n 06 graveness 0 gravity 0 sobriety 1 soberness 0 somberness 0 sombreness 0 012 @ 04578035 n 0000 + 00366341 a 0602 + 00366341 a 0501 + 02126888 a 0403 + 02131090 a 0403 + 02126888 a 0201 + 01281705 a 0201 + 02126888 a 0101 + 01281705 a 0101 + 00366341 a 0602 + 00366341 a 0501 ~ 04579546 n 0000 | a manner that is serious and solemn  
+synset (write)>data.noun:25648 synset=[id=104578965 words={graveness,gravity,sobriety,soberness,somberness,sombreness} pos=n lexdomain=7 links={hypernym(104578035),derivation(300366341:121996-121994),derivation(300366341:121993-121991),derivation(302126888:121414-121410),derivation(302131090:121414-121410),derivation(302126888:59332-59282),derivation(301281705:59332-59282),derivation(302126888:59293-59282),derivation(301281705:59293-59282),derivation(300366341:121996-121994),derivation(300366341:121993-121991),hyponym(104579546)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '121996-104578965-121994-300366341-81' for key 'PRIMARY']
+synset=[
+	id=104578965 
+	words={graveness,gravity,sobriety,soberness,somberness,sombreness} 
+	pos=n 
+	lexdomain=7 
+	links={
+		hypernym(104578035),
+		derivation(300366341:121996-121994),
+		derivation(300366341:121993-121991),
+		derivation(302126888:121414-121410),
+		derivation(302131090:121414-121410),
+		derivation(302126888:59332-59282),
+		derivation(301281705:59332-59282),
+		derivation(302126888:59293-59282),
+		derivation(301281705:59293-59282),
+		derivation(300366341:121996-121994),	2x
+		derivation(300366341:121993-121991),	2x
+		hyponym(104579546)}]
+--3--
+data.noun:26206
+04695035 07 n 02 singularity 1 uniqueness 0 007 @ 04694678 n 0000 + 01108858 a 0201 + 02223151 a 0202 + 00507765 a 0202 + 00496667 a 0101 + 00496667 a 0101 + 02223151 a 0101 | the quality of being one of a kind; "that singularity distinguished him from all his companions"  
+synset (write)>data.noun:26206 synset=[id=104695035 words={singularity,uniqueness} pos=n lexdomain=7 links={hypernym(104694678),derivation(301108858:137688-137686),derivation(302223151:137688-137686),derivation(300507765:137688-137686),derivation(300496667:119651-119647),derivation(300496667:119651-119647),derivation(302223151:119651-119647)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '119651-104695035-119647-300496667-81' for key 'PRIMARY']
+synset=[
+	id=104695035 
+	words={singularity,uniqueness} 
+	pos=n 
+	lexdomain=7 
+	links={
+		hypernym(104694678),
+		derivation(301108858:137688-137686),
+		derivation(302223151:137688-137686),
+		derivation(300507765:137688-137686),
+		derivation(300496667:119651-119647),
+		derivation(300496667:119651-119647),	2x
+		derivation(302223151:119651-119647)}]
+--4--
+data.noun:26293
+04712743 07 n 06 loathsomeness 0 repulsiveness 0 sliminess 2 vileness 1 lousiness 0 wickedness 2 011 @ 04712370 n 0000 + 01630246 a 060c + 01592054 a 0503 + 01131736 a 0503 + 02571256 a 0408 + 01136640 a 0304 + 01629416 a 0205 + 00223526 a 0202 + 01629416 a 0205 + 02571256 a 0105 + 01630246 a 0106 | the quality of being disgusting to the senses or emotions; "the vileness of his language surprised us"  
+synset (write)>data.noun:26293 synset=[id=104712743 words={loathsomeness,repulsiveness,sliminess,vileness,lousiness,wickedness} pos=n lexdomain=7 links={hypernym(104712370),derivation(301630246:143860-143858),derivation(301592054:79036-79037),derivation(301131736:79036-79037),derivation(302571256:140915-140913),derivation(301136640:120605-120608),derivation(301629416:109977-109974),derivation(300223526:109977-109974),derivation(301629416:109977-109974),derivation(302571256:78223-78222),derivation(301630246:78223-78222)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '109977-104712743-109974-301629416-81' for key 'PRIMARY']
+synset=[
+	id=104712743 
+	words={loathsomeness,repulsiveness,sliminess,vileness,lousiness,wickedness} 
+	pos=n 
+	lexdomain=7 
+	links={
+		hypernym(104712370),
+		derivation(301630246:143860-143858),
+		derivation(301592054:79036-79037),
+		derivation(301131736:79036-79037),
+		derivation(302571256:140915-140913),
+		derivation(301136640:120605-120608),
+		derivation(301629416:109977-109974),
+		derivation(300223526:109977-109974),
+		derivation(301629416:109977-109974),	2x
+		derivation(302571256:78223-78222),
+		derivation(301630246:78223-78222)}]
+--5--
+data.noun:26587
+04772342 07 n 03 benignity 0 benignancy 0 graciousness 1 009 @ 04780602 n 0000 + 00179134 a 0301 + 01375667 a 0302 + 01375872 a 0201 + 01375872 a 0201 ! 04774149 n 0202 + 01375872 a 0101 ! 04774149 n 0101 = 00228210 a 0000 | the quality of being kind and gentle  
+synset (write)>data.noun:26587 synset=[id=104772342 words={benignity,benignancy,graciousness} pos=n lexdomain=7 links={hypernym(104780602),derivation(300179134:58927-58925),derivation(301375667:58927-58925),derivation(301375872:13120-13116),derivation(301375872:13120-13116),antonym(104774149:13120-80811),derivation(301375872:13123-13116),antonym(104774149:13123-80826),attribute(300228210)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '13120-104772342-13116-301375872-81' for key 'PRIMARY']
+synset=[
+	id=104772342 
+	words={benignity,benignancy,graciousness} 
+	pos=n 
+	lexdomain=7 
+	links={
+		hypernym(104780602),
+		derivation(300179134:58927-58925),
+		derivation(301375667:58927-58925),
+		derivation(301375872:13120-13116),
+		derivation(301375872:13120-13116),	2x
+		antonym(104774149:13120-80811),
+		derivation(301375872:13123-13116),
+		antonym(104774149:13123-80826),
+		attribute(300228210)}]
+--6--
+data.noun:28480
+05137404 07 n 04 boringness 0 dreariness 0 insipidness 1 insipidity 1 006 @ 05137137 n 0000 + 01349017 a 0301 + 00811060 a 0202 + 00365961 a 020b + 01348327 a 0101 + 00365961 a 020b | extreme dullness; lacking spirit or interest
+synset (write)>data.noun:28480 synset=[id=105137404 words={boringness,dreariness,insipidness,insipidity} pos=n lexdomain=7 links={hypernym(105137137),derivation(301349017:69315-69312),derivation(300811060:38908-38909),derivation(300365961:38908-38909),derivation(301348327:16164-16162),derivation(300365961:38908-38909)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '38908-105137404-38909-300365961-81' for key 'PRIMARY']
+synset=[
+	id=105137404 
+	words={boringness,dreariness,insipidness,insipidity} 
+	pos=n lexdomain=7 
+	links={hypernym(105137137),
+	derivation(301349017:69315-69312),
+	derivation(300811060:38908-38909),
+	derivation(300365961:38908-38909),
+	derivation(301348327:16164-16162),
+	derivation(300365961:38908-38909)}]		2x
+--7--
+data.noun:40524
+07463292 12 n 04 gloom 0 gloominess 0 somberness 0 sombreness 0 007 @ 07463132 n 0000 @ 07451560 n 0000 + 00366341 a 0402 + 00366341 a 0301 + 00366341 a 0402 + 00366341 a 0301 + 00707151 a 0201 | a feeling of melancholy apprehension  
+synset (write)>data.noun:40524 synset=[id=107463292 words={gloom,gloominess,somberness,sombreness} pos=n lexdomain=12 links={hypernym(107463132),hypernym(107451560),derivation(300366341:121996-121994),derivation(300366341:121993-121991),derivation(300366341:121996-121994),derivation(300366341:121993-121991),derivation(300707151:57963-57965)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '121996-107463292-121994-300366341-81' for key 'PRIMARY']
+synset=[
+	id=107463292 
+	words={gloom,gloominess,somberness,sombreness} 
+	pos=n 
+	lexdomain=12 
+	links={
+		hypernym(107463132),
+		hypernym(107451560),
+		derivation(300366341:121996-121994),
+		derivation(300366341:121993-121991),
+		derivation(300366341:121996-121994),	2x
+		derivation(300366341:121993-121991),	2x
+		derivation(300707151:57963-57965)}]
+--8--
+data.verb:10561
+02110292 39 v 02 perceive 0 comprehend 0 024 + 05738040 n 0201 + 01290456 a 0102 + 01290456 a 0102 + 02880100 a 0101 + 00878536 n 0102 + 09564530 n 0101 ~ 02109792 v 0000 ~ 02110883 v 0000 ~ 02111034 v 0000 ~ 02111374 v 0000 ~ 02121464 v 0000 ~ 02121655 v 0000 ~ 02121770 v 0000 ~ 02122057 v 0000 ~ 02125308 v 0000 ~ 02128545 v 0000 ~ 02131155 v 0000 ~ 02133086 v 0000 ~ 02167558 v 0000 ~ 02173527 v 0000 ~ 02173716 v 0000 ~ 02195373 v 0000 ~ 02201676 v 0000 ~ 02202868 v 0000 02 + 08 00 + 09 00 | to become aware of through the senses; "I could perceive the ship coming over the horizon"  
+synset (write)>data.verb:10561 synset=[id=202110292 words={perceive,comprehend} pos=v lexdomain=39 links={derivation(105738040:28170-28175),derivation(301290456:97839-97850),derivation(301290456:97839-97850),derivation(302880100:97839-97853),derivation(100878536:97839-97852),derivation(109564530:97839-97841),hyponym(202109792),hyponym(202110883),hyponym(202111034),hyponym(202111374),hyponym(202121464),hyponym(202121655),hyponym(202121770),hyponym(202122057),hyponym(202125308),hyponym(202128545),hyponym(202131155),hyponym(202133086),hyponym(202167558),hyponym(202173527),hyponym(202173716),hyponym(202195373),hyponym(202201676),hyponym(202202868)} frames={{,97839,28170}:8,{,28170,97839}:9}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '97839-202110292-97850-301290456-81' for key 'PRIMARY']
+synset=[
+	id=202110292 
+	words={perceive,comprehend} 
+	pos=v lexdomain=39 
+	links={
+		derivation(105738040:28170-28175),
+		derivation(301290456:97839-97850),
+		derivation(301290456:97839-97850),	2x
+		derivation(302880100:97839-97853),
+		derivation(100878536:97839-97852),
+		derivation(109564530:97839-97841),
+		hyponym(202109792),
+		hyponym(202110883),
+		hyponym(202111034),
+		hyponym(202111374),
+		hyponym(202121464),
+		hyponym(202121655),
+		hyponym(202121770),
+		hyponym(202122057),
+		hyponym(202125308),
+		hyponym(202128545),
+		hyponym(202131155),
+		hyponym(202133086),
+		hyponym(202167558),
+		hyponym(202173527),
+		hyponym(202173716),
+		hyponym(202195373),
+		hyponym(202201676),
+		hyponym(202202868)} 
+		frames={{,97839,28170}:8,{,28170,97839}:9}] 
+
+CASE (4)
+
+--1--
+data.noun:46169
+08494432 15 n 02 Earth 0 earth 1 003 @ 00027365 n 0000 + 01184362 a 0201 + 01184362 a 0101 | the abode of mortals (as contrasted with Heaven or Hell); "it was hell on earth"  
+synset (write)>data.noun:46169 synset=[id=108494432 words={earth,earth} pos=n lexdomain=15 links={hypernym(100027365),derivation(301184362:40016-40044),derivation(301184362:40016-40044)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '40016-108494432-40044-301184362-81' for key 'PRIMARY']
+synset=[
+	id=108494432 
+	words={earth,earth} 
+	pos=n 
+	lexdomain=15 
+	links={
+		hypernym(100027365),
+		derivation(301184362:40016-40044),
+		derivation(301184362:40016-40044)}] 	2x
+derivation of 'earth/Earth'
+	301184362{earthly|of or belonging to or characteristic of this earth as distinguished from heaven}-40044(earthly)),
+
+--2--
+data.noun:49551
+09208446 17 n 04 Earth 0 earth 2 world 0 globe 0 012 @i 09394157 n 0000 #m 09376983 n 0000 + 01573249 a 0401 + 10633464 n 0202 + 10633464 n 0102 %p 08430894 n 0000 %p 08515412 n 0000 %p 08609326 n 0000 %p 09245454 n 0000 %p 09271948 n 0000 %p 09277362 n 0000 %p 09374258 n 0000 | the 3rd planet from the sun; the planet we live on; "the Earth moves around the sun"; "he sailed around the world"  
+synset (write)>data.noun:49551 synset=[id=109208446 words={earth,earth,world,globe} pos=n lexdomain=17 links={instance hypernym(109394157),member meronym(109376983),derivation(301573249:57925-57914),derivation(110633464:40016-40043),derivation(110633464:40016-40043),part holonym(108430894),part holonym(108515412),part holonym(108609326),part holonym(109245454),part holonym(109271948),part holonym(109277362),part holonym(109374258)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '40016-109208446-40043-110633464-81' for key 'PRIMARY']
+synset=[
+	id=109208446 
+	words={earth,earth,world,globe} 
+	pos=n 
+	lexdomain=17 
+	links={
+		instance hypernym(109394157),
+		member meronym(109376983),
+		derivation(301573249:57925-57914),
+		derivation(110633464:40016-40043),
+		derivation(110633464:40016-40043),	2x
+		part holonym(108430894),
+		part holonym(108515412),
+		part holonym(108609326),
+		part holonym(109245454),
+		part holonym(109271948),
+		part holonym(109277362),
+		part holonym(109374258)}]
+
+--3--
+data.noun:57772
+10633464 18 n 04 tellurian 0 earthling 0 earthman 0 worldling 1 003 @ 09558001 n 0000 + 09208446 n 0201 + 09208446 n 0202 | an inhabitant of the earth  
+synset (write)>data.noun:57772 synset=[id=110633464 words={tellurian,earthling,earthman,worldling} pos=n lexdomain=18 links={hypernym(109558001),derivation(109208446:40043-40016),derivation(109208446:40043-40016)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '40043-110633464-40016-109208446-81' for key 'PRIMARY']
+synset=[
+	id=110633464 
+	words={tellurian,earthling,earthman,worldling} 
+	pos=n 
+	lexdomain=18 
+	links={
+		hypernym(109558001),
+		derivation(109208446:40043-40016),
+		derivation(109208446:40043-40016)}]	2x
+
+--4--
+data.adj:17027
+02986060 01 a 02 baroque 0 Baroque 0 002 \ 15184452 n 0201 \ 15184452 n 0101 | of or relating to or characteristic of the elaborately ornamented style of architecture, art, and music popular in Europe between 1600 and 1750  
+synset (write)>data.adj:17027 synset=[id=302986060 words={baroque,baroque} pos=a lexdomain=1 links={pertainym(115184452:11602-11602),pertainym(115184452:11602-11602)}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.LexLink.insert(LexLink.java:64) message=[Duplicate entry '11602-302986060-11602-115184452-80' for key 'PRIMARY']
+synset=[
+	id=302986060 
+	words={baroque,baroque} 
+	pos=a 
+	lexdomain=1 
+	links={
+		pertainym(115184452:11602-11602),
+		pertainym(115184452:11602-11602)}]	2x
+
+CASE-DEPENDENT DERIVATION (4)
+
+--1--
+data.noun:46169
+08494432 15 n 02 Earth 0 earth 1 003 @ 00027365 n 0000 + 01184362 a 0201 + 01184362 a 0101 | the abode of mortals (as contrasted with Heaven or Hell); "it was hell on earth"  
+
+--2--
+data.noun:49551
+09208446 17 n 04 Earth 0 earth 2 world 0 globe 0 012 @i 09394157 n 0000 #m 09376983 n 0000 + 01573249 a 0401 + 10633464 n 0202 + 10633464 n 0102 %p 08430894 n 0000 %p 08515412 n 0000 %p 08609326 n 0000 %p 09245454 n 0000 %p 09271948 n 0000 %p 09277362 n 0000 %p 09374258 n 0000 | the 3rd planet from the sun; the planet we live on; "the Earth moves around the sun"; "he sailed around the world"  
+
+--3--
+data.noun:57772
+10633464 18 n 04 tellurian 0 earthling 0 earthman 0 worldling 1 003 @ 09558001 n 0000 + 09208446 n 0201 + 09208446 n 0202 | an inhabitant of the earth  
+
+--4--
+data.adj:17027
+02986060 01 a 02 baroque 0 Baroque 0 002 \ 15184452 n 0201 \ 15184452 n 0101 | of or relating to or characteristic of the elaborately ornamented style of architecture, art, and music popular in Europe between 1600 and 1750  
+
+UNCLOSED QUOTE (1)
+
+--1--
+data.verb:3724
+00755575 32 v 02 request 2 hit_up 0 007 @ 00754601 v 0000 + 06449553 n 0101 + 07114803 n 0101 ~ 00748806 v 0000 ~ 00756066 v 0000 ~ 00795382 v 0000 ~ 00881427 v 0000 03 + 24 00 + 25 00 + 26 00 | ask (a person) to do something; "She asked him to be here at noon"; "I requested that she type the entire manuscript"; "She hit him up for money"   
+UNEVEN QUOTES IN 200755575:ask (a person) to do something; "She asked him to be here at noon"; "I requested that she type the entire manuscript"; "She hit him up for moneyxs
+
+LACK OF GLOSS (3)
+
+--1--
+data.adj:2957
+00522853 00 s 01 full 7 001 & 00522139 a 0000 | "write your full name"
+UNEVEN QUOTES IN 300522853:"write your full name"
+
+--2--
+data.adj:10680
+01951389 00 s 01 strong 0 001 & 01950285 a 0000 | "a strong family in a strong community"  
+UNEVEN QUOTES IN 301951389:"a strong family in a strong community"
+
+--3--
+data.adj:10680
+02281982 00 s 02 healthy 0 strong 0 001 & 02281471 a 0000 | thriving and functioning well; "a healthy economy"; "strong economic growth  
+UNEVEN QUOTES IN 302281982:thriving and functioning well; "a healthy economy"; "strong economic growth
+
+FRAMES (1)
+
+data.verb:12923
+02599070 41 v 04 lord_it_over 0 queen_it_over 0 put_on_airs 0 act_superior 0 001 @ 02371743 v 0000 09 + 02 00 + 02 04 + 22 04 + 02 03 + 22 03 + 08 02 + 09 02 + 08 01 + 09 01 | act like the master of; "He is lording it over the students"  
+synset (write)>data.verb:12923 synset=[id=202599070 words={lord it over,queen it over,put on airs,act superior} pos=v lexdomain=41 links={hypernym(202371743)} frames={{,78839,106699,106158,1563}:2,{,1563}:2,{,1563}:22,{,106158}:2,{,106158}:22,{,106699}:8,{,106699}:9,{,78839}:8,{,78839}:9}] exception=[MySQLIntegrityConstraintViolationException] wnsqlbuilder.wn.objects.VFrameMapping.insert(VFrameMapping.java:78) message=[Duplicate entry '202599070-1563-2' for key 'PRIMARY']
+synset=[
+	id=202599070 
+	words={lord it over(78839),queen it over (106699),put on airs (106158),act superior (1563)} 
+	pos=v 
+	lexdomain=41 
+	links={
+		hypernym(202371743)} 
+	frames={
+		{,78839,106699,106158,1563}:2,
+		{,1563}:2,
+		{,1563}:22,
+		{,106158}:2,
+		{,106158}:22,
+		{,106699}:8,
+		{,106699}:9,
+		{,78839}:8,
+		{,78839}:9}]
+
+v 0000 09 
+	+ 02 00 {lord it over(78839),queen it over (106699),put on airs (106158),act superior (1563)}
+	+ 02 04 act superior (1563)	2x
+	+ 22 04 act superior (1563)
+	+ 02 03 put on airs (106158)	2x
+	+ 22 03 put on airs (106158)
+	+ 08 02 queen it over (106699)
+	+ 09 02 queen it over (106699)
+	+ 08 01 lord it over(78839)
+	+ 09 01 lord it over(78839)
+
+MORPHOLOGY (3)
+
+--1--
+noun.exc:532 diastemata diastema
+noun.exc:533 diastemata diastema
+morph mapping (write)>noun.exc:533 morph-map=[1047<-36087] exception=[MySQLIntegrityConstraintViolationException] message=[Duplicate entry '1047-n-36087' for key 'PRIMARY']
+
+--2--
+noun.exc:1834 sudatoria sudatorium
+noun.exc:1835 sudatoria sudatorium
+morph mapping (write)>noun.exc:1835 morph-map=[4201<-127066] exception=[MySQLIntegrityConstraintViolationException] message=[Duplicate entry '4201-n-127066' for key 'PRIMARY']
+
+--3--
+noun.exc:1982 vagi vagus vagus
+morph mapping (write)>noun.exc:1982 morph-map=[4659<-139546139546] exception=[MySQLIntegrityConstraintViolationException] message=[Duplicate entry '4659-n-139546' for key 'PRIMARY']
+

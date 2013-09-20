@@ -1,55 +1,29 @@
 ﻿++ Data Base
 
 
-++Todo
-
-delete favourites
-
-renames favourite_senses senses
-
-fer de senses delete , nodelete amb timestamp
-
-create tables SENSECASE TEST GRID SENSESET
-
-grid random generator instances
-
-create save_grid()
-
-test random generator instances
-
-create save_test()
-
-create ans_sensecase()
-
-create get_calc_testresult()
 
 ++Schema
 
 
-SENSES( id ,senseid , timestamp , deleted timestamp(0) ) 
-
-SENSECASE( sensecaseid , timestamp , senseid , testid , sense_trap1, sense_trap2 , senseans(senseid,st_1,st_2) ) 
-
-TEST(test id , grid snapshot id , timestamp start, timestamp end , up , down, percent)
-
-GRID(id , grid snapshot id,  selected/noselected, amount, y_lvl, x_serie, sensecases_set )
-
-SENSECASESET(id sensecases_set , sensecase_id )
+- create tables ANS_SENSE_CASE TEST GRID SENSE_SET
 
 
+SELECTED_SENSE( id ,ssenseid , timestamp , deleted timestamp(0),previous_sense ) 
+
+ANS_SENSE_CASES( sensecaseid , stime , etime , senseid , testid , sense_trap1, sense_trap2 , senseans(senseid,st_1,st_2) ) 
+
+TESTS(test id , grid snapshot id , timestamp start, timestamp end , up , down, percent)
+
+GRIDS(id , grid snapshot id,  selected/noselected, amount, y_lvl, x_serie, sensecases_set )
+
+GRID_SENSE_CASE_SETS(id grid_sense_set , sensecase_id )
+
+SUBJECTS( subject_key, subject_id , ssenseid )
 
 
-CREATE TABLE `favourites_senses` (
-  `senseid`integer NOT NULL DEFAULT '0'
-,  `wordid` integer  NOT NULL DEFAULT '0'
-,  `synsetid` integer  DEFAULT NULL
-,  PRIMARY KEY (`senseid`,`wordid`,`synsetid`)
-);
 
-CREATE TABLE `favourites` (
-   `time` integer  NOT NULL DEFAULT '0'
-,  `wordid` integer  NOT NULL DEFAULT '0'
-,  `ok` integer  NOT NULL DEFAULT '0'
-,  `nok` integer  NOT NULL DEFAULT '0'
-,  PRIMARY KEY (`wordid`)
-);
+++ Export to server :
+
+
+1) servei web avoid sqlinjection
+2) export tables avoid sqlinjection -> afegir columna usuari a totes les taules i inserts

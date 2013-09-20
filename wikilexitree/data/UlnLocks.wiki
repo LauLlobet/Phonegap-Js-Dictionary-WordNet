@@ -1,0 +1,32 @@
+﻿++ Uln Locks
+
+
+++++Features
+
+# unlock sample questions in test
+# unlock antonim
+# unlock similar word
+
+# girls colours
+# kids colours
+
+# lamparas en el skill tree iluminen mes endevant per veure que hi ha
+# loading game -> triar paraules que s'escriuen complicades amb l'ordre de les lletres mal
+# remove adds for n day
+# adds up or down
+# long branch returns points + X
+# branch that makes questions more difficult and gives a plus as a return 
+# "" in means of time -> timed test 
+# public forum post level 1 2 3 4 5 ...
+# grafic de muntanya de cada paraula amb les seves pujades i baixades
+# grafic general de les paraules amb les seves pujades i baixades
+
+personatge vestit amb accessoris
+
+barra de progress erratica + divertit
+
+
+++++Challanges
+# chain
+# number of questions in level 1
+...

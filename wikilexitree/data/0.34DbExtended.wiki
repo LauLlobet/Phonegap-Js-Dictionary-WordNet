@@ -1,0 +1,206 @@
+﻿++ 0.*DONE *DONE 34Db Extended**
+
+*DONE c:1 delete favourites*
+
+*DONE c:2 renames favourite_senses selected_senses*
+
+*DONE c:3 fer de senses delete , nodelete amb timestamp*
+
+*DONE c:4 insert previous sense*
+
+*DONE c:5 test origin push default*
+
+*DONE c:6 create commiter script*
+
+falta mirar excepcio no hi han guions
+falta fer el mergebranch
+falta descafeinarlo per a publicarlo
+falta publicarlo amb la app restartwikidpad.wiki
+
+*DONE c:7 ensenyar al papa el sistema*
+
+# fer que la caixa de paraula sigui contrastada en el fons groc
+
+*DONE c:8 create tables ANS_SENSE_CASE TEST GRID SENSE_SET*
+
+*DONE c:9 crear view selected_wordsXsenses i select a load_pgrid()*
+
+*DONE c:10 instalar llibreria sets *
+
+*DONE c:11 carregar objecte senses en un set accesible desde altres funcions*
+
+*DONE c:12 taules pensades 1 per a la persistencia del test i la grid*
+    # s'ha eliminat camps que no es corresponien
+    # trap1|2id ja no son ssenseids per permetre altres tipus
+
+*DONE c:13 taules pensades 2 per a la persistencia del test i la grid*
+    #hi haura redundancia i posibles mals entesos dels selected del grid en les sensetestcase
+    #s'eliminen els test_sets 
+
+*DONE c:14 taules pensades 2 WORKING per a la persistencia del test i la grid*
+    # carregar old schema a old_added_schema.txt
+
+*DONE c:15 simbolic links habien petat !!! arreglat , simbolic links relatius ara*
+
+*DONE c:16 taules pensades 3 WORKING 100% per a la persistencia del test i la grid*
+
+
+++ [calc del ordre del set]
+
+    distribute grid agafara el set total de preguntes selected 
+    el distribuira en sets de uns 5/10 elements interiors
+    els sets estaran ordenats per level(fixe) i dps per vellesa(= tamany)
+
+*DONE c:17 insert de random correct/incorrect al seleccionar paraules*
+
+*DONE c:18 crear norma de distribucio de les levels => lineal*
+    s haura de fer cinc vegades be per cada malament
+
+*DONE c:19 crear classe (lvl_case_set) duplicant atribut vellesa amb compare*
+
+*DONE c:20 crear sorted sets de cada level segons nivell*
+
+*DONE c:21 (Demo2Learn) resquebrajar sets lvl_case_id per level : com funciona forEachSlice*
+
+*DONE c:22 resquebrajar sets al 100% fet, read del grid OK*
+
+++ [test_grid contra base de dades]
+
+*DONE c:23 es fara un test nou cada vegada que es WHEN*
+            # modifiqui la llista de senses 
+            # s'accedeixi al pgrid
+
+*DONE c:24 es crearan testos nous en les seguents condicions*
+
+    Si el test no esta acabat i s' afegeix una paraula nova:
+    # fila nova de test amb senseid actualitzada
+
+    Si el test s'ha començat i no s'ha afegit una paraula nova∫
+    # fila nova de test amb senseid identica 
+
+*DONE c:25 BUG REPAIR es crearan testos nous en les seguents condicions*
+
+*DONE c:26 abans de promises*
+
+*DONE c:27 promises no funcionen alhora de modificar variables globals :( *
+
+*DONE c:28 sincronous calls at load pgrid , using callbacks*
+
+*DONE c:29 crear objectes selected_senses a partir dels selected_senses i el testID*
+
+*DONE c:30 NOT WORKING arreglant els botons de grid*
+    s'ha arreglat l'ordre de load pgrid per a que es faci un test nou abans de carregarlo
+
+*DONE c:31 botons de grid arreglats*
+
+++ Changes en el workflow de persistencia/ordre/presentacio
+
+*DONE c:32 arreglat instanciacio de sensecases de senses afegits novament*
+
+*DONE c:33 arreglat 2 instanciacio de sensecases de senses afegits *
+    l'anterior no funcionava al afegir paraules noves
+
+*DONE c:34 toggle funcionant i order guarda independentment de lectura i instanciacio*
+
+
+++ [Creacio de testos]
+
+*DONE c:35 la objecte test suporta id's + definicions*
+
+*DONE c:36 entrada al test via codi *
+
+*DONE c:37 crear selected words i unselected*
+
+*DONE c:38 crear selected words brothers*
+    s'han creat un conjunt de tots els brothers de totes les preguntes
+    pero el que es necesita es un conjunt de brothers d'una sola paraula en cada cas
+    
+*DONE c:39 word(i), coin , remove wordi from selected , *
+    
+        1) rand from selected     => not brother word(i), if empty
+        2) rand from non_selected => not brother word(i), if empty
+        3) rand from all          => not brother word(i), not selected
+
+*DONE c:40 test stime = now*
+
+*DONE c:41 test endtime*
+
+question stime  endtime
+
+*DONE c:42 update del selected senses i seguents :*
+
+
+++ [resultats test contra base de dades]
+
+ en cada pregunta obtenir el % del level i el diff de la pregunta mostrarlo
+
+ en cada pok mostrar l'increment de % i sumarlo a una variable global, 
+ 
+*DONE c:43 sumar pujades i baixades*
+
+* al final veure el sumatori de diffs totals, pujades i baixades
+
+
+++ [ tests de fluxe ]
+
+*DONE c:45 poguer recomençar un test un cop acabat**
+    es per una rao de base de dades;
+
+++ [ test ANDROID ]
+
+*DONE c:46 pgrid instance cases asynchronous +  botons de select all i back desde pres*
+
+
+++ [ Get things done ]
+
+*DONE c:47 test de dues paraules nomes fa una pregunta , es tracta de sinonims*
+    que fer amb els sinonims i la puntuació de paraules amb ells ??
+    fer que el set de senses tingui el duo lemma sense , 
+    pero despres es poden produir errors
+    deixarho estar de moment...
+
+*DONE c:48 desordenar les preguntes en el test*
+
+*???? si es borra una paraula no es fa test nou !!! insert new test al borrar paraula*
+    misteriosament funciona
+
+*DONE c:49 reduir vista arminstice de pok*
+
+*DONE c:50 discard dins ptest_pok porta a un popup , no es sumen punts*
+
+*DONE c:51 treure botó one more test, treure botó configuracio durant ptest_pok_pres *
+    discard nomes sera un icone i a la dreta
+
+*DONE c:52 current question counter en el pok ha de ser dinamic*
+
+*??? que fer amb els corrects/incorrects d'una paraula que s'ha tret i tornat a posar*
+    es fan de nou
+
+*DONE c:53 separador de verbs/adjctius/noms a pdef*
+
+*DONE c:53 BUGFIX nomes es podia fer un test , els seguents tenien nomes una pregunta*
+
+*DONE c:54 treure ignore de pdef, insertar botó select all*
+
+*DONE c:55 que pasa amb create_test cuan no hi han selected_senses*
+
+no passa res
+
+*DONE c:56 verificar puntuacions casos especials i casos generals*
+
+*DONE c:57 habilitar limbo de paraules,  randoms traps han de deixar de poguer ser repetits*
+
+++ [ Humanize ]
+
+*DONE c:58 humanize/inflections in seraches*
+ 
+ humanize/inflections in clicks
+
+*DONE c:59 humanize definitions i posnames*
+
+- separar paraules per apostrofs "house's"
+
+
+
+
+

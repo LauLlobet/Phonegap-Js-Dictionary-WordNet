@@ -1,0 +1,9 @@
+﻿++ Automatic Commiter
+
+1 create llista de versions per a exemplificar branch :
+
+=current=>[0.34DbExtended]
+
+sed -n 's/.*\[\(.*\)\][ ]*\<=====.*/\1/p' LexiTree.wiki
+
+

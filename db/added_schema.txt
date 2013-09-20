@@ -1,14 +1,93 @@
-CREATE TABLE `favourites_senses` (
-  `senseid`integer NOT NULL DEFAULT '0'
+
+/system/xbin/sqlite3 /data/data/com.tubtale.lexitree/databases/new_lexitree.db
+
+delete from `selected_senses`;
+delete from `ans_sense_cases`;
+delete from `test`;
+delete from `subjects`;
+delete from `subject_sets`;
+
+
+drop table `selected_senses`;
+drop table `ans_sense_cases`;
+drop table `test`;
+drop table `subjects`;
+drop table `subject_sets`;
+drop view  selected_wordsXsenses;
+drop view  selected_words;
+
+CREATE TABLE `selected_senses` (
+  `ssenseid`integer NOT NULL DEFAULT '0'
+,  `ctime` integer DEFAULT NULL
+,  `dtime` integer DEFAULT NULL
+,  `correct` integer DEFAULT NULL
+,  `incorrect` integer DEFAULT NULL
 ,  `wordid` integer  NOT NULL DEFAULT '0'
 ,  `synsetid` integer  DEFAULT NULL
-,  PRIMARY KEY (`senseid`,`wordid`,`synsetid`)
+,  `previous_synsetid` integer DEFAULT NULL
+,  PRIMARY KEY (`ssenseid`)
 );
 
-CREATE TABLE `favourites` (
-   `time` integer  NOT NULL DEFAULT '0'
+
+CREATE TABLE `ans_sense_cases` (
+  `sensecaseid`integer NOT NULL DEFAULT '0'
+,  `stime` integer DEFAULT NULL
+,  `etime` integer DEFAULT NULL
+,  `ssenseid` integer  DEFAULT NULL
 ,  `wordid` integer  NOT NULL DEFAULT '0'
-,  `ok` integer  NOT NULL DEFAULT '0'
-,  `nok` integer  NOT NULL DEFAULT '0'
-,  PRIMARY KEY (`wordid`)
+,  `testid` integer  DEFAULT NULL
+,  `trap1id` integer  DEFAULT NULL
+,  `trap2id` integer  DEFAULT NULL
+,  `anssid` integer  DEFAULT NULL
+,  `anstype`  varchar(30) DEFAULT NULL
+,  `selected` integer NOT NULL DEFAULT '0'
+,  `y_lvl` integer DEFAULT NULL
+,  `x_serie` integer DEFAULT NULL
+,  PRIMARY KEY (`sensecaseid`)
 );
+
+CREATE TABLE `test` ( 
+  `testid`integer NOT NULL DEFAULT '0'
+,  `stime` integer DEFAULT NULL
+,  `etime` integer DEFAULT NULL
+,  `lastssenseid`integer DEFAULT NULL
+,  PRIMARY KEY (`testid`)
+);
+
+CREATE TABLE `subjects` (
+  `subject_id` integer NOT NULL DEFAULT '0'
+, `name`  varchar(200) DEFAULT NULL
+, `domine`  varchar(200) DEFAULT NULL
+, `slot` integer DEFAULT NULL
+,  PRIMARY KEY (`subject_id`)
+);
+
+
+CREATE TABLE `subject_sets` (
+  `subject_id` integer NOT NULL DEFAULT '0'
+, `ssenseid` integer NOT NULL DEFAULT '0'
+,  PRIMARY KEY (`subject_id`,`ssenseid`)
+);
+
+CREATE TABLE `synsets_index` (
+  `id` integer NOT NULL DEFAULT '0'
+, `synsetid` integer NOT NULL DEFAULT '0'
+,  PRIMARY KEY (`id`)
+);
+
+insert into synsets_index(synsetid) select synsetid from synsets;
+
+
+CREATE VIEW selected_words AS SELECT lemma, ctime,dtime,wordid,synsetid FROM selected_senses LEFT JOIN words s USING (wordid) 
+WHERE dtime IS NULL   GROUP BY lemma ORDER BY ctime DESC;
+
+
+CREATE VIEW selected_wordsXsenses AS SELECT * FROM selected_senses LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid)
+WHERE dtime IS NULL ORDER BY ctime DESC;
+
+
+CREATE VIEW selected_wordsXsensesXcases AS SELECT * FROM selected_senses LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid) LEFT JOIN (select * from ans_sense_cases where testid= (select MAX(testid) from test)) USING (ssenseid) WHERE dtime IS NULL ORDER BY ctime DESC ;
+
+CREATE VIEW wordsXsensesXcases AS SELECT * FROM words LEFT JOIN synsets USING (synsetid) LEFT JOIN synsets_index USING (synsetid);
+
+

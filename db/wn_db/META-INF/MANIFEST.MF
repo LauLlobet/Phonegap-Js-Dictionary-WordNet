@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.2
+Created-By: 1.6.0_26-b03 (Sun Microsystems Inc.)
+
+Name: wordnet/3.1_snapshot/sql/data
+Specification-Title: wordnet-3.1_snapshot-mysql-wn
+Implementation-Title: wordnet-3.1_snapshot-mysql-wn
+Specification-Version: 2.7.0b
+Implementation-Version: 2.7.0b-20120711
+Specification-Vendor: Bernard Bou, bbou@ac-toulouse.fr
+Implementation-Vendor: Bernard Bou, bbou@ac-toulouse.fr
+Built-By: Bernard Bou, bbou@ac-toulouse.fr
+
