@@ -1,3 +1,7 @@
 ﻿++ 0.40Db Verbs Langs
 
-- test commit manager
+*DONE c:1 test commit manager*
+
+- taula offsets sensekeys
+
+base de dades de verbs conjugats

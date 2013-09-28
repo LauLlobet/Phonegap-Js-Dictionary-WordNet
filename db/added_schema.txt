@@ -1,5 +1,7 @@
 
 /system/xbin/sqlite3 /data/data/com.tubtale.lexitree/databases/new_lexitree.db
+SELECT * FROM sqlite_master WHERE type='table';
+
 
 delete from `selected_senses`;
 delete from `ans_sense_cases`;
@@ -15,6 +17,16 @@ drop table `subjects`;
 drop table `subject_sets`;
 drop view  selected_wordsXsenses;
 drop view  selected_words;
+
+
+CREATE TABLE `offset_tmp` (
+  `tid`integer NOT NULL DEFAULT '0'
+,  `oid` integer DEFAULT NULL
+,  `sensekey` varchar(100) DEFAULT NULL
+,  PRIMARY KEY (`tid`)
+);
+
+
 
 CREATE TABLE `selected_senses` (
   `ssenseid`integer NOT NULL DEFAULT '0'
