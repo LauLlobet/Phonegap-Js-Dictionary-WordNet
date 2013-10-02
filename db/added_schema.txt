@@ -26,6 +26,23 @@ CREATE TABLE `offset_tmp` (
 ,  PRIMARY KEY (`tid`)
 );
 
+CREATE TABLE `lang_off_lemmas` (
+  `lemmaid`integer NOT NULL DEFAULT '0'
+,  `lemma` text DEFAULT NULL
+,  `lang` text DEFAULT NULL
+,  `pos` text DEFAULT NULL
+,  `oid` integer  NOT NULL DEFAULT '0'
+,  PRIMARY KEY (`lemmaid`)
+);
+
+CREATE TABLE `lang_lemmas` (
+  `lemmaid`integer NOT NULL DEFAULT '0'
+,  `lemma` text DEFAULT NULL
+,  `lang` text DEFAULT NULL
+,  `pos` text DEFAULT NULL
+,  `synsetid` integer  NOT NULL DEFAULT '0'
+,  PRIMARY KEY (`lemmaid`)
+);
 
 
 CREATE TABLE `selected_senses` (

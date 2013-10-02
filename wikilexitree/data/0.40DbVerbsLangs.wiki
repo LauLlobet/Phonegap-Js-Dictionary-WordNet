@@ -2,6 +2,19 @@
 
 *DONE c:1 test commit manager*
 
-- taula offsets sensekeys
+*DONE c:2 taula offsets sensekeys*
 
-base de dades de verbs conjugats
+- script que carrega tots els lema a la base de dades
+    mkdir  all_lang_tab , all_lang_tab.sql
+    ./convert.tosql.all.tabs.sh
+    all_lang_tab sera els *.tab del zip de tots els wordnets wn_s
+
+
+-
+
+-
+
+-
+
+
+
