@@ -4,17 +4,19 @@
 
 *DONE c:2 taula offsets sensekeys*
 
-- script que carrega tots els lema a la base de dades
+*DONE c:3 script que carrega tots els lema a la base de dades*
     mkdir  all_lang_tab , all_lang_tab.sql
     ./convert.tosql.all.tabs.sh
     all_lang_tab sera els *.tab del zip de tots els wordnets wn_s
 
 
--
+- primera implementacio a codi
+    lang a manija com a variable global
+    desacoblar cerca de definicions amb display de definicions a nivell de funcio
 
--
+- desacoblar cerca de definicions amb display de definicions a nivell de cerca/print
 
--
+- crear definicio de lang amb sinonims i forma de definicio que rep la func. print
 
 
 

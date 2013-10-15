@@ -37,10 +37,10 @@ CREATE TABLE `lang_off_lemmas` (
 
 CREATE TABLE `lang_lemmas` (
   `lemmaid`integer NOT NULL DEFAULT '0'
-,  `lemma` text DEFAULT NULL
+,  `lemmalang` text DEFAULT NULL
 ,  `lang` text DEFAULT NULL
 ,  `pos` text DEFAULT NULL
-,  `synsetid` integer  NOT NULL DEFAULT '0'
+,  `synsetid` integer DEFAULT NULL
 ,  PRIMARY KEY (`lemmaid`)
 );
 

@@ -135,63 +135,70 @@ function refresh_pdef_big(word){
 		   	    }
 		        
 		        
-		        //tx.executeSql("SELECT lemma,pos,sensenum,synsetid,definition,sampleset  FROM dict WHERE lemma = '"+word+"' ORDER BY pos,sensenum;", [], function(tx, res) {
-		            //alert("res.rows.length: " + res.rows.length + " -- should be 1");
-		        tx.executeSql("SELECT lemma,pos,posname,sensenum,synsetid,definition,sampleset  FROM dict LEFT JOIN postypes USING(pos) WHERE lemma = '"+word+"' ORDER BY pos,sensenum;", [], function(tx, res){
-		   	        if( res.rows.length == 0 ){
-		   	        	return;
-		   	        }
-		   	        def = '';
-		   	        var posname = 'notknown';
-		   	        for(var i=0 ; i<res.rows.length ; i++){
-		   	        	
-		   	        	if(posname != res.rows.item(i).posname){
-		   	        		posname = res.rows.item(i).posname;
-		   	        		def += '<li data-role="list-divider" ><a>'+posname+'</a></li>';
-			   	   	     
-		   	        	}
-		   	        	
-		   	        	var synsetid = res.rows.item(i).synsetid;
-		   	        	
-		   	           if( -1 != $.inArray(res.rows.item(i).synsetid, senses)){
-		   	   	    	   def += '<li data-icon="check" data-theme="e"><a><span id="defline">'+format_definition(res.rows.item(i).definition,synsetid)+'</span></a><a class="tick_sense" word="'+word+'" sense="'+res.rows.item(i).synsetid+'" >tick</a></li>';
-		   	   	       }else{
-		   	   	    	   synsetid = "pnull";
-		   	   	    	   def += '<li data-icon="check" data-theme="d"><a><span id="defline">'+format_definition(res.rows.item(i).definition,synsetid)+'</span></a><a class="tick_sense" word="'+word+'" sense="'+res.rows.item(i).synsetid+'" data-theme="d" data-icon="plus" >tick</a></li>';
-		   	   	       }
-		   	   	       
-		   	   	    }
-		   	  		
-		   	        if(specialword == word && pdef_tick == 0)
-		   	        	$.mobile.changePage( "index.html#pdef", { transition: "slidefade" , allowSamePageTransition: true} );
-		   	        else
-		   	        	$.mobile.changePage( "index.html#pdef", { transition: "slide"} );
-		   	     
-		   	        pdef_tick = 0
-		   	     new_word_pdef = 1;
-		   	     
-		    		$('#pdef_def').html(def).promise().done(function () {
-		    			   //refresh here - $(this) refers to ul here
-		    			   $(this).listview().listview("refresh");
-		    			   //causes a refresh to happen on the elements such as button etc. WHICH lie inside ul
-		    			   $(this).trigger("create");
-		    			   //$.mobile.changePage( "index.html#pdef", { transition: "slide" , allowSamePageTransition: true} );
-				   	        
-		    			});
-		    		
-		    		
-		    		document.getElementById("pdef_word").innerHTML = word.camelize();
-		    		
-
-
-		   
-		         });
-		   	        
+		    	if(lang_answer == "eng_def"){
+	        		find_res_typical(word,senses,tx);
+	        		return;
+	        	}else{
+	        		alert("aqui no");
+	        		find_res_lang(word,senses,tx);
+	        		return;
+	        	}     
 			});
-		
 		});
-	       
        });
 
+}
+
+function find_res_typical( word, senses,tx){
+	
+    //tx.executeSql("SELECT lemma,pos,sensenum,synsetid,definition,sampleset  FROM dict WHERE lemma = '"+word+"' ORDER BY pos,sensenum;", [], function(tx, res) {
+    //alert("res.rows.length: " + res.rows.length + " -- should be 1");
+	tx.executeSql("SELECT lemma,pos,posname,sensenum,synsetid,definition,sampleset  FROM dict LEFT JOIN postypes USING(pos) WHERE lemma = '"+word+"' ORDER BY pos,sensenum;", [], function(tx, res){
+		
+		if( res.rows.length == 0 ){
+	       	return;
+	       }
+	       def = '';
+	       var posname = 'notknown';
+	       for(var i=0 ; i<res.rows.length ; i++){
+	       	
+	       	if(posname != res.rows.item(i).posname){
+	       		posname = res.rows.item(i).posname;
+	       		def += '<li data-role="list-divider" ><a>'+posname+'</a></li>';
+		   	     
+	       	}
+	       	
+	       	var synsetid = res.rows.item(i).synsetid;
+	       	
+	          if( -1 != $.inArray(res.rows.item(i).synsetid, senses)){
+	  	    	   def += '<li data-icon="check" data-theme="e"><a><span id="defline">'+format_definition(res.rows.item(i).definition,synsetid)+'</span></a><a class="tick_sense" word="'+word+'" sense="'+res.rows.item(i).synsetid+'" >tick</a></li>';
+	  	       }else{
+	  	    	   synsetid = "pnull";
+	  	    	   def += '<li data-icon="check" data-theme="d"><a><span id="defline">'+format_definition(res.rows.item(i).definition,synsetid)+'</span></a><a class="tick_sense" word="'+word+'" sense="'+res.rows.item(i).synsetid+'" data-theme="d" data-icon="plus" >tick</a></li>';
+	  	       }
+	  	       
+	  	    }
+	 		
+	       if(specialword == word && pdef_tick == 0)
+	       	$.mobile.changePage( "index.html#pdef", { transition: "slidefade" , allowSamePageTransition: true} );
+	       else
+	       	$.mobile.changePage( "index.html#pdef", { transition: "slide"} );
+	    
+	       pdef_tick = 0
+	    new_word_pdef = 1;
+	    
+		$('#pdef_def').html(def).promise().done(function () {
+			   //refresh here - $(this) refers to ul here
+			   $(this).listview().listview("refresh");
+			   //causes a refresh to happen on the elements such as button etc. WHICH lie inside ul
+			   $(this).trigger("create");
+			   //$.mobile.changePage( "index.html#pdef", { transition: "slide" , allowSamePageTransition: true} );
+	   	        
+			});
+		
+		
+		document.getElementById("pdef_word").innerHTML = word.camelize();
+		
+	 });
 }
 
