@@ -30,7 +30,8 @@ actual_testid = 0;
 
 var wordsxsenses = "";
 
-var lang_answer = "eng_def";
+//var lang_answer = "eng_def";
+var lang_answer = "spa";
 	
 senses_grid = [ [],[],[],[],[] ];
 
