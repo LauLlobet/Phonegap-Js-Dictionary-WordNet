@@ -13,8 +13,9 @@
     lang a manija com a variable global
     desacoblar cerca de definicions amb display de definicions a nivell de funcio
 
-- presentacio de sinonims en altre llengua per a una definicio 
+*DONE c:5  presentacio de sinonims en altre llengua per a una definicio* 
 
--
+- Funciona per respostes en altres idiomes, la base de dades ha sigut unificada lemmalang=>lemma
 
+- 
 

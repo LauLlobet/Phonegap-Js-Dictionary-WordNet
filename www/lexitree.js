@@ -30,8 +30,32 @@ actual_testid = 0;
 
 var wordsxsenses = "";
 
+
+/*arb
+cat
+cmn
+dan
+eus
+fas
+fin
+fra
+glg
+ind
+ita
+jpn
+nno
+nob
+pol
+por
+spa
+tha
+zsm
+eng_def
+*/
+
 //var lang_answer = "eng_def";
-var lang_answer = "spa";
+var lang_answer = "cat";
+var lang_question = "spa"
 	
 senses_grid = [ [],[],[],[],[] ];
 

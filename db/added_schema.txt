@@ -18,26 +18,9 @@ drop table `subject_sets`;
 drop view  selected_wordsXsenses;
 drop view  selected_words;
 
-
-CREATE TABLE `offset_tmp` (
-  `tid`integer NOT NULL DEFAULT '0'
-,  `oid` integer DEFAULT NULL
-,  `sensekey` varchar(100) DEFAULT NULL
-,  PRIMARY KEY (`tid`)
-);
-
-CREATE TABLE `lang_off_lemmas` (
+CREATE TABLE `lang_synsets` (
   `lemmaid`integer NOT NULL DEFAULT '0'
-,  `lemma` text DEFAULT NULL
-,  `lang` text DEFAULT NULL
-,  `pos` text DEFAULT NULL
-,  `oid` integer  NOT NULL DEFAULT '0'
-,  PRIMARY KEY (`lemmaid`)
-);
-
-CREATE TABLE `lang_lemmas` (
-  `lemmaid`integer NOT NULL DEFAULT '0'
-,  `lemmalang` text DEFAULT NULL
+,  `wordid` integer DEFAULT NULL
 ,  `lang` text DEFAULT NULL
 ,  `pos` text DEFAULT NULL
 ,  `synsetid` integer DEFAULT NULL
@@ -120,3 +103,46 @@ CREATE VIEW selected_wordsXsensesXcases AS SELECT * FROM selected_senses LEFT JO
 CREATE VIEW wordsXsensesXcases AS SELECT * FROM words LEFT JOIN synsets USING (synsetid) LEFT JOIN synsets_index USING (synsetid);
 
 
+
+taules de trancision
+--------------------
+
+
+CREATE TABLE `offset_tmp` (
+  `tid`integer NOT NULL DEFAULT '0'
+,  `oid` integer DEFAULT NULL
+,  `sensekey` varchar(100) DEFAULT NULL
+,  PRIMARY KEY (`tid`)
+);
+
+CREATE TABLE `lang_off_lemmas` (
+  `lemmaid`integer NOT NULL DEFAULT '0'
+,  `lemma` text DEFAULT NULL
+,  `lang` text DEFAULT NULL
+,  `pos` text DEFAULT NULL
+,  `oid` integer  NOT NULL DEFAULT '0'
+,  PRIMARY KEY (`lemmaid`)
+);
+
+insert into lang_lemmas (lemmalang,lang,pos,synsetid) select distinct lemma,lang,pos,synsetid from lang_off_lemmas left join offset_tmp using(oid) left join senses using (sensekey);
+
+
+important lemmalang a words
+---------------------------
+CREATE TABLE `lang_lemmas` (
+  `lemmaid`integer NOT NULL DEFAULT '0'
+,  `lemmalang` text DEFAULT NULL
+,  `lang` text DEFAULT NULL
+,  `pos` text DEFAULT NULL
+,  `synsetid` integer DEFAULT NULL
+,  PRIMARY KEY (`lemmaid`)
+);
+
+
+SELECT distinct lemmalang FROM lang_lemmas WHERE lemmalang NOT IN(SELECT lemma FROM words) AND lemmalang="bonic";
+
+insert into words(lemma) SELECT distinct lemmalang FROM lang_lemmas WHERE lemmalang NOT IN(SELECT lemma FROM words);
+
+insert into lang_synsets (wordid,lang,pos,synsetid) select wordid,lang,pos,synsetid from lang_lemmas left join words on lemma=lemmalang;
+
+create view lang_lemmas as select * from lang_synsets left join words using(wordid);
