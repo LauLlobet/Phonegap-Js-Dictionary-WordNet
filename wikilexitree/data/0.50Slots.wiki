@@ -9,7 +9,7 @@
 
 *DONE c:4 idem pdef*
 
-- idem pgrid
+*DONE c:5 idem pgrid*
 
 - fer que el llenguatge es llegeixi de la taula
 

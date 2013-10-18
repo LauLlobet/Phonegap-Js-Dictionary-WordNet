@@ -53,10 +53,6 @@ zsm
 eng_def
 */
 
-//var lang_answer = "eng_def";
-var lang_answer = "fra";
-var lang_question = "spa";
-var current_subject = 1;
 
 
 senses_grid = [ [],[],[],[],[] ];
@@ -69,7 +65,6 @@ if(screen.width > 330)
 function round(n){
 	return Math.ceil(n);
 }
-
 
 function init()
 {
