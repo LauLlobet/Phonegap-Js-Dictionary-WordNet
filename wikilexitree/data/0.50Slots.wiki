@@ -5,12 +5,14 @@
 
 *DONE c:2 test per veure tot ok 2*
 
-- crear slots manualment a la taula , fer filtre de slots en els select senses pinit
+*DONE c:3 crear slots manualment a la taula , fer filtre de slots en els select senses pinit*
 
 - idem pdef
 
 - idem pgrid
 
-- fer canvis manuals de llenguatge a la taula , fer que afegir senses s'afegeixin nomes a l'slot
+- fer que el llenguatge es llegeixi de la taula
 
-- fer que al afegirse la paraula es mostri a pinit en l'slot / llenguatge guardat
+- fer que afegir senses s'afegeixin nomes a l'slot
+
+- fer proves, canvi de slot , omplirlo i demes 

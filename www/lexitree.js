@@ -55,8 +55,10 @@ eng_def
 
 //var lang_answer = "eng_def";
 var lang_answer = "fra";
-var lang_question = "spa"
-	
+var lang_question = "spa";
+var current_subject = 1;
+
+
 senses_grid = [ [],[],[],[],[] ];
 
 var big = "";

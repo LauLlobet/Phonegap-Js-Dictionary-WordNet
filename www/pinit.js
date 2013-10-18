@@ -65,7 +65,7 @@ function load_words(callback){
 	
 	db.transaction(function(tx) {
 		word_list = [];
-		tx.executeSql("select lemma from selected_words where subjectid=1;", [], function(tx, res1) {
+		tx.executeSql("select lemma from selected_words where subjectid="+current_subject+";", [], function(tx, res1) {
 			
 			for(var i=0; i<res1.rows.length ; i++){
 				//alert("wordfound"+res1.rows.item(i).lemma);	
