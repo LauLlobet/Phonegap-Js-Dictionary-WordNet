@@ -1,0 +1,23 @@
+﻿++ 0.40Db Verbs Langs
+
+*DONE c:1 test commit manager*
+
+*DONE c:2 taula offsets sensekeys*
+
+*DONE c:3 script que carrega tots els lema a la base de dades*
+    mkdir  all_lang_tab , all_lang_tab.sql
+    ./convert.tosql.all.tabs.sh
+    all_lang_tab sera els .tab del zip de tots els wordnets wn_s
+
+*DONE c:4 primera implementacio a codi*
+    lang a manija com a variable global
+    desacoblar cerca de definicions amb display de definicions a nivell de funcio
+
+*DONE c:5  presentacio de sinonims en altre llengua per a una definicio* 
+
+*DONE c:6 Funciona per respostes en altres idiomes, la base de dades ha sigut unificada lemmalang=>lemma*
+
+*DONE c:7 funciona per preguntes en altres idiomes*
+
+*DONE c:8 preparant per a slots*
+

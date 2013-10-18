@@ -27,3 +27,6 @@ SUBJECTS( subject_key, subject_id , ssenseid )
 
 1) servei web avoid sqlinjection
 2) export tables avoid sqlinjection -> afegir columna usuari a totes les taules i inserts
+
+++ 2 indexos de lemmalang i lemmas fan pasar de 84MB a 120MB
+

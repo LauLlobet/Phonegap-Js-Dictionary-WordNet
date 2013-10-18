@@ -2,3 +2,4 @@
 
 - animació agulla
 - animacio fletxa
+- optimitzar base de dades perque vagi mes rapid amb index

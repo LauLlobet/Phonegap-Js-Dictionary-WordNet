@@ -13,51 +13,18 @@ DoneRelases
 
 +++ 0.3X Data base 
 
-Relase [0.34DbExtended]  <======(CURRENT)
+Relase [0.34DbExtended]
 ------------------------
 # mes info DataBase
 
++++ 0.4X VerbsLang
+
+Relase [0.40DbVerbsLangs]  <======(CURRENT)
 
 
-+++ 0.4X Visual surrogates
 
 
-Release [0.4CssLoad]
-------------------------
-# transisions brusques i no brusques
-# que la db es carregui durant la pantalla d'inici
-# carrega de contingut previa a la presentacio en pantalla per a evitar els flashos
-# imatge personalitzada surrogate android
-# idem iphone
-# velocitats click
-# bug , dps de paraula no en el diccionari , la seleccio de la seguent no es fa visual tot i ser efectiva
-# back button a pdef ha de portar a carregar la definicio anterior cuan s'aperti
-# mirar si els add load_grid document ready triggers 2..n times events
 
-Release [0.4CssAnim]
-------------------------
-# gifs animats surrogates starr, to-starr, dial up, dial down, dial css circular
-# botons de colors i mes fosocos pgrid surrogate
-
-
-+++ 0.5X Controll
-
-Relase [0.53CalcForm]
---------------------
-# afegir inflections.js
-# minuscules en search i humanizes
-# crear preguntes a partir de varies definicions i tenint en compte si son noms o verbs ???
-# separar noms i verbls a la pdef
-
-
-+++ 0.6X Appearence
-
-Release [0.6PicXulos]
----------------------
-# dissenyar icones pdef
-# dissenyar dial
-# dissenyar estrelleta 
-# dissenyar estrelleta brillant
 
 +++ 0.7X Groups
 
@@ -82,6 +49,35 @@ Relase [0.84RetoUpdate]
 # check updates android i ios per futurs unlocks
 # icono visual que indiqui badge de unlocks , i potser punts aconseguits per a l escola
 # Tutorial retos
+
+
+
++++ 0.4X Visual surrogates
+
+
+Release [0.4CssLoad]
+------------------------
+# transisions brusques i no brusques
+# que la db es carregui durant la pantalla d'inici
+# carrega de contingut previa a la presentacio en pantalla per a evitar els flashos
+# imatge personalitzada surrogate android
+# idem iphone
+# velocitats click
+# bug , dps de paraula no en el diccionari , la seleccio de la seguent no es fa visual tot i ser efectiva
+# back button a pdef ha de portar a carregar la definicio anterior cuan s'aperti
+# mirar si els add load_grid document ready triggers 2..n times events
+
+Release [0.4CssAnim]
+------------------------
+# gifs animats surrogates starr, to-starr, dial up, dial down, dial css circular
+# botons de colors i mes fosocos pgrid surrogate
+
+Release [0.6PicXulos]
+---------------------
+# dissenyar icones pdef
+# dissenyar dial
+# dissenyar estrelleta 
+# dissenyar estrelleta brillant
 
 
 +++ 0.9X Escoles unlock 
