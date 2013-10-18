@@ -7,7 +7,7 @@
 
 *DONE c:3 crear slots manualment a la taula , fer filtre de slots en els select senses pinit*
 
-- idem pdef
+*DONE c:4 idem pdef*
 
 - idem pgrid
 
@@ -15,4 +15,6 @@
 
 - fer que afegir senses s'afegeixin nomes a l'slot
 
-- fer proves, canvi de slot , omplirlo i demes 
+- fer proves, canvi de slot , omplirlo i demes
+
+- substituir definicio per sinonims segons lang al omplir pgrids

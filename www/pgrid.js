@@ -49,7 +49,7 @@ function load_wordsXsenses(callback){
 	
 			
 			word_list = [];
-			tx.executeSql("select * from selected_wordsXsensesXcases;", [], function(tx, res1) {
+			tx.executeSql("select * from selected_wordsXsensesXcases where subjectid="+current_subject+";", [], function(tx, res1) {
 				
 				JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 				

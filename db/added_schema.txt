@@ -109,10 +109,11 @@ CREATE VIEW selected_words AS SELECT lemma, ss.ctime,ss.dtime,wordid,synsetid,na
 CREATE VIEW selected_wordsXsenses AS SELECT * FROM selected_senses LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid)
 WHERE dtime IS NULL ORDER BY ctime DESC;
 
-
-CREATE VIEW selected_wordsXsensesXcases AS SELECT * FROM selected_senses LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid) LEFT JOIN (select * from ans_sense_cases where testid= (select MAX(testid) from test)) USING (ssenseid) WHERE dtime IS NULL ORDER BY ctime DESC ;
-
 ---------------------------------------
+
+CREATE VIEW selected_wordsXsensesXcases AS SELECT * FROM selected_senses ss LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid) LEFT JOIN (select * from ans_sense_cases where testid= (select MAX(testid) from test)) USING (ssenseid) LEFT JOIN subject_sets using(ssenseid) LEFT JOIN subjects using(subjectid) WHERE ss.dtime IS NULL ORDER BY ss.ctime DESC ;
+
+
 
 
 taules de trancision
