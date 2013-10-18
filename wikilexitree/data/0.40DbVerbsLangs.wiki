@@ -19,5 +19,5 @@
 
 *DONE c:7 funciona per preguntes en altres idiomes*
 
-- preparant per a slots
+*DONE c:8 preparant per a slots*
 
