@@ -25,6 +25,9 @@ CREATE TABLE 'global_vars' (
 ,  PRIMARY KEY ('user')
 );
 
+update global_vars set subjectid=2 where user='default';
+
+
 CREATE TABLE `lang_synsets` (
   `lemmaid`integer NOT NULL DEFAULT '0'
 ,  `wordid` integer DEFAULT NULL
@@ -87,7 +90,7 @@ CREATE TABLE `subjects` (
 ,  PRIMARY KEY (`subjectid`)
 );
 
- insert into subjects(name,domine,slot,icon,public,ctime,langquestion,langanswer) values('othello','lexitree',2,2,1,1330,'eng','eng_def');
+ insert into subjects(name,domine,slot,icon,public,ctime,langquestion,langanswer) values('hamlet','lexitree',3,3,1,1330,'cat','eng_def');
 
 
 
@@ -111,12 +114,7 @@ insert into synsets_index(synsetid) select synsetid from synsets;
 
 CREATE VIEW selected_words AS SELECT lemma, ss.ctime,ss.dtime,wordid,synsetid,name, subjectid,domine FROM selected_senses ss LEFT JOIN subject_sets using(ssenseid) LEFT JOIN subjects using(subjectid) LEFT JOIN words s USING (wordid) left join global_vars using(subjectid) where user='default' and ss.dtime IS NULL GROUP BY lemma ORDER BY ss.ctime DESC;
 
------------- OJU --------------------
-
-CREATE VIEW selected_wordsXsenses AS SELECT * FROM selected_senses LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid)
-WHERE dtime IS NULL ORDER BY ctime DESC;
-
----------------------------------------
+CREATE VIEW selected_wordsXsenses AS SELECT * FROM selected_senses ss LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid) LEFT JOIN subject_sets using(ssenseid) LEFT JOIN subjects using(subjectid) left join global_vars using(subjectid) where user='default' AND ss.dtime IS NULL ORDER BY ctime DESC;
 
 CREATE VIEW selected_wordsXsensesXcases AS SELECT * FROM selected_senses ss LEFT JOIN words s USING (wordid) LEFT JOIN synsets USING (synsetid) LEFT JOIN (select * from ans_sense_cases where testid= (select MAX(testid) from test)) USING (ssenseid) LEFT JOIN subject_sets using(ssenseid) LEFT JOIN subjects using(subjectid) left join global_vars using(subjectid) where user='default' and ss.dtime IS NULL ORDER BY ss.ctime DESC ;
 
