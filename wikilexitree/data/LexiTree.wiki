@@ -19,12 +19,12 @@ Relase [0.34DbExtended]
 
 +++ 0.4X VerbsLang
 
-Relase [0.40DbVerbsLangs]  <======(CURRENT)
+Relase [0.40DbVerbsLangs]
 
 
++++ 0.5X Slots 
 
-
-
+Relase [0.40Slots]  <======(CURRENT)
 
 +++ 0.7X Groups
 
