@@ -1,7 +1,8 @@
-﻿++ 0.40Slots
+﻿++ 0.50Slots
+
 
 *DONE c:1 test per veure si esta tot ok*
 
-- 
+- test per veure tot ok 2
 
 -

@@ -24,7 +24,7 @@ Relase [0.40DbVerbsLangs]
 
 +++ 0.5X Slots 
 
-Relase [0.40Slots]  <======(CURRENT)
+Relase [0.50Slots]  <======(CURRENT)
 
 +++ 0.7X Groups
 
