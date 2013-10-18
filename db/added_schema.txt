@@ -67,16 +67,22 @@ CREATE TABLE `test` (
 );
 
 CREATE TABLE `subjects` (
-  `subject_id` integer NOT NULL DEFAULT '0'
+  `subjectid` integer NOT NULL DEFAULT '0'
 , `name`  varchar(200) DEFAULT NULL
 , `domine`  varchar(200) DEFAULT NULL
 , `slot` integer DEFAULT NULL
+, `icon` integer DEFAULT NULL
+, `public` integer DEFAULT NULL
+, `ctime` integer DEFAULT NULL
+, `dtime` integer DEFAULT NULL
+, `langquestion` text DEFAULT NULL
+, `langanswer` text DEFAULT NULL
 ,  PRIMARY KEY (`subject_id`)
 );
 
 
 CREATE TABLE `subject_sets` (
-  `subject_id` integer NOT NULL DEFAULT '0'
+  `subjectid` integer NOT NULL DEFAULT '0'
 , `ssenseid` integer NOT NULL DEFAULT '0'
 ,  PRIMARY KEY (`subject_id`,`ssenseid`)
 );
