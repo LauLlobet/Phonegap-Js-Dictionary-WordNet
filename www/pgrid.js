@@ -44,71 +44,94 @@ function load_wordsXsenses(callback){
 	if(db == ""){
 		db = window.sqlitePlugin.openDatabase("new_lexitree", "1.0", "new_lexitree.db", -1);
 	}
-	
+	var lang_answer = "cat";
 	db.transaction(function(tx) {
-	
+		word_list = [];
+		tx.executeSql("select * from selected_wordsXsensesXcases;", [], function(tx, res1) {
 			
-			word_list = [];
-			tx.executeSql("select * from selected_wordsXsensesXcases;", [], function(tx, res1) {
-				
-				JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
-				
-					wordsxsenses = new SortedSet([]);
-					
-					var SenseCase = new Class({
-						include: Comparable,
-						
-					    initialize: function(row) {
-					        this.row = row;
-					        var levels = get_level(row.correct,row.incorrect); 
-					        this.level =  levels[0];
-					        this.status = levels[1]; // decimal de level
-					        this.inc = levels[2];
-					        this.serie = -1;
-					        this.ctime = row.ctime;
-					        this.selected = 0;
-					        this.ssenseid = row.ssenseid; 
-					        this.sensecaseid = row.sensecaseid; 
-					        this.correct = row.correct;
-					        this.incorrect = row.incorrect;
-					        
-					        
-					        if(row.selected == 1)
-						        this.selected = 1;
-							//alert(row.lemma+"instanciant:"+row.sensecaseid);
-					    },
-					    equals: function(object) {
-					        return (object instanceof this.klass)
-					            && object.ctime == this.ctime;
-					    },
-					    hash: function() {
-					        return this.ctime;
-					    },
-					    
-					    compareTo: function(other) {
-					        if (this.ctime < other.ctime) return 1;
-					        if (this.ctime > other.ctime) return -1;
-					        return 0;
-					    }
-					    
-					    
-					})	
-					
-					//wordsxsenses = new SortedSet([]);	
-					for(var i=0; i<res1.rows.length ; i++){
-						wordsxsenses.add(new SenseCase(res1.rows.item(i)));
-					}
-					callback(); });
-			});
-			
-	//	});
-		
-
-
+			if(lang_answer == "eng_def"){
+		    	load_wordsXsenses_with_res1(callback,res1);
+	        	return;
+	        }else{
+			    fill_definitions2(0,res1,callback,tx,lang_answer);
+	        	return;
+	        }     
+		});
 	});
 }
 
+function fill_definitions2(i,res,callback,tx,lang_answer){
+	if(i==res.rows.length){
+		load_wordsXsenses_with_res1(callback,res);
+		return;
+	}
+	//alert(lang_answer+"faha"+res.rows.item(i).synsetid);
+	tx.executeSql("select lemma,synsetid,lang from lang_lemmas left join synsets using(synsetid) where synsetid="+res.rows.item(i).synsetid+" AND lang='"+lang_answer+"';", [], function(tx, reslang){
+	//	console.log("----------->"+"select lemma,synsetid,lang from lang_lemmas left join synsets using(synsetid) where synsetid="+res.rows.item(i).synsetid+" AND lang='"+lang_answer+"';")
+		if(reslang.rows.length != 0){
+			var newdef = '';
+			var pos =  Math.floor(Math.random()*reslang.rows.length);
+			newdef= reslang.rows.item(pos).lemma;
+			res.rows.item(i).definition = newdef;
+		}else
+			res.rows.item(i).definition = "(No Translation) "+res.rows.item(i).definition;
+		
+		fill_definitions2(i+1,res,callback,tx,lang_answer);
+	});
+}
 
+function load_wordsXsenses_with_res1(callback,res1){
+	
+	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
+		
+		wordsxsenses = new SortedSet([]);
+		
+		var SenseCase = new Class({
+			include: Comparable,
+			
+		    initialize: function(row) {
+		        this.row = row;
+		        var levels = get_level(row.correct,row.incorrect); 
+		        this.level =  levels[0];
+		        this.status = levels[1]; // decimal de level
+		        this.inc = levels[2];
+		        this.serie = -1;
+		        this.ctime = row.ctime;
+		        this.selected = 0;
+		        this.ssenseid = row.ssenseid; 
+		        this.sensecaseid = row.sensecaseid; 
+		        this.correct = row.correct;
+		        this.incorrect = row.incorrect;
+		        
+		        
+		        if(row.selected == 1)
+			        this.selected = 1;
+				//alert(row.lemma+"instanciant:"+row.sensecaseid);
+		    },
+		    equals: function(object) {
+		        return (object instanceof this.klass)
+		            && object.ctime == this.ctime;
+		    },
+		    hash: function() {
+		        return this.ctime;
+		    },
+		    
+		    compareTo: function(other) {
+		        if (this.ctime < other.ctime) return 1;
+		        if (this.ctime > other.ctime) return -1;
+		        return 0;
+		    }
+		    
+		    
+		})	
+		
+		//wordsxsenses = new SortedSet([]);	
+		for(var i=0; i<res1.rows.length ; i++){
+			wordsxsenses.add(new SenseCase(res1.rows.item(i)));
+		}
+		callback(); 
+	});
+}
 
 
 function classify_senses(callback){

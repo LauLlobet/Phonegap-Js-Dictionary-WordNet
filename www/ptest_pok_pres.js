@@ -139,15 +139,19 @@ function Test(callit){
 			}else
 				unselected.add(new SenseAns(x.row.definition,x.row.synsetid,x.sensecaseid,x.row.lemma,x.status,x.inc,x.correct,x.incorrect,x));
 		});
+		
+		
+		db.transaction(function(tx) {
+			tx.executeSql("select langquestion, langanswer from subjects left join global_vars using(subjectid) where user='default'", [], function(tx, reslangsubject){
+			    var lang_answer   = reslangsubject.rows.item(0).langanswer;
+			   	alert("TVAM:"+lang_answer);
+				fill_randoms(0,selected,randoms,function(){
+					fill_test(selected,unselected,callit,randoms,lang_answer); }); 
+			});
+		});
+		
+		
 
-		var id = 4545; 
-		
-		//console.log("selected after fill:"+selected.count());
-		fill_randoms(0,selected,randoms,function(){
-			fill_test(selected,unselected,callit,randoms); }); 
-		//console.log("selected after fill2:"+selected.count());
-		
-	
 	});
 }
 
@@ -161,7 +165,7 @@ function fill_randoms(i,selected,randoms,callback){
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 		
 		db.transaction(function(tx) {
-			var pos =  Math.floor(Math.random()*117370) +1 ;
+			var pos =  Math.floor(Math.random()*2650) +1 ;
 			tx.executeSql("SELECT * FROM sensesXindex where id="+pos+";", [], function(tx, res5) {
 				randoms.add(new SenseAns(res5.rows.item(0).definition,res5.rows.item(0).synsetid,-1,"Error:random-loaded",-293,0.6969696,0,0,null));
 				fill_randoms(i+1, selected, randoms, callback);
@@ -190,77 +194,105 @@ function randPick(set){
 }
 
 
-function fill_test(selected,unselected,callit,randoms) {
+function fill_test(selected,unselected,callit,randoms,lang_answer) {
 	
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {	
 	
-		//console.log("===========> selected:"+selected.count());
-		
 		if(selected.count()==0){
-			//alert("end");
 			callit();
 		}
-		var x = randPick(selected); //selected.toArray()[0];
+		var x = randPick(selected);
 		selected.remove(x);
-		//console.log("===========> after remove:"+selected.count());
 		
 		var brothers = new Set([]);
-
-		var traps = ["",""];
-		find_brothers(0,new Set([x]),brothers,function(){
-			
-		var safe_selected = selected.difference(brothers);
-		var safe_unselected = unselected.difference(brothers);
-		var safe_randoms = randoms.difference(brothers).difference(selected);
-	
-		for(var i=0;i<2;i++){
-			
-			 var rand = Math.random()*100;
-			 traps[i] = new answer('error 3434',12,12,'error 3434');
-			 console.log("rand:"+rand+" prob_unselected:"+prob_unselected );
-			 if(rand < prob_selected && !safe_selected.isEmpty() ){
-				 traps[i] = randPick(safe_selected);
-				 safe_selected.remove(traps[i]);
-				 //.lemma);
-			 }else 
-			 if( (rand > prob_selected && rand < prob_unselected ) && !safe_unselected.isEmpty() ){
-				 traps[i] = randPick(safe_unselected);
-				 safe_unselected.remove(traps[i]);
-				 //alert(randPick(safe_unselected).lemma); 
-			 }else{
-				 traps[i] = randPick(safe_randoms);
-				 safe_randoms.remove(traps[i]);
-			 }
-		}
-		test.questions.push( new question([x,x,traps[0],traps[1]] ));
-		//console.log("===========> push after:"+test.questions.length);
-		fill_test(selected,unselected,callit,randoms);
-		return;	
+		var traps = ["",""];		
+		
+		find_brothers(0,new Set([x]),brothers,lang_answer,function(){
+		
+			var safe_selected = selected.difference(brothers);
+			var safe_unselected = unselected.difference(brothers);
+			var safe_randoms = randoms.difference(brothers).difference(selected);
+		
+			for(var i=0;i<2;i++){
+				
+				 var rand = Math.random()*100;
+				 traps[i] = new answer('error 3434',12,12,'error 3434');
+				 if(rand < prob_selected && !safe_selected.isEmpty() ){
+					 traps[i] = randPick(safe_selected);
+					 safe_selected.remove(traps[i]);
+				 }else 
+				 if( (rand > prob_selected && rand < prob_unselected ) && !safe_unselected.isEmpty() ){
+					 traps[i] = randPick(safe_unselected);
+					 safe_unselected.remove(traps[i]);
+				 }else{
+					 traps[i] = randPick(safe_randoms);
+					 safe_randoms.remove(traps[i]);
+				 }
+			}
+			if(lang_answer != "eng_def"){
+				fill_defintition_sets(0,traps,lang_answer,function(){
+					test.questions.push( new question([x,x,traps[0],traps[1]] ));
+					fill_test(selected,unselected,callit,randoms,lang_answer);
+				});
+				return;
+			}
+			test.questions.push( new question([x,x,traps[0],traps[1]] ));
+			fill_test(selected,unselected,callit,randoms,lang_answer);
+			return;	
 		})
 
 	});
 }
 
-function find_brothers(i,selected,brothers,callback){
+function fill_defintition_sets(i,traps,lang_answer,callback,tx){
+	
+	if(i==traps.length){
+		callback();
+		return;
+	}
+	db.transaction(function(tx) {
+		tx.executeSql("select lemma,synsetid,lang from lang_lemmas left join synsets using(synsetid) where synsetid="+traps[i].id+" AND lang='"+lang_answer+"';", [], function(tx, reslang){
+			
+			if(reslang.rows.length != 0){
+				var newdef = '';
+				var pos =  Math.floor(Math.random()*reslang.rows.length);
+				newdef = reslang.rows.item(pos).lemma;
+				traps[i].text = newdef;
+			}else
+				traps[i].text = ""+traps[i].text;
+			
+			fill_defintition_sets(i+1,traps,lang_answer,callback,tx);
+		});
+	});
+}
+
+function find_brothers(i,selected,brothers,lang_answer,callback){
 	
 	if(i==selected.count()){
 		callback();
 		return;
 	}
-		
+	
+	var question="";
+	if(lang_answer=="eng_def")
+		question="select definition , synsetid  , lemma  from dict where lemma='"+selected.toArray()[i].lemma+"';"
+	else
+		question="select synsetid,definition,posname,'falselemma' as lemma FROM words left join lang_synsets s using(wordid) left join synsets using(synsetid) left join postypes p on s.pos=p.pos where lemma='"+selected.toArray()[i].lemma+"' and lang='"+lang_answer+"'";
+	
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 		
+		console.log(question);
 		db.transaction(function(tx) {
-			tx.executeSql("select definition , synsetid  , lemma  from dict where lemma='"+selected.toArray()[i].lemma+"';", [], function(tx, res1) {
+			tx.executeSql(question, [], function(tx, res1) {
+				
 				for(var j=0; j<res1.rows.length ; j++){
 					brothers.add(new SenseAns(res1.rows.item(j).definition,res1.rows.item(j).synsetid,-1,res1.rows.item(j).lemma,294,0.6868686,0,0,null));
 				}
-				find_brothers(i+1, selected, brothers, callback);
+				find_brothers(i+1,selected,brothers,lang_answer,callback);
 			});
 		});
 	});
 }
-
 
 
 /// -------------------------------- FUNCTIONS --------------------------------

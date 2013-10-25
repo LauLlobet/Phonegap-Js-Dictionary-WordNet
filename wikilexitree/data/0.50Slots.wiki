@@ -13,8 +13,10 @@
 
 *DONE c:6 fer que el llenguatge es llegeixi de la taula*
 
-- fer que afegir senses s'afegeixin nomes a l'slot, fer proves, canvi de slot , omplirlo i demes
+*DONE c:7 fer que afegir senses s'afegeixin nomes a l'slot, fer proves, canvi de slot , omplirlo i demes*
 
 - substituir definicio per sinonims segons lang al omplir pgrids
+
+- arreglar repeticio de paraules que no es treuen del conjunt selected 
 
 - afegir eng com a lang_answer a la database
