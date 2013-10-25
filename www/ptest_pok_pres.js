@@ -144,9 +144,9 @@ function Test(callit){
 		db.transaction(function(tx) {
 			tx.executeSql("select langquestion, langanswer from subjects left join global_vars using(subjectid) where user='default'", [], function(tx, reslangsubject){
 			    var lang_answer   = reslangsubject.rows.item(0).langanswer;
-			   	alert("TVAM:"+lang_answer);
-				fill_randoms(0,selected,randoms,function(){
-					fill_test(selected,unselected,callit,randoms,lang_answer); }); 
+			    var lang_question   = reslangsubject.rows.item(0).langquestion;
+			    fill_randoms(0,selected,randoms,function(){
+					fill_test(selected,unselected,callit,randoms,lang_answer,lang_question); }); 
 			});
 		});
 		
@@ -194,7 +194,7 @@ function randPick(set){
 }
 
 
-function fill_test(selected,unselected,callit,randoms,lang_answer) {
+function fill_test(selected,unselected,callit,randoms,lang_answer,lang_question) {
 	
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {	
 	
@@ -207,9 +207,11 @@ function fill_test(selected,unselected,callit,randoms,lang_answer) {
 		var brothers = new Set([]);
 		var traps = ["",""];		
 		
-		find_brothers(0,new Set([x]),brothers,lang_answer,function(){
-		
+		find_brothers(0,new Set([x]),brothers,lang_question,function(){
+			
+			alert("sel_pre:"+selected.count()+" brothers:"+brothers.count());
 			var safe_selected = selected.difference(brothers);
+			alert("sel_post:"+safe_selected.count());
 			var safe_unselected = unselected.difference(brothers);
 			var safe_randoms = randoms.difference(brothers).difference(selected);
 		
@@ -232,12 +234,12 @@ function fill_test(selected,unselected,callit,randoms,lang_answer) {
 			if(lang_answer != "eng_def"){
 				fill_defintition_sets(0,traps,lang_answer,function(){
 					test.questions.push( new question([x,x,traps[0],traps[1]] ));
-					fill_test(selected,unselected,callit,randoms,lang_answer);
+					fill_test(selected,unselected,callit,randoms,lang_answer,lang_question);
 				});
 				return;
 			}
 			test.questions.push( new question([x,x,traps[0],traps[1]] ));
-			fill_test(selected,unselected,callit,randoms,lang_answer);
+			fill_test(selected,unselected,callit,randoms,lang_answer,lang_question);
 			return;	
 		})
 
@@ -266,7 +268,7 @@ function fill_defintition_sets(i,traps,lang_answer,callback,tx){
 	});
 }
 
-function find_brothers(i,selected,brothers,lang_answer,callback){
+function find_brothers(i,selected,brothers,lang_question,callback){
 	
 	if(i==selected.count()){
 		callback();
@@ -274,10 +276,10 @@ function find_brothers(i,selected,brothers,lang_answer,callback){
 	}
 	
 	var question="";
-	if(lang_answer=="eng_def")
+	if(lang_question=="eng_def")
 		question="select definition , synsetid  , lemma  from dict where lemma='"+selected.toArray()[i].lemma+"';"
 	else
-		question="select synsetid,definition,posname,'falselemma' as lemma FROM words left join lang_synsets s using(wordid) left join synsets using(synsetid) left join postypes p on s.pos=p.pos where lemma='"+selected.toArray()[i].lemma+"' and lang='"+lang_answer+"'";
+		question="select synsetid,definition,posname FROM words left join lang_synsets s using(wordid) left join synsets using(synsetid) left join postypes p on s.pos=p.pos where lemma='"+selected.toArray()[i].lemma+"' and lang='"+lang_question+"'";
 	
 	JS.require('JS.Set','JS.SortedSet','JS.Comparable','JS.Class', function(Set,SortedSet,Comparable,Class) {
 		
@@ -288,7 +290,7 @@ function find_brothers(i,selected,brothers,lang_answer,callback){
 				for(var j=0; j<res1.rows.length ; j++){
 					brothers.add(new SenseAns(res1.rows.item(j).definition,res1.rows.item(j).synsetid,-1,res1.rows.item(j).lemma,294,0.6868686,0,0,null));
 				}
-				find_brothers(i+1,selected,brothers,lang_answer,callback);
+				find_brothers(i+1,selected,brothers,lang_question,callback);
 			});
 		});
 	});

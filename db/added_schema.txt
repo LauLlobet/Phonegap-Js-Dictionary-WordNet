@@ -90,7 +90,7 @@ CREATE TABLE `subjects` (
 ,  PRIMARY KEY (`subjectid`)
 );
 
- insert into subjects(name,domine,slot,icon,public,ctime,langquestion,langanswer) values('hamlet','lexitree',3,3,1,1330,'cat','eng_def');
+ insert into subjects(name,domine,slot,icon,public,ctime,langquestion,langanswer) values('hamlet','lexitree',3,3,1,1330,'ita','cat');
 
 
 

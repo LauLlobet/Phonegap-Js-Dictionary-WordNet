@@ -15,7 +15,7 @@
 
 *DONE c:7 fer que afegir senses s'afegeixin nomes a l'slot, fer proves, canvi de slot , omplirlo i demes*
 
-- substituir definicio per sinonims segons lang al omplir pgrids
+*DONE c:8 substituir definicio per sinonims segons lang al omplir pgrids*
 
 - arreglar repeticio de paraules que no es treuen del conjunt selected 
 
