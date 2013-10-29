@@ -17,6 +17,6 @@
 
 *DONE c:8 substituir definicio per sinonims segons lang al omplir pgrids*
 
-- arreglar repeticio de paraules que no es treuen del conjunt selected 
+*DONE c:9 arreglar repeticio de paraules que no es treuen del conjunt selected *
 
 - afegir eng com a lang_answer a la database

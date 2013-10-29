@@ -153,6 +153,8 @@ CREATE TABLE `lang_lemmas` (
 ,  `synsetid` integer DEFAULT NULL
 ,  PRIMARY KEY (`lemmaid`)
 );
+CREATE VIEW lang_lemmas as select * from lang_synsets left join words using(wordid);
+
 
 
 SELECT distinct lemmalang FROM lang_lemmas WHERE lemmalang NOT IN(SELECT lemma FROM words) AND lemmalang="bonic";
@@ -175,3 +177,10 @@ HAVING COUNT(DISTINCT Mi) >= 3
 
 
 insert into synsets_index(synsetid) select synsetid FROM lang_synsets Group By synsetid having count (Distinct lang) >=15;
+
+
+afegint les paraules en angles a lang_synsets
+----------------------------------------------
+
+
+

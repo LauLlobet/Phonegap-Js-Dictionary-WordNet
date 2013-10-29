@@ -262,7 +262,7 @@ $(document).ready(function() {
 			tx.executeSql("delete from 'selected_senses';");
 			tx.executeSql("delete from 'ans_sense_cases';");
 			tx.executeSql("delete from 'test';");
-			tx.executeSql("delete from 'subjects';");
+			//tx.executeSql("delete from 'subjects';");
 			tx.executeSql("delete from 'subject_sets';");	
 			load_words();
 			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );

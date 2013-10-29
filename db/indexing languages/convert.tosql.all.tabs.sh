@@ -1,5 +1,6 @@
 #!/bin/bash
 cd all_lang_tab/
+export PATH=/usr/sed-4.2/bin:$PATH
 FILES=*
 for f in $FILES
 do
