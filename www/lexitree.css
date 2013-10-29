@@ -3,6 +3,28 @@
     font-weight:normal;
 }
 
+.ui-icon-bird {
+  background: url(icons/23-bird.png);
+}
+.ui-icon-eye {
+  background: url(icons/12-eye.png);
+}
+.ui-icon-weather {
+  background: url(icons/25-weather.png);
+}
+.ui-icon-heart {
+  background: url(icons/29-heart.png);
+}
+.ui-icon-paperclip {
+  background: url(icons/68-paperclip.png);
+}
+.ui-icon-book {
+  background: url(icons/96-book.png);
+}
+.ui-icon-bullhorn {
+  background: url(icons/124-bullhorn.png);
+}
+
    #pgridLineBtn{
     position:relative;
     bottom: -6px;
