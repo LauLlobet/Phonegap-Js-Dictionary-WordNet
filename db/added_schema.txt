@@ -80,7 +80,6 @@ CREATE TABLE `subjects` (
   `subjectid` integer NOT NULL DEFAULT '0'
 , `name`  varchar(200) DEFAULT NULL
 , `domine`  varchar(200) DEFAULT NULL
-, `slot` integer DEFAULT NULL
 , `icon` integer DEFAULT NULL
 , `public` integer DEFAULT NULL
 , `ctime` integer DEFAULT NULL
@@ -90,8 +89,12 @@ CREATE TABLE `subjects` (
 ,  PRIMARY KEY (`subjectid`)
 );
 
- insert into subjects(name,domine,slot,icon,public,ctime,langquestion,langanswer) values('hamlet','lexitree',3,3,1,1330,'ita','cat');
 
+insert into subjects(name,domine,icon,public,ctime,langquestion,langanswer) values('hamlet','lexitree',3,1,1330,'eng','eng_def');
+insert into subjects(name,domine,icon,public,ctime,langquestion,langanswer) values('romeo','lexitree',3,1,1330,'ita','cat');
+insert into subjects(name,domine,icon,public,ctime,langquestion,langanswer) values('lear','lexitree',3,1,1330,'eng','heb');
+insert into subjects(name,domine,icon,public,ctime,langquestion,langanswer) values('othello','lexitree',3,1,1330,'spa','cat');
+insert into subjects(name,domine,icon,public,ctime,langquestion,langanswer) values('cesar','lexitree',3,1,1330,'en','ita');
 
 
 CREATE TABLE `subject_sets` (

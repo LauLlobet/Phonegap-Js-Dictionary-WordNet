@@ -21,7 +21,7 @@
 
 *DONE c:10 afegir eng com a lang_answer a la database*
 
-- icones cargats
+*DONE c:11 icones cargats*
 
 - slots sel·leccionables 
 

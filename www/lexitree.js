@@ -251,9 +251,51 @@ $(document).ready(function() {
     //--------------------------???????--------------------------
 
     $('#btn_grid').on('vclick', function() { 
-    	//load_words(function(){load_grid();});
+    	
         $.mobile.changePage( "index.html#pgrid", { transition: "slide"} );
         return false;
+     });
+    
+    
+    $('#btn_slot1').on('vclick', function() { 
+    	db.transaction(function(tx) {		
+			tx.executeSql("update global_vars set subjectid=1 where user='default';");
+			load_words();
+			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+    	});
+    	return false;
+     });    
+    $('#btn_slot2').on('vclick', function() { 
+    	db.transaction(function(tx) {		
+			tx.executeSql("update global_vars set subjectid=2 where user='default';");
+			load_words();
+			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+    	});
+    	return false;
+     });    
+    $('#btn_slot3').on('vclick', function() { 
+    	db.transaction(function(tx) {		
+			tx.executeSql("update global_vars set subjectid=3 where user='default';");
+			load_words();
+			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+    	});
+    	return false;
+     });    
+    $('#btn_slot4').on('vclick', function() { 
+    	db.transaction(function(tx) {		
+			tx.executeSql("update global_vars set subjectid=4 where user='default';");
+			load_words();
+			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+    	});
+    	return false;
+     });
+    $('#btn_slot5').on('vclick', function() { 
+    	db.transaction(function(tx) {		
+			tx.executeSql("update global_vars set subjectid=5 where user='default';");
+			load_words();
+			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+    	});
+    	return false;
      });
     
     $('#edb').on('vclick', function() { 
