@@ -23,6 +23,6 @@
 
 *DONE c:11 icones cargats*
 
-- slots sel·leccionables 
+*DONE c:12 slots sel·leccionables *
 
 -

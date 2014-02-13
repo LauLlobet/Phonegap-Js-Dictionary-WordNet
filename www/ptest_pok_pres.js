@@ -209,9 +209,9 @@ function fill_test(selected,unselected,callit,randoms,lang_answer,lang_question)
 		
 		find_brothers(0,new Set([x]),brothers,lang_question,function(){
 			
-			alert("sel_pre:"+selected.count()+" brothers:"+brothers.count());
+			//alert("sel_pre:"+selected.count()+" brothers:"+brothers.count());
 			var safe_selected = selected.difference(brothers);
-			alert("sel_post:"+safe_selected.count());
+			//alert("sel_post:"+safe_selected.count());
 			var safe_unselected = unselected.difference(brothers);
 			var safe_randoms = randoms.difference(brothers).difference(selected);
 		

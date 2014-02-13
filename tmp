@@ -1,0 +1,22 @@
+embrague 
+
+103043608
+103043866
+
+rueda
+
+100435619
+103022637
+103536837
+103984238
+
+
+104506802
+
+
+select lemma,synsetid,lang from lang_lemmas left join synsets using(synsetid) where synsetid="100435619" AND lang='eng';
+
+
+Conveniente comprobar que la profundidad de las ranuras de su dibujo no es inferior a los 1,6 milímetros
+
+Deben tener un código de velocidad mayor o igual al recomendado por el fabricante del vehículo.
