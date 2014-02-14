@@ -19,17 +19,6 @@ function abc(n){
 
 function refresh_pinit(slot){
 
-	alert(slot);
-	
-	document.setElementById("btn_slot3").setAttribute("data-theme","c").promise().done(function () {
-		   //refresh here - $(this) refers to ul here
-		   $(this).listview().listview("refresh");
-		   //causes a refresh to happen on the elements such as button etc. WHICH lie inside ul
-		   $(this).trigger("create");
-		   //$.mobile.changePage( "index.html#pdef", { transition: "slide" , allowSamePageTransition: true} );   
-		});
-	alert(document.getElementById("btn_slot3").getAttribute("data-theme"));
-	
 	var specialword = "";
 	if( word_list.length == 0){
 

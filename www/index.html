@@ -101,11 +101,25 @@
 
 
 <div  id="divBotonsLang">
-	 	<div data-role="controlgroup" data-type="horizontal" data-mini="true">
-			<a  data-theme="d" data-role="button" id="lang-question-btn" >Def</a>
-			<a  data-theme="d" data-role="button" id="lang-answer-btn">Cat</a>
-			
-		</div>
+ 	<div data-role="fieldcontain" data-theme="d">
+		<label for="select-lang-question" class="select">Choose question language:</label>
+		<select name="select-lang-question" id="select-lang-question">
+			<option value="standard">cat</option>
+			<option value="rush">spa</option>
+			<option value="express">def</option>
+			<option value="overnight">eng</option>
+		</select>
+	</div>
+
+ 	<div data-role="fieldcontain" data-theme="d">			
+		<label for="select-lang-answer" class="select">Choose answer language:</label>
+		<select name="select-lang-answer" id="select-lang-answer">
+			<option value="standard">cat</option>
+			<option value="rush">spa</option>
+			<option value="express">def</option>
+			<option value="overnight">eng</option>
+		</select>
+	</div>
 </div>
 
 <div id="divBotonsTest">

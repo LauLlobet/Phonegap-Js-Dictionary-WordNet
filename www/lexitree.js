@@ -93,7 +93,19 @@ function onDeviceReady() {
     
 	//load_words();
     alto = $(document).height();
+    
+    db.transaction(function(ty) {
+		ty.executeSql("select subjectid from global_vars;", [], function(ty, res2) {
+			
+			var slot = res2.rows.item(0).subjectid;
+			setslot(slot);
+		});
+	});
+    
+
     load_words();
+
+	
     
     //load_pinit();
 	//load_grid();
@@ -258,9 +270,10 @@ $(document).ready(function() {
     
     
     $('#btn_slot1').on('vclick', function() { 
-    	db.transaction(function(tx) {		
+    	db.transaction(function(tx) {
 			tx.executeSql("update global_vars set subjectid=1 where user='default';");
 			load_words();
+	    	setslot(1);
 			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
     	});
     	return false;
@@ -269,6 +282,7 @@ $(document).ready(function() {
     	db.transaction(function(tx) {		
 			tx.executeSql("update global_vars set subjectid=2 where user='default';");
 			load_words();
+	    	setslot(2);
 			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
     	});
     	return false;
@@ -277,6 +291,7 @@ $(document).ready(function() {
     	db.transaction(function(tx) {		
 			tx.executeSql("update global_vars set subjectid=3 where user='default';");
 			load_words();
+	    	setslot(3);
 			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
     	});
     	return false;
@@ -285,6 +300,7 @@ $(document).ready(function() {
     	db.transaction(function(tx) {		
 			tx.executeSql("update global_vars set subjectid=4 where user='default';");
 			load_words();
+	    	setslot(4);
 			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
     	});
     	return false;
@@ -293,6 +309,7 @@ $(document).ready(function() {
     	db.transaction(function(tx) {		
 			tx.executeSql("update global_vars set subjectid=5 where user='default';");
 			load_words();
+	    	setslot(5);
 			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
     	});
     	return false;
@@ -301,6 +318,7 @@ $(document).ready(function() {
     	db.transaction(function(tx) {		
 			tx.executeSql("update global_vars set subjectid=6 where user='default';");
 			load_words();
+			setslot(6);
 			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
     	});
     	return false;
@@ -335,6 +353,30 @@ $(document).ready(function() {
     });
 });
 
+function setslot(slot){
+	$('#btn_slot1').buttonMarkup({theme: 'd'});
+	$('#btn_slot2').buttonMarkup({theme: 'd'});
+	$('#btn_slot3').buttonMarkup({theme: 'd'});
+	$('#btn_slot4').buttonMarkup({theme: 'd'});
+	$('#btn_slot5').buttonMarkup({theme: 'd'});
+	$('#btn_slot6').buttonMarkup({theme: 'd'});
+	
+	$('#btn_slot'+slot).buttonMarkup({theme: 'e'});
+	
+	db.transaction(function(tx) {
+		tx.executeSql("select langquestion, langanswer from subjects left join global_vars using(subjectid) where user='default'", [], function(tx, reslangsubject){
+			var lang_question = reslangsubject.rows.item(0).langquestion;
+		    var lang_answer   = reslangsubject.rows.item(0).langanswer;
+		    if(lang_answer=="eng_def")
+		    	lang_answer="def";
+		    $("#lang-question-btn .ui-btn-text").text(lang_question);
+		    $("#lang-answer-btn .ui-btn-text").text(lang_answer);
+		})
+	});
+	    
+	$('.ui-page-active').page("destroy").page();
+	
+}
 
 var toast=function(msg){
 	$("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>"+msg+"</h3></div>")
