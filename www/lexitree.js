@@ -297,6 +297,14 @@ $(document).ready(function() {
     	});
     	return false;
      });
+    $('#btn_slot6').on('vclick', function() { 
+    	db.transaction(function(tx) {		
+			tx.executeSql("update global_vars set subjectid=6 where user='default';");
+			load_words();
+			$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
+    	});
+    	return false;
+     });
     
     $('#edb').on('vclick', function() { 
     	

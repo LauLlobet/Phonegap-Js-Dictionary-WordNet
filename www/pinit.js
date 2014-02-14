@@ -17,8 +17,19 @@ function abc(n){
 	console.log("error abc()");
 }
 
-function refresh_pinit(){
+function refresh_pinit(slot){
 
+	alert(slot);
+	
+	document.setElementById("btn_slot3").setAttribute("data-theme","c").promise().done(function () {
+		   //refresh here - $(this) refers to ul here
+		   $(this).listview().listview("refresh");
+		   //causes a refresh to happen on the elements such as button etc. WHICH lie inside ul
+		   $(this).trigger("create");
+		   //$.mobile.changePage( "index.html#pdef", { transition: "slide" , allowSamePageTransition: true} );   
+		});
+	alert(document.getElementById("btn_slot3").getAttribute("data-theme"));
+	
 	var specialword = "";
 	if( word_list.length == 0){
 
@@ -51,6 +62,8 @@ function refresh_pinit(){
 	
 	document.getElementById("word_list").innerHTML = line ;//""+test.current_slide;
 	$('.ui-page-active').page("destroy").page();
+	
+
 }
 
 
@@ -74,8 +87,16 @@ function load_words(callback){
 					word_list.push(res1.rows.item(i).lemma); //marranada per sortir del pas
 			}
 			
-			load_pinit();
-			callback();
+			db.transaction(function(ty) {
+				ty.executeSql("select subjectid from global_vars;", [], function(ty, res2) {
+					
+					var slot = res2.rows.item(0).subjectid;
+					
+					load_pinit(slot);
+					callback();
+				});
+				
+			});
 		});
 		
 	});
@@ -103,9 +124,9 @@ $('.checkBoxLeft').bind('click', function(e) {
 
 
 
-function load_pinit(){
+function load_pinit(slot){
 
 	word_listpage_size = Math.floor( (alto-160)/40)*3;
 	var pages= Math.floor( (word_list.length/19));
-	refresh_pinit();
+	refresh_pinit(slot);
 }

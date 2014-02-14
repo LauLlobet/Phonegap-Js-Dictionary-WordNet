@@ -85,27 +85,41 @@
     position:absolute;
     bottom:0px;
     width:94%;
+    margin-left: auto ;
+  	margin-right: auto ;
+}​
+</style>
+
+<style type="text/css">
+#divBotonsLang{
+    position:absolute;
+    bottom:40px;
+    width:94%;
+    margin-left: 36% ;
 }​
 </style>
 
 
-<div data-role="fieldcontain" id="divBotonsTest">
+<div  id="divBotonsLang">
+	 	<div data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<a  data-theme="d" data-role="button" id="lang-question-btn" >Def</a>
+			<a  data-theme="d" data-role="button" id="lang-answer-btn">Cat</a>
+			
+		</div>
+</div>
 
-	<div class="container_16">
+<div id="divBotonsTest">
 	
-		<div class="grid_12 prefix_1" data-role="controlgroup" data-type="horizontal"  data-mini="true" >
-					<a id="btn_slot1" data-role="button" data-theme="d"  data-icon="weather" data-iconpos="notext" >L1</a>
+	
+	<div class="container_16">
+	<div class="grid_16 prefix_2" data-role="controlgroup" data-type="horizontal"  data-mini="true" >
+					<a  id="btn_slot1" data-role="button" data-theme="d"  data-icon="weather" data-iconpos="notext" >L1</a>
 					<a id="btn_slot2" data-role="button" data-theme="d" data-icon="eye" data-iconpos="notext" >L3</a>				
 					<a id="btn_slot3" data-role="button" data-theme="d" data-icon="book" data-iconpos="notext" >L3</a>				
 					<a id="btn_slot4" data-role="button" data-theme="d" data-icon="paperclip" data-iconpos="notext" >L3</a>				
-					<a id="btn_slot5" data-role="button" data-theme="d" data-icon="bird" data-iconpos="notext" >db</a>				
-		</div>
-		 
-		 <div class="grid_1 prefix_0" data-role="controlgroup" data-type="horizontal"  data-mini="true"  >
-					<a id="btn_grid" href="index.html" data-role="button" data-theme="d" data-icon="grid" data-iconpos="notext" >Man</a>
-		</div>
-	
-	</div>	
+					<a id="btn_slot5" data-role="button" data-theme="d" data-icon="heart" data-iconpos="notext" >db</a>
+					<a id="btn_slot6" data-role="button" data-theme="d" data-icon="bullhorn" data-iconpos="notext" >db</a>				
+	</div></div>	
 </div>
 
 </div>
@@ -174,329 +188,6 @@
 			</div>
 	
 </div>
-
-<!-- --------------------------------- PGrid --------------------------------------------- -->
-
-
-
-
-<div data-role="page" data-theme="b" id="pgrid" data-add-back-btn="true">
-	
-	
-<div data-role="header" data-nobackbtn="true" data-theme="b">
-<h1>DictioTest</h1>
-		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
-</div>
-
-
-
-<div data-role="content">
-
-	
-
-<div class="container_16" id="grid">
-
-	
-		<div class="grid_2"><a href="#pdef" data-role="button" data-mini="false" data-icon="arrow-r" id="select_all_lvl0">.</a></div>  <div class="grid_2 suffix_12"><a href="#pdef" data-role="button" data-mini="false" data-theme="c" data-icon="arrow-da"  id="inici-search-btn">.</a></div>;
-	
-	
-	
-</div>
-
-		
-<div data-role="fieldcontain" id="divBotonsTest">
-
-	<a id="btn_ptest" data-role="button" data-theme="d"  >Test!</a>
-					
-		
-</div>
-
-</div>
-
-</div>
-
-
-<!-- --------------------------------- Ptest --------------------------------------------- -->
-
-
-
-<div data-role="page" data-theme="b" id="ptest">
-	
-	
-<div data-role="header" data-nobackbtn="true" data-theme="b">
-
-<h1>DictioTest   (<span id="currentQuestionCounter">-1</span>/<span id="tatalQuestionCounter">-1</span>)</h1>
-		<button data-icon="delete" id="back_init" data-iconpos="notext" class="ui-btn-right"  >Discard</button>
-</div>
-
-
-
-<div data-role="popup" id="popup_option" 
-    data-theme="a" class="ui-corner-bottom ui-content" data-overlay-theme="b">
-
-    <div data-role="content">
-        <h3 class="ui-title">Are you sure?</h3>
-
-        <p>Your points will be lost but words may change level.</p>
-
-        <a data-role="button" data-inline="true" data-rel="back" data-theme="b">
-            Cancel
-        </a>
-
-        <a href="#pinit" class="ui-corner-all" data-role="button" data-inline="true" data-transition="fade" data-theme="b">
-            OK
-        </a>
-    </div>
-</div>
-
-
-
-
-
-
-<p/>
-
-<div class="container_16">
-
-		<div class="grid_5 prefix_1">
-			<h3 id="test_word" >Arminstice</h3>
-		</div>
-		
-		<div class="grid_3 prefix_1">
-			<img id="dial" src="img/dial.png">
-		</div>
-	
-		
-</div>		
-
-<div data-role="content">
-	
-	<span id="test_op0"> 
-	option zero
-	</span>
-	
-<div class="container_12">
-		<div class="grid_10">
-		<p/>
-		</div>	
-		<div class="grid_2">
-				<a id="btn_op_a" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
-		</div>
-</div>
- <p style="text-align: center;"> . . . </p>
- 
- <span id="test_op1"> option one
-	</span>
-	
-<div class="container_12">
-		
-		
-		<div class="grid_10">
-	
-		<p/>
-		
-		</div>
-	
-		<div class="grid_2">
-				<a id="btn_op_b" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
-		</div>
-		
-</div>
-
- <p style="text-align: center;"> . . . </p>
-		
-
-
- <span id="test_op2"> option two
-		</span>
-
-<div class="container_12">
-		
-		<div class="grid_10">
-		<p/>
-		
-		</div>
-	
-		<div class="grid_2">
-				<a id="btn_op_c" data-role="button" data-inline="true" data-mini="true" data-theme="d" >Ok!</a>
-		</div>
-</div>
-		
-</div>
-</div>
-
-
-
-<!-- --------------------------------- POk --------------------------------------------- -->
-
-
-
-<div data-role="page" data-theme="b" id="pok">
-	
-	
-<div data-role="header" data-nobackbtn="true" data-theme="b">
-<h1>DictioTest   (<span id="currentQuestionCounter2">-1</span>/<span id="tatalQuestionCounter2">-1</span>)</h1>
-<button data-icon="delete" id="back_init" data-iconpos="notext" class="ui-btn-right"  >Discard</button>
-</div>
-
-<p/>
-
-
-<div data-role="popup" id="popup_option2" 
-    data-theme="a" class="ui-corner-bottom ui-content" data-overlay-theme="b">
-
-    <div data-role="content">
-        <h3 class="ui-title">Are you sure?</h3>
-
-        <p>Your points will be lost but words may change level.</p>
-
-        <a data-role="button" data-inline="true" data-rel="back" data-theme="b">
-            Cancel
-        </a>
-
-        <a href="#pinit" class="ui-corner-all" data-role="button" data-inline="true" data-transition="fade" data-theme="b">
-            OK
-        </a>
-    </div>
-</div>
-
-
-
-<div class="container_16">
-
-		<div class="grid_5 prefix_1">
-			<h3>Arminstice</h3>
-		</div>
-		
-		<div class="grid_3 prefix_1">
-			<img id="dial" src="img/dial.png">
-		</div>
-		
-		
-		<div class="grid_4 prefix_2">
-			<a href="#ptest" data-role="button" data-inline="true"  id="pok_next" data-theme="d" >Next</a>
-		</div>
-		
-</div>		
-
-
-<div data-role="content">
-
-
-<p/>
-
-
-<div class="container_12">
-
-		<div class="grid_10">
-		text 1
-		
-		</div>
-		
-		
-		<div class="grid_1" id="test_op_ok0" >
-			<img id="dial" src="img/ok.png">
-		</div>
-		
-</div>
-
-
- <!--  p style="text-align: center;"> . . . </p-->
- 
- 
-	
-<div class="container_12">
-		
-		
-		<div class="grid_10">
-	
-		text 2
-		
-		</div>
-		
-		
-		<div class="grid_1"  id="test_op_ok1">
-			<img id="dial" src="img/nok.png">
-		</div>
-	
-		
-</div>
-
-<div class="container_12">
-
-		<div class="grid_10">
-	
-		text 3
-		
-		</div>
-				
-		<div class="grid_1"  id="test_op_ok2">
-			<img id="dial" src="img/nok.png">
-		</div>
-	
-</div>
-		
-</div>
-</div>
-
-
-<!-- --------------------------------- PRes --------------------------------------------- -->
-
-
-
-<div data-role="page" data-theme="b" id="pres" data-add-back-btn="true">
-	
-	
-<div data-role="header" data-nobackbtn="true" data-theme="b">
-<h1>DictioTest </h1>
-		<button data-icon="arrow-l" id="back_init3"  >Main</button>
-		<a href="#pageabout" data-icon="gear" data-role="button" data-iconpos="notext" class="ui-btn-right">About</a>
-</div>	
-
-
-<div data-role="content">
-<p/>
-<h1 style="text-align: center;"><span id="pres_points"></span>%</h1>
-
-<img style="text-align: center;" id="dial" src="img/barra.png">
-	<p/>
-<div class="container_12">
-		
-		<div class="grid_3 prefix_4">
-			<img id="up" src="img/up.png">		
-		</div>
-		<div class="grid_2 prefix_0">
-			<h3 id="pres_up">3</h3>
-		</div>
-</div>
-
-
-<div class="container_12">
-		
-		<div class="grid_3 prefix_4">
-			<img id="up" src="img/equal.png">		
-		</div>
-		<div class="grid_2 prefix_0">
-			<h3 id="pres_equal">2</h3>
-		</div>
-</div>
-<div class="container_12">
-		
-		<div class="grid_3 prefix_4">
-			<img id="up" src="img/down.png">		
-		</div>
-		<div class="grid_2 prefix_0">
-			<h3 id="pres_down">1</h3>
-		</div>
-</div>
-<p/>
-<a href="#pinit" data-role="button" data-theme="d" > Home</a>
-		
-		
-</div>
-</div>
-
-
 
 </body>
 
