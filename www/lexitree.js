@@ -351,6 +351,25 @@ $(document).ready(function() {
     	$.mobile.changePage( "index.html#pinit", { transition: "slide"} );
          return false;
     });
+    
+    $(document).on('change', '#select-lang-answer', function(){    
+    	var lang = $(this).find("option:selected").text();
+    	db.transaction(function(tx) {
+    		tx.executeSql("update subjects set langanswer='"+lang+"' where subjectid=( select subjectid from global_vars where user='default' );'", [], function(tx, reslangsubject){
+    			load_words();
+    		});
+    	});
+    }); 
+    
+    $(document).on('change', '#select-lang-question', function(){   
+    	var lang = $(this).find("option:selected").text();
+    	db.transaction(function(tx) {
+    		console.log("update subjects set langquestion='"+lang+"' where subjectid=( select subjectid from global_vars where user='default' );");
+    		tx.executeSql("update subjects set langquestion='"+lang+"' where subjectid=( select subjectid from global_vars where user='default' );'", [], function(tx, reslangsubject){
+    			load_words();
+    		});
+    	});
+    }); 
 });
 
 function setslot(slot){
@@ -369,12 +388,23 @@ function setslot(slot){
 		    var lang_answer   = reslangsubject.rows.item(0).langanswer;
 		    if(lang_answer=="eng_def")
 		    	lang_answer="def";
+
+		    $('#select-lang-answer').val(lang_answer);
+		    $("#select-lang-answer").selectmenu();
+		    $("#select-lang-answer").selectmenu("refresh");
+		    $('#select-lang-question').val(lang_question);
+		    $("#select-lang-question").selectmenu();
+		    $("#select-lang-question").selectmenu("refresh");
+		    	
 		    $("#lang-question-btn .ui-btn-text").text(lang_question);
 		    $("#lang-answer-btn .ui-btn-text").text(lang_answer);
 		})
 	});
 	    
 	$('.ui-page-active').page("destroy").page();
+    $('#select-lang-answer').val("spa");
+    $("#select-lang-answer").selectmenu();
+    $("#select-lang-answer").selectmenu("refresh");
 	
 }
 

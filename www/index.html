@@ -80,7 +80,7 @@
 	<div class="ui-block-c"> <a href="#pdef" data-role="button" data-mini="true" data-theme="d"  id="inici-search-btn">on Load</a></div>	    
 </div>
 
-<style type="text/css">
+<!-- style type="text/css">
 #divBotonsTest{
     position:absolute;
     bottom:0px;
@@ -88,52 +88,87 @@
     margin-left: auto ;
   	margin-right: auto ;
 }​
-</style>
+</styl>
 
-<style type="text/css">
-#divBotonsLang{
-    position:absolute;
-    bottom:40px;
-    width:94%;
-    margin-left: 36% ;
-}​
-</style>
+<!-- <style type="text/css"> 
+/* #divBotonsLang{ */
+/*     position:absolute; */
+/*     bottom:40px; */
+/*     width:94%; */
+/*     margin-left: 37% ; */
+/* }​ */
+ </style> -->
+<!--  -->
 
+<div id="divBotonsTest" data-role="footer" data-position="fixed" style="text-align:center;" data-theme="d" >
+<!-- 	<div class="container_16"> -->
+<!-- 		<div class="grid_12 prefix_6"> -->
 
-<div  id="divBotonsLang">
- 	<div data-role="fieldcontain" data-theme="d">
-		<label for="select-lang-question" class="select">Choose question language:</label>
-		<select name="select-lang-question" id="select-lang-question">
-			<option value="standard">cat</option>
-			<option value="rush">spa</option>
-			<option value="express">def</option>
-			<option value="overnight">eng</option>
-		</select>
-	</div>
+<div class="my-tabbar">
+			<fieldset data-role="controlgroup" data-type="horizontal">
 
- 	<div data-role="fieldcontain" data-theme="d">			
-		<label for="select-lang-answer" class="select">Choose answer language:</label>
-		<select name="select-lang-answer" id="select-lang-answer">
-			<option value="standard">cat</option>
-			<option value="rush">spa</option>
-			<option value="express">def</option>
-			<option value="overnight">eng</option>
-		</select>
-	</div>
+    			<label for="select-lang-question">Question</label>
+				<select name="select-lang-question" id="select-lang-question" data-mini="true" data-theme="d" data-icon="false">
+					<option value="arb">arb</option>
+					<option value="cat">cat</option>
+					<option value="cmn">cmn</option>
+					<option value="dan">dan</option>
+					<option value="fas">fas</option>
+					<option value="fin">fin</option>
+					<option value="fra">fra</option>
+					<option value="glg">glg</option>
+					<option value="ind">ind</option>
+					<option value="ita">ita</option>
+					<option value="jpn">jpn</option>
+					<option value="nno">nno</option>
+					<option value="nob">nob</option>
+					<option value="pol">pol</option>
+					<option value="por">por</option>
+					<option value="spa">spa</option>
+					<option value="tha">tha</option>
+					<option value="zsm">zsm</option>
+					<option value="eng">eng</option>
+				</select>
+
+				<label for="select-lang-answer">Answer</label>
+				<select name="select-lang-answer" id="select-lang-answer" data-mini="true" data-theme="d" data-icon="false">
+					<option value="arb">arb</option>
+					<option value="cat">cat</option>
+					<option value="cmn">cmn</option>
+					<option value="dan">dan</option>
+					<option value="fas">fas</option>
+					<option value="fin">fin</option>
+					<option value="fra">fra</option>
+					<option value="glg">glg</option>
+					<option value="ind">ind</option>
+					<option value="ita">ita</option>
+					<option value="jpn">jpn</option>
+					<option value="nno">nno</option>
+					<option value="nob">nob</option>
+					<option value="pol">pol</option>
+					<option value="por">por</option>
+					<option value="spa">spa</option>
+					<option value="tha">tha</option>
+					<option value="zsm">zsm</option>
+					<option value="def">def</option>
+			
+				</select>
+			</fieldset>
+<!-- 		</div> -->
+<!-- 	</div> -->
+	
+	
+<!-- 	<div class="container_16"> -->
+		<div data-role="controlgroup" data-type="horizontal"  data-mini="true" >
+						<a  id="btn_slot1" data-role="button" data-theme="d"  data-icon="weather" data-iconpos="notext" >L1</a>
+						<a id="btn_slot2" data-role="button" data-theme="d" data-icon="eye" data-iconpos="notext" >L3</a>				
+						<a id="btn_slot3" data-role="button" data-theme="d" data-icon="book" data-iconpos="notext" >L3</a>				
+						<a id="btn_slot4" data-role="button" data-theme="d" data-icon="paperclip" data-iconpos="notext" >L3</a>				
+						<a id="btn_slot5" data-role="button" data-theme="d" data-icon="heart" data-iconpos="notext" >db</a>
+						<a id="btn_slot6" data-role="button" data-theme="d" data-icon="bullhorn" data-iconpos="notext" >db</a>				
+		</div>
+<!-- 	</div>	 -->
 </div>
-
-<div id="divBotonsTest">
-	
-	
-	<div class="container_16">
-	<div class="grid_16 prefix_2" data-role="controlgroup" data-type="horizontal"  data-mini="true" >
-					<a  id="btn_slot1" data-role="button" data-theme="d"  data-icon="weather" data-iconpos="notext" >L1</a>
-					<a id="btn_slot2" data-role="button" data-theme="d" data-icon="eye" data-iconpos="notext" >L3</a>				
-					<a id="btn_slot3" data-role="button" data-theme="d" data-icon="book" data-iconpos="notext" >L3</a>				
-					<a id="btn_slot4" data-role="button" data-theme="d" data-icon="paperclip" data-iconpos="notext" >L3</a>				
-					<a id="btn_slot5" data-role="button" data-theme="d" data-icon="heart" data-iconpos="notext" >db</a>
-					<a id="btn_slot6" data-role="button" data-theme="d" data-icon="bullhorn" data-iconpos="notext" >db</a>				
-	</div></div>	
 </div>
 
 </div>

@@ -37,7 +37,6 @@ CREATE TABLE `lang_synsets` (
 ,  PRIMARY KEY (`lemmaid`)
 );
 
-
 CREATE TABLE `selected_senses` (
   `ssenseid`integer NOT NULL DEFAULT '0'
 ,  `ctime` integer DEFAULT NULL
@@ -47,9 +46,46 @@ CREATE TABLE `selected_senses` (
 ,  `wordid` integer  NOT NULL DEFAULT '0'
 ,  `synsetid` integer  DEFAULT NULL
 ,  `previous_synsetid` integer DEFAULT NULL
+,  `original_lang` varchar(5) DEFAULT 'eng'
 ,  PRIMARY KEY (`ssenseid`)
 );
 
+
+insert into selected_senses(wordid,synsetid,ctime,previous_synsetid,correct,incorrect,original_lang) values  ('40', '30', '20', '0' , '0', '0',(select langquestion from subjects where subjectid=( select subjectid from global_vars where user='default' )));
+
+
+
+create view selected_translated_words as 
+select sw.wordid|| ', ' || CASE WHEN 
+(select langquestion from subjects where subjectid=( select subjectid from global_vars where user='default' )) IN (select lang from lang_synsets ls where ls.wordid=sw.wordid limit 1)
+THEN lemma
+ELSE (select lemma from lang_synsets lss left join words using(wordid) where lss.synsetid=sw.synsetid and lang=(select langquestion from subjects where subjectid=( select subjectid from global_vars where user='default' )) limit 1)
+END AS 'language' FROM selected_words sw;
+
+// si traduccio es null !!!
+
+
+select sw.wordid|| ', ' || CASE WHEN 
+(
+    (
+        (select langquestion from subjects where subjectid=( select subjectid from global_vars where user='default' )) 
+        NOT IN 
+        (select lang from lang_synsets ls where ls.wordid=sw.wordid limit 1)
+    )
+   AND 
+    (
+        (select count(*) from lang_synsets lss left join words using(wordid) where lss.synsetid=107664640 and lang=(select langquestion from subjects where subjectid=( select subjectid from global_vars where user='default' ))) != 0 
+    )
+)
+THEN (select lemma from lang_synsets lss left join words using(wordid) where lss.synsetid=sw.synsetid and lang=(select langquestion from subjects where subjectid=( select subjectid from global_vars where user='default' )) limit 1)
+ELSE lemma
+END AS 'language' FROM selected_words sw;
+
+
+select sw.wordid|| ', ' || CASE WHEN 
+( select count(*) from lang_synsets lss left join words using(wordid) where lss.synsetid=107664640 and lang=(select langquestion from subjects where subjectid=( select subjectid from global_vars where user='default' ))=1 )
+then 'hola'
+else 'adeu' end as 'coco' from selected_words sw;
 
 CREATE TABLE `ans_sense_cases` (
   `sensecaseid`integer NOT NULL DEFAULT '0'
